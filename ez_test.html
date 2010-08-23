@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>ezPrints Test Integration Page</title>
+	</head>
+	<!-- <script type="text/javascript" src="http://apps.ezprints.com/home/demo-builder-key.ezp"> </script> -->
+	<script type="text/javascript" src="http://apps.ezprints.com/home/f9b018c1-6e16-4525-9fa5-a3f75e864137.ezp"> </script>
+
+<script type="text/javascript">
+	// fires when the application is ready for use
+	var readyHandler = function()
+	{
+	}
+   	var app = ezp.apps.createTemplateApp(
+	{
+		elementId: 'appDiv',
+		width: 700,
+		height: 500,
+		readyCallback: readyHandler
+	});
+</script>
+
+	<body>
+		<h2>Simple Installation Example</h2>
+		<p>
+			Please use your browsers <b>View-Source</b> 
+			feature to see the code.
+		</p>
+		<p>
+			<div id="appDiv">
+			<a href="http://www.adobe.com/go/getflashplayer">
+			<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+			</a>
+			</div>
+
+		</p>
+	</body>
+</html>

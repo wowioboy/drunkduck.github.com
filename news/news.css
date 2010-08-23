@@ -1,0 +1,261 @@
+#newspage {
+	background: #ccc;
+	font: 12px Verdana, Arial, Helvetica, Geneva, sans-serif;
+	border-bottom: 2px solid #00315b;
+	border-top: 2px solid #00315b;
+	border-left: 2px solid #00315b;
+}
+
+#newspage a:link {
+	color: #003e84;
+}
+
+#newspage a:hover {
+	text-decoration: underline;
+}
+
+#newspage a:active {
+	color: #2000ff;
+}
+
+#newspage a:visited {
+	color: #003e84;
+}
+
+#interview {
+	background: #f8d689 url(http://images.drunkduck.com/site_gfx_new_v2/tan_page_bg.png) repeat-x 0 top;
+	margin: -8px 0 10px 0;
+	padding: 20px 20px 0 20px;
+	border-bottom: 2px solid #00315b;
+}
+
+#inthdr {
+	width: 715px;
+	height: 200px;
+	display: block;
+	margin: 0;
+	vertical-align: bottom;
+	overflow: hidden;
+	background: #000 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
+	border-left: 2px solid #000;
+	border-right: 2px solid #000;
+}
+
+#inthdrA {
+	width: 715px;
+	height: 200px;
+	display: block;
+	margin: 0;
+	vertical-align: bottom;
+	overflow: hidden;
+	background: #000 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
+	border-left: 2px solid #000;
+	border-right: 2px solid #000;
+	border-bottom: 2px solid #000;
+}
+
+#inthdr img {
+	position: absolute;
+	z-index: 1;
+	margin-right:0;
+	margin-left:280px;
+	border-left-color: #000;
+}
+
+#inthdrA img {
+	position: absolute;
+	z-index: 1;
+	margin-right:0;
+	margin-left:280px;
+	border-left-color: #000;
+}
+
+#inthdr h3 {
+	z-index: 2;
+	opacity: 0.9;
+	font-family: Impact, "Lucida Grande", Lucida, Verdana, sans-serif;
+	font-weight: normal;
+	color: #fff;
+	font-size: 60px;
+	position: relative;
+	top: 140px;
+	margin: 0;
+	padding: 0;
+}
+
+#inthdrA h3 {
+	z-index: 2;
+	opacity: 0.9;
+	font-family: Impact, "Lucida Grande", Lucida, Verdana, sans-serif;
+	font-weight: normal;
+	color: #fff;
+	font-size: 60px;
+	position: relative;
+	top: 140px;
+	margin: 0;
+	padding: 0;
+}
+
+#interview h5 {
+	border-bottom: 1px solid #000;
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+}
+.newscolumn {
+	margin: 0 auto;
+	padding: 0;
+	width: 360px;
+	/* background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/newscol_bg.png) repeat-y center; */
+	text-align: left;
+}
+
+.col_content {
+	/* background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/newscol_top.png) repeat-x top center; */
+	padding: 10px;
+	margin: 0 10px;
+	text-align: left;
+}
+
+.col_content p {
+	line-height: 1.4em;
+}
+
+#videoad {
+	background: #4c4c4c url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/advbug.png) no-repeat center top;
+	border: 1px dotted #666;
+	padding: 20px 4px 4px;
+	margin-left: 20px;
+	margin-bottom: 40px;
+	width: 320px;
+}
+
+#300ad img {
+	display: block;
+}
+
+.feature {
+	display: block;
+	clear: both;
+	line-height: 1.4em;
+	padding: 5px;
+	margin: 0 0 6px 0;
+	min-height: 120px;
+	background: #999;
+}
+
+.feature p {
+	font-size: 10px;
+}
+
+.feature_thumb {
+	margin: 0 6px 6px 0;
+	padding: 0;
+	display: inline;
+}
+
+.feature_nav {
+	display: block;
+	text-align: right;
+	margin:0;
+	background: #666;
+}
+
+.archive {
+	background-color: #999;
+	padding: 5px;
+}
+
+.archive h4 {
+	border-bottom: 1px dotted #fff;
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+}
+
+.newsquote {
+	padding-left: 10px;
+	margin-bottom: 10px;
+	color: #333;
+	border-left: 4px double #333;
+}
+
+.widecolumn {
+	margin: 10px auto;
+	padding: 0;
+	width: 760px;
+	background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/widecol_bg.png) repeat-y center;
+	text-align: left;
+}
+
+.widecol_content {
+	background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/widecol_top.png) repeat-x top center;
+	padding: 10px;
+	margin: 0 20px;
+	text-align: left;
+}
+
+#interviewpage {
+	background:  #f8d689 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/int_bg.png) repeat-x 0 top;
+	margin: -8px 0 0 0;
+	padding: 20px;
+}
+
+#interviewpage h5 {
+	border-bottom: 1px solid #000;
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+}
+
+#contentpage {
+	background: #ccc url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/page_bg.png) repeat-x 0 top;
+	margin: -8px 0 0 0;
+	padding: 20px;
+}
+
+.byline {
+	text-align: right;
+	font-weight: bold;
+}
+
+#vitalstats {
+	background: #f90;
+	font: 11px Verdana, Arial, Helvetica, Geneva, sans-serif;
+	color: #fff;
+	text-align: left;
+	padding: 10px;
+}
+
+.pagenav {
+	font-size: 10px;
+	font-weight: bold;
+	padding: 4px;
+	border: 2px solid #000;
+	background-color: #c6770a;
+}
+
+.pagenav a:link {
+	color: #fff;
+}
+
+.pagenav a:hover {
+	text-decoration: underline;
+}
+
+.pagenav a:active {
+	color: #fbff00;
+}
+
+.pagenav a:visited {
+	color: #2000ff;
+}
+
+.prev {
+	font-weight: bold;
+	font-size: 16px;
+	float: left;
+}
+
+.next {
+	font-weight: bold;
+	font-size: 16px;
+	float: right;
+}

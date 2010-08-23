@@ -1,0 +1,3 @@
+<?
+$GLOBALS['AD_COUNTER'] = 0;
+?>

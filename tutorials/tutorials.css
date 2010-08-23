@@ -1,0 +1,11 @@
+a#tutorial
+{
+  font-size:    9px;
+  font-weight:  bold;
+}
+
+div#tutorial_body
+{
+  font-size: 11px;
+  color:     #000000;
+}

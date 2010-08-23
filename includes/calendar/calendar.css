@@ -1,0 +1,52 @@
+.cal_table
+{
+  border: 1px solid black;
+}
+
+.cal_date
+{
+  font-weight: bold;
+  text-align:  center;
+  border:      1px solid black;
+}
+
+.cal_dayofweek
+{
+  font-weight: bold;
+  text-align:  center;
+  border:      1px solid black;
+}
+
+.cal_day
+{
+  border:     1px solid black;
+  text-align: center;
+}
+
+.cal_linkOn
+{
+  color:       #0000FF !important;
+  font-weight: bold;
+}
+
+.cal_linkOff
+{
+  color:       #ff0000 !important;
+}
+
+
+.cal_details
+{
+  border: 1px solid red;
+}
+
+.cal_details_hdr
+{
+  text-align: right;
+  height:     20px;
+}
+
+.cal_details_content
+{
+  overflow: auto;
+}

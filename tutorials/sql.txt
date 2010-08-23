@@ -1,0 +1,41 @@
+CREATE TABLE tutorials
+(
+  tutorial_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT(11),
+  timestamp INT(11) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  body TEXT,
+  vote_count INT(11) NOT NULL DEFAULT '0',
+  vote_total INT(11) NOT NULL DEFAULT '0',
+  vote_avg FLOAT(4, 3),
+  finalized TINYINT(1) NOT NULL DEFAULT '0',
+  INDEX(vote_avg),
+  INDEX(timestamp),
+  FULLTEXT(title, description, body)
+);
+
+
+CREATE TABLE tutorial_images
+(
+  image_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tutorial_id INT(11) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  file_ext VARCHAR(4) NOT NULL,
+  order_id INT(11) NOT NULL,
+  INDEX(order_id),
+  FULLTEXT(title)
+);
+
+
+CREATE TABLE tutorial_votes
+(
+  tutorial_id INT(11) NOT NULL,
+  user_id VARCHAR(20),
+  rating INT(11) NOT NULL,
+  PRIMARY KEY( tutorial_id, user_id),
+  INDEX(user_id)
+);
+
+
+CREATE TABLE

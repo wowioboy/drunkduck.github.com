@@ -1,0 +1,5 @@
+<?
+Header("P3P: CP='NOI DSP NID TAIo PSAa OUR IND UNI OTC TST'");
+
+define('SESSION_CHECKSUM_SALT', 'FIshyPlop');
+?>

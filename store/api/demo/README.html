@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="generator" content="Adobe GoLive" />
+		<title>NVP API Web Samples Using PHP</title>
+		<style type="text/css" media="screen"><!--
+body { color: black; font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif; background-color: white; }
+code { font-family: "Courier New", Courier, Monaco, monospace; }
+pre {font-family: "Courier New", Courier, Monaco, monospace; }
+--></style>
+	</head>
+
+	<body>
+		<h1>NVP API Web Samples Using PHP</h1>
+		<b><p>VERSION 5.1.1</p></b>
+		<p>This document describes web samples that use PHP to send Name-Value Pair (NVP) API requests to a PayPal server.</p>
+		<p>This document contains the following sections:</p>
+		<ul>
+			<li><a href="#requiredsoftware">Required Software</a></li>
+			<li><a href="#installation">Installing the Samples</a></li>
+			<li><a href="#runningsamples">Running the Samples</a></li>
+			<li><a href="#enablingproxy">Enabling the Proxy for Samples</a></li>
+			<li><a href="#sampledescription">Descriptions of Samples</a></li>
+			<li><a href="#APIDocumentation">API Documentation</a></li>
+		</ul>
+		<hr />
+		<h2>Required Software<a id="requiredsoftware" name="requiredsoftware"></a></h2>
+		<p>The following software is required:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th><b>Software</b></th>
+				<th><b>Version</b></th>
+				<th><b>Download Location</b></th>
+			</tr>
+			<tr>
+				<td>PHP with CURL extension enabled</td>
+				<td>4.4.2 or greater</td>
+				<td><a href="http://www.php.net/downloads.php" target="_blank">http://www.php.net/downloads.php</a></td>
+			</tr>
+			<tr>
+				<td>Apache HTTP Server</td>
+				<td>1.3.17 or greater</td>
+				<td><a href="http://httpd.apache.org/" target="_blank">http://httpd.apache.org/</a></td>
+			</tr>
+		</table>
+		<p>You must install and configure PHP with the Apache HTTP Server.</p>
+		<hr />
+		<h2>Installing the Samples<a id="installation" name="installation"></a></h2>
+		<p>Copy the sample folder, <code>php_nvp_samples</code>, to the docroot of the Apache HTTP Server. By default docroot is in <em>datadir</em><code class="code">/htdocs</code>.</p>
+		<hr />
+		<h2>Running the Samples<a id="runningsamples" name="runningsamples"></a></h2>
+		<p>First, make sure that you have installed the <a href="#requiredsoftware">required software</a> and the <a href="#installation">samples</a>.</p>
+		<p>You can run the samples by entering the following address in a web browser:</p>
+		<pre>http://<em>name_of_Apache_HTTP_Server:port</em>/php_nvp_samples/index.html</pre>
+		<hr />
+		<h2>Enabling the Proxy for Samples<a id="enablingproxy" name="enablingproxy"></a></h2>
+		<p><a href="#constants">constants.php</a> is the configuration file for Proxy setup.</p>
+		<p>Update the following variables in <a href="#constants">constants.php</a> for Proxy configuration.</p>
+		<ul>
+			<li>USE_PROXY&nbsp;&nbsp;&nbsp; - Set this variable to TRUE to route all the API requests through Proxy(by default it is FALSE).</a></li>
+			<li>PROXY_HOST - Set this variable to Proxy Server name or IP address </a></li>
+			<li>PROXY_PORT - Set this variable to Proxy Server port </a></li>
+						
+		</ul>
+		<h2>Descriptions of Samples<a id="sampledescription" name="sampledescription"></a></h2>
+		<p>The web samples consist of the following:</p>
+		<ul>
+			<li><a href="#directpayment">Charging a Credit Card Using Direct Payment</a></li>
+			<li><a href="#expresscheckout">Accepting PayPal in Express Checkout</a></li>
+			<li><a href="#capture">Capturing the amount of the authorization </a></li>
+			<li><a href="#void">Void the authorization</a></li>
+			<li><a href="#reauthorization">Reauthorizing for a different amount</a></li>
+			<li><a href="#transactiondetails">Getting Transaction Details</a></li>
+			<li><a href="#transactionsearch">Searching for a Transaction</a></li>
+			<li><a href="#refundtransaction">Refunding the amount</a></li>
+			<li><a href="#masspay">Mass Payment</a></li>
+			<li><a href="#commonfiles">Common Files</a></li>
+		</ul>
+		<p>The main page of the samples, <a href="#index">index.html</a>, contains links to each sample.</p>
+		<h3>Charging a Credit Card Using Direct Payment<a id="directpayment" name="directpayment"></a></h3>
+		<p>This sample shows how to use Direct Payment to charge a credit card. Access this sample from the following choices displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>DoDirectPayment - Sale</strong></td>
+				<td>Charge a credit card.
+					<p>In the <code>DoDirectPayment</code> request, the <code>PAYMENTACTION</code> parameter is set to <code>Sale</code>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>DoDirectPayment - Authorization</strong></td>
+				<td>Authorize a credit card for later sale.
+					<p>In the <code>DoDirectPayment</code> request, the <code>PAYMENTACTION</code> parameter is set to <code>Authorization</code>.</p>
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>DoDirectPayment.php<a id="DoDirectPayment" name="DoDirectPayment"></a></code></td>
+				<td>This is the main web page for the DoDirectPayment sample. This page allows the user to enter name, address, amount, and credit card information. It also accept input variable <code>paymentType</code> which becomes the value of the <code>PAYMENTACTION</code> parameter.
+					<p>When the user clicks the <strong>Submit</strong> button, DoDirectPaymentReceipt.php is called.</p>
+					<p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#DoDirectPaymentReceipt">DoDirectPaymentReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>DoDirectPaymentReceipt.php<a id="DoDirectPaymentReceipt" name="DoDirectPaymentReceipt"></a></code></td>
+				<td>Submits a credit card transaction to PayPal using a <code>DoDirectPayment</code> request.
+					<p>The code collects transaction parameters from the form displayed by DoDirectPayment.php then constructs and sends the <code>DoDirectPayment</code> request string to the PayPal server. The <code>paymentType</code> variable becomes the <code>PAYMENTACTION</code> parameter of the request string.</p>
+					<p>After the PayPal server returns the response, the code displays the API request and response in the browser. If the response from PayPal was a success, it displays the response parameters. If the response was an error, it displays the errors in APIError.php.</p>
+					<p>Called by <a href="#DoDirectPayment">DoDirectPayment.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a> and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<h3>Accepting PayPal in Express Checkout<a id="expresscheckout" name="expresscheckout"></a></h3>
+		<p>This sample shows how to use Express Checkout to accept payments using PayPal. Access this sample from the following choices displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>ExpressCheckout - Sale</strong></td>
+				<td>Do basic checkout with PayPal.
+					<p>In the <code>SetExpressCheckout</code> request, the <code>PAYMENTACTION</code> parameter is set to <code>Sale</code>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>ExpressCheckout - Authorization</strong></td>
+				<td>Authorize for a single capture.
+					<p>In the <code>SetExpressCheckout</code> request, the <code>PAYMENTACTION</code> parameter is set to <code>Authorization</code>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>ExpressCheckout - Order</strong></td>
+				<td>Authorize for multiple captures.
+					<p>In the <code>SetExpressCheckout</code> request, the <code>PAYMENTACTION</code> parameter is set to <code>Order</code>.</p>
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>SetExpressCheckout.php<a id="SetExpressCheckout" name="SetExpressCheckout"></a></code></td>
+				<td>This is the main web page for the Express Checkout sample. The page allows the user to enter amount and currency type. It also accept input variable <code>paymentType</code> which becomes the value of the <code>PAYMENTACTION</code> parameter.
+					<p>When the user clicks the <strong>Submit</strong> button, ReviewOrder.php is called.</p>
+					<p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#ReviewOrder">ReviewOrder.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>ReviewOrder.php<a id="ReviewOrder" name="ReviewOrder"></a></code></td>
+				<td>This file is called after the user clicks on a button during the checkout process to use PayPal's Express Checkout. The user logs in to their PayPal account.
+					<p>This file is called twice.</p>
+					<p>On the first pass, the code executes the if statement:</p>
+					<pre>if (! isset ($token))</pre>
+					<p>The code collects transaction parameters from the form displayed by SetExpressCheckout.php then constructs and sends a <code>SetExpressCheckout</code> request string to the PayPal server. The <code>paymentType</code> variable becomes the <code>PAYMENTACTION</code> parameter of the request string. The <code>RETURNURL</code> parameter is set to this file; this is how ReviewOrder.php is called twice.</p>
+					<p>On the second pass, the code executes the else statement.</p>
+					<p>On the first pass, the buyer completed the authorization in their PayPal account; now the code gets the payer details by sending a <code>GetExpressCheckoutDetails</code> request to the PayPal server. Then the code calls GetExpressCheckoutDetails.php.</p>
+					<p><font color="red"><b>Note:</b></font> Be sure to check the value of <code>PAYPAL_URL</code>. The buyer is sent to this URL to authorize payment with their PayPal account. For testing purposes, this should be set to the PayPal sandbox.</p>
+					<p>Called by <a href="#SetExpressCheckout">SetExpressCheckout.php</a>.</p>
+					<p>Calls <a href="#GetExpressCheckoutDetails">GetExpressCheckoutDetails.php</a>, <a href="#CallerService">CallerService.php</a>, and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>GetExpressCheckoutDetails.php<a id="GetExpressCheckoutDetails" name="GetExpressCheckoutDetails"></a></code></td>
+				<td>
+					<p>This functionality is called after the buyer returns from PayPal and has authorized the payment.</p>
+					<p>Displays the payer details returned by the <code>GetExpressCheckoutDetails</code> response and calls DoExpressCheckoutPayment.php to complete the payment authorization.</p>
+					<p>Called by <a href="#ReviewOrder">ReviewOrder.php</a>.</p>
+					<p>Calls <a href="#ECReceipt">DoExpressCheckoutPayment.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>DoExpressCheckoutPayment.php<a id="ECReceipt" name="ECReceipt"></a></code></td>
+				<td>This functionality is called to complete the payment with PayPal and display the result to the buyer.
+					<p>The code constructs and sends the <code>DoExpressCheckoutPayment</code> request string to the PayPal server.</p>
+					<p>Called by <a href="#GetExpressCheckoutDetails">GetExpressCheckoutDetails.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<h3>Getting Transaction Details<a id="transactiondetails" name="transactiondetails"></a></h3>
+		<p>This sample shows how to use the <code>GetTransactionDetails</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>GetTransactionDetails</strong></td>
+				<td>Gets transaction details for a specific transaction ID.
+					<p>The main page displays a text box where the user enters a transaction ID. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>GetTransactionDetails</code> and sends it to the PayPal server.</p>
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>GetTransactionDetails.html<a id="GetTransactionDetails" name="GetTransactionDetails"></a></code></td>
+				<td>This is the main page for GetTransactionDetails sample. This page displays a text box where the user enters a transaction ID and a <strong>Submit</strong> button that calls TransactionDetails.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#TransactionDetails">TransactionDetails.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>TransactionDetails.php<a id="TransactionDetails" name="TransactionDetails"></a></code></td>
+				<td>Sends a <code>GetTransactionDetails</code> NVP API request to PayPal.
+					<p>The code retrieves the transaction ID and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#GetTransactionDetails">GetTransactionDetails.html</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<h3>DoCapture<a id="capture" name="capture"></a></h3>
+		<p>This sample shows how to use the <code>DoCapture</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>DoCapture</strong></td>
+				<td>Settle an order or previously authorized transaction and obtain payment for either the complete amount                     or any portion of it.
+					<p>The main page displays text boxes where the user enters a authorization ID,amount,invoice ID and drop downs where the user can select completecodetype,currency code. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>DoCapture</code> and sends it to the PayPal server.</p>
+                <p><font color="red"><b>Note:</b></font> DoCapture request is for use with both basic and order authorizations.
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>DoCapture.php<a id="DoCapture" name="DoCapture"></a></code></td>
+				<td>This is the main page for DoCapture sample. This page displays text boxes where the user enters a authorization ID,amount,invoice ID and drop down boxes where the user can select completecodetype,currency code. When the user clicks the <strong>Submit</strong> button that calls DoCaptureReceipt.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#DoCaptureReceipt">DoCaptureReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>DoCaptureReceipt.php<a id="DoCaptureReceipt" name="DoCaptureReceipt"></a></code></td>
+				<td>Sends a <code>DoCapture</code> NVP API request to PayPal.
+					<p>The code retrieves the authorization ID,amount,invoice ID,completecodetype,currency code and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoCapture">DoCapture.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<h3>DoVoid<a id="void" name="void"></a></h3>
+		<p>This sample shows how to use the <code>DoVoid</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>DoVoid</strong></td>
+				<td>Void the authorization, if you need to cancel the transaction.
+					<p>The main page displays text boxe where the user enters a authorization ID. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>DoVoid</code> and sends it to the PayPal server.</p>
+					<p><font color="red"><b>IMPORTANT:</b></font> The AuthorizationID value on DoVoid request must be the original authorization identification number, not the value of AuthorizationID returned by DoReauthorizationResponse.
+					<p>By definition, when the authorization period expires, the authorization or reauthorization of a transaction is implicitly voided.
+					<p><font color="red"><b>Note:</b></font> DoVoid request is for use with both basic and order authorizations.
+                
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>DoVoid.php<a id="DoVoid" name="DoVoid"></a></code></td>
+				<td>This is the main page for DoCapture sample. This page displays text boxe where the user enters a authorization ID. When the user clicks the <strong>Submit</strong> button that calls DoCaptureReceipt.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#DoVoidReceipt">DoVoidReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>DoVoidReceipt.php<a id="DoVoidReceipt" name="DoVoidReceipt"></a></code></td>
+				<td>Sends a <code>DoVoid</code> NVP API request to PayPal.
+					<p>The code retrieves the authorization ID and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoVoid">DoVoid.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<h3>DoReauthorization<a id="reauthorization" name="reauthorization"></a></h3>
+		<p>This sample shows how to use the <code>DoReauthorization</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>DoReauthorization</strong></td>
+				<td>Reauthorize for a different amount: You can reauthorize for up to 115% of the originally authorized amount, not to exceed an increase of $75 USD.
+					<p>The main page displays text boxes where the user enters a authorization ID,amount and a drop down where the user can select currency code. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>DoReauthorization</code> and sends it to the PayPal server.</p>
+					<p>To use DoReauthorization you must have previously authorized a transaction.
+                <p><font color="red"><b>Note:</b></font> DoReauthorizationRequest is for use only with basic authorizations, not order authorizations.
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>DoReauthorization.html<a id="DoReauthorization" name="DoReauthorization"></a></code></td>
+				<td>This is the main page for DoReauthorization sample. This page displays text boxes where the user enters a authorization ID,amount and drop down where the user can select currency code. When the user clicks the <strong>Submit</strong> button that calls DoReauthorizationReceipt.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#ReauthorizationReceipt">DoReauthorizationReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>DoReauthorizationReceipt.php<a id="ReauthorizationReceipt" name="ReauthorizationReceipt"></a></code></td>
+				<td>Sends a <code>DoReauthorization</code> NVP API request to PayPal.
+					<p>The code retrieves the authorization ID,amount,currency code and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoReauthorization">DoReauthorization.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<h3>TransactionSearch<a id="transactionsearch" name="transactionsearch"></a></h3>
+		<p>This sample shows how to use the <code>TransactionSearch</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>TransactionSearch</strong></td>
+				<td>Serching for a transaction.
+					<p>The main page displays text boxes where the user enters a startdate,enddate and Transaction ID. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>TransactionSearch</code> and sends it to the PayPal server.</p>
+                <p>With TransactionSearch request, you must always set the StartDate for your search.The effect of setting other elements is additive or can alter the search criteria.TransactionSearch response returns up to 100 exact matches. 
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>TransactionSearch.php<a id="DoTransactionSearch" name="DoTransactionSearch"></a></code></td>
+				<td>This is the main page for TransactionSearch sample. This page displays text boxes where the user enters startdate,enddate and transaction ID. When the user clicks the <strong>Submit</strong> button that calls TransactionSearchResults.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#TransactionSearchResults">TransactionSearchResults.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>TransactionSearchResults.php<a id="TransactionSearchResults" name="TransactionSearchResults"></a></code></td>
+				<td>Sends a <code>TransactionSearch</code> NVP API request to PayPal.
+					<p>The code retrieves the startdate,enddate,transaction ID and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoTransactionSearch">TransactionSearch.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<h3>RefundTransaction<a id="refundtransaction" name="refundtransaction"></a></h3>
+		<p>This sample shows how to use the <code>RefundTransaction</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>RefundTransaction</strong></td>
+				<td>Use the RefundTransaction API to make either full or partial refunds.
+					<p>The main page displays text boxes where the user enters a transaction ID,amount and drop downs where the user can select refund type,currency code. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>RefundTransaction</code> and sends it to the PayPal server.</p>
+                <p>With RefundTransaction request, you must always pass the values of Transaction ID and RefundType. If RefundType is set to Full, you must not set Amount; however, if RefundType is Partial, you must set Amount.
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>RefundTransaction.php<a id="DoRefundTransaction" name="DoRefundTransaction"></a></code></td>
+				<td>This is the main page for RefundTransaction sample. This page displays text boxes where the user enters a transaction ID,amount and drop downs where the user can select refund type,currency code. When the user clicks the <strong>Submit</strong> button that calls RefundReceipt.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#RefundReceipt">RefundReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>RefundReceipt.php<a id="RefundReceipt" name="RefundReceipt"></a></code></td>
+				<td>Sends a <code>RefundTransaction</code> NVP API request to PayPal.
+					<p>The code retrieves the transaction ID,amount,refund type,currency code and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoRefundTransaction">RefundTransaction.php</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+
+		<h3>MassPay<a id="masspay" name="masspay"></a></h3>
+		<p>This sample shows how to use the <code>MassPay</code> request. Access this sample from the following choice displayed on index.html:</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td valign="top"><strong>MassPay</strong></td>
+				<td>The MassPay API is the programmatic counterpart to the Mass Payment feature available through the PayPal website. You can include up to 250 payments per MassPay request.The MassPay API triggers the sending of an Instant Payment Notification email to the recipient of the funds.
+					<p>The main page displays text boxes where the user enters a emailsubject,recievertype,reciever email,amount,unique ID,note and drop down where the user can select currency code. When the user clicks the <strong>Submit</strong> button, the code constructs an NVP API request to <code>MassPay</code> and sends it to the PayPal server.</p>
+                <p>You must have a PayPal balance in each currency in which you want to make a payment and have sufficient funds to cover the entire Mass Payment amount and fee. You cannot mix currencies in the same MassPayRequest; a separate request is required for each currency.
+				</td>
+			</tr>
+		</table>
+		<p>The primary files for this sample are:</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td><code>MassPay.html<a id="DoMassPay" name="DoMassPay"></a></code></td>
+				<td>This is the main page for MassPay sample. This page displays text boxes where the user enters a  emailsubject, recievertype,reciever email,amount,unique ID,note and drop down where the user can select currency code. When the user clicks the <strong>Submit</strong> button that calls MassPayReceipt.php.
+				    <p>Called by <a href="#index">index.html</a>.</p>
+					<p>Calls <a href="#MassPayReceipt">MassPayReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>MassPayReceipt.php<a id="MassPayReceipt" name="MassPayReceipt"></a></code></td>
+				<td>Sends a <code>MassPay</code> NVP API request to PayPal.
+					<p>The code retrieves the emailsubject,recievertype,reciever email,amount,unique ID,note,currency code and constructs the NVP API request string to send to the PayPal server. The request to PayPal uses an API Signature.</p>
+					<p>After receiving the response from the PayPal server, the code displays the request and response in the browser. If the response was a success, it displays the response parameters. If the response was an error, it displays the errors received in APIError.php.</p>
+					<p>Called by <a href="#DoMassPay">MassPay.html</a>.</p>
+					<p>Calls <a href="#CallerService">CallerService.php</a>and <a href="#ApiError">APIError.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<h3>Common Files<a id="commonfiles" name="commonfiles"></a></h3>
+		<p>The following files are common to the samples.</p>
+		<table border="1" cellspacing="2" cellpadding="5">
+			<tr>
+				<th>File</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>
+					<p><code>index.html<a id="index" name="index"></a></code></p>
+				</td>
+				<td>The main web page with links to each sample.
+					<p>Calls <a href="#DoDirectPayment">DoDirectPayment.php</a>, <a href="#SetExpressCheckout">SetExpressCheckout.php</a>, and <a href="#GetTransactionDetails">GetTransactionDetails.html</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>sdk.css</code></td>
+				<td>Cascading Style Sheet (CSS) used by index.html.</td>
+			</tr>
+			<tr>
+				<td><code>CallerService.php<a id="CallerService" name="CallerService"></a></code></td>
+				<td><p>Each API uses this page to submit NVPRequest.</p>
+					This Page reads the credential information from constants.php to connect with Server, submit NVPRequest and <br>return 
+					NVPResponse from the Server after de-formatting to display in response page.
+					<p>Calls <a href="#constants">constants.php</a>
+					<p>Called by <a href="#TransactionDetails">TransactionDetails.php</a>, <a href="#ReviewOrder">ReviewOrder.php</a>,<a href="#ECReceipt">DoExpressCheckoutPayment.php</a> and <a href="#DoDirectPaymentReceipt">DoDirectPaymentReceipt.php</a>.</p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>APIError.php<a id="ApiError" name="ApiError"></a></code></td>
+				<td>Displays error parameters from the response in the browser.
+					<p>Called by <a href="#DoDirectPaymentReceipt">DoDirectPaymentReceipt.php</a>,<a href="#TransactionDetails">TransactionDetails.php</a>,<a href="#ReviewOrder">ReviewOrder.php</a>,
+					<p><a href="#ECReceipt">DoExpressCheckoutPayment.php</a> and <a href="#CallerService">CallerService.php</a>.</p></p>
+				</td>
+			</tr>
+			<tr>
+				<td><code>constants.php<a id="constants" name="constants"></a></code></td>
+				<td>This is the configuration file for the samples.This file contains the parameters needed to make an API call and parameters needed for proxy setup.
+					<p>PayPal includes the following API Signature for making API calls to the PayPal sandbox:</p>
+					<table border="1" cellspacing="2" cellpadding="5">
+						<caption>API Signature</caption>
+						<tr>
+							<td>API Username</td>
+							<td><code>sdk-three_api1.sdk.com</code></td>
+						</tr>
+						<tr>
+							<td>API Password</td>
+							<td><code>QFZCWN5HZM8VBG7Q</code></td>
+						</tr>
+						<tr>
+							<td>API Signature</td>
+							<td><code>A-IzJhZZjhg29XQ2qnhapuwxIDzyAZQ92FRP5dqBzVesOkzbdUONzmOU</code></td>
+						</tr>
+					</table>
+					<table border="1" cellspacing="2" cellpadding="5">
+						<caption>Proxy Parameters</caption>
+						<tr>
+							<td>USE_PROXY</td>
+							<td><code>Proxy will be enabled only when this set to TRUE.</code></td>
+						</tr>
+						<tr>
+							<td>PROXY_HOST</td>
+							<td><code>Proxy Server name or the IP address.</code></td>
+						</tr>
+						<tr>
+							<td>PROXY_PORT</td>
+							<td><code>Proxy Server port.</code></td>
+						</tr>
+					</table>
+					<p>Called by <a href="#CallerService">CallerService.php</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<hr />
+		<h2>API Documentation<a id="APIDocumentation" name="APIDocumentation"></a></h2>
+		<p>The <i>Name-Value Pair API Developer Guide and Reference</i> is available in HTML and PDF format.</p>
+		<table border="0" cellspacing="2" cellpadding="5">
+			<tr>
+				<td>HTML</td>
+				<td><a href="https://www.paypal.com/en_US/ebook/PP_NVPAPI_DeveloperGuide/index.html">https://www.paypal.com/en_US/ebook/PP_NVPAPI_DeveloperGuide/index.html</a></td>
+			</tr>
+			<tr>
+				<td>PDF</td>
+				<td><a href="https://www.paypal.com/en_US/pdf/PP_NVPAPI_DeveloperGuide.pdf">https://www.paypal.com/en_US/pdf/PP_NVPAPI_DeveloperGuide.pdf</a></td>
+			</tr>
+		</table>
+	</body>
+
+</html>

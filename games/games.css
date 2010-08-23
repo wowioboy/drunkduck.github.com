@@ -1,0 +1,29 @@
+.gameContent
+{
+  color:black;
+  padding-top:0px;
+}
+
+.gameContent a,a:visited
+{
+  color:#ff0000;
+  font-weight:bold;
+}
+
+.gameContent a:hover
+{
+  color:black;
+}
+
+.gameContent hr
+{
+  border:0px;
+  border-top:1px solid black;
+}
+
+.gameContent input
+{
+  background: #ffffff;
+  color: #000000;
+  border:1px solid #000000;
+}

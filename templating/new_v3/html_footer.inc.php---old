@@ -1,0 +1,189 @@
+                  </td>
+                  <td width="300" height="100%" align="center" valign="top">
+
+                    <div class="vert_spacer">&nbsp;</div>
+
+                    <?
+                    if ( !$USER )
+                    {
+                      ?>
+                      <div style="border:1px solid #bbb;">
+                        <img src="<?=IMAGE_HOST_SITE_GFX?>/mbrregister.gif" width="175" height="59" />
+                        <p>Not Registered? <br /><a href="http://<?=DOMAIN?>/signup/">Signup for a FREE Account!</a></p>
+                        <br><strong>Registered users can:</strong>
+                        <br><strong> Comment on comics!</strong>
+                        <br><strong>Create their own comics!</strong>
+                        <br><strong>Vote in polls and contests!</strong>
+                        <br><strong>Use the forums!</strong>
+                        <br><a href="http://www.drunkduck.com/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a>
+                      </div>
+                      <?
+                    }
+
+
+
+                    if ( $USER )
+                    {
+                      ?>
+                      <div style="height:97px;background:url(<?=IMAGE_HOST?>/site_gfx_new_v3/user_info_bg.gif);">
+                        <div style="margin:10px;" align="left">
+
+                          <div align="right">
+                            <a href="http://<?=DOMAIN?>/?logout=<?=$USER->user_id?>">Log Out</a> | <a href="http://<?=DOMAIN?>/news/">Help</a>
+                          </div>
+
+                          <div align="left">
+                            <a href="http://<?=USER_DOMAIN?>/<?=$USER->username?>"><img src="<?=IMAGE_HOST?>/process/user_<?=$USER->user_id?>.<?=$USER->avatar_ext?>" height="50" width="50" border="0"></a>
+                            Hi, <?=$USER->username?>
+                          </div>
+
+                          <div align="left">
+                            <script language="JavaScript">
+                              <?
+                              if ( $USER->flags & FLAG_NEW_MAIL ) {
+                                ?>alert('You have NEW mail!');<?
+                                $USER->flags &= ~FLAG_NEW_MAIL;
+                                db_query("UPDATE users SET flags='".$USER->flags."' WHERE user_id='".$USER->user_id."'");
+                              }
+                              ?>
+                            </script>
+                            <a href="http://<?=DOMAIN?>/account/overview/">My Account</a> | <a href="http://<?=DOMAIN?>/community/message/inbox.php">Inbox (<?=$USER->pending_mail?>)</a>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="module_header">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td align="center" valign="middle" width="33">
+                              <a href="#" onClick="expandFavorites();return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif" style="padding-left:10px;" border="0"></a>
+                            </td>
+                            <td width="100%" class="side_expand_header">
+                              &nbsp;&nbsp;
+                              MyFavorites
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div id="favorites" style="display:none;" align="left">
+                        No Content.
+                      </div>
+
+
+                      <div class="module_header">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td align="center" valign="middle" width="33">
+                              <a href="#" onClick="expandMyComics();return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif" style="padding-left:10px;" border="0"></a>
+                            </td>
+                            <td width="100%" class="side_expand_header">
+                              &nbsp;&nbsp;
+                              MyComics
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div id="my_comics" style="display:none;" align="left">
+                        No Content.
+                      </div>
+                      <?
+                    }
+                    ?>
+
+                    <div class="module_header">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td align="center" valign="middle" width="33">
+                            <a href="#" onClick="expandMyComicNew();return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif" style="padding-left:10px;" border="0"></a>
+                          </td>
+                          <td width="100%" class="side_expand_header">
+                            &nbsp;&nbsp;
+                            MyComicNews
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div id="my_news" style="display:none;" align="left">
+                      No Content.
+                    </div>
+
+                    <div class="module_header">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td align="center" valign="middle" width="33">
+                            <a href="#" onClick="expandDDCam();return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif" style="padding-left:10px;" border="0"></a>
+                          </td>
+                          <td width="100%" class="side_expand_header">
+                            &nbsp;&nbsp;
+                            DD Cam (<font style="color:green;">Now Featuring: DDBook</font>)
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div id="ddcam" style="display:none;" align="left">
+                      <embed src="http://player.stickam.com/stickamPlayer/174625835-2743920" type="application/x-shockwave-flash" width="300" height="300" scale="exactfit" allowScriptAccess="always" allowFullScreen="true"></embed>
+                    </div>
+
+                    <div class="vert_spacer">&nbsp;</div>
+
+                    <div style="width:300px;height:250px;border:1px solid black;background:#cccccc;">
+                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="300" height="250" id="SplastkPlayer" align="middle">
+                      <param name="allowScriptAccess" value="sameDomain" />
+                      <param name="allowFullScreen" value="true" />
+                      <param name="wmode" value="transparent">
+                      <param name="movie" value="http://www.splastk.com/syndicated/SplastkPlayer_v9.swf?video_xml_url=http://www.splastk.com/syndicated/video_xml.0.xml&client_id=0&allow_auto_preroll=true" /><param name="menu" value="false" /><param name="quality" value="high" /><param name="scale" value="exactfit" /><param name="bgcolor" value="#000000" />	<embed src="http://www.splastk.com/syndicated/SplastkPlayer_v9.swf?video_xml_url=http://www.splastk.com/syndicated/video_xml.0.xml&client_id=0&allow_auto_preroll=true" menu="false" quality="high" scale="exactfit" bgcolor="#000000" width="300" height="250" name="SplastkPlayer" align="middle" allowScriptAccess="sameDomain" wmode="transparent" allowFullScreen="true" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                      </object>
+                    </div>
+
+                    <div class="vert_spacer">&nbsp;</div>
+
+                    <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
+
+                    <div class="vert_spacer">&nbsp;</div>
+                  </td>
+                </tr>
+
+              </table>
+
+              <div id="tipdiv" style="display:none;"></div>
+              <!--END footer-->
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <div style="width:728px;margin-top:20px;" align="center" id="footer_div">
+    <a href="http://<?=DOMAIN?>" style="font-size:14px;font-weight:bold;">home</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://<?=DOMAIN?>/search.php" style="font-size:14px;font-weight:bold;">search & browse</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://<?=DOMAIN?>/tutorials/" style="font-size:14px;font-weight:bold;">tutorials</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://<?=DOMAIN?>/games/" style="font-size:14px;font-weight:bold;">games</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://<?=DOMAIN?>/news/" style="font-size:14px;font-weight:bold;">news</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://<?=DOMAIN?>/community/" style="font-size:14px;font-weight:bold;">forums</a>
+
+    <br><br>
+
+    <a href="http://<?=DOMAIN?>/contact.php">About Us</a> | <a href="http://<?=DOMAIN?>/contact.php">Contact</a> | <a href="http://<?=DOMAIN?>/privacy.php">Privacy Policy</a> | Copyright 2006-<?=date("Y")?> Platinum Studios, Inc. All Rights Reserved
+
+    <br><br>
+
+    <? include(WWW_ROOT.'/ads/ad_includes/main_template/728x90b.html'); ?>
+
+  </div>
+
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-606793-4";
+urchinTracker();
+</script>
+</body>
+</html>

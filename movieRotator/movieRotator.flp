@@ -1,0 +1,4 @@
+﻿<flash_project name="movieRotator" version="1">
+    <project_file path="./FLVRotator.as" filetype="as" />
+    <project_file path="./movieRotator_300x250.fla" filetype="fla" profile="" def_file="true" />
+</flash_project>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy
+  SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+  <allow-access-from domain="www.drunkduck.com" />
+  <allow-access-from domain="*.drunkduck.com" />
+  <allow-access-from domain="drunkduck.com" />
+  <allow-access-from domain="ads.platinumstudios.net" />
+  <allow-access-from domain="ads.platinumstudios.com" />
+  <allow-access-from domain="labs.search.spotxchange.com" />
+  <allow-access-from domain="search.spotxchange.com" />
+  <allow-access-from domain="apps.ezprints.com"/>
+</cross-domain-policy>

@@ -1,0 +1,2 @@
+ord=Math.random()*10000000000000000;
+document.write('<script language="JavaScript" src="http://ad.doubleclick.net/adj/dduck.redirects/banner_valueclick;sz=728x90;ord=' + ord + '?" type="text/javascript"><\/script>');

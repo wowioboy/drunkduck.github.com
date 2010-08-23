@@ -1,0 +1,5 @@
+     if (function_exists('debug_backtrace')) {
+        $bt = debug_backtrace();
+        $LOG->file = $bt[0]['file'];
+        $LOG->line = $bt[0]['line'];
+     }

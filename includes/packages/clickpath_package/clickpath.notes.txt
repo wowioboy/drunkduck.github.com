@@ -1,0 +1,3 @@
+1.) Use a hash to determine whether to track a user
+2.) If cookie of last visit is set, track all 4 pieces of data.
+3.) Place a cookie on user of current page being viewed. (Full path to file, so we can always determine file AND folder )
