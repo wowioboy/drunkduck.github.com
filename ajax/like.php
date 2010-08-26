@@ -1,5 +1,5 @@
 <?php 
-require_once('/var/www/html/drunkduck.com/includes/db.class.php');
+require_once('../includes/db.class.php');
 
 $like = new Like();
 switch ($_REQUEST['action']) {
