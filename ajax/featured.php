@@ -11,6 +11,7 @@ if ($search = $_REQUEST['search']) {
 if (is_array($where)) {
   $where = ' and ' . implode(' and ', $where);
 }
+$limit = $_REQUEST['limit'];
 $query = "select c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes
 from comics c 
 inner join featured_comics f 
@@ -25,7 +26,7 @@ where f.approved = '1'
 $where
 group by c.comic_name
 order by f.feature_id desc 
-limit $offset, 10";
+limit $offset, $limit";
 $featured = DB::getInstance()->fetchAll($query);
 $query = "select count(1)
 from comics c 

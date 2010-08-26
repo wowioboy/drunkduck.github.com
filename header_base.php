@@ -40,6 +40,11 @@ $db = new DB();
 <script type="text/javascript" src="/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
 <script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
 <script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
+
+<!-- FANCY BOX --> 
+<link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
+<script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+
 </head>
 <body>
 <div id="backdrop"></div>

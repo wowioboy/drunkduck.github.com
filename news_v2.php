@@ -45,6 +45,7 @@ $(document).ready(function(){
   
   function getNews() 
   {
+  $.fancybox.showActivity();
     $.getJSON('/ajax/news.php', {offset: pager, search: search, month: month}, function(data){
           var i = 0;
           var html = '';
@@ -65,6 +66,7 @@ $(document).ready(function(){
         });
           }
         $('#news_holder').html(html);
+        $.fancybox.hideActivity();
       });
   }
   
