@@ -3,7 +3,7 @@
            <!-- <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div> -->
             <!-- <div id="searchwrapper" class="rounded" style="background-color:#fff;display:inline-block;width:100px;height:25px;"> -->
             <?php if (!$nosearch) : ?>
-            <div style="margin-top:10px;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+            <div style="display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
       .result {
         margin:0;
@@ -97,8 +97,8 @@
             
             <?php if (!$nosearch) : ?>
             <!-- Advanced Search Link-->
-            <div class="span-7 " style="padding-left:5px;line-height:10px;margin-top:8px;">
-                <a href="/search.php" style="padding:0;text-decoration:none;font-weight:bold;font-family:Verdana;font-size:9px;color:white;">Advanced<br />Search</a>
+            <div class="span-7 " style="padding-left:5px;line-height:5px;margin-top:-2px">
+                <a href="/search.php" style="padding:0;text-decoration:none;font-weight:bold;font-family:Verdana;font-size:10px;color:white;">Advanced<br />Search</a>
             </div>
             <?php endif; ?>
             

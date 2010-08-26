@@ -60,7 +60,7 @@ $(document).ready(function(){
 #slideshow img {
   float:right;
   clear:none;
-  padding: 0 2px 0 2px;
+  padding: 0 2px 0 3px;
   z-index:-5000;
 }
 </style>
@@ -86,7 +86,6 @@ $(document).ready(function(){
     <div class="span-2 box-1">
         <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
     </div>
-        <div style="z-index:9000; background: url('/media/images/featured-text.png') bottom center no-repeat; width:400px; position:absolute; top: 130px; left:350px; height:30px;"></div>
-    <div style="position:relative;">
-    </div>
+    <div style="z-index:9000; background: url('/media/images/featured-text.png') bottom center no-repeat; width:400px; position:absolute; top: 130px; left:280px; height:30px;"></div>
+
 </div>    

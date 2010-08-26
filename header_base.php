@@ -45,22 +45,22 @@ $db = new DB();
 <div id="backdrop"></div>
 
 <div class="container">
-    <div class="span-96 green rounded">
-        <?php if ($showFeatured) : ?>
-        <?php require_once('featured_slideshow.php'); ?>
-        <?php endif; ?>
-        <div class="span-23" style="height:160px">
+    <div class="span-96 green rounded" style="position:relative;padding-top:10px">
+        <?php 
+            if ($showFeatured) require_once('featured_slideshow.php'); 
+        ?>
+        <div class="span-23" style="height:150px">
             
-                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-20px;z-index:5;"></div>
+                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-28px;z-index:5;"></div>
             
         </div>
-        <div class="span-73 border-1 rounded green" style="position:relative;height:110px;display:block;">
-            <div class="rounded" style="position:absolute;top:5px;right:-7px;border:10px solid rgb(174,230,1);background-color:#FFF;height:90px;width:728px;">banner</div>
+        <div class="span-73 border-1 rounded green" style="position:relative;height:100px;display:block;">
+            <div class="rounded" style="position:absolute;top:0px;right:-7px;border:10px solid rgb(174,230,1);background-color:#FFF;height:90px;width:728px;">banner</div>
         </div>
 
         <?php require('navi_v2.php'); ?>
     </div>
     
-    <div class="span-96">&nbsp;</div>
+    <div class="span-96" style="height:10px;"></div>
     
     <div id="main-content" class="main-content span-64 canary">

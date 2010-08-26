@@ -51,6 +51,7 @@ h2 {
 .subtitle {
   font-family:helvetica;
   font-size:12px;
+  line-height:12px;
   font-weight:bold;
   color:rgb(0,133,118);
 }
@@ -107,6 +108,14 @@ a {
   vertical-align:middle;
 }
 
+.drunk {
+    font-family:'Yanone Kaffeesatz';
+    font-weight:bold;
+    font-size: 1.7em;
+    color:rgb(0,101,99);
+    }
+    }
+
 /* PANEL STUFF */
 .panel-header {
   -webkit-border-top-left-radius: 10px;
@@ -123,13 +132,19 @@ a {
   
 }
 .panel-header {
-    margin-bottom:-5px;
-    
+    margin-bottom:-10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
     position: relative;
 }
 .panel-header span {
   position: relative;
-  top:5px;
+  
+    padding-left:20px;
+  font-weight: bold;
+  color: black;
+  font-size:11px;
 }
 
 .panel-body {
@@ -172,7 +187,7 @@ a {
     float:right;
 }
 .button {
-    background-color:#45B4B9;
+    background-color:rgb(130,184,186);
     color:#FFF;
     font-weight:bold;
     border:0;

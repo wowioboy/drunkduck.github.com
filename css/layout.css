@@ -1,12 +1,21 @@
 
-
+#menu {
+    vertical-align:middle;
+    height:20px;
+    position:absolute;
+    bottom:15px;
+    right:0;
+}
 #menu a {
   text-decoration:none;
   color:rgb(0,133,118);
   font-family:'Yanone Kaffeesatz';
   font-weight:bold;
   font-size:1.8em;
-  padding: 0 5px 0 5px;
+  line-height:12px;
+  padding: 0 15px 0px 15px;
+  vertical-align:middle;
+  height:10px;
 }
 .main-content {
   -webkit-border-top-left-radius: 10px;

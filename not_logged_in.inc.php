@@ -16,25 +16,29 @@
             
           </div>
         </div>
-        <div class="span-30" style="height:10px;"></div>
+        <div class="span-28 box-1">
             <FORM ACTION='/' METHOD='POST'>
-                <div class="span-12">
-                    <div style="height:20px;font-size:14px;font-weight:bold;" class="teal">or sign-in here:</div>
-                    <div class="span-12" style="height:10px;"></div>
-                    <INPUT TYPE='SUBMIT' VALUE='sign in' class="button rounded">
+                <div class="span-11">
+                    <div style="height:20px;line-height:20px;" class="drunk">or sign in here:</div>
+                </div>
+                <div class="span-17 left">
+                    <INPUT class="span-17 rounded left teal" TYPE='TEXT' NAME='un' VALUE='username' onFocus="this.value='';" STYLE='font-weight:bold;padding:0 5px 0 5px;HEIGHT:20px;border:0px;text-align:left'>
                 </div>
                 
-                <div class="span-15 ">
-                <INPUT class="rounded" TYPE='TEXT' NAME='un' VALUE='username' onFocus="this.value='';" STYLE='padding:0 5px 0 5px;HEIGHT:20px;border:0px;'>
-                <div class="span-12" style="height:10px;"></div>
-                <INPUT class="rounded" TYPE='PASSWORD' NAME='pw' VALUE='password' onFocus="this.value='';" STYLE='padding:0 5px 0 5px;HEIGHT:20px;border:0px;'>
+                <div class="span-28" style="height:10px;"></div>
+                
+                <div class="span-11">
+                    <INPUT TYPE='SUBMIT' VALUE='sign in' class="button rounded left" style="font-size:12px;padding: 1px 15px 1px 15px;">
+                </div>
+                <div class="span-17">
+                    <INPUT class="span-17 rounded left teal" TYPE='PASSWORD' NAME='pw' VALUE='password' onFocus="this.value='';" STYLE='font-weight:bold;padding:0 5px 0 5px;HEIGHT:20px;border:0px;'>
                 </div>
                 
-                <div class="span-27 center" style="padding-top:10px;">                
-                    <A HREF='/forgot_password.php'  class=" button rounded" style="width:100%;display:block;">Forgot your username/password?</A>
+                <div class="span-25 center" style="padding-top:10px;">                
+                    <A HREF='/forgot_password.php'  class="span-25 button rounded left" style="display:block;margin:0;font-size:12px;padding: 1px 15px 1px 15px;">Forgot your username/password?</A>
                 </div>
             </FORM>
-
+        </div>
 
 
 
