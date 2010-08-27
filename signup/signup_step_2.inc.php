@@ -110,7 +110,7 @@ function updateNameInfo(data)
       ?>
       <TEXTAREA STYLE='width:390px;height:300px;'>PRIVACY POLICY
 
-Your privacy is important to us. This privacy policy explains our online information practices and how information is collected and used at this website ("Website"). Please note that our other affiliated websites may operate under their own privacy policies so you should review those privacy policies when visiting those websites. This privacy policy only applies to the personal information we collect on this Website and it does not apply to any other information Platinum Studios, LLC collects through other means.
+Your privacy is important to us. This privacy policy explains our online information practices and how information is collected and used at this website ("Website"). Please note that our other affiliated websites may operate under their own privacy policies so you should review those privacy policies when visiting those websites. This privacy policy only applies to the personal information we collect on this Website and it does not apply to any other information Wowio, Inc collects through other means.
 
 Personal Information We May Collect
 
@@ -120,7 +120,7 @@ Personally-identifiable information you provide to us may include the following:
 
 Non-personally identifiable information may include the type of browser you are using, your IP address, and your Internet service provider. 
 
-This Website may also use cookies, which typically allow you to navigate between different web pages without losing the information you supplied at the start of any session. You may be able to accept or decline cookies depending on the capabilities and configuration of your browser. Most browsers automatically accept cookies and can be configured to decline cookies if you so desire. However, if you decline cookies, it may affect your ability to experience certain features of this Website. Platinum Studios, LLC cannot and does not assume responsibility for any technical limitations or malfunction of your browser or for use of cookies by third parties that provide hosting or other services for this Website.
+This Website may also use cookies, which typically allow you to navigate between different web pages without losing the information you supplied at the start of any session. You may be able to accept or decline cookies depending on the capabilities and configuration of your browser. Most browsers automatically accept cookies and can be configured to decline cookies if you so desire. However, if you decline cookies, it may affect your ability to experience certain features of this Website. Wowio, Inc cannot and does not assume responsibility for any technical limitations or malfunction of your browser or for use of cookies by third parties that provide hosting or other services for this Website.
 
 This Website typically uses such non-personally identifiable information to accumulate aggregate data on the Website, for tracking purposes or to provide you with additional products or services.
 
@@ -130,7 +130,7 @@ This Website may use your personal information to complete transactions you requ
 
 Access to Personal Information
 
-We may share your personal information with our affiliates or other companies in our corporate family. We may provide your personal information to other companies whom we may utilize in processing our online transactions or other services. We may be required by law to disclose your personal information, such as in response to a court order or subpoena or at a law enforcement agency's request, and we reserve the right to do so. We may share your personal information as part of a purchase or sale pursuant to appropriate confidentiality provisions, such as if Platinum Studios, LLC merges with another company or sells a business division.
+We may share your personal information with our affiliates or other companies in our corporate family. We may provide your personal information to other companies whom we may utilize in processing our online transactions or other services. We may be required by law to disclose your personal information, such as in response to a court order or subpoena or at a law enforcement agency's request, and we reserve the right to do so. We may share your personal information as part of a purchase or sale pursuant to appropriate confidentiality provisions, such as if Wowio, Inc merges with another company or sells a business division.
 
 Opt-Out Choices
 
@@ -142,7 +142,7 @@ If you wish to review, update or correct any of your personal information in thi
 
 Security Measures
 
-Not all information provided while using this Website is necessarily secure against electronic interception or tampering. While this Website does incorporate secure software and encryption to protect certain sensitive information you may provide, as with any Internet transmission, there is always some element of risk in sending personal information. For that reason, Platinum Studios, LLC cannot guarantee that all personal or other sensitive information will remain confidential, and we must disclaim any liability for the inadvertent or unknowing disclosure or use of such information.
+Not all information provided while using this Website is necessarily secure against electronic interception or tampering. While this Website does incorporate secure software and encryption to protect certain sensitive information you may provide, as with any Internet transmission, there is always some element of risk in sending personal information. For that reason, Wowio, Inc cannot guarantee that all personal or other sensitive information will remain confidential, and we must disclaim any liability for the inadvertent or unknowing disclosure or use of such information.
 
 Child Online Privacy
 
@@ -162,15 +162,15 @@ We encourage you to share any comments or concerns you may have about this priva
 
 For questions about this privacy policy or to contact us:
 
-Platinum Studios, LLC
+Wowio, Inc
 
-9444 Wilshire Boulevard, Suite 210
+3545 Motor Ave, 3rd Floor
 
-Beverly Hills, CA 90212
+Los Angeles, CA 90034
 
-info@PlatinumStudios.com
+info@drunkduck.com
 
-Last Modified: August 10, 2006 
+Last Modified: August 31, 2006 
 
 
 
@@ -202,29 +202,29 @@ Changes to Terms of Use
 
 We may change these terms of use from time to time. We will post any such changes on this Website. For that reason, we encourage you to periodically review these Terms of Use to keep yourself informed of any changes.
 
-Last Modified: August 10, 2006 
+Last Modified: August 31, 2006 
 
 
 
-Drunk Duck Etiquette 
+DrunkDuck Etiquette 
 
-Drunk Duck is a great place for hosting your comics. It is a wonderful community that will welcome you with open arms and treat you with respect. 
+DrunkDuck is a great place for hosting your comics. It is a wonderful community that will welcome you with open arms and treat you with respect. 
 
 Great communities however do not spring from thin air. In order to foster a respectful, welcoming and creative community, we kindly ask that users do not engage in trollish behavior. This includes forum flames, disrespectful behavior to other members and flame baiting. Users who do engage in such behaviors will be suspended/removed and eventually banned. Should there be any personal disagreements or concerns between members, we ask that the users involved resolve the matter privately. 
 
-Drunk Duck has no interest in wantonly oppressing or interfering with a user's artistic pursuits. While you are perfectly in your right to say what you want and exercise your freedom of speech, please bear in mind that Drunk Duck is privately owned and operated. In other words, it is not a public access site and the administrative team will modify or take down content if necessary. We reserve the right to remove or take down any art, comments, etc. we find inappropriate for any reason.
+DrunkDuck has no interest in wantonly oppressing or interfering with a user's artistic pursuits. While you are perfectly in your right to say what you want and exercise your freedom of speech, please bear in mind that DrunkDuck is privately owned and operated. In other words, it is not a public access site and the administrative team will modify or take down content if necessary. We reserve the right to remove or take down any art, comments, etc. we find inappropriate for any reason.
 
 That said, you are pretty much able to do anything you want with your comic account as long as you follow the Terms of Use and these rules: 
 
-Don't disrespect your comic host (Drunk Duck). Constructive criticisms are welcomed but don't bite the hand that feeds you. 
+Don't disrespect your comic host (DrunkDuck). Constructive criticisms are welcomed but don't bite the hand that feeds you. 
 
-Don't disrespect your (Drunk Duck) community members. 
+Don't disrespect your (DrunkDuck) community members. 
 
 Violation of other artist?s copyrights is not acceptable. If you use artwork without permission of its creator, and the creator/copyright holder complains to the administrators, we will remove the offensive file. If you continue to do this, we will delete your account. 
 
 If you find someone is using your artwork without permission and would like to see it stop, do not hesitate to contact an administrator for help. Do not begin a flame war with the offending user. 
 
-Do not tamper with the Drunk Duck headers or footers on your page. We need those there for legal and administrative reasons. If you link off of Drunk Duck to your own page please have the courtesy to provide a link back to Drunk Duck. 
+Do not tamper with the DrunkDuck headers or footers on your page. We need those there for legal and administrative reasons. If you link off of DrunkDuck to your own page please have the courtesy to provide a link back to DrunkDuck. 
 
 Understand that Administrators reserve the right to remove your account for the reasons above.
 
@@ -232,15 +232,15 @@ Understand that Administrators reserve the right to remove your account for the 
 
 Copyright and Authorized Use
 
-All materials contained in this website ("Website Materials") including comic strips, books, art, illustrations, images, or text are trademarks or copyrighted materials owned and controlled by Platinum Studios, LLC or its subsidiaries, affiliated entities and/or third-party licensors and/or individual creators, and are protected by applicable trademark and/or copyright law. 
+All materials contained in this website ("Website Materials") including comic strips, books, art, illustrations, images, or text are trademarks or copyrighted materials owned and controlled by Wowio, Inc or its subsidiaries, affiliated entities and/or third-party licensors and/or individual creators, and are protected by applicable trademark and/or copyright law. 
 
-No Website Materials may be copied, modified, sold, leased, republished, posted, transmitted, distributed, or used in any way without obtaining Platinum Studios, LLC's prior written consent.
+No Website Materials may be copied, modified, sold, leased, republished, posted, transmitted, distributed, or used in any way without obtaining Wowio, Inc's prior written consent.
 
 No comic strips, books, art, illustrations, images, or text, may be copied, modified, sold, leased, republished, posted, transmitted, distributed, or used in any way without obtaining the copyright holder?s prior written consent.
 
 All users are expressly prohibited from creating derivative works of or otherwise exploiting the Website Materials including comic strips, books, art, illustrations, images, or text in any manner whatsoever.
 
-The name Drunk Duck, the Drunk Duck logo, images of The Duck and Quail, and related symbols are trademarks and service marks owned by Platinum Studios, LLC., and are used with its permission. 
+The name DrunkDuck, the DrunkDuck logo, images of The Duck and Quail, and related symbols are trademarks and service marks owned by Wowio, Inc., and are used with its permission. 
 
 </TEXTAREA>
       <?
