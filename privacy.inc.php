@@ -1,5 +1,5 @@
 <div class="content" style='padding:75px;' align='left'>
-  <p align="center"><span class="pagelinks"><a href="#Privacy">Privacy Policy</a> | <a href="#Terms">Terms of Use</a> | <a href="#Etiquette">Drunk Duck Etiquette</a> | <a href="#Copyright">Copyright and Authorized Use</a></span> </p>
+  <p align="center"><span class="pagelinks"><a href="#Privacy">Privacy Policy</a> | <a href="#Terms">Terms of Use</a> | <a href="#Etiquette">DrunkDuck Etiquette</a> | <a href="#Copyright">Copyright and Authorized Use</a></span> </p>
   <hr />
   <h2><a name="Privacy" id="Privacy"></a>PRIVACY POLICY</h2>
   <p>Your privacy is important to us. This privacy policy explains our online information practices and how information is collected and used at this website (&quot;Website&quot;). Please note that our other affiliated websites may operate under their own privacy policies so you should review those privacy policies when visiting those websites. This privacy policy only applies to the personal information we collect on this Website and it does not apply to any other information WOWIO, INC collects through other means.</p>
@@ -31,15 +31,15 @@
 
   <p>
     <b>WOWIO, Inc.</b><br>
-    11400 W. Olympic Blvd, 14th Floor<br>
-    Los Angeles, CA 90064<br>
+    3545 Motor Ave, 3rd Floor<br>
+    Los Angeles, CA 90034<br>
   </p>
   <p>
     Phone: (310) 807-8181<br>
     Fax: (310) 276-2799
   </p>
 
-  <p>Last Modified: October 13, 2006 </p>
+  <p>Last Modified: August 27, 2010 </p>
 
   <hr />
   <h2><a name="Terms" id="Terms"></a>TERMS OF USE</h2>
@@ -56,19 +56,19 @@
   <p>This Website's terms of use are governed by and construed in accordance with California law, without giving effect to any principles of conflicts of law. You expressly consent to submit to the exclusive jurisdiction of the state or federal courts located in the County of Los Angeles, California. The provisions of these terms of use are severable, and if any one or more provision may be determined to be judicially unenforceable, in whole or in part, the remaining provisions shall nevertheless be binding and enforceable.</p>
   <h4>Changes to Terms of Use</h4>
   <p>We may change these terms of use from time to time. We will post any such changes on this Website. For that reason, we encourage you to periodically review these Terms of Use to keep yourself informed of any changes.</p>
-  <p>Last Modified: August 10, 2006 </p>
+  <p>Last Modified: August 27, 2010 </p>
   <hr />
-  <h2><a name="Etiquette" id="Etiquette"></a>Drunk Duck Etiquette </h2>
-  <p>Drunk Duck is a great place for hosting your comics. It is a wonderful community that will welcome you with open arms and treat you with respect. </p>
+  <h2><a name="Etiquette" id="Etiquette"></a>DrunkDuck Etiquette </h2>
+  <p>DrunkDuck is a great place for hosting your comics. It is a wonderful community that will welcome you with open arms and treat you with respect. </p>
   <p>Great communities however do not spring from thin air. In order to foster a respectful, welcoming and creative community, we kindly ask that users do not engage in trollish behavior. This includes forum flames, disrespectful behavior to other members and flame baiting. Users who do engage in such behaviors will be suspended/removed and eventually banned. Should there be any personal disagreements or concerns between members, we ask that the users involved resolve the matter privately. </p>
-  <p>Drunk Duck has no interest in wantonly oppressing or interfering with a user's artistic pursuits. While you are perfectly in your right to say what you want and exercise your freedom of speech, please bear in mind that Drunk Duck is privately owned and operated. In other words, it is not a public access site and the administrative team will modify or take down content if necessary. We reserve the right to remove or take down any art, comments, etc. we find inappropriate for any reason.</p>
+  <p>DrunkDuck has no interest in wantonly oppressing or interfering with a user's artistic pursuits. While you are perfectly in your right to say what you want and exercise your freedom of speech, please bear in mind that DrunkDuck is privately owned and operated. In other words, it is not a public access site and the administrative team will modify or take down content if necessary. We reserve the right to remove or take down any art, comments, etc. we find inappropriate for any reason.</p>
   <p>That said, you are pretty much able to do anything you want with your comic account as long as you follow the Terms of Use and these rules: </p>
   <ol>
-    <li>Don't disrespect your comic host (Drunk Duck). Constructive criticisms are welcomed but don't bite the hand that feeds you. </li>
-    <li>Don't disrespect your (Drunk Duck) community members. </li>
+    <li>Don't disrespect your comic host (DrunkDuck). Constructive criticisms are welcomed but don't bite the hand that feeds you. </li>
+    <li>Don't disrespect your (DrunkDuck) community members. </li>
     <li>Violation of other artist&rsquo;s copyrights is not acceptable. If you use artwork without permission of its creator, and the creator/copyright holder complains to the administrators, we will remove the offensive file. If you continue to do this, we will delete your account. </li>
     <li>If you find someone is using your artwork without permission and would like to see it stop, do not hesitate to contact an administrator for help. Do not begin a flame war with the offending user. </li>
-    <li>Do not tamper with the Drunk Duck headers or footers on your page. We need those there for legal and administrative reasons. If you link off of Drunk Duck to your own page please have the courtesy to provide a link back to Drunk Duck.</li>
+    <li>Do not tamper with the DrunkDuck headers or footers on your page. We need those there for legal and administrative reasons. If you link off of DrunkDuck to your own page please have the courtesy to provide a link back to DrunkDuck.</li>
     <li>Understand that Administrators reserve the right to remove your account for the reasons above.</li>
     <li>Circumvention of our authority and punitive system is reason for permanent banning.</li>
   </ol>
@@ -78,7 +78,7 @@
   <p>No Website Materials may be copied, modified, sold, leased, republished, posted, transmitted, distributed, or used in any way without obtaining WOWIO, INC's prior written consent.</p>
   <p>No comic strips, books, art, illustrations, images, or text, may be copied, modified, sold, leased, republished, posted, transmitted, distributed, or used in any way without obtaining the copyright holder&rsquo;s prior written consent.</p>
   <p>All users are expressly prohibited from creating derivative works of or otherwise exploiting the Website Materials including comic strips, books, art, illustrations, images, or text in any manner whatsoever.</p>
-  <p>The name Drunk Duck, the Drunk Duck logo, images of The Duck and Quail, and related symbols are trademarks and service marks owned by WOWIO, INC., and are used with its permission. </p>
+  <p>The name DrunkDuck, the DrunkDuck logo, images of The Duck and Quail, and related symbols are trademarks and service marks owned by WOWIO, INC., and are used with its permission. </p>
     <hr />
-  <p align="center"><span class="pagelinks"><a href="#Privacy">Privacy Policy</a> | <a href="#Terms">Terms of Use</a> | <a href="#Etiquette">Drunk Duck Etiquette</a> | <a href="#Copyright">Copyright and Authorized Use</a></span> </p>
+  <p align="center"><span class="pagelinks"><a href="#Privacy">Privacy Policy</a> | <a href="#Terms">Terms of Use</a> | <a href="#Etiquette">DrunkDuck Etiquette</a> | <a href="#Copyright">Copyright and Authorized Use</a></span> </p>
 </div>
