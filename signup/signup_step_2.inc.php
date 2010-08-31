@@ -170,7 +170,7 @@ Los Angeles, CA 90034
 
 info@drunkduck.com
 
-Last Modified: August 31, 2006 
+Last Modified: August 31, 2010 
 
 
 
@@ -202,7 +202,7 @@ Changes to Terms of Use
 
 We may change these terms of use from time to time. We will post any such changes on this Website. For that reason, we encourage you to periodically review these Terms of Use to keep yourself informed of any changes.
 
-Last Modified: August 31, 2006 
+Last Modified: August 31, 2010 
 
 
 
