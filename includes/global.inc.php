@@ -13,6 +13,8 @@ if ( false )
 
 if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '24.199.56.14' || $_SERVER['REMOTE_ADDR'] == "69.227.66.226" || $_SERVER['REMOTE_ADDR'] == "220.227.88.202") {
   define('DEBUG_MODE', 1 );
+} else {
+  define('DEBUG_MODE', 0 );
 }
 
 define('PLATINUM_OWNED', 1);
@@ -22,7 +24,7 @@ if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' )
   define('DEBUG_MODE',      1);
 
   // The document root of the website.
-  define('WWW_ROOT',        '/var/www/html/drunkduck.com');
+  define('WWW_ROOT',        realpath('./'));
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
   define('COOKIE_DOMAIN',   '.linuxdev1');
   // The domain.
@@ -35,7 +37,7 @@ else
   }
 
   // The document root of the website.
-  define('WWW_ROOT',        '/var/www/html/drunkduck.com');
+  define('WWW_ROOT',        realpath('./'));
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
   define('COOKIE_DOMAIN',   '.drunkduck.com');
   // The domain.
