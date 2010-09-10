@@ -1,7 +1,14 @@
 <?php
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);
+
 require_once('includes/db.class.php');
+
+$db = new DB();
+$latestUpdates = $db->fetchCol("select * from latest_updates");
+$mostLiked = $db->fetchCol("select * from most_liked");
+$topTen = $db->fetchCol("select * from top_ten");
+$featured = $db->fetchCol("select * from featured limit 8");
 ?>
 <html>
 <head>
@@ -62,6 +69,9 @@ a {
 }
 .pad {
 	padding:10px;
+}
+.pad-5 {
+	padding:5px;
 }
 .centered {
 	position:relative;
@@ -205,6 +215,14 @@ a {
 <body>
 <div id="main" class="centered">
   <div id="header" class="rounded green">
+    <div>
+    <?php foreach ($featured as $comic) : ?>
+      <?php 
+      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+      ?>
+      <img src="<?php echo $path; ?>" />
+     <?php endforeach; ?>
+    </div>
     <div id="topBar" class="table fill">
       <div class="cell bottom" style="width:200px;">
         <input type="text" id="search" />
@@ -237,16 +255,37 @@ a {
       <div>
         <div class="panel-header green">&raquo; Top Ten</div>
         <div class="panel-body green">
+          <div>
+            <?php foreach ($topTen as $comic) : ?>
+              <?php 
+      	        $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+              ?>
+              <img src="<?php echo $path; ?>" width="54" />
+            <?php endforeach; ?>
+          </div>
+          <div class="rounded pad-5" style="background-color:#fff;">asdfasdkfjasodfj</div>   
         </div>
       </div>
       <div class="push-top">
         <div class="panel-header green">&raquo; Most Liked of The Week</div>
         <div class="panel-body green">
+        <?php foreach ($mostLiked as $comic) : ?>
+          <?php 
+      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+      ?>
+      <img src="<?php echo $path; ?>" width="54" />
+        <?php endforeach; ?>
         </div>
       </div>
       <div class="push-top">
         <div class="panel-header green">&raquo; Latest Updates</div>
         <div class="panel-body green">
+        <?php foreach ($latestUpdates as $comic) : ?>
+          <?php 
+      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+      ?>
+      <img src="<?php echo $path; ?>" width="54" />
+        <?php endforeach; ?>
         </div>
       </div>
       <div class="push-top table fill">
