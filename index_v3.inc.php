@@ -1,4 +1,5 @@
 <?
+
 if ( isset($_GET['notfound']) )
 {
   $ATTEMPT = $_GET['notfound'];
