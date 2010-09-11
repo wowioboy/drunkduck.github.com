@@ -8,12 +8,14 @@ $db = new DB();
 $latestUpdates = $db->fetchCol("select * from latest_updates");
 $mostLiked = $db->fetchCol("select * from most_liked");
 $topTen = $db->fetchCol("select * from top_ten");
-$featured = $db->fetchCol("select * from featured limit 8");
+$featured = $db->fetchCol("select * from featured");
 ?>
 <html>
 <head>
 <title>Drunk Duck</title>
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet'>
+<script src="js/jquery/jquery-1.4.2.min.js"></script>
+<script src="js/jquery/cycle/jquery.cycle.all.js"></script>
 <!--<link rel="stylesheet" href="css/global.css" />-->
 <style>
 * {
@@ -210,18 +212,61 @@ a {
 .post {
 	padding:10px;
 }
+#slideshow img {
+	float:right;
+	clear:none;
+	padding: 0 2px 0 2px;
+}
 </style>
 </head>
 <body>
+<script>
+$(document).ready(function(){
+	$('.top_ten').live('mouseenter', function(){
+		var comic = $(this).attr('comic');
+		$.getJSON('ajax/comic_description.php', {comic: comic}, function(data) {
+			console.log(data);
+			var html = comic + '<br />' + data.description;
+			$('#top_ten_description').html(html).slideDown();
+		});
+	});
+	$('#top_ten_holder').mouseleave(function(){
+		$('#top_ten_description').slideUp();
+	});
+	$('#slideshow').cycle({ 
+	    fx:      'scrollHorz', 
+	    timeout: 0 
+	});
+	$('#next_button').click(function(){
+		$('#slideshow').cycle('next');
+	});
+	$('#prev_button').click(function(){
+		$('#slideshow').cycle('prev');
+	});
+});
+</script>
 <div id="main" class="centered">
   <div id="header" class="rounded green">
-    <div>
-    <?php foreach ($featured as $comic) : ?>
-      <?php 
-      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
-      ?>
-      <img src="<?php echo $path; ?>" />
-     <?php endforeach; ?>
+    <div style="display:inline-block;">
+      <button id="prev_button">prev</button>
+    </div>
+    <div id="slideshow" style="display:inline-block;width:900px;">
+      <?php foreach ($featured as $i => $comic) : ?>
+        <?php 
+          $i++;
+          $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+        ?>
+        <?php if ($i % 8 == 1) : ?>
+          <div <?php echo ($i != 1) ? 'style="display:none;"' : ''; ?>>
+        <?php endif; ?>  
+        <img src="<?php echo $path; ?>" />
+        <?php if ($i % 8 == 0) : ?>
+          </div>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+    <div style="display:inline-block;">
+      <button id="next_button">next</button>
     </div>
     <div id="topBar" class="table fill">
       <div class="cell bottom" style="width:200px;">
@@ -255,15 +300,15 @@ a {
       <div>
         <div class="panel-header green">&raquo; Top Ten</div>
         <div class="panel-body green">
-          <div>
+          <div id="top_ten_holder">
             <?php foreach ($topTen as $comic) : ?>
               <?php 
       	        $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
               ?>
-              <img src="<?php echo $path; ?>" width="54" />
+              <img class="top_ten" src="<?php echo $path; ?>" width="54" comic="<?php echo $comic; ?>" />
             <?php endforeach; ?>
           </div>
-          <div class="rounded pad-5" style="background-color:#fff;">asdfasdkfjasodfj</div>   
+          <div id="top_ten_description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>   
         </div>
       </div>
       <div class="push-top">
