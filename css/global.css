@@ -1,0 +1,147 @@
+* {
+  padding:0;
+  margin:0;
+}
+body {
+  font-family:Helvetica;
+}
+h1 {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:32px;
+}
+h2 {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:30px;
+  color:rgb(69,180,185);
+}
+h4 {
+  font-family:helvetica;
+  font-size:12pt;
+  color:rgb(0,133,118);
+}
+a {
+  text-decoration:none;
+  color: #000;
+}
+#main {
+  width:960px;
+}
+#header {
+  padding:10px;
+  margin-bottom:10px;
+}
+.rounded {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+/* TABLE STUFF */
+.table {
+  display:table;
+}
+.cell { 
+  display:table-cell;
+}
+
+/* SPACING */
+.fill {
+  width:100%;
+}
+.pad {
+  padding:10px;
+}
+.pad-5 {
+  padding:5px;
+}
+.centered {
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ALIGNMENT */
+.left {
+  text-align:left;
+}
+.right {
+  text-align:right;
+}
+.center {
+  text-align:center;
+}
+.bottom {
+  vertical-align:bottom;
+}
+.top {
+  vertical-align:top;
+}
+.middle {
+  vertical-align:middle;
+}
+
+/* PANEL STUFF */
+.panel-header {
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+  padding:5px;
+  font-family:helvetica;
+  font-weight:bold;
+  font-size:10pt;
+  width:200px;
+}
+
+.panel-header-right {
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+  padding:5px;
+  font-family:helvetica;
+  font-weight:bold;
+  font-size:10pt;
+  width:200px;
+  margin-left:auto;
+}
+
+.panel-body {
+  -webkit-border-radius: 10px;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-radius: 10px;
+  -moz-border-radius-topleft: 0px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;  
+  padding:10px;
+}
+
+.panel-body-right {
+  -webkit-border-radius: 10px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-radius: 10px;
+  -moz-border-radius-topright: 0px;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  padding:10px;
+}
+
+.yellow {
+  background-color:rgb(255,230,102);
+}
+.green {
+  background-color:rgb(174,230,1);
+}
+
+.push-top {
+  margin-top:10px;
+}
+
+.push-bottom { 
+  margin-bottom:10px;
+}
