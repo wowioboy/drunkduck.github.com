@@ -16,7 +16,6 @@ on u.user_id = c.user_id
 order by last_update desc 
 limit 10";
 $latestUpdates = $db->fetchAll($query);
-
 $query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
 from comics c 
 inner join users u 
@@ -151,6 +150,7 @@ $(document).ready(function(){
             <h1><?php echo $entry['title']; ?></h1>
             <h4>posted by <?php echo $entry['author']; ?></h4>
             <p><?php echo $entry['body']; ?></p>
+
           </div>
           <?php endforeach; ?>
         </div>
