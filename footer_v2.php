@@ -1,3 +1,4 @@
+</div>
 <div class="cell top">
       <div id="loginbox" class="pad">
         <div>

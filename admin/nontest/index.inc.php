@@ -16,7 +16,7 @@ if ( $_GET['filter'] )
     ?>
     <tr>
       <td align="center">
-        <img src="http://www.drunkduck.com/nontest/entries/1/<?=$row->id?>.<?=$row->image_ext?>">
+        <img src="/nontest/entries/1/<?=$row->id?>.<?=$row->image_ext?>">
         <br>
         <a href="<?=$_SERVER['PHP_SELF']?>?filter=1&filterout=<?=$row->id?>">Remove Entry</a>
         <br>

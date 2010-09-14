@@ -19,7 +19,7 @@ include_once(WWW_ROOT.'/tutorials/tutorials_tracking.inc.php');
         <table border="0" cellpadding="0" cellspacing="10" width="100%">
           <tr>
             <td align="center">
-              <a href="http://www.drunkduck.com/tutorials/view.php?id=11"><img src="http://images.drunkduck.com/tutorials/content/1/1/11_47_thumb.jpg" border="0"></a>
+              <a href="/tutorials/view.php?id=11"><img src="http://images.drunkduck.com/tutorials/content/1/1/11_47_thumb.jpg" border="0"></a>
               <br>
               <b>Drawing the Ozone way!</b>
               <br>
@@ -28,7 +28,7 @@ include_once(WWW_ROOT.'/tutorials/tutorials_tracking.inc.php');
               </font>
             </td>
             <td align="center">
-              <a href="http://www.drunkduck.com/tutorials/view.php?id=12"><img src="http://images.drunkduck.com/tutorials/content/1/2/12_52_thumb.jpg" border="0"></a>
+              <a href="/tutorials/view.php?id=12"><img src="http://images.drunkduck.com/tutorials/content/1/2/12_52_thumb.jpg" border="0"></a>
               <br>
               <b>Creating Rain Effects</b>
               <br>

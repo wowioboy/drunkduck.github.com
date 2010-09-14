@@ -36,7 +36,7 @@
 	margin: 0;
 	vertical-align: bottom;
 	overflow: hidden;
-	background: #000 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
+	background: #000 url(/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
 	border-left: 2px solid #000;
 	border-right: 2px solid #000;
 }
@@ -48,7 +48,7 @@
 	margin: 0;
 	vertical-align: bottom;
 	overflow: hidden;
-	background: #000 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
+	background: #000 url(/gfx/site_gfx_new_v2/interview_images/inthdrbg.png);
 	border-left: 2px solid #000;
 	border-right: 2px solid #000;
 	border-bottom: 2px solid #000;
@@ -105,12 +105,12 @@
 	margin: 0 auto;
 	padding: 0;
 	width: 360px;
-	/* background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/newscol_bg.png) repeat-y center; */
+	/* background: url(/gfx/site_gfx_new_v2/interview_images/newscol_bg.png) repeat-y center; */
 	text-align: left;
 }
 
 .col_content {
-	/* background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/newscol_top.png) repeat-x top center; */
+	/* background: url(/gfx/site_gfx_new_v2/interview_images/newscol_top.png) repeat-x top center; */
 	padding: 10px;
 	margin: 0 10px;
 	text-align: left;
@@ -121,7 +121,7 @@
 }
 
 #videoad {
-	background: #4c4c4c url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/advbug.png) no-repeat center top;
+	background: #4c4c4c url(/gfx/site_gfx_new_v2/interview_images/advbug.png) no-repeat center top;
 	border: 1px dotted #666;
 	padding: 20px 4px 4px;
 	margin-left: 20px;
@@ -182,19 +182,19 @@
 	margin: 10px auto;
 	padding: 0;
 	width: 760px;
-	background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/widecol_bg.png) repeat-y center;
+	background: url(/gfx/site_gfx_new_v2/interview_images/widecol_bg.png) repeat-y center;
 	text-align: left;
 }
 
 .widecol_content {
-	background: url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/widecol_top.png) repeat-x top center;
+	background: url(/gfx/site_gfx_new_v2/interview_images/widecol_top.png) repeat-x top center;
 	padding: 10px;
 	margin: 0 20px;
 	text-align: left;
 }
 
 #interviewpage {
-	background:  #f8d689 url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/int_bg.png) repeat-x 0 top;
+	background:  #f8d689 url(/gfx/site_gfx_new_v2/interview_images/int_bg.png) repeat-x 0 top;
 	margin: -8px 0 0 0;
 	padding: 20px;
 }
@@ -206,7 +206,7 @@
 }
 
 #contentpage {
-	background: #ccc url(http://www.drunkduck.com/gfx/site_gfx_new_v2/interview_images/page_bg.png) repeat-x 0 top;
+	background: #ccc url(/gfx/site_gfx_new_v2/interview_images/page_bg.png) repeat-x 0 top;
 	margin: -8px 0 0 0;
 	padding: 20px;
 }

@@ -31,7 +31,7 @@
 <META NAME="robots" CONTENT="index,follow">
 <script src="/__utm.js" type="text/javascript"></script>
 <title>DrunkDuck: The Webcomics Community - <?=$TITLE?></title>
-<link href="http://www.drunkduck.com/gfx/site_gfx_new_v3/ddstyles.css?cache=<?=date("Ymd")?>" rel="stylesheet" type="text/css" />
+<link href="/gfx/site_gfx_new_v3/ddstyles.css?cache=<?=date("Ymd")?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?=HTTP_JAVASCRIPT?>/modal/css/modal-message.css?cache=<?=date("Ymd")?>" type="text/css">
 <script type="text/javascript" src="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js?cache=<?=date("Ymd")?>"></script>
 <script type="text/javascript" src="<?=HTTP_JAVASCRIPT?>/commonJS.js?cache=<?=date("Ymd")?>"></script>
@@ -237,7 +237,7 @@
                   {
                     $('ddcam').style.display  = '';
                     $('ddcam').innerHTML      = '<embed src="http://player.stickam.com/stickamPlayer/174625835-2743920" type="application/x-shockwave-flash" width="300" height="300" scale="exactfit" allowScriptAccess="always" allowFullScreen="true"></embed>'+
-                                                '<div align="center"><a href="http://www.drunkduck.com/community/view_topic.php?tid=39951&cid=226" target="_blank">Discuss in the forum</a></div>';
+                                                '<div align="center"><a href="/community/view_topic.php?tid=39951&cid=226" target="_blank">Discuss in the forum</a></div>';
 					document.DDCam.src='<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif';
                   }
                   else {

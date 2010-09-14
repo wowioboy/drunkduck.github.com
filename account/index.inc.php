@@ -1,5 +1,5 @@
 <?
-header("Location: http://www.drunkduck.com/account/overview/");
+header("Location: /account/overview/");
 
 if ( $USER->username == 'Volte6' ) {
   include(WWW_ROOT.'/account/index_v2.inc.php');

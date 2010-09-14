@@ -32,7 +32,7 @@ $PASSABLES['comic_id'] = (int)( isset($_GET['comic_id']) ? $_GET['comic_id'] : $
 if ( $PASSABLES['comic_id'] == 0 ) unset( $PASSABLES['comic_id'] );
 
 if ( $PASSABLES['comic_id'] == 15069 ) {
-  ?><img src="http://www.drunkduck.com/track_bug.php" width="1" height="1"><?
+  ?><img src="/track_bug.php" width="1" height="1"><?
 }
 
 

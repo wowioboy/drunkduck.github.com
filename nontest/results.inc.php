@@ -39,7 +39,7 @@
   <tr>
     <td bg color="" align="center"><b>Jim McLauchlin</b><br><i>Editor In Chief, Platinum Studios</i></td>
   </tr>
-    <td bg color="" align="center"><?=username('Brandonyu2000')?><BR> <img src="http://www.drunkduck.com/nontest/entries/1/10.gif"></td>
+    <td bg color="" align="center"><?=username('Brandonyu2000')?><BR> <img src="/nontest/entries/1/10.gif"></td>
   </tr>
   <tr>
     <td bg color="" align="center">"Reminds me of the first time I met my wife..."</td>
@@ -55,7 +55,7 @@
     <td bg color="" align="center"><b>Volte6</b><br><i>Grand Poobah</i></td>
   </tr>
   <tr>
-    <td bg color="" align="center"><?=username('Mr Mustard Seed')?><BR> <img src="http://www.drunkduck.com/nontest/entries/1/22.png"></td>
+    <td bg color="" align="center"><?=username('Mr Mustard Seed')?><BR> <img src="/nontest/entries/1/22.png"></td>
   </tr>
   <tr>
     <td bg color="" align="center">"Oooo so preettty!"</td>
@@ -71,7 +71,7 @@
     <td bg color="" align="center"><b>Ann Goth</b><br><i>Senior Editor, Platinum Studios</i></td>
   </tr>
   <tr>
-    <td bg color="" align="center"><?=username('shisno15')?><BR><img src="http://www.drunkduck.com/nontest/entries/1/33.png"></td>
+    <td bg color="" align="center"><?=username('shisno15')?><BR><img src="/nontest/entries/1/33.png"></td>
   </tr>
   <tr>
     <td bg color="" align="center">"The hearts candy one, because it’s cute and witty. The end."</td>
@@ -87,7 +87,7 @@
     <td bg color="" align="center"><b>Creepy Carly</b><br><i>Scary Lady</i></td>
   </tr>
   <tr>
-    <td bg color="" align="center"><?=username('coolio')?><BR><img src="http://www.drunkduck.com/nontest/entries/1/9.jpg"></td>
+    <td bg color="" align="center"><?=username('coolio')?><BR><img src="/nontest/entries/1/9.jpg"></td>
   </tr>
   <tr>
     <td bg color="" align="center">"My friend Daniella says "Que pasa Contigo" means What's up with you!<br>I love this artist's style and how odd and cute the whole thing is!"</td>

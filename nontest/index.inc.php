@@ -103,6 +103,6 @@ We will also display 4 “Judges Choice” who will have their art displayed on 
 
  <BR><bR>
 
-Now get to it! Send any questions via <a href="http://www.drunkduck.com/community/message/author.php?to=dragonlova">PQ to Dragonlova</a>.</center>
+Now get to it! Send any questions via <a href="/community/message/author.php?to=dragonlova">PQ to Dragonlova</a>.</center>
 </TD></TR></TABLE>
 </div>

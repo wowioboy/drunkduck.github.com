@@ -38,11 +38,7 @@ limit 2";
 $news = $db->fetchAll($query);
 ?>
 <style>
-#slideshow img {
-  float:right;
-  clear:none;
-  padding: 0 2px 0 2px;
-}
+
 .post {
 	padding:10px;
 }
@@ -80,16 +76,7 @@ $(document).ready(function(){
   $('#latest-update-holder').mouseleave(function(){
     $('#latest-update-description').slideUp();
   });
-	$('#slideshow').cycle({ 
-	    fx:      'scrollHorz', 
-	    timeout: 0 
-	});
-	$('#next_button').click(function(){
-		$('#slideshow').cycle('next');
-	});
-	$('#prev_button').click(function(){
-		$('#slideshow').cycle('prev');
-	});
+	
 });
 </script>
 
@@ -99,7 +86,7 @@ $(document).ready(function(){
           <div id="top-ten-holder">
             <?php foreach ((array) $topTen as $comic) : ?>
               <?php 
-      	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+      	        $path = '/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
               ?>
               <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
             <?php endforeach; ?>
@@ -113,7 +100,7 @@ $(document).ready(function(){
           <div id="most-liked-holder">
             <?php foreach ((array) $mostLiked as $comic) : ?>
               <?php 
-                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+                $path = '/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
               ?>
               <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
             <?php endforeach; ?>
@@ -127,7 +114,7 @@ $(document).ready(function(){
           <div id="latest-update-holder">
             <?php foreach ((array) $latestUpdates as $comic) : ?>
               <?php 
-                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+                $path = '/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
               ?>
               <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
             <?php endforeach; ?>
@@ -155,6 +142,6 @@ $(document).ready(function(){
           <?php endforeach; ?>
         </div>
       </div>
-    </div>
+    
     
 <?php require_once('footer_v2.php'); ?>

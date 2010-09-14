@@ -21,7 +21,7 @@
     if (date("Ymd",$COMICS[$inNeed]->last_update)==YMD) {
       $extra = ' *';
     }
-    ?><p><img src="<?=IMAGE_HOST_SITE_GFX?>/genre_icons/<?=$COMICS[$inNeed]->category?>.gif" alt="Genre: <?=$COMIC_CATS[$COMICS[$inNeed]->category]?>" width="12" height="12" /> <a href="http://www.drunkduck.com/<?=comicNameToFolder($COMICS[$inNeed]->comic_name)?>"><?=$COMICS[$inNeed]->comic_name.$extra?></a></p><?
+    ?><p><img src="<?=IMAGE_HOST_SITE_GFX?>/genre_icons/<?=$COMICS[$inNeed]->category?>.gif" alt="Genre: <?=$COMIC_CATS[$COMICS[$inNeed]->category]?>" width="12" height="12" /> <a href="/<?=comicNameToFolder($COMICS[$inNeed]->comic_name)?>"><?=$COMICS[$inNeed]->comic_name.$extra?></a></p><?
   }
   ?>
 </div>

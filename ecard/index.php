@@ -105,23 +105,23 @@ a {color:#300; font-weight:bold; text-decoration:none;}
             Dragonlova, Mojo, darthmoridin</span></p>
       <p>&nbsp;</p>
       <p class="style5">Artwork by John Daiker<br>
-      aka <a href="http://www.drunkduck.com/user_lookup.php?u=Cindermain">Cindermain</a></p>
+      aka <a href="/user_lookup.php?u=Cindermain">Cindermain</a></p>
       <p class="style3">animation by darthmoridin<br>
       music by Andre Devon Magone </p>
       <p class="style3">&nbsp;</p>
       <p><span class="style5">Special thanks to</span><br>
           <span class="style4">(Back row standing)</span><br>
-          <span class="style5">Ronson &#8211; <a href="http://www.drunkduck.com/The_Gods_of_ArrKelaan/" target="_blank">&#8220;The Gods of Arrkelaan&#8221;</a><br>
-          djcoffman &#8211; <a href="http://www.drunkduck.com/Hero_By_Night_Diaries/" target="_blank">&#8220;Hero By Night Diaries&#8221;</a> <br>
-          Inkmonkey &#8211; <a href="http://www.drunkduck.com/Elijah_and_Azuu/" target="_blank">&#8220;Elijah and Azuu&#8221;</a><br>
-          Aywren &#8211; <a href="http://www.drunkduck.com/Shimmer/index.php" target="_blank">&#8220;Shimmer&#8221;</a><br>
-        TRS &#8211; <a href="http://www.drunkduck.com/Vreakerz/" target="_blank">&#8220;Vreakers&#8221;</a></span><br>
+          <span class="style5">Ronson &#8211; <a href="/The_Gods_of_ArrKelaan/" target="_blank">&#8220;The Gods of Arrkelaan&#8221;</a><br>
+          djcoffman &#8211; <a href="/Hero_By_Night_Diaries/" target="_blank">&#8220;Hero By Night Diaries&#8221;</a> <br>
+          Inkmonkey &#8211; <a href="/Elijah_and_Azuu/" target="_blank">&#8220;Elijah and Azuu&#8221;</a><br>
+          Aywren &#8211; <a href="/Shimmer/index.php" target="_blank">&#8220;Shimmer&#8221;</a><br>
+        TRS &#8211; <a href="/Vreakerz/" target="_blank">&#8220;Vreakers&#8221;</a></span><br>
   <span class="style4">(Front row sitting)</span> <BR>
-        <span class="style5">Cheeko &#8211; <a href="http://www.drunkduck.com/One_Question/" target="_blank">&#8220;One Question&#8221;</a><br>
-        Amelius &#8211; <a href="http://www.drunkduck.com/Charby_the_Vampirate/" target="_blank">&#8220;Charby the Vampirate&#8221;</a><BR>
-        Hawk &#8211; <a href="http://www.drunkduck.com/Culture_Shock/" target="_blank">&#8220;Culture Shock&#8221;</a><br>
-        ZoeStead &#8211; <a href="http://www.drunkduck.com/The_WAVAM_Project/" target="_blank">&#8220;WAVAAM Project&#8221;</a><br>
-        Eviltwinpixie &#8211; <a href="http://www.drunkduck.com/Grog/" target="_blank">&#8220;Grog&#8221;</a><br>
+        <span class="style5">Cheeko &#8211; <a href="/One_Question/" target="_blank">&#8220;One Question&#8221;</a><br>
+        Amelius &#8211; <a href="/Charby_the_Vampirate/" target="_blank">&#8220;Charby the Vampirate&#8221;</a><BR>
+        Hawk &#8211; <a href="/Culture_Shock/" target="_blank">&#8220;Culture Shock&#8221;</a><br>
+        ZoeStead &#8211; <a href="/The_WAVAM_Project/" target="_blank">&#8220;WAVAAM Project&#8221;</a><br>
+        Eviltwinpixie &#8211; <a href="/Grog/" target="_blank">&#8220;Grog&#8221;</a><br>
         </span><span class="style3">for their permission and participation.</span></p>
       <p><span class="style4"><br>
     </span></p></td>

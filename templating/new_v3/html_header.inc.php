@@ -31,7 +31,7 @@
 <META NAME="robots" CONTENT="index,follow">
 <script src="/__utm.js" type="text/javascript"></script>
 <title>DrunkDuck: The Webcomics Community - <?=$TITLE?></title>
-<link href="http://www.drunkduck.com/gfx/site_gfx_new_v3/ddstyles.css?cache=<?=date("YmdhIs")?>" rel="stylesheet" type="text/css" />
+<link href="/gfx/site_gfx_new_v3/ddstyles.css?cache=<?=date("YmdhIs")?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<?=HTTP_JAVASCRIPT?>/modal/css/modal-message.css?cache=<?=date("Ymd")?>" type="text/css">
 <script type="text/javascript" src="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js?cache=<?=date("YmdhIs")?>"></script>
 <script type="text/javascript" src="<?=HTTP_JAVASCRIPT?>/commonJS.js?cache=<?=date("Ymd")?>"></script>
@@ -40,12 +40,12 @@
 <script type="text/javascript" src="<?=HTTP_JAVASCRIPT?>/modal/js/ajax-dynamic-content.js?cache=<?=date("Ymd")?>"></script>
 
 <!-- DAN ADDED THESE -->
-<link rel="stylesheet" href="http://www.drunkduck.com/css/jquery/cupertino/jquery-ui-1.8.1.custom.css" />
-<link rel="stylesheet" href="http://www.drunkduck.com/css/uploadify/uploadify.css" />
-<script src="http://www.drunkduck.com/js/jquery/jquery-1.4.2.min.js"></script>
-<script src="http://www.drunkduck.com/js/jquery/jquery-ui-1.8.1.custom.min.js"></script>
-<script src="http://www.drunkduck.com/js/uploadify/swfobject.js"></script>
-<script src="http://www.drunkduck.com/js/uploadify/jquery.uploadify.js"></script>
+<link rel="stylesheet" href="/css/jquery/cupertino/jquery-ui-1.8.1.custom.css" />
+<link rel="stylesheet" href="/css/uploadify/uploadify.css" />
+<script src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script src="/js/jquery/jquery-ui-1.8.1.custom.min.js"></script>
+<script src="/js/uploadify/swfobject.js"></script>
+<script src="/js/uploadify/jquery.uploadify.js"></script>
 <script>
 // VERY IMPORTANT TO MAKE SURE THAT JQUERY DOESNT SCREW UP CURRENT JS FRAMEWORK
 jQuery.noConflict();
@@ -251,7 +251,7 @@ jQuery.noConflict();
                   {
                     $('ddcam').style.display  = '';
                     $('ddcam').innerHTML      = '<embed src="http://player.stickam.com/stickamPlayer/174625835-2743920" type="application/x-shockwave-flash" width="300" height="300" scale="exactfit" allowScriptAccess="always" allowFullScreen="true"></embed>'+
-                                                '<div align="center"><a href="http://www.drunkduck.com/community/view_topic.php?tid=39951&cid=226" target="_blank">Discuss in the forum</a></div>';
+                                                '<div align="center"><a href="/community/view_topic.php?tid=39951&cid=226" target="_blank">Discuss in the forum</a></div>';
 					document.DDCam.src='<?=IMAGE_HOST?>/site_gfx_new_v3/expand_arrow.gif';
                   }
                   else {
