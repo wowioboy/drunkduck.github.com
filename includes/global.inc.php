@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 if ( false )
 {
@@ -19,16 +19,16 @@ if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '2
 
 define('PLATINUM_OWNED', 1);
 
-if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' )
+if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || $_SERVER['HTTP_HOST'] == 'localhost' )
 {
   define('DEBUG_MODE',      1);
 
   // The document root of the website.
-  define('WWW_ROOT',        realpath('./'));
+  define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
-  define('COOKIE_DOMAIN',   '.linuxdev1');
+  define('COOKIE_DOMAIN',   '.'.$_SERVER['HTTP_HOST']);
   // The domain.
-  define('DOMAIN',          'linuxdev1');
+  define('DOMAIN',          $_SERVER['HTTP_HOST']);
 }
 else
 {
@@ -37,7 +37,7 @@ else
   }
 
   // The document root of the website.
-  define('WWW_ROOT',        realpath('./'));
+  define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
   define('COOKIE_DOMAIN',   '.drunkduck.com');
   // The domain.
@@ -126,6 +126,6 @@ if ( !defined('FLAG_IS_ADMIN') ) {
 require_once(PACKAGES.'/pagetrack_package/load.inc.php');
 
 
-error_reporting( E_ERROR | E_PARSE );
+//error_reporting( E_ERROR | E_PARSE );
 //error_reporting( 0 );
 ?>

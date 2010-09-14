@@ -1,9 +1,5 @@
-* {
-  padding:0;
-  margin:0;
-}
 body {
-  font-family:Helvetica;
+  background-color: #337733;
 }
 h1 {
   font-family:'Yanone Kaffeesatz';
@@ -24,13 +20,6 @@ h4 {
 a {
   text-decoration:none;
   color: #000;
-}
-#main {
-  width:960px;
-}
-#header {
-  padding:10px;
-  margin-bottom:10px;
 }
 .rounded {
   -webkit-border-radius: 10px;
@@ -118,12 +107,4 @@ a {
 
 .canary {
   background-color:rgb(255,240,170);
-}
-
-.push-top {
-  margin-top:10px;
-}
-
-.push-bottom { 
-  margin-bottom:10px;
 }

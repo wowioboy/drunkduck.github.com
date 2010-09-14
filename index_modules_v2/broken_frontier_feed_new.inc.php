@@ -32,7 +32,7 @@ $latest_headlines = '';
 
  .newsfeedstory_bfnews {
 	padding: 4px;
-	background-image: url(http://www.drunkduck.com/zachp/v2/comp_images/bg_grad.png);
+	background-image: url(/zachp/v2/comp_images/bg_grad.png);
 	background-repeat: repeat-x;
 	background-color: #000000;
 	border-bottom-width: 1px;

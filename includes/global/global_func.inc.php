@@ -537,13 +537,13 @@ dc.writeln('</iframe>'); // --></script><noscript>
 width=468 height=60 border=1></a></noscript>
 <!-- FASTCLICK.COM 468x60 Banner v1.4 for drunkduck.com -->".$RET_EXTRA.$RET_END;
     case "cat":
-      return "<A HREF='http://www.lulu.com/content/221840' TARGET='_parent'><IMG SRC='http://www.drunkduck.com/gfx/cat_banner.png' BORDER='0'></A>".$RET_EXTRA;
+      return "<A HREF='http://www.lulu.com/content/221840' TARGET='_parent'><IMG SRC='/gfx/cat_banner.png' BORDER='0'></A>".$RET_EXTRA;
     break;
     case "ethanku":
-      return "<A HREF='http://www.ethanku.com' TARGET='_parent'><IMG SRC='http://www.drunkduck.com/gfx/ethanku_banner.jpg' BORDER='0'></A>".$RET_EXTRA;
+      return "<A HREF='http://www.ethanku.com' TARGET='_parent'><IMG SRC='/gfx/ethanku_banner.jpg' BORDER='0'></A>".$RET_EXTRA;
     break;
     case "ronson":
-      return "<A HREF='http://www.rmcomics.com/Store/A_-_Graphic_Novels_and_Collections.html' TARGET='_parent'><IMG SRC='http://www.drunkduck.com/The_Gods_of_ArrKelaan/gfx/GOAMLBANNER.jpg' BORDER='0'></A>".$RET_EXTRA;
+      return "<A HREF='http://www.rmcomics.com/Store/A_-_Graphic_Novels_and_Collections.html' TARGET='_parent'><IMG SRC='/The_Gods_of_ArrKelaan/gfx/GOAMLBANNER.jpg' BORDER='0'></A>".$RET_EXTRA;
     break;
     default:
       return $RET_START."<!-- FASTCLICK.COM 468x60 Banner v1.4 for drunkduck.com -->

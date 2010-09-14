@@ -13,7 +13,7 @@ $rss_array = array(
                    "language"=>"en-us",
                    "title"=>"DrunkDuck.com Games", // This field is mandatory
                    "description"=>"A list of DrunkDuck Games to pull.", // This field is mandatory
-                   "link"=>"http://www.drunkduck.com/games/", // This field is mandatory
+                   "link"=>"/games/", // This field is mandatory
                    "items"=>array()
                   );
 

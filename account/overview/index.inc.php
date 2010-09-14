@@ -59,7 +59,7 @@ db_free_result($res);
             <td colspan="2" align="left" class="community_hdr"><a name="karma" id="karma"></a>The Duck Notifier:</td>
           </tr>
           <tr>
-            <td colspan="2" align="left" bgcolor="#FFFFFF"><p align="center"><a href="http://www.drunkduck.com/downloads.php"><img src="http://www.drunkduck.com/gfx/site_gfx/DuckNotifier.jpg" border="0"></a></p>
+            <td colspan="2" align="left" bgcolor="#FFFFFF"><p align="center"><a href="/downloads.php"><img src="/gfx/site_gfx/DuckNotifier.jpg" border="0"></a></p>
               <p>Get notified from your Windows desktop when your favorites get updated! Also track how many people have favorited your comics! <span class="helpnote">(Requires Windows 2000 or XP and Microsoft .NET Framework) </span></p>
             </td>
           </tr>

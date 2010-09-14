@@ -9,7 +9,7 @@ return;
 
   <p>&nbsp;</p>
 
-  <div align="center"><a href="http://www.drunkduck.com/community/view_topic.php?cid=226&tid=30032">Discuss the DuckCam HERE</a></div>
+  <div align="center"><a href="/community/view_topic.php?cid=226&tid=30032">Discuss the DuckCam HERE</a></div>
 
   <p>&nbsp;</p>
 

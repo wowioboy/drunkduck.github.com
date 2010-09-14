@@ -17,11 +17,11 @@
       {
         if (date("Ymd",$COMICS[$inNeed]->last_update)==YMD)
         {
-          echo '<p><img src="'.IMAGE_HOST.'/site_gfx_new/genre_icons/'.$COMICS[$inNeed]->category.'.gif" alt="Genre: '.$COMIC_CATS[$COMICS[$inNeed]->category].'" width="12" height="12" /> <a href="http://www.drunkduck.com/'.comicNameToFolder($COMICS[$inNeed]->comic_name).'/">'.$COMICS[$inNeed]->comic_name.' *</a></p>';
+          echo '<p><img src="'.IMAGE_HOST.'/site_gfx_new/genre_icons/'.$COMICS[$inNeed]->category.'.gif" alt="Genre: '.$COMIC_CATS[$COMICS[$inNeed]->category].'" width="12" height="12" /> <a href="/'.comicNameToFolder($COMICS[$inNeed]->comic_name).'/">'.$COMICS[$inNeed]->comic_name.' *</a></p>';
         }
         else 
         {
-          echo '<p><img src="'.IMAGE_HOST.'/site_gfx_new/genre_icons/'.$COMICS[$inNeed]->category.'.gif" alt="Genre: '.$COMIC_CATS[$COMICS[$inNeed]->category].'" width="12" height="12" /> <a href="http://www.drunkduck.com/'.comicNameToFolder($COMICS[$inNeed]->comic_name).'/">'.$COMICS[$inNeed]->comic_name.'</a></p>';
+          echo '<p><img src="'.IMAGE_HOST.'/site_gfx_new/genre_icons/'.$COMICS[$inNeed]->category.'.gif" alt="Genre: '.$COMIC_CATS[$COMICS[$inNeed]->category].'" width="12" height="12" /> <a href="/'.comicNameToFolder($COMICS[$inNeed]->comic_name).'/">'.$COMICS[$inNeed]->comic_name.'</a></p>';
         }
       }
     ?>

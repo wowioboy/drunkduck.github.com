@@ -132,7 +132,7 @@ function addUpload()
 $PADDING = 20;
 ?>
   <DIV ALIGN='LEFT' STYLE='PADDING-LEFT:<?=$PADDING?>px;'>
-    <B><U>http://www.drunkduck.com/<?=$FOLDER_NAME?>/gfx/</U></B>
+    <B><U>/<?=$FOLDER_NAME?>/gfx/</U></B>
   </DIV>
 
   <?
@@ -166,7 +166,7 @@ $PADDING = 20;
   ?>
   <P>&nbsp;</P>
   <DIV ALIGN='LEFT' STYLE='PADDING-LEFT:<?=$PADDING?>px;'>
-    <B><U>http://www.drunkduck.com/<?=$FOLDER_NAME?>/html/</U></B>
+    <B><U>/<?=$FOLDER_NAME?>/html/</U></B>
   </DIV>
 
 

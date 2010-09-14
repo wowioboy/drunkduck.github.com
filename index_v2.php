@@ -1,5 +1,4 @@
-
- <?php require_once('header_v2.php'); ?>
+<?php require_once('header_v2.php'); ?>
 
 <?php
 $db = new DB();
@@ -39,15 +38,9 @@ limit 2";
 $news = $db->fetchAll($query);
 ?>
 <style>
-#slideshow img {
-  float:right;
-  clear:none;
-  padding: 0 2px 0 2px;
-}
 .post {
 	padding:10px;
 }
-
 </style>
 <script>
 $(document).ready(function(){
@@ -81,16 +74,7 @@ $(document).ready(function(){
   $('#latest-update-holder').mouseleave(function(){
     $('#latest-update-description').slideUp();
   });
-	$('#slideshow').cycle({ 
-	    fx:      'scrollHorz', 
-	    timeout: 0 
-	});
-	$('#next_button').click(function(){
-		$('#slideshow').cycle('next');
-	});
-	$('#prev_button').click(function(){
-		$('#slideshow').cycle('prev');
-	});
+	
 });
 </script>
 <div class="span-18">
@@ -154,16 +138,14 @@ $(document).ready(function(){
   </div>
   <div class="span-13 last">
     <?php foreach ($news as $entry) : ?>
-    
     <div class="post yellow">
       <h1><?php echo $entry['title']; ?></h1>
       <h4>posted by <?php echo $entry['author']; ?></h4>
       <p><?php echo $entry['body']; ?></p>
-
     </div>
     <hr class="space" />
     <?php endforeach; ?>
   </div>
 </div>
 
- <?php require_once('footer_v2.php'); ?>
+<?php require_once('footer_v2.php'); ?>

@@ -228,7 +228,7 @@ input.liteoption {
 	<tr>
 		<td class="bodyline"><table width="100%" cellspacing="0" cellpadding="0" border="0">
 			<tr>
-				<td><a href="{U_INDEX}"><IMG SRC='http://www.drunkduck.com/gfx/dd_logo.gif' ALT='We can rebuild him. We have the technology...'  vspace="1" BORDER='0'></a></td>
+				<td><a href="{U_INDEX}"><IMG SRC='/gfx/dd_logo.gif' ALT='We can rebuild him. We have the technology...'  vspace="1" BORDER='0'></a></td>
 				<td align="center" width="100%" valign="middle"><span class="maintitle">{SITENAME}</span><br /><span class="gen">{SITE_DESCRIPTION}<br />&nbsp; </span>
 <tt>ad</tt>
 

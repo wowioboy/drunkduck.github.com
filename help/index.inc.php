@@ -1,6 +1,6 @@
 <?
 // db_query("INSERT INTO help_questions (question_txt) VALUES ('I lost my password.')");
-// db_query("INSERT INTO help_answers (answer_txt) VALUES ('Click <A HREF=\"http://www.drunkduck.com/forgot_password.php\">here</A> and fill out the form. Your password will be mailed to you.')");
+// db_query("INSERT INTO help_answers (answer_txt) VALUES ('Click <A HREF=\"/forgot_password.php\">here</A> and fill out the form. Your password will be mailed to you.')");
 
 // db_query("INSERT INTO help_connectors (parent_question_id, answer_id) VALUES ('1', '1')");  
 

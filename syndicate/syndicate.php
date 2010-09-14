@@ -78,6 +78,6 @@ if ( urlTest.substr(0, allow.length) == allow ) {
   document.write('<a href="<?=$CLICK_URL?>"><img src="<?=$IMAGE_URL?>" border="0"></a>');
 }
 else {
-  document.write('<div style="width:400px;">The <a href="http://www.drunkduck.com">DRUNKDUCK.COM</a> syndication key you are using is invalid. '+
+  document.write('<div style="width:400px;">The <a href="/">DRUNKDUCK.COM</a> syndication key you are using is invalid. '+
                  'If you would like to get a valid key, please visit <a href="http://syndicate.drunkduck.com">syndicate.drunkduck.com</a></div>');
 }
