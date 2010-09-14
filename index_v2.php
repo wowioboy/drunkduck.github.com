@@ -1,4 +1,5 @@
-<?php require_once('header_v2.php'); ?>
+
+ <?php require_once('header_v2.php'); ?>
 
 <?php
 $db = new DB();
@@ -92,69 +93,77 @@ $(document).ready(function(){
 	});
 });
 </script>
-
-      <div>
-        <div class="panel-header green">&raquo; Top Ten</div>
-        <div class="panel-body green">
-          <div id="top-ten-holder">
-            <?php foreach ((array) $topTen as $comic) : ?>
-              <?php 
-      	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
-              ?>
-              <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
-            <?php endforeach; ?>
-          </div>
-          <div id="top-ten-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>   
-        </div>
-      </div>
-      <div class="push-top">
-        <div class="panel-header green">&raquo; Most Liked of The Week</div>
-        <div class="panel-body green">
-          <div id="most-liked-holder">
-            <?php foreach ((array) $mostLiked as $comic) : ?>
-              <?php 
-                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
-              ?>
-              <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
-            <?php endforeach; ?>
-          </div>
-          <div id="most-liked-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>
-        </div>
-      </div>
-      <div class="push-top">
-        <div class="panel-header green">&raquo; Latest Updates</div>
-        <div class="panel-body green">
-          <div id="latest-update-holder">
-            <?php foreach ((array) $latestUpdates as $comic) : ?>
-              <?php 
-                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
-              ?>
-              <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
-            <?php endforeach; ?>
-          </div>
-          <div id="latest-update-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>
-        </div>
-      </div>
-      <div class="push-top table fill">
-        <div class="cell top" style="width:200px;padding-right:10px;">
-          <div class="center">
-        spotlight
-          </div>
-          <div class="rounded" style="height:400px;border:2px solid rgb(174,230,1);">
-          </div>
-        </div>
-        <div class="cell top">
-          <?php foreach ($news as $entry) : ?>
-          
-          <div class="post yellow push-bottom">
-            <h1><?php echo $entry['title']; ?></h1>
-            <h4>posted by <?php echo $entry['author']; ?></h4>
-            <p><?php echo $entry['body']; ?></p>
-
-          </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
+<div class="span-18">
+  <div class="span-5 green panel-header">&raquo; Top Ten</div>
+</div>
+<div class="span-18">
+  <div class="span-18 green panel-body">
+    <div id="top-ten-holder">
+      <?php foreach ((array) $topTen as $comic) : ?>
+        <?php 
+	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+        ?>
+        <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+      <?php endforeach; ?>
     </div>
+    <div id="top-ten-description" class="rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>   
+  </div>
+</div>
+<hr class="space" />
+<div class="span-18">
+  <div class="span-5 green panel-header">&raquo; Most Liked of The Week</div>
+</div>
+<div class="span-18">
+  <div class="span-18 green panel-body">
+    <div id="most-liked-holder">
+      <?php foreach ((array) $mostLiked as $comic) : ?>
+        <?php 
+          $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+        ?>
+        <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+      <?php endforeach; ?>
+    </div>
+    <div id="most-liked-description" class="rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
+  </div>
+</div>
+<hr class="space" />
+<div class="span-18">
+  <div class="span-5 green panel-header">&raquo; Latest Updates</div>
+</div>
+<div class="span-18">
+  <div class="span-18 green panel-body">
+    <div id="latest-update-holder">
+      <?php foreach ((array) $latestUpdates as $comic) : ?>
+        <?php 
+          $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+        ?>
+        <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+      <?php endforeach; ?>
+    </div>
+    <div id="latest-update-description" class="rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
+  </div>
+</div>
+<hr class="space" />
+<div class="span-18">
+  <div class="span-5">
+    <div class="center">
+       spotlight
+    </div>
+    <div class="rounded" style="height:400px;border:2px solid rgb(174,230,1);">
+    </div>
+  </div>
+  <div class="span-13 last">
+    <?php foreach ($news as $entry) : ?>
     
-<?php require_once('footer_v2.php'); ?>
+    <div class="post yellow">
+      <h1><?php echo $entry['title']; ?></h1>
+      <h4>posted by <?php echo $entry['author']; ?></h4>
+      <p><?php echo $entry['body']; ?></p>
+
+    </div>
+    <hr class="space" />
+    <?php endforeach; ?>
+  </div>
+</div>
+
+ <?php require_once('footer_v2.php'); ?>

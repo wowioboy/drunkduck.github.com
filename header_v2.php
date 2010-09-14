@@ -20,12 +20,17 @@ $featured = $db->fetchCol($query);
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet'>
 <link href='css/global.css' rel='stylesheet'>
 <link href='css/layout.css' rel='stylesheet'>
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+<!--[if lt IE 8]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
 <script src="js/jquery/jquery-1.4.2.min.js"></script>
 <script src="js/jquery/cycle/jquery.cycle.all.js"></script>
 </head>
 <body>
-<div id="main" class="centered">
-  <div id="header" class="rounded green">
+<div class="container showgrid">
+  <div class="span-24 rounded green">
     <div style="display:inline-block;">
       <button id="prev_button">prev</button>
     </div>
@@ -74,5 +79,6 @@ $featured = $db->fetchCol($query);
       </div>
     </div>
   </div>
-  <div class="table fill">
-    <div id="content-left" class="cell pad top">
+  <hr class="space" />
+  <div class="span-24">
+    <div id="main-content" class="span-18 canary main-content">

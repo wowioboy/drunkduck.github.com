@@ -7,10 +7,7 @@
   font-weight:bold;
   font-size:24px;
 }
-#content-left {
-  background-color:rgb(255,240,170);
-  width:610px;
-  height:500px;
+.main-content {
   -webkit-border-top-left-radius: 10px;
   -webkit-border-top-right-radius: 0px;
   -webkit-border-bottom-right-radius: 10px;
