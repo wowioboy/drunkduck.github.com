@@ -55,10 +55,10 @@ $(document).ready(function(){
 <body>
 <div class="container showgrid">
   <div class="span-24 rounded green">
-    <div style="display:inline-block;">
+    <div style="float:left;">
       <button id="prev_button">prev</button>
     </div>
-    <div id="slideshow" style="display:inline-block;width:900px;">
+    <div id="slideshow" style="float:left;">
       <?php foreach ($featured as $i => $comic) : ?>
         <?php 
           $i++;
@@ -73,7 +73,7 @@ $(document).ready(function(){
         <?php endif; ?>
       <?php endforeach; ?>
     </div>
-    <div style="display:inline-block;">
+    <div style="float:left;">
       <button id="next_button">next</button>
     </div>
     <div id="topBar" class="table fill">
@@ -105,4 +105,4 @@ $(document).ready(function(){
   </div>
   <hr class="space" />
   <div class="span-24">
-    <div id="main-content" class="span-18 canary main-content">
+    <div id="main-content" class="span-16 canary main-content">

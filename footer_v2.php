@@ -1,20 +1,15 @@
     </div>
-    <div class="span-6 last">
-      <div id="loginbox" class="pad">
-        <div>
-          <div class="panel-header-right yellow center">
+    <div class="span-8 last">
+      <div id="loginbox" class="span-8 canary">
+        <div class="span-8">
+          <div class="span-3 panel-header yellow">
             <a href="">log out</a> | <a href="">help</a>
           </div>
-          <div class="panel-body-right yellow">
-            <div class="table fill">
-              <div class="cell">sdjfsjdfklsjd</div>
-              <div class="cell">
-                <h2>Hi, Yourname</h2>
-              </div>
-            </div>
-            <div class="drop-list rounded push-top">&raquo; my favorites</div>
-            <div class="drop-list rounded push-top">&raquo; my webcomics</div>
-          </div> 
+        </div>
+        <div class="span-8 panel-body-right yellow">
+          <h2>Hi, Yourname</h2>
+          <div class="drop-list rounded push-top">&raquo; my favorites</div>
+          <div class="drop-list rounded push-top">&raquo; my webcomics</div>
         </div>
       </div>
     </div>
