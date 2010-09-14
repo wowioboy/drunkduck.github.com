@@ -5,10 +5,49 @@ error_reporting(E_ALL);
 require_once('includes/db.class.php');
 
 $db = new DB();
-$latestUpdates = $db->fetchCol("select * from latest_updates");
-$mostLiked = $db->fetchCol("select * from most_liked");
-$topTen = $db->fetchCol("select * from top_ten");
-$featured = $db->fetchCol("select * from featured");
+$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+from comics c 
+inner join users u 
+on u.user_id = c.user_id
+order by visits desc 
+limit 10";
+$topTen = $db->fetchAll($query);
+$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+from comics c 
+inner join users u 
+on u.user_id = c.user_id
+order by last_update desc 
+limit 10";
+$latestUpdates = $db->fetchAll($query);
+$query = "select c.comic_name as title 
+from comics c 
+inner join featured_comics f 
+on f.comic_id = c.comic_id 
+where f.approved = '1'
+order by feature_id desc 
+limit 24";
+$featured = $db->fetchCol($query);
+$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+from comics c 
+inner join users u 
+on u.user_id = c.user_id
+left join comic_pages p 
+on p.comic_id = c.comic_id 
+right join page_likes l 
+on l.page_id = p.page_id 
+where l.date between now() - interval 1 week and now()
+group by title 
+order by count(1) desc
+limit 10";
+$mostLiked = $db->fetchAll($query);
+$query = "select b.title, u.username as author, b.body, from_unixtime(b.timestamp_date) as created_on
+from admin_blog b 
+left join users u 
+on u.user_id = b.user_id 
+order by created_on desc 
+limit 2";
+$news = $db->fetchAll($query);
+
 ?>
 <html>
 <head>
@@ -16,7 +55,6 @@ $featured = $db->fetchCol("select * from featured");
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet'>
 <script src="js/jquery/jquery-1.4.2.min.js"></script>
 <script src="js/jquery/cycle/jquery.cycle.all.js"></script>
-<!--<link rel="stylesheet" href="css/global.css" />-->
 <style>
 * {
 	padding:0;
@@ -162,6 +200,10 @@ a {
 	margin-top:10px;
 }
 
+.push-bottom { 
+	margin-bottom:10px;
+}
+
 /* homepage related */
 #topBar a {
 	text-decoration:none;
@@ -222,17 +264,36 @@ a {
 <body>
 <script>
 $(document).ready(function(){
-	$('.top_ten').live('mouseenter', function(){
-		var comic = $(this).attr('comic');
-		$.getJSON('ajax/comic_description.php', {comic: comic}, function(data) {
-			console.log(data);
-			var html = comic + '<br />' + data.description;
-			$('#top_ten_description').html(html).slideDown();
-		});
+  $('.top-ten-image').live('mouseenter', function(){
+  	var title = $(this).attr('title');
+		var description = $(this).attr('description');
+		var author = $(this).attr('author'); 
+		var html = title + ' by ' + author + '<br />' + description;
+		$('#top-ten-description').html(html).slideDown();
 	});
-	$('#top_ten_holder').mouseleave(function(){
-		$('#top_ten_description').slideUp();
+	$('#top-ten-holder').mouseleave(function(){
+		$('#top-ten-description').slideUp();
 	});
+	$('.most-liked-image').live('mouseenter', function(){
+    var title = $(this).attr('title');
+    var description = $(this).attr('description');
+    var author = $(this).attr('author'); 
+    var html = title + ' by ' + author + '<br />' + description;
+    $('#most-liked-description').html(html).slideDown();
+  });
+  $('#most-liked-holder').mouseleave(function(){
+    $('#most-liked-description').slideUp();
+  });
+  $('.latest-update-image').live('mouseenter', function(){
+    var title = $(this).attr('title');
+    var description = $(this).attr('description');
+    var author = $(this).attr('author'); 
+    var html = title + ' by ' + author + '<br />' + description;
+    $('#latest-update-description').html(html).slideDown();
+  });
+  $('#latest-update-holder').mouseleave(function(){
+    $('#latest-update-description').slideUp();
+  });
 	$('#slideshow').cycle({ 
 	    fx:      'scrollHorz', 
 	    timeout: 0 
@@ -259,7 +320,7 @@ $(document).ready(function(){
         <?php if ($i % 8 == 1) : ?>
           <div <?php echo ($i != 1) ? 'style="display:none;"' : ''; ?>>
         <?php endif; ?>  
-        <img src="<?php echo $path; ?>" />
+        <img src="<?php echo $path; ?>" width="100" />
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>
@@ -300,37 +361,43 @@ $(document).ready(function(){
       <div>
         <div class="panel-header green">&raquo; Top Ten</div>
         <div class="panel-body green">
-          <div id="top_ten_holder">
-            <?php foreach ($topTen as $comic) : ?>
+          <div id="top-ten-holder">
+            <?php foreach ((array) $topTen as $comic) : ?>
               <?php 
-      	        $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+      	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
               ?>
-              <img class="top_ten" src="<?php echo $path; ?>" width="54" comic="<?php echo $comic; ?>" />
+              <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
             <?php endforeach; ?>
           </div>
-          <div id="top_ten_description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>   
+          <div id="top-ten-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>   
         </div>
       </div>
       <div class="push-top">
         <div class="panel-header green">&raquo; Most Liked of The Week</div>
         <div class="panel-body green">
-        <?php foreach ($mostLiked as $comic) : ?>
-          <?php 
-      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
-      ?>
-      <img src="<?php echo $path; ?>" width="54" />
-        <?php endforeach; ?>
+          <div id="most-liked-holder">
+            <?php foreach ((array) $mostLiked as $comic) : ?>
+              <?php 
+                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+              ?>
+              <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+            <?php endforeach; ?>
+          </div>
+          <div id="most-liked-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>
         </div>
       </div>
       <div class="push-top">
         <div class="panel-header green">&raquo; Latest Updates</div>
         <div class="panel-body green">
-        <?php foreach ($latestUpdates as $comic) : ?>
-          <?php 
-      $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
-      ?>
-      <img src="<?php echo $path; ?>" width="54" />
-        <?php endforeach; ?>
+          <div id="latest-update-holder">
+            <?php foreach ((array) $latestUpdates as $comic) : ?>
+              <?php 
+                $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+              ?>
+              <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+            <?php endforeach; ?>
+          </div>
+          <div id="latest-update-description" class="rounded pad-5" style="background-color:#fff;display:none;">asdfasdkfjasodfj</div>
         </div>
       </div>
       <div class="push-top table fill">
@@ -342,14 +409,14 @@ $(document).ready(function(){
           </div>
         </div>
         <div class="cell top">
-          <div class="post yellow">
-            <h1>blog stuff 1</h1>
-            <h4>posted by Author Name</h4>
+          <?php foreach ($news as $entry) : ?>
+          
+          <div class="post yellow push-bottom">
+            <h1><?php echo $entry['title']; ?></h1>
+            <h4>posted by <?php echo $entry['author']; ?></h4>
+            <p><?php echo $entry['body']; ?></p>
           </div>
-          <div class="post yellow push-top">
-            <h1>blog stuff 2</h1>
-            <h4>posted by Author Name</h4>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
