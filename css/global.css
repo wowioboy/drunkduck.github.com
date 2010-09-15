@@ -108,3 +108,7 @@ a {
 .canary {
   background-color:rgb(255,240,170);
 }
+
+.post {
+  padding:10px;
+}

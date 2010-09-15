@@ -37,11 +37,6 @@ order by created_on desc
 limit 2";
 $news = $db->fetchAll($query);
 ?>
-<style>
-.post {
-	padding:10px;
-}
-</style>
 <script>
 $(document).ready(function(){
   $('.top-ten-image').live('mouseenter', function(){
@@ -142,6 +137,8 @@ $(document).ready(function(){
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
       <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
+      <br />
+      <span><?php echo $entry['created_on']; ?></span>
       <p><?php echo $entry['body']; ?></p>
     </div>
     <hr class="space" />

@@ -1,0 +1,104 @@
+<?php require_once('header_v2.php'); ?>
+
+<?php
+$db = new DB();
+$query = "select b.title, u.username as author, b.body, from_unixtime(b.timestamp_date) as created_on
+from admin_blog b 
+left join users u 
+on u.user_id = b.user_id 
+order by created_on desc 
+limit 5";
+$news = $db->fetchAll($query);
+$query = "select count(1) from admin_blog";
+$newsCount = $db->fetchOne($query);
+?>
+<script>
+var pager = 0;
+var pager_max = <?php echo $newsCount; ?>;
+var search = '';
+  
+$(document).ready(function(){
+  $('.expand-button').live('click', function(){
+    var entry = $(this).attr('entry');
+    var p = $('p[entry=' + entry + ']');
+    if (p.css('display') == 'none') {
+      $(this).html('collapse');
+      p.slideDown();
+    } else {
+      $(this).html('expand');
+      p.slideUp();
+    }
+  });
+  
+  function getNews() 
+  {
+    $.getJSON('/ajax/news.php', {offset: pager, search: search}, function(data){
+          var i = 0;
+          var html = '';
+          pager_max = data.count;
+        $.each(data.news, function(){
+          html += '<div class="post yellow">' + 
+                     '<span class="headline">' + this.title + 
+                     '<a href="javascript:" class="expand-button" entry="' + i + '">expand</a></span>' + 
+                     '<br />' + 
+                     '<span class="subtitle">posted by ' + this.author + '</span>' + 
+                     '<br />' + 
+                     '<span>' + this.created_on + '</span>' + 
+                     '<p style="display:none;" entry="' + i + '">' + this.body + '</p>' + 
+                     '</div>' + 
+                     '<hr class="space" />';
+          i++;
+        });
+        $('#news_holder').html(html);
+      });
+  }
+  
+  $('#news_search').keyup(function(){
+    search = $(this).val();
+    pager = 0;
+    getNews();
+  });
+  
+  $('.news_button').click(function() {
+    var valid = false;
+    var dir = $(this).attr('direction');
+    if (dir == 'next') {
+      if (pager < pager_max - 5) {
+        pager += 5;
+        valid = true;
+      }
+    } else {
+      if (pager > 0) {
+        pager -= 5;  
+        valid = true;
+      }
+    }
+    if (valid) {
+      getNews();
+    }
+  });
+});
+</script>
+<div class="span-16">
+  news archive header
+  <button class="news_button" direction="prev">prev</button>
+  <button class="news_button" direction="next">next</button>
+  search: <input id="news_search" />
+</div>
+<div id="news_holder" class="span-16">
+  <?php foreach ($news as $i => $entry) : ?>
+    <div class="post yellow">
+      <span class="headline"><?php echo $entry['title']; ?> <a href="javascript:" class="expand-button" entry="<?php echo $i; ?>">expand</a></span>
+      <br />
+      <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
+      <br />
+      <span><?php echo $entry['created_on']; ?></span>
+      <p style="display:none;" entry="<?php echo $i; ?>"><?php echo $entry['body']; ?></p>
+    </div>
+    <hr class="space" />
+  <?php endforeach; ?>
+</div>
+   <button class="news_button" direction="prev">prev</button>
+  <button class="news_button" direction="next">next</button>
+
+<?php require_once('footer_v2.php'); ?>
