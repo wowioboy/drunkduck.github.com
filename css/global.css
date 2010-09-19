@@ -1,10 +1,36 @@
 body {
-  background-color: #337733;
+    background-color: #337733;
+    background-image: url('/bg-grad.png');
+    background-image:url('/bg-bubbles.jpg');
+    background-repeat: repeat-x;
+    background-position:center top;
+    margin: 10px auto 0px;
+    font-family:helvetica;
+    font-size:10pt;
 }
+#backdrop2 {
+background-repeat:no-repeat;
+position:absolute;
+top:0;
+z-index:-1000;
+width:100%;
+height:100%;
+
+}
+.header {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:55px;
+  color:rgb(69,180,185);
+  text-align: center;
+  text-transform:uppercase;
+  text-shadow: 0px 0px 2px #FFF;
+    }
 .headline {
   font-family:'Yanone Kaffeesatz';
   font-weight:bold;
-  font-size:32px;
+  font-size:2em;
+  color: rgb(51,51,51);
 }
 h2 {
   font-family:'Yanone Kaffeesatz';
@@ -15,6 +41,7 @@ h2 {
 .subtitle {
   font-family:helvetica;
   font-size:12pt;
+  font-weight:bold;
   color:rgb(0,133,118);
 }
 a {
@@ -22,9 +49,9 @@ a {
   color: #000;
 }
 .rounded {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 /* TABLE STUFF */
 .table {
@@ -108,7 +135,14 @@ a {
 .canary {
   background-color:rgb(255,240,170);
 }
+.teal {
+    color:rgb(69,180,185);
+    }         
 
 .post {
   padding:10px;
 }
+.expand-button {
+    float:right;
+}
+

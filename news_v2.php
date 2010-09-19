@@ -1,4 +1,4 @@
-<?php require_once('header_v2.php'); ?>
+<?php require_once('header_base.php'); ?>
 
 <?php
 $db = new DB();
@@ -79,26 +79,31 @@ $(document).ready(function(){
   });
 });
 </script>
-<div class="span-16">
-  news archive header
+        <div class="rounded canary span-62 box-1 pull-1">
+            <div class="span-64 green rounded header">
+            News Archive
+            </div>
+        </div>
+<div class="span-64 box-1">
   <button class="news_button" direction="prev">prev</button>
   <button class="news_button" direction="next">next</button>
   search: <input id="news_search" />
 </div>
-<div id="news_holder" class="span-16">
+<div id="news_holder" class="span-62 box-1">
   <?php foreach ($news as $i => $entry) : ?>
-    <div class="post yellow">
-      <span class="headline"><?php echo $entry['title']; ?> <a href="javascript:" class="expand-button" entry="<?php echo $i; ?>">expand</a></span>
+    <div class="post yellow rounded">
+      <a href="javascript:" class="expand-button teal" entry="<?php echo $i; ?>">expand</a>
+      <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
       <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
       <br />
       <span><?php echo $entry['created_on']; ?></span>
       <p style="display:none;" entry="<?php echo $i; ?>"><?php echo $entry['body']; ?></p>
     </div>
-    <hr class="space" />
+    <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
    <button class="news_button" direction="prev">prev</button>
   <button class="news_button" direction="next">next</button>
 
-<?php require_once('footer_v2.php'); ?>
+<?php require_once('footer_base.php'); ?>

@@ -1,11 +1,12 @@
 
 
-#topBar a {
+#menu a {
   text-decoration:none;
   color:rgb(0,133,118);
   font-family:'Yanone Kaffeesatz';
   font-weight:bold;
-  font-size:24px;
+  font-size:1.8em;
+  padding: 0 5px 0 5px;
 }
 .main-content {
   -webkit-border-top-left-radius: 10px;
@@ -43,4 +44,40 @@
   font-weight:bold;
   color:rgb(69,180,185);
 }
+
+/**
+ * Search Button
+ */
+#searchwrapper {
+width:310px; /*follow your image's size*/
+height:40px;/*follow your image's size*/
+background-image:url('search.jpg'');
+background-repeat:no-repeat; /*important*/
+background-color:#FFF;
+padding:0px;
+margin:0px;
+position:relative; /*important*/
+}
+ 
+#searchwrapper form { display:inline ; }
+ 
+.searchbox {
+border:0px; /*important*/
+background-color:transparent; /*important*/
+position:absolute; /*important*/
+top:4px;
+left:9px;
+width:256px;
+height:28px;
+}
+ 
+.searchbox_submit {
+border:0px; /*important*/
+background-color:transparent; /*important*/
+position:absolute; /*important*/
+top:4px;
+left:265px;
+width:32px;
+height:28px;
+} 
 

@@ -1,22 +1,28 @@
     </div>
-    <div class="span-8 last">
-      <div id="loginbox" class="span-8 canary">
-        <div class="span-8">
-          <div class="span-3 panel-header yellow">
+    <div class="span-32" >
+      <div id="loginbox" class="box-1 canary " >
+      
+   
+        <div class="span-22"></div>
+        <div class="span-10 panel-header yellow" >
             <a href="">log out</a> | <a href="">help</a>
-          </div>
         </div>
-        <div class="span-8 panel-body-right yellow">
+
+        <div class="span-32 panel-body-right yellow" >
           <h2>Hi, Yourname</h2>
-          <div class="drop-list rounded push-top">&raquo; my favorites</div>
+          <div class="drop-list rounded push-top box-10">&raquo; my favorites</div>
+          <div style="display:block;height:10px;"></div>
           <div class="drop-list rounded push-top">&raquo; my webcomics</div>
         </div>
+
       </div>
     </div>
   </div>
-  <hr class="space" />
-  <div class="span-24 green rounded">
-  sdsdfksdkfjsdfkj
+  <br />
+  <div class="span-96 green rounded">
+    <div class="box-1">
+    sdsdfksdkfjsdfkj
+    </div>
   </div>
 </div>
 </body>

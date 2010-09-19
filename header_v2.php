@@ -21,15 +21,19 @@ $featured = $db->fetchCol($query);
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <title>Drunk Duck</title>
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet'>
-<link href='css/global.css' rel='stylesheet'>
-<link href='css/layout.css' rel='stylesheet'>
-<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
-<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/blueprint/gutterless.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">    
+    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection, print">
+<link href='/css/layout.css' rel='stylesheet'>
+<link href='/css/global.css' rel='stylesheet'>
 <!--[if lt IE 8]>
   <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
 <![endif]-->
-<script src="js/jquery/jquery-1.4.2.min.js"></script>
-<script src="js/jquery/cycle/jquery.cycle.all.js"></script>
+<script src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script src="/js/jquery/cycle/jquery.cycle.all.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#slideshow').cycle({ 
@@ -42,6 +46,7 @@ $(document).ready(function(){
     $('#prev_button').click(function(){
         $('#slideshow').cycle('prev');
     });
+    $('#slideshow').css('width') = '900px';
 });
 </script>
 <style type="text/css">
@@ -53,8 +58,8 @@ $(document).ready(function(){
 </style>
 </head>
 <body>
-<div class="container showgrid">
-  <div class="span-24 rounded green">
+<div class="container ">
+  <div class="span-96 rounded green">
     <div style="float:left;">
       <button id="prev_button">prev</button>
     </div>
@@ -78,7 +83,12 @@ $(document).ready(function(){
     </div>
     <div id="topBar" class="table fill">
       <div class="cell bottom" style="width:200px;">
-        <input type="text" id="search" />
+        <div id="searchwrapper">
+            <form action="">
+                <input type="text" class="searchbox" name="s" value="" />
+                <input type="image" src="THE_BLANK_SUBMIT_BUTTON_IMAGE" class="searchbox_submit" value="" />
+            </form> 
+        </div>
       </div>
       <div class="cell center bottom">
         <a href="#browse">browse</a>
@@ -104,5 +114,5 @@ $(document).ready(function(){
     </div>
   </div>
   <hr class="space" />
-  <div class="span-24">
-    <div id="main-content" class="span-16 canary main-content">
+  <div class="span-96">
+    <div id="main-content" class="box-1 canary main-content">
