@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 ini_set('display_errors', 1); 
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_NOTICE);
 
 require_once('includes/db.class.php');
 
 $db = new DB();
+if ($showFeatured) {
+ ob_start(); 
 $query = "select c.comic_name as title 
 from comics c 
 inner join featured_comics f 
@@ -16,7 +18,34 @@ where f.approved = '1'
 order by feature_id desc 
 limit 24";
 $featured = $db->fetchCol($query);
-
+?>
+<div class="span-96">
+<div style="float:left;">
+      <button id="prev_button">prev</button>
+    </div>
+    <div id="slideshow" style="float:left;">
+      <?php foreach ($featured as $i => $comic) : ?>
+        <?php 
+          $i++;
+          $path = '/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+        ?>
+        <?php if ($i % 8 == 1) : ?>
+          <div <?php echo ($i != 1) ? 'style="display:none;"' : ''; ?>>
+        <?php endif; ?>  
+        <img src="<?php echo $path; ?>" width="100" />
+        <?php if ($i % 8 == 0) : ?>
+          </div>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+    <div style="float:left;">
+      <button id="next_button">next</button>
+    </div>
+</div>    
+<?php
+$output = ob_get_contents();
+ob_end_clean();
+}
 ?>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -63,9 +92,10 @@ $(document).ready(function(){
 
 <div class="container">
     <div class="span-96 green rounded">
+        <?php echo $output; ?>
         <div class="span-23" style="height:160px">
             
-                <div style="width:268px;height:187px;background-image:url('DD-logo-for-main.png');position:relative;left:-40px;top:-20px"></div>
+                <div style="width:268px;height:187px;background-image:url('drunkduck-logo.png');position:relative;left:-40px;top:-20px"></div>
             
         </div>
         <div class="span-73 border-1 rounded green" style="position:relative;height:110px;display:block;">
