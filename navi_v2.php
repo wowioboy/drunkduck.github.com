@@ -14,7 +14,7 @@
             <!-- menu -->
             <a href="#">browse</a>
             <a href="#">create</a>
-            <a href="#">news</a>
+            <a href="/news_v2.php">news</a>
             <a href="#">tutorials</a>
             <a href="#">videos</a>
             <a href="#">forums</a>
