@@ -342,8 +342,11 @@ switch($SEARCH['sortby'])
 }
 
 if ( strlen($SEARCH['searchTxt']) > 0 ) {
+    $string = str_replace(' ', '%', $SEARCH['searchTxt']);
+ $string = '%' . $string . '%';
+  $WHERE[] = "(comic_name like '$string' or description like '$string')";
   //$WHERE[] = "MATCH (comic_name, description) AGAINST ('".$SEARCH['searchTxt']."') OR comic_name LIKE '%".$SEARCH['searchTxt']."%'";
-  $WHERE[] = "MATCH (comic_name, description) AGAINST ('".$SEARCH['searchTxt']."')";
+//  $WHERE[] = "MATCH (comic_name, description) AGAINST ('".$SEARCH['searchTxt']."')";
   //$WHERE[] = "(comic_name LIKE '%".$SEARCH['searchTxt']."%' OR description LIKE '%".$SEARCH['searchTxt']."%')";
 }
 

@@ -20,7 +20,10 @@ var LinkTip = {
 
     show : function(id, linkRef, toolBoxType)
     {
-      $('tipdiv').innerHTML = '';
+	try {
+	      $('tipdiv').innerHTML = '';
+	} catch (e) {
+	}
       linkTipLive = true;
 
       var dim = Element.getDimensions(linkRef);
