@@ -19,8 +19,9 @@ order by feature_id desc
 limit 24";
 $featured = $db->fetchCol($query);
 ?>
-<div class="span-96">
-<div style="float:left;">
+<div class="span-96" style="display:block;height:10px;"></div>
+<div class="span-96 ">
+    <div style="float:left;">
       <button id="prev_button">prev</button>
     </div>
     <div id="slideshow" style="float:left;">
@@ -65,7 +66,7 @@ ob_end_clean();
 <script src="/js/jquery/jquery-1.4.2.min.js"></script>
 <script src="/js/jquery/cycle/jquery.cycle.all.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+$.ready(function(){
     $('#slideshow').cycle({ 
         fx:      'scrollHorz', 
         timeout: 0 
@@ -76,7 +77,7 @@ $(document).ready(function(){
     $('#prev_button').click(function(){
         $('#slideshow').cycle('prev');
     });
-    $('#slideshow').css('width') = '900px';
+    
 });
 </script>
 <style type="text/css">

@@ -45,7 +45,7 @@ $(document).ready(function(){
   	var title = $(this).attr('title');
 		var description = $(this).attr('description');
 		var author = $(this).attr('author'); 
-		var html = title + ' by ' + author + '<br />' + description;
+		var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
 		$('#top-ten-description').html(html).slideDown();
 	});
 	$('#top-ten-holder').mouseleave(function(){
@@ -55,7 +55,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = title + ' by ' + author + '<br />' + description;
+    var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
     $('#most-liked-description').html(html).slideDown();
   });
   $('#most-liked-holder').mouseleave(function(){
@@ -65,7 +65,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = title + ' by ' + author + '<br />' + description;
+    var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
     $('#latest-update-description').html(html).slideDown();
   });
   $('#latest-update-holder').mouseleave(function(){
@@ -75,54 +75,59 @@ $(document).ready(function(){
 });
 </script>
 <div class="span-62 box-1 pull-1 canary rounded">
-<div class="span-63">
-  <div class="span-16 green panel-header">&raquo; Top Ten</div>
-</div>
-<div class="span-63">
-  <div class="span-63 green panel-body">
-    <div id="top-ten-holder" class="box-1">
-      <?php foreach ((array) $topTen as $comic) : ?>
-        <?php 
-	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
-        ?>
-        <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
-      <?php endforeach; ?>
-    </div>
-    <div id="top-ten-description" class="span-63 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>   
+
+  <div class="span-61">
+    <div class="span-16 green panel-header"><span>Top Ten</span></div>
   </div>
-</div>
+  <div class="span-61">
+    <div class="span-61 green panel-body box-1">
+      <div id="top-ten-holder" class="">
+        <?php foreach ((array) $topTen as $comic) : ?>
+          <?php 
+  	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+          ?>
+          <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+        <?php endforeach; ?>
+        <div id="top-ten-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;">asdfasdkfjasodfj</div>   
+      </div>
+    </div>
+  </div>
+
 <hr class="space" />
-<div class="span-63">
-  <div class="span-16 green panel-header">&raquo; Most Liked of The Week</div>
+
+<div class="span-61">
+  <div class="span-16 green panel-header"><span>Most Liked of The Week</span></div>
 </div>
-<div class="span-63">
-  <div class="span-63 green panel-body">
-    <div id="most-liked-holder" class="box-1">
+<div class="span-61">
+  <div class="span-61 green panel-body box-1">
+    <div id="most-liked-holder" class="">
       <?php foreach ((array) $mostLiked as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
         <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
       <?php endforeach; ?>
+      <div id="most-liked-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
-    <div id="most-liked-description" class="span-63 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
   </div>
 </div>
+
 <hr class="space" />
-<div class="span-63">
-  <div class="span-16 green panel-header">&raquo; Latest Updates</div>
+
+<div class="span-61">
+  <div class="span-16 green panel-header"><span>Latest Updates</span></div>
 </div>
-<div class="span-63">
-  <div class="span-63 green panel-body">
-    <div id="latest-update-holder" class="box-1">
+<div class="span-61">
+  <div class="span-61 green panel-body box-1">
+    <div id="latest-update-holder" class="">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
         <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
       <?php endforeach; ?>
+      <div id="latest-update-description" class="span-60 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
-    <div id="latest-update-description" class="span-16 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
   </div>
 </div>
 </div>
