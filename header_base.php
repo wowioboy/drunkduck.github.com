@@ -96,7 +96,7 @@ $.ready(function(){
         <?php echo $output; ?>
         <div class="span-23" style="height:160px">
             
-                <div style="width:268px;height:187px;background-image:url('drunkduck-logo.png');position:relative;left:-40px;top:-20px"></div>
+                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-20px"></div>
             
         </div>
         <div class="span-73 border-1 rounded green" style="position:relative;height:110px;display:block;">
