@@ -18,17 +18,19 @@ if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '2
 }
 
 define('PLATINUM_OWNED', 1);
+/*die(array_shift(explode(':', $_SERVER['HTTP_HOST'])));*/
 
 if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['HTTP_HOST'])) == 'localhost' )
 {
+/*  die('foo');*/
   define('DEBUG_MODE',      1);
 
   // The document root of the website.
   define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
-  define('COOKIE_DOMAIN',   false);
+  define('COOKIE_DOMAIN',   '/');
   // The domain.
-  define('DOMAIN',          $_SERVER['HTTP_HOST']);
+  define('DOMAIN',          array_shift(explode(':', $_SERVER['HTTP_HOST'])));
 }
 else
 {
