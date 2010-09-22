@@ -7,21 +7,24 @@
               <script>
                  $(document).ready(function(){
                    $('#searchTxt').keyup(function(){
-                     //console.log('boom doggy');
-                   var search = $(this).val();
-                     $.getJSON('/ajax/search.php', {search: search}, function(data) {
-                     });
+                    if (search = $(this).val()) {
+                      $.getJSON('/ajax/search.php', {search: search}, function(data) {
+                        var html = '';
+                        $.each(data, function(){
+                        });
+                      });
+                    }
                    });
                  });
               </script>
-                <form action="search.php">
-                    <input type="text" id="searchTxt" name="searchTxt" class="searchbox" value="" style="border:none;width:130px;" />
-                    <input type="image" style="" src="/" class="searchbox_submit" value="" />
-                </form> 
+                <form action="search.php" method="get">
+                    <input type="text" id="searchTxt" name="searchTxt" class="searchbox" style="border:none;width:130px;" />
+                    <input type="image" style="" src="/" class="searchbox_submit" />
+                </form>
             </div>
             
             <!-- Advanced Search Link-->
-            <a href="#" style="text-decoration:none;color:rgb(100,133,118);font-family:Verdana;font-size:8px;">Advanced Search</a>
+            <a href="/search.php" style="text-decoration:none;color:rgb(100,133,118);font-family:Verdana;font-size:8px;">Advanced Search</a>
             
             <!-- menu -->
             <a href="/search.php">browse</a>
