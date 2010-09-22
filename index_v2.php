@@ -55,7 +55,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href=""><h2>' + title + '</h2></a> <span>by ' + author + '</span><br />' + description + '</div>';
+    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
     $('#most-liked-description').html(html).slideDown();
   });
   $('#most-liked-holder').mouseleave(function(){
@@ -65,7 +65,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
     $('#latest-update-description').html(html).slideDown();
   });
   $('#latest-update-holder').mouseleave(function(){
@@ -81,7 +81,7 @@ $(document).ready(function(){
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
-      <div id="top-ten-holder" class="">
+      <div id="top-ten-holder">
         <?php foreach ((array) $topTen as $comic) : ?>
           <?php 
   	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
@@ -100,7 +100,7 @@ $(document).ready(function(){
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
-    <div id="most-liked-holder" class="">
+    <div id="most-liked-holder">
       <?php foreach ((array) $mostLiked as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
@@ -119,7 +119,7 @@ $(document).ready(function(){
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
-    <div id="latest-update-holder" class="">
+    <div id="latest-update-holder">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
