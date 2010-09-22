@@ -37,9 +37,9 @@ $(document).ready(function(){
           var html = '';
           pager_max = data.count;
         $.each(data.news, function(){
-          html += '<div class="post yellow">' + 
+          html += '<div class="post yellow rounded">' + 
                      '<span class="headline">' + this.title + 
-                     '<a href="javascript:" class="expand-button" entry="' + i + '">expand</a></span>' + 
+                     '<a href="javascript:" class="expand-button teal" entry="' + i + '">expand</a></span>' + 
                      '<br />' + 
                      '<span class="subtitle">posted by ' + this.author + '</span>' + 
                      '<br />' + 
@@ -84,10 +84,14 @@ $(document).ready(function(){
             News Archive
             </div>
         </div>
-<div class="span-64 box-1">
-  <button class="news_button" direction="prev">prev</button>
-  <button class="news_button" direction="next">next</button>
-  search: <input id="news_search" />
+<div class="span-64 box-1 header-menu">
+  <button class="news_button rounded left button" direction="prev">previous</button>
+  <button class="rounded button dropdown">September 2010</button>
+  <button class="rounded button">article view</button>
+  <button class="rounded button" style="padding-top:0;padding-bottom:0">
+    <input style="background-color:transparent;border:0;color:#FFF" id="news_search" value="search articles" onfocus="this.value=''" onblur="this.value='search articles'"/>
+  </button>
+  <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="news_holder" class="span-62 box-1">
   <?php foreach ($news as $i => $entry) : ?>
@@ -98,7 +102,7 @@ $(document).ready(function(){
       <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
       <br />
       <span><?php echo $entry['created_on']; ?></span>
-      <p style="display:none;" entry="<?php echo $i; ?>"><?php echo $entry['body']; ?></p>
+      <p style="display:none;" entry="<?php echo $i; ?>"><?php echo bbcode2html($entry['body']); ?></p>
     </div>
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>

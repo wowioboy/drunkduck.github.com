@@ -1,3 +1,4 @@
+<div class="span-96" style="height:10px"> .</div>
 <?php
 require_once('includes/db.class.php');
 $db = new DB();
@@ -30,6 +31,7 @@ $(document).ready(function(){
   float:right;
   clear:none;
   padding: 0 2px 0 2px;
+  z-index:-5000;
 }
 </style>
 <div class="span-96">

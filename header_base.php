@@ -11,6 +11,7 @@ error_reporting(0);
 if (!defined('WWW_ROOT')) define('WWW_ROOT', $_SERVER['DOCUMENT_ROOT']);
 require_once(WWW_ROOT. '/includes/global.inc.php');
 require_once('includes/db.class.php');
+require_once('bbcode.php'); 
 
 
 /*echo '<pre>'; var_dump($USER);*/

@@ -45,7 +45,7 @@ $(document).ready(function(){
   	var title = $(this).attr('title');
 		var description = $(this).attr('description');
 		var author = $(this).attr('author'); 
-		var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
 		$('#top-ten-description').html(html).slideDown();
 	});
 	$('#top-ten-holder').mouseleave(function(){
@@ -55,7 +55,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
     $('#most-liked-description').html(html).slideDown();
   });
   $('#most-liked-holder').mouseleave(function(){
@@ -65,7 +65,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = '<div class="preview"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
     $('#latest-update-description').html(html).slideDown();
   });
   $('#latest-update-holder').mouseleave(function(){
@@ -88,7 +88,7 @@ $(document).ready(function(){
           ?>
           <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
-        <div id="top-ten-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
+        <div id="top-ten-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@ $(document).ready(function(){
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
-      <div id="most-liked-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
+      <div id="most-liked-description" class="span-62 rounded green" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
   </div>
 </div>
@@ -126,7 +126,7 @@ $(document).ready(function(){
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
-      <div id="latest-update-description" class="span-60 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
+      <div id="latest-update-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
     </div>
   </div>
 </div>

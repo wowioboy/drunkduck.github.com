@@ -31,7 +31,7 @@ if ( strstr($_SERVER['PHP_SELF'], '/administration/') ) {
 if ( $ADMIN_PAGE == true ) {
   include_once(TEMPLATE.'/!admin/html_header.inc.php');
 } else if ( !defined('NO_TEMPLATE') ) {
-  include_once(WWW_ROOT . '/header_base.php');
+  include_once(TEMPLATE.'/new_v3/html_header.inc.php');
 }
 
 
@@ -95,7 +95,7 @@ if ( $REQUIRE_LOGIN && !$USER ) {
 if ( $ADMIN_PAGE == true ) {
   	include_once(TEMPLATE.'/!admin/html_footer.inc.php');
 } else if ( !defined('NO_TEMPLATE') ) {
-	include_once(WWW_ROOT . '/footer_base.php');
+	include_once(TEMPLATE.'/new_v3/html_footer.inc.php');
   	define('TEMPLATE_VIEW', 1);
 }
 
