@@ -79,8 +79,8 @@ $(document).ready(function(){
   });
 });
 </script>
-        <div class="rounded canary span-62 box-1 pull-1">
-            <div class="span-64 green rounded header">
+        <div class="rounded canary span-63 box-1 pull-1">
+            <div class="span-63 green rounded header">
             News Archive
             </div>
         </div>

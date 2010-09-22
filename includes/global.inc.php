@@ -26,7 +26,7 @@ if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || $_SERVER['HTTP_HOST'] == 'localhost
   // The document root of the website.
   define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
-  define('COOKIE_DOMAIN',   '.'.$_SERVER['HTTP_HOST']);
+  define('COOKIE_DOMAIN',   false);
   // The domain.
   define('DOMAIN',          $_SERVER['HTTP_HOST']);
 }
@@ -101,7 +101,7 @@ define('HTTP_JAVASCRIPT', 'http://'.DOMAIN.'/javascript');
 
 require_once(WWW_ROOT.'/banned_ip_data.inc.php');
 if ( isset($BANNED_IPS[$_SERVER['REMOTE_ADDR']]) ) {
-  setcookie('b', '1', time()+(86400*365), "/", COOKIE_DOMAIN);
+  setcookie('b', '1', time()+(86400*365), "/", false);
   die("<DIV ALIGN='CENTER'>Sorry. Your IP Address has been banned.</DIV>");
 }
 // Be sure to incldue packages before anything else!

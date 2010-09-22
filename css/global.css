@@ -52,9 +52,9 @@ a {
   color: #000;
 }
 .rounded {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 /* TABLE STUFF */
 .table {

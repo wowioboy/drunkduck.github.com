@@ -2,10 +2,18 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
-ini_set('display_errors', 1); 
-error_reporting(E_ALL ^ E_NOTICE);
 
+ini_set('display_errors', 1); 
+error_reporting(0);
+
+
+// added to assure relative-absolute path translation works on most levels.
+if (!defined('WWW_ROOT')) define('WWW_ROOT', $_SERVER['DOCUMENT_ROOT']);
+require_once(WWW_ROOT. '/includes/global.inc.php');
 require_once('includes/db.class.php');
+
+
+/*echo '<pre>'; var_dump($USER);*/
 
 $db = new DB();
 if ($showFeatured) {
