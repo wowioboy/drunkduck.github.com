@@ -19,7 +19,7 @@ if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '2
 
 define('PLATINUM_OWNED', 1);
 
-if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || $_SERVER['HTTP_HOST'] == 'localhost' )
+if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['HTTP_HOST'])) == 'localhost' )
 {
   define('DEBUG_MODE',      1);
 
