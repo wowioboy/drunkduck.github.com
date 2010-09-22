@@ -86,9 +86,9 @@ $(document).ready(function(){
           <?php 
   	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
           ?>
-          <img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+          <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
-        <div id="top-ten-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;">asdfasdkfjasodfj</div>   
+        <div id="top-ten-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
       </div>
     </div>
   </div>
@@ -105,7 +105,7 @@ $(document).ready(function(){
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
-        <img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       <div id="most-liked-description" class="span-60 box-1 rounded pad-5" style="background-color:#fff;display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
@@ -124,9 +124,9 @@ $(document).ready(function(){
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
-        <img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" />
+        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
-      <div id="latest-update-description" class="span-60 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;">asdfasdkfjasodfj</div>
+      <div id="latest-update-description" class="span-60 rounded pad-5" style="background-color:#fff;display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
     </div>
   </div>
 </div>
@@ -143,12 +143,16 @@ $(document).ready(function(){
   </div>
   <div class="span-45 prepend-1">
     <?php foreach ($news as $entry) : ?>
+    <?php 
+    $date = new DateTime($entry['created_on']);
+    ?>
     <div class="post yellow rounded">
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
-      <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
+      <span class="subtitle">posted by <?php echo $entry['author']; ?>
       <br />
-      <span><?php echo $entry['created_on']; ?></span>
+      <?php echo $date->format('F j, Y - g:ia'); ?>
+      </span>
       <p><?php echo bbcode2html($entry['body']); ?></p>
     </div>
     <hr class="space" />

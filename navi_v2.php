@@ -1,10 +1,20 @@
         <div id="menu" class=" span-73">
             <!-- search bar -->
-            <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div>
-            <div id="searchwrapper rounded" style="display:none">
-                <form action="">
-                    <input type="text" class="searchbox" name="s" value="" />
-                    <input type="image" style="" src="/" class="searchbox_submit" value="" />
+           <!-- <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div> -->
+            <div id="searchwrapper" class="rounded" style="background-color:#fff;display:inline-block;width:100px;height:25px;">
+              <script>
+                 $(document).ready(function(){
+                   $('#searchTxt').keyup(function(){
+                     //console.log('boom doggy');
+//                   var search = $(this).val();
+                     $.getJSON('/ajax/search.php', {search: search}, function(data) {
+                     });
+                   });
+                 });
+              </script>
+                <form action="search.php">
+                    <input type="text" id="searchTxt" name="searchTxt" class="searchbox" value="" style="border:none;width:100px;" />
+                   <!-- <input type="image" style="" src="/" class="searchbox_submit" value="" /> -->
                 </form> 
             </div>
             
