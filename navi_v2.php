@@ -8,7 +8,7 @@
                  $(document).ready(function(){
                    $('#searchTxt').keyup(function(){
                      //console.log('boom doggy');
-//                   var search = $(this).val();
+                   var search = $(this).val();
                      $.getJSON('/ajax/search.php', {search: search}, function(data) {
                      });
                    });

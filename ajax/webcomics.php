@@ -1,8 +1,26 @@
 <?php
 require_once('../includes/db.class.php');
 
-$search = $_REQUEST['search'];
-$search = '%' . str_replace(' ', '%', $search) . '%';
-$query = "select * from comic_name where comic_name from comics where comic_name like '$search' limit 10";
-$result = DB::getInstance()->fetchCol($query);
-echo json_encode($result);
+$userId = $_REQUEST['user_id'];
+if ($sort = $_REQUEST['sort']) {
+  if ($sort == 'alpha') {
+    $order = "order by comic_name asc";
+  } else {
+    $order = "order by last_update desc";
+  }
+}
+$query = "select comic_id, comic_name as title, from_unixtime(last_update) as updated_on 
+          from comics 
+          where user_id = '$userId'
+          $order";
+$results = DB::getInstance()->fetchAll($query);
+foreach ($results as &$result) {
+  $date = new DateTime($result['updated_on']);
+  $now = new DateTime();
+  if ($date->format('Y-m-d') == $now->format('Y-m-d')) {
+      $result['updated_on'] = 'Today';
+  } else {
+    $result['updated_on'] = $date->format('M j Y');
+  }
+} 
+echo json_encode($results);

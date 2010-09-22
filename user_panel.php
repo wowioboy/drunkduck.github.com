@@ -3,18 +3,71 @@
         ?>
           <script>
           $(document).ready(function(){
+            var user_id = '<?php echo $USER->user_id; ?>';
+
+            function getWebcomics()
+            {
+              var object = {};
+              object.user_id = user_id;
+              object.sort = $('select.webcomics').val();
+              $.getJSON('/ajax/webcomics.php', object, function(data) {
+                  var html = '';
+                  $.each(data, function(){
+                    var date = this.updated_on;
+                    var title = this.title;
+                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="http://www.drunkduck.com/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
+                  });
+                  $('div.webcomics_display').html(html);
+                });
+            }
+            
+            function getFavorites() 
+            {
+              var object = {};
+              object.user_id = user_id;
+              object.sort = $('select.favorites').val();
+              $.getJSON('/ajax/favorites.php', object, function(data) {
+                  var html = '';
+                  $.each(data, function(){
+                    var date = this.updated_on;
+                    var title = this.title;
+                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
+                  });
+                  $('div.favorites_display').html(html);
+               });
+            }
+
             $('a.favorties').click(function(){
               var favoritesDiv = $('div.favorites');
-              console.log(favoritesDiv.css('display'));
               if (favoritesDiv.css('display') == 'none') {
                 $(this).html('collapse');
-                $.getJSON(url, {}, function(data) {
+                getFavorites();
                   favoritesDiv.slideDown();
-                });
               } else { 
                 $(this).html('expand');
                 favoritesDiv.slideUp();
               }
+            });
+            
+            
+            $('a.webcomics').click(function(){
+              var webcomicsDiv = $('div.webcomics');
+              if (webcomicsDiv.css('display') == 'none') {
+                $(this).html('collapse');
+                  getWebcomics();
+                  webcomicsDiv.slideDown();
+              } else { 
+                $(this).html('expand');
+                webcomicsDiv.slideUp();
+              }
+            });
+            
+            $('select.favorites').change(function(){
+              getFavorites();
+            });
+            
+           $('select.webcomics').change(function(){
+              getWebcomics();
             });
           });
           </script>
@@ -36,14 +89,28 @@
           <div class="drop-list rounded ">
             my favorites  <a class="favorties" href="javascript:">expand</a>
             <div class="favorites" style="display:none;">
-            here are the favorites
+            <select class="favorites">
+              <option value="">sort by</option>
+              <option value="alpha">alphabetically</option>
+              <option value="update">last update</option>
+            </select>
+              <div class="favorites_display">
+                here are the favorites
+              </div>
             </div>
           </div>
           <div style="display:block;height:10px;"></div>
           <div class="drop-list rounded ">
             my webcomics  <a class="webcomics" href="javascript:">expand</a>
             <div class="webcomics" style="display:none;">
-            here are the webcomics
+            <select class="webcomics">
+              <option value="">sort by</option>
+              <option value="alpha">alphabetically</option>
+              <option value="update">last update</option>
+            </select>
+              <div class="webcomics_display">
+                here are the webcomics
+              </div>
             </div>
           </div>
           </div>
