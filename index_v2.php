@@ -45,7 +45,7 @@ $(document).ready(function(){
   	var title = $(this).attr('title');
 		var description = $(this).attr('description');
 		var author = $(this).attr('author'); 
-		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
 		$('#top-ten-description').html(html).slideDown();
 	});
 	$('#top-ten-holder').mouseleave(function(){
@@ -55,7 +55,7 @@ $(document).ready(function(){
     var title = $(this).attr('title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
-    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><h2>' + title + '</h2> <span>by ' + author + '</span><br />' + description + '</div>';
+    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href=""><h2>' + title + '</h2></a> <span>by ' + author + '</span><br />' + description + '</div>';
     $('#most-liked-description').html(html).slideDown();
   });
   $('#most-liked-holder').mouseleave(function(){

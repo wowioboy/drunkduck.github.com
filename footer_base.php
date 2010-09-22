@@ -11,7 +11,10 @@
     <div class="span-96">&nbsp;</div>
     <div class="span-96 green rounded">
         <div class="prepend-23">
-        <?php require('navi_v2.php'); ?>
+        <?php 
+        $nosearch = 1;
+        require('navi_v2.php'); 
+        ?>
         </div>
         <br />
     </div>
