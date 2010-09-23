@@ -51,7 +51,7 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.news) {
         $.each(data.news, function(){
-          html += '<div class="post yellow rounded">' + 
+          html += '<div class="post yellow rounded box-1">' + 
                      '<span class="headline">' + this.title + 
                      '<a href="javascript:" class="expand-button teal" entry="' + i + '">expand</a></span>' + 
                      '<br />' + 
@@ -60,7 +60,7 @@ $(document).ready(function(){
                      '<span>' + this.created_on + '</span>' + 
                      '<p style="display:none;" entry="' + i + '">' + this.body + '</p>' + 
                      '</div>' + 
-                     '<hr class="space" />';
+                     '<div style="height:10px;" class="span-30"></div>';
           i++;
         });
           }
@@ -106,8 +106,8 @@ $(document).ready(function(){
         </div>
 <div class="span-64 box-1 header-menu">
   <button class="news_button rounded left button" direction="prev">previous</button>
-  <select id="newsMonth" class="button">
-    <option value="">Select Month</option>
+  <select id="newsMonth" class="button rounded">
+    <option value="">select month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
@@ -122,7 +122,7 @@ $(document).ready(function(){
     <?php
     $date = new DateTime($entry['created_on']);
     ?>
-    <div class="post yellow rounded">
+    <div class="post yellow rounded box-1">
       <a href="javascript:" class="expand-button teal" entry="<?php echo $i; ?>">expand</a>
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
