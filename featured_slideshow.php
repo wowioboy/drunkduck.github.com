@@ -34,19 +34,24 @@ $(document).ready(function(){
                } 
              }
            }
+           if (previousAvailable) {
+             $('#feature_prev_button').attr('src', '/media/images/featured-lt-arrow.png');
+           } else {
+             $('#feature_prev_button').attr('src', '/media/images/featured-lt-arow-faded.png');
+           }
         }
     });
-    $('#next_button').click(function(){
+    $('#feature_next_button').click(function(){
       if (nextAvailable) {
         $('#slideshow').cycle('next');
       } else {
         window.location = '/featured_v2.php';
       }
     });
-    $('#prev_button').click(function(){
+    $('#feature_prev_button').click(function(){
       if (previousAvailable) {
-      $('#slideshow').cycle('prev');
-      }
+        $('#slideshow').cycle('prev');
+      } 
     });
     
 });
@@ -61,7 +66,7 @@ $(document).ready(function(){
 </style>
 <div class="span-96">
     <div style="float:left;">
-      <button id="prev_button">&laquo;</button>
+      <input type="image" src="/media/images/featured-lt-arow-faded.png" id="feature_prev_button" />
     </div>
     <div id="slideshow" style="float:left;width:905px;">
       <?php foreach ($featured as $i => $comic) : ?>
@@ -79,6 +84,6 @@ $(document).ready(function(){
       <?php endforeach; ?>
     </div>
     <div style="float:left;">
-      <button id="next_button">&raquo;</button>
+    <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
     </div>
 </div>    
