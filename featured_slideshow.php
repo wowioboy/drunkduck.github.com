@@ -1,4 +1,4 @@
-<div class="span-96" style="height:10px"> .</div>
+<div class="span-96" style="height:10px"></div>
 <?php
 require_once('includes/db.class.php');
 $db = new DB();

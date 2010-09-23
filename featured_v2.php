@@ -1,4 +1,4 @@
-<?php require_once('header_v2.php'); ?>
+<?php require_once('header_base.php'); ?>
 
 <?php
 $db = new DB();
@@ -76,20 +76,30 @@ $(document).ready(function(){
   });
 });
 </script>
-<div class="span-16">
-  featured archive header
-  <button class="featured_button" direction="prev">prev</button>
-  <button class="featured_button" direction="next">next</button>
-  search: <input id="featured_search" />
+        <div class="rounded canary span-63 box-1 pull-1">
+            <div class="span-63 green rounded header">
+            Featured Comics Archive
+            </div>
+        </div>
+<div class="span-64 box-1 header-menu">
+  <button class="news_button rounded left button" direction="prev">previous</button>
+  <button class="rounded button dropdown">September 2010</button>
+  <button class="rounded button">article view</button>
+  <button class="rounded button" style="padding-top:0;padding-bottom:0">
+    <input style="background-color:transparent;border:0;color:#FFF" id="news_search" value="search articles" onfocus="this.value=''" onblur="this.value='search articles'"/>
+  </button>
+  <button class="news_button rounded right button" direction="next">next</button>
 </div>
-<div id="featured_holder" class="span-16">
+<div id="featured_holder" class="span-62 box-1">
   <?php foreach ($featured as $comic) : ?>
-    <div class="post yellow">
+    <div class="post teal rounded box-1">
+    <div class="white">
       <span class="headline"><?php echo $comic['title']; ?></span>
       <br />
       <span class="subtitle">by <?php echo $comic['author']; ?> <?php echo $comic['rating']; ?>, <?php echo $comic['likes']; ?></span>
       <br />
       <p><?php echo $comic['description']; ?></p>
+    </div>
     </div>
     <hr class="space" />
   <?php endforeach; ?>
@@ -97,4 +107,4 @@ $(document).ready(function(){
    <button class="featured_button" direction="prev">prev</button>
   <button class="featured_button" direction="next">next</button>
 
-<?php require_once('footer_v2.php'); ?>
+<?php require_once('footer_base.php'); ?>

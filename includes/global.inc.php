@@ -28,7 +28,7 @@ if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['
   // The document root of the website.
   define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
-  define('COOKIE_DOMAIN',   '/');
+  define('COOKIE_DOMAIN',   null);
   // The domain.
   define('DOMAIN',          array_shift(explode(':', $_SERVER['HTTP_HOST'])));
 }

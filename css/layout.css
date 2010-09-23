@@ -23,7 +23,7 @@
   border-bottom-left-radius: 10px;
 }
 #loginbox {
-  background-color:rgb(255,240,170);
+  
   -webkit-border-top-left-radius: 0px;
   -webkit-border-top-right-radius: 10px;
   -webkit-border-bottom-right-radius: 10px;
@@ -62,10 +62,11 @@ position:relative; /*important*/
 #searchwrapper form { display:inline ; }
  
 .searchbox {
-border:0px; /*important*/
-background-color:transparent; /*important*/
+padding:0px;
+margin:0px;
+border:0px;
 width:125px;
-height:18px;
+height:20px;
 }
  
 .searchbox_submit {
@@ -73,6 +74,6 @@ border:0px; /*important*/
 background-color:transparent; /*important*/
 
 width:20px;
-height:18px;
+height:20px;
 } 
 
