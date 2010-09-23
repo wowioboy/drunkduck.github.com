@@ -114,9 +114,7 @@ $(document).ready(function(){
   </select>
 <!--  <button class="rounded button dropdown">September 2010</button> -->
   <button class="rounded button">article view</button>
-  <button class="rounded button" style="padding-top:0;padding-bottom:0">
-    <input style="background-color:transparent;border:0;color:#FFF" id="news_search" value="search articles" onfocus="this.value=''" onblur="this.value='search articles'"/>
-  </button>
+    <input class="rounded button" style="color:#FFF" id="news_search" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="news_holder" class="span-62 box-1">

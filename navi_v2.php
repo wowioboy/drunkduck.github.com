@@ -3,7 +3,7 @@
            <!-- <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div> -->
             <!-- <div id="searchwrapper" class="rounded" style="background-color:#fff;display:inline-block;width:100px;height:25px;"> -->
             <?php if (!$nosearch) : ?>
-            <div style="margin-top:10px;display:inline;background-color:red;background-image:url('/media/images/search.jpg');width:154px;height:21px" class="span-16">
+            <div style="margin-top:10px;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
       .result {
         margin:0;
@@ -87,9 +87,9 @@
                  });
                  
               </script>
-                <form action="search.php" method="get">
-                    <input type="text" id="searchTxt" name="searchTxt" class="searchbox" autocomplete="off" style="border:none;width:130px;" />
-                    <!--<input type="image" style="" src="/" class="searchbox_submit" />-->
+                <form action="search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
+                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
+                    <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>
                 <div id="search_results"></div>
                 <?php endif; ?>
@@ -97,7 +97,9 @@
             
             <?php if (!$nosearch) : ?>
             <!-- Advanced Search Link-->
-            <a href="/search.php" style="text-decoration:none;color:rgb(100,133,118);font-family:Verdana;font-size:8px;">Advanced Search</a>
+            <div class="span-7 " style="padding-left:5px;line-height:10px;margin-top:8px;">
+                <a href="/search.php" style="padding:0;text-decoration:none;font-weight:bold;font-family:Verdana;font-size:9px;color:white;">Advanced<br />Search</a>
+            </div>
             <?php endif; ?>
             
             <!-- menu -->

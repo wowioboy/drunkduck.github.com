@@ -5,6 +5,7 @@
 
 ini_set('display_errors', 1); 
 error_reporting(0);
+unset($GLOBALS['loginError']);
 
 
 // added to assure relative-absolute path translation works on most levels.

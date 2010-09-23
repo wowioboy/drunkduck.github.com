@@ -93,7 +93,7 @@ $(document).ready(function(){
     </div>
   </div>
 
-<hr class="space" />
+<div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
   <div class="span-16 green panel-header"><span>Most Liked of The Week</span></div>
@@ -112,7 +112,7 @@ $(document).ready(function(){
   </div>
 </div>
 
-<hr class="space" />
+<div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
   <div class="span-16 green panel-header"><span>Latest Updates</span></div>
@@ -133,25 +133,42 @@ $(document).ready(function(){
 </div>
 <div>
 
+<style type="text/css">
+.spotlight {
+    padding-top:60px;
+    margin-left:10px;
+    margin-top:20px;
+    background: transparent url('/media/images/spotlight-title.png') top center no-repeat;
+    }
+.spoitlight div img {
+    margin: 10px 0 10px 0;
+    }
+</style>
 <div class="span-64">
-  <div class="span-16 prepend-1">
-    <div class="center">
-       spotlight
-    </div>
-    <div class="rounded" style="height:400px;border:2px solid rgb(174,230,1);">
+  <div class="spotlight span-18 " style="">
+    
+    <div class="rounded center" style="padding:20px 0 20px 0;border:2px solid rgb(174,230,1);border-top:0;">
+    <img src="/media/images/badge-featured.png" />
+    <div style="height:30px;" class="span-16"></div>
+    <img src="/media/images/badge-ducktv.png" />
+    <div style="height:30px;" class="span-16"></div>
+    <img src="/media/images/badge-twitter.png" />
+    <div style="height:30px;" class="span-16"></div>
+    <img src="/media/images/badge-faceduck.png" />
+    <div style="height:30px;" class="span-16"></div>
     </div>
   </div>
-  <div class="span-45 prepend-1">
+  <div class="span-43 prepend-1">
     <?php foreach ($news as $entry) : ?>
     <?php 
     $date = new DateTime($entry['created_on']);
     ?>
-    <div class="post yellow rounded">
+    <div class="post yellow rounded box-2">
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
       <span class="subtitle">posted by <?php echo $entry['author']; ?>
       <br />
-      <?php echo $date->format('F j, Y - g:ia'); ?>
+      <span style="font-weight:normal;font-size:10px"><?php echo $date->format('F j, Y - g:ia'); ?></span>
       </span>
       <p><?php echo bbcode2html($entry['body']); ?></p>
     </div>

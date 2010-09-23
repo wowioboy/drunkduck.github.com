@@ -96,26 +96,33 @@ $(document).ready(function(){
   });
 });
 </script>
-<div class="span-16">
-  featured archive header
+        <div class="rounded canary span-63 box-1 pull-1">
+            <div class="span-63 green rounded header">
+            Featured Comics Archive
+            </div>
+        </div>
+<div class="span-64 box-1 header-menu">
+  <button class="news_button rounded left button" direction="prev">previous</button>
   <select id="featureMonth" class="button">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-  <button class="featured_button" direction="prev">prev</button>
-  <button class="featured_button" direction="next">next</button>
-  search: <input id="featured_search" />
+  <button class="rounded button">list view</button>
+    <input type="text" class="rounded button" style="color:#fff;" id="featured_search" />
+  <button class="news_button rounded right button" direction="next">next</button>
 </div>
-<div id="featured_holder" class="span-16">
+<div id="featured_holder" class="span-62 box-1">
   <?php foreach ($featured as $comic) : ?>
-    <div class="post yellow">
+    <div class="post teal rounded box-1">
+    <div class="white">
       <span class="headline"><?php echo $comic['title']; ?></span>
       <br />
       <span class="subtitle">by <?php echo $comic['author']; ?> <?php echo $comic['rating']; ?>, <?php echo $comic['likes']; ?></span>
       <br />
       <p><?php echo $comic['description']; ?></p>
+    </div>
     </div>
     <hr class="space" />
   <?php endforeach; ?>

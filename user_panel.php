@@ -75,7 +75,7 @@
             <a href="?logout=<?php echo $USER->user_id; ?>">log out</a> | <a href="">help</a>
         </div>
 
-        <div class="span-30 panel-body-right yellow">
+        <div class="span-30 panel-body-right yellow rounded">
           <div class="box-1">
             <div class="span-8">
                 <div style="width:65px;height:65px;background-color:#FFF">
