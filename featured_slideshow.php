@@ -11,7 +11,7 @@ order by feature_id desc
 limit 24";
 $featured = $db->fetchCol($query);
 ?>
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
     $('#slideshow').cycle({ 
         fx:      'scrollHorz', 
@@ -26,7 +26,7 @@ $(document).ready(function(){
     
 });
 </script>
-<style>
+<style type="text/css">
 #slideshow img {
   float:right;
   clear:none;
@@ -36,9 +36,9 @@ $(document).ready(function(){
 </style>
 <div class="span-96">
     <div style="float:left;">
-      <button id="prev_button">prev</button>
+      <button id="prev_button">&laquo;</button>
     </div>
-    <div id="slideshow" style="float:left;width:850px;">
+    <div id="slideshow" style="float:left;width:905px;">
       <?php foreach ($featured as $i => $comic) : ?>
         <?php 
           $i++;
@@ -47,13 +47,13 @@ $(document).ready(function(){
         <?php if ($i % 8 == 1) : ?>
           <div>
         <?php endif; ?>  
-        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="100" /></a>
+        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" /></a>
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>
       <?php endforeach; ?>
     </div>
     <div style="float:left;">
-      <button id="next_button">next</button>
+      <button id="next_button">&raquo;</button>
     </div>
 </div>    

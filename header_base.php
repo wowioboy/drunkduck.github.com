@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 
 ini_set('display_errors', 1); 
@@ -47,7 +47,7 @@ $db = new DB();
         <?php endif; ?>
         <div class="span-23" style="height:160px">
             
-                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-20px"></div>
+                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-20px;z-index:5;"></div>
             
         </div>
         <div class="span-73 border-1 rounded green" style="position:relative;height:110px;display:block;">

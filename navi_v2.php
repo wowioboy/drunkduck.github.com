@@ -3,9 +3,10 @@
            <!-- <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div> -->
             <!-- <div id="searchwrapper" class="rounded" style="background-color:#fff;display:inline-block;width:100px;height:25px;"> -->
             <?php if (!$nosearch) : ?>
-            <div style="margin-top:10px;display:inline;background-color:red;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
-              <style>
+            <div style="margin-top:10px;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+              <style type="text/css">
       .result {
+        margin:0;
         padding:5px;
         background-color:#e5e5e5;
         border:1px solid #000;
@@ -37,27 +38,24 @@
         z-index:9999;
         display:none;
       }
+      a.search_link {
+        padding:0;
+        margin:0;
+      }
       </style>
-              <script>
+              <script type="text/javascript">
                  $(document).ready(function(){
-                   $('#searchTxt').keyup(function(e){
-                   e.preventDefault();
+                   $('#searchTxt').keyup(function(){
                     if (search = $(this).val()) {
                       $.getJSON('/ajax/search.php', {search: search}, function(data) {
                         if (data) {
                         var html = '';
                         $.each(data, function(){
                           var path = 'http://www.drunkduck.com/comics/' + this.charAt(0) + '/' + this.replace(/ /g, '_') + '/gfx/thumb.jpg';
-                          html += '<a class="search_link" href="http://www.drunkduck.com/' + this.replace(/ /g, '_') + '">' + 
+                          html += '<a style="padding:0;" class="search_link" href="http://www.drunkduck.com/' + this.replace(/ /g, '_') + '">' + 
                                  '<div class="result">' +
-                                '<table width="100%" cellspacing="5">' +
-                                  '<tr>' +
-                                    '<td width="50"><img width="50" height="50" src="' + path + '" border="1" style="border:1px #000 solid;"/></td>' +
-                                    '<td align="left"><b>' + this + '</b>' +
-                                  '</td>' + 
-                                  '</tr>' +
-                                   
-                                '</table>' + 
+                                    '<div style="display:inline-block;width:50px;height:50px;"><img width="50" height="50" src="' + path + '" border="1" style="border:1px #000 solid;"/></div>' +
+                                    '&nbsp;&nbsp;<span style="font-size:18px;font-style:helvetica;">' + this + '</span>' +
                               '</div>' + 
                                '</a>';
                         });
@@ -90,7 +88,7 @@
                  
               </script>
                 <form action="search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
-                    <input type="text" id="searchTxt" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
+                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
                     <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>
                 <div id="search_results"></div>
@@ -109,7 +107,7 @@
             <a href="#">create</a>
             <a href="/news_v2.php">news</a>
             <a href="/signup">tutorials</a>
-            <a href="#">videos</a>
+            <!--<a href="#">videos</a>-->
             <a href="/community">forums</a>
             <a href="http://store.drunkduck.com">store</a>
 </div>
