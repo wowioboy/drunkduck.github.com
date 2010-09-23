@@ -103,20 +103,20 @@ $(document).ready(function(){
         </div>
 <div class="span-64 box-1 header-menu">
   <button class="news_button rounded left button" direction="prev">previous</button>
-  <select id="featureMonth" class="button">
+  <select id="featureMonth" class="button rounded">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
   <button class="rounded button">list view</button>
-    <input type="text" class="rounded button" style="color:#fff;" id="featured_search" />
+    <input type="text"  style="color:#fff;" id="featured_search" class="rounded button" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="featured_holder" class="span-62 box-1">
   <?php foreach ($featured as $comic) : ?>
-    <div class="post teal rounded box-1">
-    <div class="white">
+    <div class="post teal rounded box-1" style="background-color:#45B4B9">
+    <div class="white rounded box-1" style="background-color:#FFF">
       <span class="headline"><?php echo $comic['title']; ?></span>
       <br />
       <span class="subtitle">by <?php echo $comic['author']; ?> <?php echo $comic['rating']; ?>, <?php echo $comic['likes']; ?></span>

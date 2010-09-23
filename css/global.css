@@ -11,8 +11,10 @@ body {
 }
 input:not([type]), input[type="text"], input[type="password"] {
     outline:none;
-    padding:0;
     margin:0;
+}
+select {
+    outline: none;
 }
 .bb-image {
   clear:left;

@@ -65,10 +65,10 @@ $(document).ready(function(){
 }
 </style>
 <div class="span-96">
-    <div style="float:left;">
+    <div class="span-2 box-1">
       <input type="image" src="/media/images/featured-lt-arow-faded.png" id="feature_prev_button" />
     </div>
-    <div id="slideshow" style="float:left;width:905px;">
+    <div id="slideshow" class="span-88" style="height:131px;">
       <?php foreach ($featured as $i => $comic) : ?>
         <?php 
           $i++;
@@ -77,13 +77,16 @@ $(document).ready(function(){
         <?php if ($i % 8 == 1) : ?>
           <div>
         <?php endif; ?>  
-        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" /></a>
+        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>
       <?php endforeach; ?>
     </div>
-    <div style="float:left;">
-    <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
+    <div class="span-2 box-1">
+        <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
+    </div>
+        <div style="z-index:9000; background: url('/media/images/featured-text.png') bottom center no-repeat; width:400px; position:absolute; top: 130px; left:350px; height:30px;"></div>
+    <div style="position:relative;">
     </div>
 </div>    
