@@ -22,6 +22,8 @@ limit $offset, 5";
 $news = DB::getInstance()->fetchAll($query);
 foreach ($news as &$item) {
     $item['body'] = stripslashes(bbcode2html($item['body']));
+    $date = new DateTime($item['created_on']); 
+    $item['created_on'] = $date->format('F j, Y - g:ia');
 }
 $query = "select count(1)
 from admin_blog b 

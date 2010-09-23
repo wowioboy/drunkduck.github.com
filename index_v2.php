@@ -148,7 +148,7 @@ $(document).ready(function(){
   <div class="spotlight span-18 " style="">
     
     <div class="rounded center" style="padding:20px 0 20px 0;border:2px solid rgb(174,230,1);border-top:0;">
-    <img src="/media/images/badge-featured.png" />
+    <a href="featured_v2.php"><img src="/media/images/badge-featured.png" /></a>
     <div style="height:30px;" class="span-16"></div>
     <img src="/media/images/badge-ducktv.png" />
     <div style="height:30px;" class="span-16"></div>

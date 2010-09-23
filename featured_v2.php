@@ -1,6 +1,15 @@
 <?php require_once('header_base.php'); ?>
 
 <?php
+if (!$view = $_REQUEST['view']) {
+  $view = 'list'; 
+}
+if ($view == 'grid') {
+  $limit = 25;
+} else {
+  $limit = 8;
+}
+
 $db = new DB();
 $query = "select c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes
 from comics c 
@@ -15,7 +24,7 @@ on p.page_id = l.page_id
 where f.approved = '1' 
 group by c.comic_name
 order by f.feature_id desc 
-limit 10";
+limit $limit";
 $featured = $db->fetchAll($query);
 $query = "select count(1)
 from comics c 
@@ -36,6 +45,24 @@ do {
 } while ($min->format('Y-m') != $max->format('Y-m'));
 $dateArray = array_reverse($dateArray);
 ?>
+<style type="text/css">
+.grid-panel {
+  display:inline-block;
+  border:1px solid #45b4b9;
+  padding:10px 10px 0px 10px;
+  background-color:#45b4b9;
+  margin:0px 5px 10px 5px;
+  text-align:left;
+}
+.grid-panel div {
+  display:inline-block;
+  width:80px;
+  height:100px;
+}
+.grid-panel span {
+  color:#fff;
+}
+</style>
 <script type="text/javascript">
 var pager = 0;
 var pager_max = <?php echo $featuredCount; ?>;
@@ -51,14 +78,16 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.featured) {
         $.each(data.featured, function(){
-          html += '<div class="post yellow">' + 
-                     '<span class="headline">' + this.title + '</span>' + 
-                     '<br />' + 
-                     '<span class="subtitle">by ' + this.author + ' ' + this.rating + ', ' + this.likes + '</span>' + 
-                     '<br />' +  
-                     '<p>' + this.description + '</p>' + 
-                     '</div>' + 
-                     '<hr class="space" />';
+           html += '<div class="post teal rounded box-1" style="background-color:#45B4B9">' +
+           '<div class="white rounded box-1" style="background-color:#FFF">' + 
+           '<span class="headline">' + this.title + '</span>' +
+           '<br />' +
+           '<span class="subtitle">' + this.author + ' ' + this.rating + ', ' + this.likes + '</span>' +
+           '<br />' +
+           '<p>' + this.description + '</p>' +
+           '</div>' + 
+           '</div>' +
+           '<hr class="space" />';
         });
           }
         $('#featured_holder').html(html);
@@ -75,13 +104,13 @@ $(document).ready(function(){
     var valid = false;
     var dir = $(this).attr('direction');
     if (dir == 'next') {
-      if (pager < pager_max - 10) {
-        pager += 10;
+      if (pager < pager_max - <?php echo $limit; ?>) {
+        pager += <?php echo $limit; ?>;
         valid = true;
       }
     } else {
       if (pager > 0) {
-        pager -= 10;  
+        pager -= <?php echo $limit; ?>;  
         valid = true;
       }
     }
@@ -102,32 +131,57 @@ $(document).ready(function(){
             </div>
         </div>
 <div class="span-64 box-1 header-menu">
-  <button class="news_button rounded left button" direction="prev">previous</button>
-  <select id="featureMonth" class="button rounded">
+  <button class="featured_button rounded left button" direction="prev">previous</button>
+  <select id="featureMonth" class="button rounded" style="border:none;">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-  <button class="rounded button">list view</button>
+  <form style="display:inline;" method="post">
+  <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
+  <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
+  </form>
     <input type="text"  style="color:#fff;" id="featured_search" class="rounded button" />
-  <button class="news_button rounded right button" direction="next">next</button>
+  <button class="featured_button rounded right button" direction="next">next</button>
 </div>
-<div id="featured_holder" class="span-62 box-1">
+<div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
   <?php foreach ($featured as $comic) : ?>
-    <div class="post teal rounded box-1" style="background-color:#45B4B9">
+    <?php if ($view == 'list') : ?>
+    <div class="post teal rounded box-1" style="background-color:#45B4B9;">
     <div class="white rounded box-1" style="background-color:#FFF">
-      <span class="headline"><?php echo $comic['title']; ?></span>
-      <br />
-      <span class="subtitle">by <?php echo $comic['author']; ?> <?php echo $comic['rating']; ?>, <?php echo $comic['likes']; ?></span>
-      <br />
+      <div class="table fill">
+      <div class="cell middle" style="width:100px;">
+    <img src="<?php echo 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg' ; ?>" />
+      </div>
+            <div class="cell middle">
+            <div class="table fill">
+       <div class="cell">
+      <span class="headline"><?php echo $comic['title']; ?></span> <span class="subtitle">by <?php echo $comic['author']; ?></span>
+       </div>
+       <div class="cell right">
+      <span class="subtitle"><?php echo $comic['rating']; ?>, <?php echo $comic['pages']; ?> pages</span>
+       </div>
+            </div>
       <p><?php echo $comic['description']; ?></p>
+      </div>
+      </div>
     </div>
+    <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span>
     </div>
     <hr class="space" />
+    <?php else: ?>
+    <div class="rounded grid-panel">
+      <div>
+        <img src="<?php echo 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg' ; ?>" />
+      </div>
+        <br />
+        <span><?php echo $comic['likes']; ?> likes</span>
+    </div>
+    <?php endif; ?>
   <?php endforeach; ?>
 </div>
-   <button class="featured_button" direction="prev">prev</button>
-  <button class="featured_button" direction="next">next</button>
+  <button class="featured_button rounded left button" direction="prev">previous</button>
+  <button class="featured_button rounded right button" direction="next">next</button>
 
 <?php require_once('footer_base.php'); ?>

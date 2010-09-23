@@ -52,15 +52,15 @@ $(document).ready(function(){
           if (data.news) {
         $.each(data.news, function(){
           html += '<div class="post yellow rounded box-1">' + 
-                     '<span class="headline">' + this.title + 
-                     '<a href="javascript:" class="expand-button teal" entry="' + i + '">expand</a></span>' + 
-                     '<br />' + 
-                     '<span class="subtitle">posted by ' + this.author + '</span>' + 
-                     '<br />' + 
-                     '<span>' + this.created_on + '</span>' + 
-                     '<p style="display:none;" entry="' + i + '">' + this.body + '</p>' + 
-                     '</div>' + 
-                     '<div style="height:10px;" class="span-30"></div>';
+                      '<a href="javascript:" class="expand-button teal" entry="' + i + '">expand</a>' + 
+                      '<span class="headline">' + this.title + '</span>' + 
+                      '<br />' + 
+                      '<span class="subtitle">' + this.author + '</span>' + 
+                      '<br />' + 
+                      '<span>' + this.created_on + '</span>' + 
+                      '<p style="display:none;" entry="' + i + '">' + this.body + '</p>' + 
+                      '</div>' + 
+                      '<div style="height:10px;display:block;"></div>';
           i++;
         });
           }
@@ -113,7 +113,7 @@ $(document).ready(function(){
     <?php endforeach; ?>
   </select>
 <!--  <button class="rounded button dropdown">September 2010</button> -->
-  <button class="rounded button">article view</button>
+  <!-- <button class="rounded button">article view</button> -->
     <input class="rounded button" style="color:#FFF" id="news_search" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
@@ -134,7 +134,7 @@ $(document).ready(function(){
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
-   <button class="news_button" direction="prev">prev</button>
-  <button class="news_button" direction="next">next</button>
+   <button class="news_button rounded left button" direction="prev">previous</button>
+  <button class="news_button rounded right button" direction="next">next</button>
 
 <?php require_once('footer_base.php'); ?>
