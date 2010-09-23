@@ -1,8 +1,8 @@
-<?php require_once('header_v2.php'); ?>
+<?php require_once('header_base.php'); ?>
 
 <?php
 $db = new DB();
-$query = "select c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes
+$query = "select c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
@@ -23,19 +23,33 @@ inner join featured_comics f
 on f.comic_id = c.comic_id 
 where f.approved = '1'";
 $featuredCount = $db->fetchOne($query);
+$query = "select concat(substring(max(ymd_date_live), 1, 4), '-', substring(max(ymd_date_live), 5, 2)) as max, concat(substring(min(ymd_date_live), 1, 4), '-', substring(min(ymd_date_live), 5, 2)) as min 
+          from featured_comics 
+          where ymd_date_live != 0 and ymd_date_live is not null";
+$featuremaxmin = $db->fetchRow($query);
+$min = new DateTime($featuremaxmin['min']);
+$max = new DateTime($featuremaxmin['max']);
+$dateArray = array($min->format('Y-m') => $min->format('M Y'));
+do {
+  $min->modify('+1 month');
+  $dateArray[$min->format('Y-m')] = $min->format('M Y');
+} while ($min->format('Y-m') != $max->format('Y-m'));
+$dateArray = array_reverse($dateArray);
 ?>
-<script>
+<script type="text/javascript">
 var pager = 0;
 var pager_max = <?php echo $featuredCount; ?>;
 var search = '';
+var month = '';
   
 $(document).ready(function(){
   
   function getFeatured() 
   {
-    $.getJSON('/ajax/featured.php', {offset: pager, search: search}, function(data){
+    $.getJSON('/ajax/featured.php', {offset: pager, search: search, month: month}, function(data){
           var html = '';
           pager_max = data.count;
+          if (data.featured) {
         $.each(data.featured, function(){
           html += '<div class="post yellow">' + 
                      '<span class="headline">' + this.title + '</span>' + 
@@ -46,6 +60,7 @@ $(document).ready(function(){
                      '</div>' + 
                      '<hr class="space" />';
         });
+          }
         $('#featured_holder').html(html);
       });
   }
@@ -74,10 +89,21 @@ $(document).ready(function(){
       getFeatured();
     }
   });
+  
+  $('#featureMonth').change(function(){
+    month = $(this).val();
+    getFeatured();
+  });
 });
 </script>
 <div class="span-16">
   featured archive header
+  <select id="featureMonth" class="button">
+    <option value="">Select Month</option>
+    <?php foreach ($dateArray as $numDate => $dateString) : ?>
+      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+    <?php endforeach; ?>
+  </select>
   <button class="featured_button" direction="prev">prev</button>
   <button class="featured_button" direction="next">next</button>
   search: <input id="featured_search" />
@@ -97,4 +123,4 @@ $(document).ready(function(){
    <button class="featured_button" direction="prev">prev</button>
   <button class="featured_button" direction="next">next</button>
 
-<?php require_once('footer_v2.php'); ?>
+<?php require_once('footer_base.php'); ?>

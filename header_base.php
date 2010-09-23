@@ -21,20 +21,24 @@ $db = new DB();
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <title>Drunk Duck</title>
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet'>
-    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="css/blueprint/gutterless.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">    
     <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
     <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection, print">
-<link href='/css/layout.css' rel='stylesheet'>
-<link href='/css/global.css' rel='stylesheet'>
+    <link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
+    <link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
+<link href='/css/layout.css' rel='stylesheet' type="text/css">
+<link href='/css/global.css' rel='stylesheet' type="text/css">
 <!--[if lt IE 8]>
   <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
 <![endif]-->
-<script src="/js/jquery/jquery-1.4.2.min.js"></script>
-<script src="/js/jquery/cycle/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
+<script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
 </head>
 <body>
 <div id="backdrop"></div>

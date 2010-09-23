@@ -13,15 +13,40 @@ $featured = $db->fetchCol($query);
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
+  var previousAvailable = false;
+  var nextAvailable = true;
     $('#slideshow').cycle({ 
         fx:      'scrollHorz', 
-        timeout: 0 
+        timeout: 0 ,
+        prevNextClick: function(next, index) {
+           if (next) {
+             if (index > 0) {
+               previousAvailable = true;
+               if (index == 2) {
+                 nextAvailable = false;
+               }
+             } 
+           } else {
+             if (index < 2) {
+               nextAvailable = true;
+               if (index == 0) {
+                 previousAvailable = false;
+               } 
+             }
+           }
+        }
     });
     $('#next_button').click(function(){
+      if (nextAvailable) {
         $('#slideshow').cycle('next');
+      } else {
+        window.location = '/featured_v2.php';
+      }
     });
     $('#prev_button').click(function(){
+      if (previousAvailable) {
       $('#slideshow').cycle('prev');
+      }
     });
     
 });
