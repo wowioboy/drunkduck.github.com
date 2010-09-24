@@ -179,7 +179,7 @@ $(document).ready(function(){
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
-    <div class="span-16 green panel-header"><span>Top Ten</span></div>
+    <div class="span-24 green panel-header"><span>Top Ten</span></div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
@@ -200,7 +200,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-16 green panel-header"><span>Most Liked of The Week</span></div>
+  <div class="span-24 green panel-header"><span>Most Liked of The Week</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -221,7 +221,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-16 green panel-header"><span>Latest Updates</span></div>
+  <div class="span-24 green panel-header"><span>Latest Updates</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -245,7 +245,7 @@ $(document).ready(function(){
 .spotlight {
     padding-top:60px;
     margin-left:10px;
-    margin-top:20px;
+    margin-top:10px;
     background: transparent url('/media/images/spotlight-title.png') top center no-repeat;
     }
 .spoitlight div img {
