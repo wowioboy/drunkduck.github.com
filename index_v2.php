@@ -71,9 +71,111 @@ $(document).ready(function(){
   $('#latest-update-holder').mouseleave(function(){
     $('#latest-update-description').slideUp();
   });
-	
+  $('#boomdoggy').click(function(){
+    $.fancybox({
+      'content': $('#top-ten-filter').html()
+    });
+  });
+  
+  
+  function getTopTen()
+  {
+    var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
+    var link = 'http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '/';
+    var html += '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
+  }
 });
 </script>
+<!-- <button id="boomdoggy">open filter</button> -->
+<div id="top-ten-filter" style="display:none;">
+<table>
+  <tr>
+    <td>
+    comic book/story
+    </td>
+    <td>
+    genre
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;comic book/story
+      <br />
+      <input type="checkbox" />&nbsp;comic strip
+      <br />
+      <br />
+      art style
+      <br />
+      <input type="checkbox" />&nbsp;cartoon
+      <br />
+      <input type="checkbox" />&nbsp;american
+      <br />
+      <input type="checkbox" />&nbsp;manga
+      <br />
+      <input type="checkbox" />&nbsp;sprite
+      <br />
+      <input type="checkbox" />&nbsp;realistic
+      <br />
+      <input type="checkbox" />&nbsp;sketch
+      <br />
+      <input type="checkbox" />&nbsp;experimental
+      <br />
+      <input type="checkbox" />&nbsp;photographic
+      <br />
+      <input type="checkbox" />&nbsp;stick figure
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;fantasy
+      <br />
+      <input type="checkbox" />&nbsp;parody
+      <br />
+      <input type="checkbox" />&nbsp;real life
+      <br />
+      <input type="checkbox" />&nbsp;sci-fi
+      <br />
+      <input type="checkbox" />&nbsp;horror
+      <br />
+      <input type="checkbox" />&nbsp;abstract
+      <br />
+      <input type="checkbox" />&nbsp;adventure
+      <br />
+      <input type="checkbox" />&nbsp;noir
+      <br />
+      <br />
+      rating
+      <br />
+      <input type="checkbox" />&nbsp;everybody
+      <br />
+      <input type="checkbox" />&nbsp;teens+
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;spiritual
+      <br />
+      <input type="checkbox" />&nbsp;romance
+      <br />
+      <input type="checkbox" />&nbsp;superhero
+      <br />
+      <input type="checkbox" />&nbsp;western
+      <br />
+      <input type="checkbox" />&nbsp;mystery
+      <br />
+      <input type="checkbox" />&nbsp;war
+      <br />
+      <input type="checkbox" />&nbsp;tribute
+      <br />
+      <input type="checkbox" />&nbsp;political
+      <br />
+      <br />
+      <br />
+      <input type="checkbox" />&nbsp;mature
+      <br />
+      <input type="checkbox" />&nbsp;adult
+    </td>
+  </tr>
+</table>
+</div>
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
@@ -82,12 +184,14 @@ $(document).ready(function(){
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
       <div id="top-ten-holder">
+        <div id="top-ten-ajaxer">
         <?php foreach ((array) $topTen as $comic) : ?>
           <?php 
   	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
           ?>
           <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
+      </div>
         <div id="top-ten-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
       </div>
     </div>
@@ -101,12 +205,14 @@ $(document).ready(function(){
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
     <div id="most-liked-holder">
+      <div id="most-liked-ajaxer">
       <?php foreach ((array) $mostLiked as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
+      </div>
       <div id="most-liked-description" class="span-62 rounded green" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
   </div>
@@ -120,12 +226,14 @@ $(document).ready(function(){
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
     <div id="latest-update-holder">
+      <div id="latest-update-ajaxer">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
           $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
+      </div>
       <div id="latest-update-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
     </div>
   </div>
