@@ -1,7 +1,4 @@
-        <div id="menu" class=" span-73">
-            <!-- search bar -->
-           <!-- <div style="background-image:url('/search.jpg');width:149px;height:21px;background-repeat:none;display:inline-block;margin-bottom:10px;padding-left:5px;" class="rounded">search</div> -->
-            <!-- <div id="searchwrapper" class="rounded" style="background-color:#fff;display:inline-block;width:100px;height:25px;"> -->
+        <div id="menu" class="span-73">
             <?php if (!$nosearch) : ?>
             <div style="display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
@@ -92,15 +89,13 @@
                     <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>
                 <div id="search_results"></div>
-                <?php endif; ?>
             </div>
-            
-            <?php if (!$nosearch) : ?>
+
             <!-- Advanced Search Link-->
             <div class="span-7 " style="padding-left:5px;line-height:5px;margin-top:-2px">
                 <a href="/search.php" style="padding:0;text-decoration:none;font-weight:bold;font-family:Verdana;font-size:10px;color:white;">Advanced<br />Search</a>
             </div>
-            <?php endif; ?>
+                <?php endif; ?>
             
             <!-- menu -->
             <a href="/search.php">browse</a>

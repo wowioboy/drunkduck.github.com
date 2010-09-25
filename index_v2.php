@@ -82,7 +82,7 @@ $(document).ready(function(){
   {
     var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
     var link = 'http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '/';
-    var html += '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
+    var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
   }
 });
 </script>
@@ -280,7 +280,7 @@ $(document).ready(function(){
       </span>
       <p><?php echo bbcode2html($entry['body']); ?></p>
     </div>
-    <hr class="space" />
+    <div style="height:10px;"></div>
     <?php endforeach; ?>
   </div>
 </div>

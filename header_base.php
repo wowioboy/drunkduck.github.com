@@ -12,8 +12,7 @@ unset($GLOBALS['loginError']);
 if (!defined('WWW_ROOT')) define('WWW_ROOT', $_SERVER['DOCUMENT_ROOT']);
 require_once(WWW_ROOT. '/includes/global.inc.php');
 require_once('includes/db.class.php');
-require_once('bbcode.php'); 
-
+require_once('bbcode.php');
 
 /*echo '<pre>'; var_dump($USER);*/
 
@@ -22,29 +21,39 @@ $db = new DB();
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <title>Drunk Duck</title>
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
-<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/blueprint/gutterless.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">    
-    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!-- BLUEPRINT -->
+<link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/css/blueprint/gutterless.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">    
+<!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
-    <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen, projection, print">
-    <link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
-    <link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
-<link href='/css/layout.css' rel='stylesheet' type="text/css">
-<link href='/css/global.css' rel='stylesheet' type="text/css">
-<!--[if lt IE 8]>
-  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
-<![endif]-->
+<!-- JQUERY -->
 <script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+
+<!-- JQUERY UI (JQUERY) -->
+<link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
-<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
+
+<!-- CYCLE (JQUERY) -->
 <script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
 
-<!-- FANCY BOX --> 
+<!-- SELECT MENU (JQUERY, JQUERY UI) -->
+<link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
+
+<!-- FANCY BOX (JQUERY) --> 
 <link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
 <script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
 
+<!-- JQUERY FORM (JQUERY) -->
+<script type="text/javascript" src="/js/jquery/form.js"></script>
+
+<!-- GOOGLE FONT -->
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
+
+<link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
+<link href='/css/layout.css' rel='stylesheet' type="text/css">
+<link href='/css/global.css' rel='stylesheet' type="text/css">
 </head>
 <body>
 <div id="backdrop"></div>
