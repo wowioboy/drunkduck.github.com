@@ -1,5 +1,15 @@
 Options +FollowSymLinks
+
 RewriteEngine on
 RewriteCond %{REQUEST_URI} \/gfx\/
 #RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.*) http://drunkduck.com/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !.*comics/.*comics/
+#RewriteCond %{REQUEST_URI} .*(\.gif|\.jpg|\.png|\.swf|\.jpeg)
+RewriteRule ^(([a-zA-Z0-9_]).*)$ http://drunkduck.com/comics/$2/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.+) /comics/resource_files/comic_page_load.inc.php?$1 [L] 
