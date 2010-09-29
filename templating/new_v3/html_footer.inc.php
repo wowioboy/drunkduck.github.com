@@ -196,8 +196,8 @@ pw_d.projectwonderful_background_color = "";
 
                    <!-- <a href="http://www.wowio.com/" target="_blank"><img src="http://www.wevolt.com/WEVOLT/ads/wowio_banner_300x250.jpg" border="0" /></a> -->
 
-                   <img style="border:none;" src="/media/24hour-notlive.png" />
-<!--                   <a href="http://www.ustream.tv/wowio"><img style="border:none;" src="/media/24hour-live.png" /></a> -->
+                  <!-- <img style="border:none;" src="/media/24hour-notlive.png" />-->
+                  <a href="http://www.ustream.tv/wowio"><img style="border:none;" src="/media/24hour-live.png" /></a>
                    
                    
 <!--                   <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="300" height="250" id="utv592276" name="utv_n_481179">-->
