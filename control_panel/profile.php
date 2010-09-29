@@ -33,6 +33,13 @@ $query = "select url, name, description
           from publisher_links 
           where user_id = '{$USER->user_id}'";
 $pubLinks = $db->fetchAll($query);
+
+$query = "select u.user_id
+          users u 
+          inner join friends f 
+          on f.friend_id = u.user_id 
+          where f.user_id = '{$USER->user_id}'";  
+$friends = $db->fetchAll($query);
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
