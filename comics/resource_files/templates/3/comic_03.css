@@ -1,0 +1,99 @@
+/* DEFAULT CSS FOR MALLARD GREEN TEMPLATE
+
+/* =Pallet
+----------------------------------------------------------------------*/
+
+body {	display:block;	margin: 0px;	padding: 0px;	height: 100%;	width: 100%;	background:#003666 url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkg.gif) repeat top;	font-family:Verdana, Helvetica, Arial, sans-serif;	text-align:center;	line-height:1em;}
+
+h1, h2, h3, h4, h5, h6 {	margin: 0 0 4px 0;	font-family: "Arial Back", "Helvetica Bold", sans-serif;	font-style:normal;	font-weight:bold;}
+
+p {	margin: 0 0 5px 0;}
+
+ul {	margin: 0;	padding: 0;	list-style-type: none;}
+
+li {	margin: 0 0 5px 0;}
+
+/* =Layout
+----------------------------------------------------------------------*/
+#containment {width:800px; margin:0 auto; display:block; background:#002245;}
+
+#comictitle {margin:20px 0 0 0;padding:20px; background: url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkgdk.gif) repeat; color:#fff; border-bottom:4px #333 solid; font-family:"Arial Back", "Helvetica Bold", sans-serif; font-weight:normal; font-size:40px; letter-spacing:-1;}
+
+#content {	background:#FFF; color:#000;	margin: 0 auto 40px auto;}
+
+#navcontainer {margin: 0;width:800px;background:#999 ;border-top: 2px #777 solid;}
+#navcontainer ul{border: 0;margin: 0;padding: 0;list-style-type: none;}
+#navcontainer ul li {display: block;float: left;text-align: right;border-top:2px solid #999;border-right:2px solid #999;border-left:2px solid #999;margin: 0;padding: 2px 0 0 0 ;font: normal 10px/18px "Arial Back", "Helvetica Bold", sans-serif;}
+#navcontainer ul li a {height:18px;width: 70px;background: #002245;color: #fff;padding: 0px 6px;text-decoration: none;display: block;text-align: left;font: normal 12px/18px "Arial Back", "Helvetica Bold", sans-serif;}
+#navcontainer ul li a:hover {background: #999 url(/gfx/template_gfx_new/homepage/select_arrow.gif) right no-repeat; color: #000;}
+#navcontainer a:active {background: #fff; color: #000;}
+#navcontainer li#active a { background: #fc0; color: #000;}
+
+
+#leftcol {	margin:0;	padding: 10px;	text-align:left;	font-size:14px;	color:#333;}
+
+#leftcol a {color:#000;}
+#leftcol a:hover {color:#FFF;}
+#leftcol a:active {color:#F00;}
+
+.rightcol_module {	margin:10px 10px 10px 0;	padding: 10px;	border: 1px #777 solid;	text-align:left;	font-size:11px;	background:#002245 url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkgdk.gif) repeat;	color:#fff;}
+.rightcol_module a {color:#fff;}
+.rightcol_module a:hover {color:#ccc;}
+.rightcol_module a:active {color:#F00;}
+
+#favorites {	margin:10px 10px 10px 0;	padding: 10px;	border: 1px #777 solid;	text-align:left;	font-size:11px;	background:#002245 url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkgdk.gif) repeat;	color:#fff;}
+
+#favoriteshdr {font-family:"Arial Back", "Helvetica Bold", sans-serif;	 font-size:11px; border-bottom:2px solid #fff;}
+
+#favorites ul{border: 0;margin: 0;padding: 0;list-style-type: none;}
+#favorites ul li {display: block; text-align: left;padding: 0;margin: 0;}
+#favorites ul li a {height:18px; background: #333;border:0px; padding: 2px 6px;margin: 2px 0 2px 2px;color: #fff;text-decoration: none;display: block;text-align: left;font: normal 11px Arial, "Lucida Grande", "Lucida Sans", sans-serif;}
+#favorites ul li a:hover {background: #999 url(/gfx/template_gfx_new/homepage/select_arrow.gif) right no-repeat; color: #000;}
+#favorites a:active {background: #fff; color: #000;}
+#favorites li#active a { background: #fc0; color: #000;}
+
+.sidehdr {font-family:"Arial Back", "Helvetica Bold", sans-serif;	 font-size:11px; border-bottom:2px solid #fff;
+}
+
+/* =Blog Posts
+----------------------------------------------------------------------*/
+#blog_title_1 {font-family:"Trebuchet MS", Arial, "Lucida Grande", "Lucida Sans", sans-serif; font-size:12px; border-bottom:1px dotted #666; color:#666;}
+
+.blog_hdr {margin:0px; padding:4px; display:block; background: #999; color:#fff; height: 50px; margin-bottom: 0px;}
+
+.blog_hdr .img {float: left;}
+
+.blog_hdr .blog_title_2 {padding-bottom: 3px;font-size: 18px;font-weight: bold;}
+
+.blog_hdr .timestamp {float:right;font-size: smaller;}
+
+.blog_hdr .blog_author {float:left;font-size: smaller;}
+
+.blog_body {line-height: 1.3em;color: inherit;padding: 9px 9px 3px 9px;margin-bottom: 20px;background: url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkgcmts.gif) repeat-x #fff;}
+
+#blog_comment_hdr {font-family:"Trebuchet MS", Arial, "Lucida Grande", "Lucida Sans", sans-serif; font-size:10px; border-bottom:1px dotted #666; color:#666;}
+
+.blog_img { width:50px; height:50px; }
+
+
+
+/* =Comments Styles
+----------------------------------------------------------------------*/
+
+.comments {font-size: 12px;font-family:Verdana, Arial, Helvetica, sans-serif;margin:0 0 10px 0;padding: 0;background: url(http://www.drunkduck.com/gfx/template_gfx_new/homepage/3/gfx/bkgcmts.gif) repeat-x #fff; width:480px;}
+
+#leftcol .comments a {color:#000;text-decoration:none; font-weight:bold;}
+#leftcol .comments a:hover {color:#999; text-decoration:underline; }
+#leftcol .comments a:active {color:#00F;text-decoration:underline;}
+
+.comments_time{font-size: 10px;float: right;color:#fff;}
+
+.comments_name{float: left; color:#fff; position: relative;z-index: 1;}
+
+.comments_author{float: left;font-weight: bold;position: relative;z-index: 1;}
+
+.comments_controls{font-size: 9px;background:#600;color: #fff;}
+
+#leftcol .comments .comments_controls a {color:#fff;text-decoration:none; font-weight:bold;}
+#leftcol .comments .comments_controls a:hover {color:#CCC; text-decoration:underline; }
+#leftcol .comments .comments_controls a:active {color:#00F;text-decoration:underline;}

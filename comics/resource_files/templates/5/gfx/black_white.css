@@ -1,0 +1,64 @@
+BODY {
+scrollbar-face-color: #ffffff;
+scrollbar-highlight-color: #ffffff;
+scrollbar-3dlight-color: #888888;
+scrollbar-darkshadow-color: #333333;
+scrollbar-shadow-color: #555555;
+scrollbar-arrow-color: #000000;
+scrollbar-track-color: #000000;
+font-family: verdana, arial, 'sans serif'; font-size: 11px; color: #FFFFFF;
+background-color: #000000;
+} 
+p,table,td {
+  font-family: verdana, arial, 'sans serif'; 
+  font-size: 11px;
+  color: #FFFFFF;
+}
+.border {
+	border: 4px solid #FFFFFF;
+}
+.border2 {
+	border: 1px solid #000000;
+}
+.bordercom {
+	border: 2px solid #FFFFFF;
+}
+input, textarea
+{ background-color: #000000;
+    font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+	border: 2px solid #FFFFFF;
+	padding: 1px; }
+	
+option, select {
+	background-color: #000000;
+    font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+	letter-spacing: normal;
+	border: 1px solid #FFFFFF;
+	padding: 0px; }
+	
+A:link { color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; text-decoration: underline; cursor: hand; }
+A:visited { color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; text-decoration: underline; cursor: hand; }
+A:active { color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; text-decoration: underline; cursor: hand; }
+A:hover { color: #999999; font-family: Verdana, Arial, Helvetica, sans-serif; text-transform: none; text-decoration: none; cursor: hand; font-size: 11px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; }
+.title {
+	font-family: "Courier New", Courier, mono;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: bold;
+	color: #000000;
+}
+.subtitle {
+	font-family: verdana, arial, 'sans serif';
+	font-size: 11px;
+	color: #000000;
+	font-weight: bold;
+}
+
+.bgcolour {
+	background-color: #ffffff;
+}

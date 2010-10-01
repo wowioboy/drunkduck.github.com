@@ -4,7 +4,8 @@
     height:20px;
     position:absolute;
     bottom:15px;
-    right:0;
+    right:0px;
+
 }
 #menu a {
   text-decoration:none;
@@ -13,9 +14,27 @@
   font-weight:bold;
   font-size:1.8em;
   line-height:12px;
-  padding: 0 15px 0px 15px;
+  padding: 0 20px 0px 15px;
   vertical-align:middle;
   height:10px;
+  float:right;
+}
+.result, .search_link {
+    float:none !important;
+    clear:both;
+    width:300px;
+}
+#advsearch {
+    padding-bottom:10px;
+    float:left;
+    width:50px;
+    text-align:left
+    padding: 20px 0 0 10px;    
+}
+#advsearch a {
+    color: white;
+    font: bold 10px helvetica;
+    padding:0;
 }
 .main-content {
   -webkit-border-top-left-radius: 10px;

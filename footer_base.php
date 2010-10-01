@@ -11,10 +11,12 @@
     <div class="span-96">&nbsp;</div>
     <div class="span-96 green rounded">
         <div class="prepend-33" style="position:relative;padding-bottom:50px;">
-        <?php 
-        $nosearch = 1;
-        require('navi_v2.php'); 
-        ?>
+            <div id="menu" class="span-73">
+            <?php 
+            $nosearch = 1;
+            require('navi_v2.php'); 
+            ?>
+            </div>
         </div>
         <br />
     </div>

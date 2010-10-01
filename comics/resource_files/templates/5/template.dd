@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<title>
+<!--[COMIC_NAME]-->
+:
+<!--[PAGE_TITLE]-->
+</title>
+<meta name="robots" content="All,INDEX,FOLLOW">
+<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=iso-8859-1'>
+<link href="http://www.drunkduck.com/comics/resource_files/templates/5/gfx/black_white.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY BGCOLOR='#ffffff' LEFTMARGIN='0' TOPMARGIN='0' MARGINWIDTH='0' MARGINHEIGHT='0' VALIGN='TOP' ALIGN='CENTER'>
+
+<TABLE BORDER='0' CELLPADDING='0' CELLSPACING='0' WIDTH='100%' HEIGHT='100%'>
+  <TR>
+    <TD width="100%" ALIGN='center' VALIGN='bottom' class="bgcolour" witdth="100%"><table width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="600" align="center" valign="bottom"> <span class="title">
+            <!--[COMIC_NAME_IMAGE]-->
+            </span> </td>
+        </tr>
+      </table></TD>
+  </TR>
+  <TR>
+    <TD width="100%" ALIGN='CENTER' VALIGN='TOP'><a href="http://www.drunkduck.com">Drunk
+      Duck main page</a>&nbsp;-&nbsp;<a href="http://www.drunkduck.com/forum/">DD Forums</a>&nbsp;-&nbsp;<a href="http://www.drunkduck.com/account/index.php">Control pannel</a></TD>
+  </TR>
+  <TR>
+    <TD width="100%" height="12" ALIGN='CENTER' VALIGN='TOP'>&nbsp;</TD>
+  </TR>
+  <tr>
+    <TD width="100%" ALIGN='CENTER' VALIGN='TOP'> <table border="0" cellspacing="0" cellpadding="0" class="border">
+        <tr>
+          <td align="left" class="bgcolour"> <span class="subtitle">
+            <!--[PAGE_TITLE]-->
+            </span> </td>
+        </tr>
+        <tr>
+          <td> <table border="0" cellspacing="0" cellpadding="0" class="border2">
+              <tr>
+                <td>
+                  <!--[PAGE]-->
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <table width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="2" width="600" align="center">
+            <!--[DD_FAV]-->
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" width="600" height="12" align="center">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="600" colspan="2" align="center"> <table width='400' border='0' cellpadding='0' cellspacing='0'>
+              <tr>
+                <td width="125" align='right'>
+                  <!--[NAV_FIRST=http://www.drunkduck.com/comics/resource_files/templates/5/gfx/b_theme_bb.gif]-->
+                </td>
+                <td width='75' align='CENTER'>
+                  <!--[NAV_PREVIOUS=http://www.drunkduck.com/comics/resource_files/templates/5/gfx/b_theme_b.gif]-->
+                </td>
+                <td width='75' align='CENTER'>
+                  <!--[NAV_NEXT=http://www.drunkduck.com/comics/resource_files/templates/5/gfx/b_theme_f.gif]-->
+                </td>
+                <td width='125' align='left'>
+                  <!--[NAV_LAST=http://www.drunkduck.com/comics/resource_files/templates/5/gfx/b_theme_ff.gif]-->
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td width="500" align="left"> <table width="175" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="175">
+                  <!--[PAGE_DROPDOWN]-->
+                </td>
+              </tr>
+            </table></td>
+          <td width="100" align="right">
+            <!--[RSS]-->
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" width="600" height="12" align="center">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><table width="600" border="0" cellspacing="0" cellpadding="0" class="border">
+              <tr>
+                <td width="600" class="bgcolour"><span class="subtitle">Notes</span></td>
+              </tr>
+              <tr>
+                <td width="600" height="12">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="600" align="center" valign="middle"><table width="400" border="0" cellspacing="0" cellpadding="0" class="bordercom">
+                    <tr>
+                      <td width="400" align="center">
+                        <!--[AUTHORS_NOTES=400]-->
+                      </td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td width="600" height="12" align="center" valign="middle">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="600" align="center" valign="middle">
+                  <!--[COMMENTS=400]-->
+                </td>
+              </tr>
+              <tr>
+                <td width="600" height="12" align="center" valign="middle">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="600" align="center" valign="middle">
+                  <!--[COMMENT_FORM=400,200]-->
+                </td>
+              </tr>
+              <tr>
+                <td width="600" align="center" valign="middle">
+                  <!--[FORUM_BUTTON]-->
+                </td>
+              </tr>
+              <tr>
+                <td width="600" height="12" align="center" valign="middle">&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td colspan="2" width="600" height="12" align="center">&nbsp;</td>
+        </tr>
+      </table></TD>
+  </TR>
+  <TR>
+    <TD width="100%" ALIGN='CENTER' VALIGN='TOP' class="bgcolour">
+
+      <table border="0" cellspacing="0" cellpadding="0" class="border">
+              <tr>
+                <td>
+				<table border="0" cellspacing="0" cellpadding="0" class="border2">
+              <tr>
+                <td>
+                   <!--[AD_728x90]-->
+                </td>
+              </tr>
+            </table>
+	  		</td>
+          </tr>
+      </table>
+
+
+   </TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
