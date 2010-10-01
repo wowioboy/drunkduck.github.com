@@ -6,7 +6,7 @@ $USER->user_id = '19085';
 $USER->username = 'pscomics';
 $USER->signed_up = '2009-12-31';
 
-$query = "select c.comic_id as id, c.comic_name as title, from_unixtime(c.last_update) as updated_on 
+$query = "select c.comic_id as id, c.comic_name as title, from_unixtime(c.last_update) as updated_on, f.recommend, f.email_on_update as alert 
           from comics c 
           left join comic_favs f 
           on f.comic_id = c.comic_id
@@ -15,19 +15,25 @@ $favorites = DB::getInstance()->fetchAll($query);
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
-  $('.big-favorite-reccomend').change(function(){
+  $('.big-favorite-recommend').change(function(){
     if ($(this).attr('checked')) {
-      $('.favorite-reccomend').attr('checked', true);
+      $('.favorite-recommend').attr('checked', true);
+    } else {
+      $('.favorite-recommend').attr('checked', false);
     }
   });
-  $('.big-favorite-alerts').change(function(){
+  $('.big-favorite-alert').change(function(){
     if ($(this).attr('checked')) {
-      $('.favorite-alerts').attr('checked', true);
+      $('.favorite-alert').attr('checked', true);
+    } else {
+      $('.favorite-alert').attr('checked', false);
     }
   });
   $('.big-favorite-delete').change(function(){
     if ($(this).attr('checked')) {
       $('.favorite-delete').attr('checked', true);
+    } else {
+      $('.favorite-delete').attr('checked', false);
     }
   });
   
@@ -36,9 +42,9 @@ $(document).ready(function(){
       $('.big-favorite-reccomend').attr('checked', false);
     }
   });
-  $('.favorite-alerts').change(function(){
+  $('.favorite-alert').change(function(){
     if (!$(this).attr('checked')) {
-      $('.big-favorite-alerts').attr('checked', false);
+     $('.big-favorite-alert').attr('checked', false);
     }
   });
   $('.favorite-delete').change(function(){
@@ -47,15 +53,39 @@ $(document).ready(function(){
     }
   });
   
+  $('#favorites_form').ajaxForm({
+    beforeSubmit: function(arr){
+      if ($('.favorite-delete:checked').size()) {
+        var ans = confirm("are you sure you want to delete the selected favorites?");
+        if (!ans) {
+          return false;
+        }
+      }
+      return true;
+      $.fancybox.showActivity();
+    },
+    success: function(data) {
+      $.fancybox.hideActivity();
+      if (data) {
+        data = $.parseJSON(data);
+        $.each(data, function(k, v){
+          $('tr[favorite=' + v + ']').fadeOut();
+        });
+      }
+      alert('changes saved');
+    }
+  });
   
 });
 </script>
+<form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
+<input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
 <table>
  <thead>
  <tr>
    <th>comic</th>
    <th>last updated</th>
-   <th>reccomend</th>
+   <th>recommend</th>
    <th>email alerts</th>
    <th>delete</th>
  </tr>
@@ -71,25 +101,27 @@ if ($date->format('Y-m-d') == $now->format('Y-m-d')) {
   $date = $date->format('M j');
 }
 ?>
-  <tr comic="<?php echo $favorite['id']; ?>">
-    <td><?php echo $favorite['title']; ?></td>
+  <tr favorite="<?php echo $favorite['id']; ?>">
+<input type="hidden" name="favorite[]" value="<?php echo $favorite['id']; ?>" />
+    <td width="200px;"><?php echo $favorite['title']; ?></td>
     <td><?php echo $date; ?></td>
-    <td><input class="favorite-reccomend" type="checkbox" name="reccomend[<?php echo $favorite['id']; ?>]" /></td>
-    <td><input class="favorite-alerts" type="checkbox" name="alerts[<?php echo $favorite['id']; ?>]" /></td>
-    <td><input class="favorite-delete" type="checkbox" name="delete[<?php echo $favorite['id']; ?>]" /></td>
+    <td><input class="favorite-recommend" type="checkbox" name="recommend[]" value="<?php echo $favorite['id']; ?>"  <?php echo ($favorite['recommend']) ? 'checked' : ''; ?> /></td>
+    <td><input class="favorite-alert" type="checkbox" name="alert[]" value="<?php echo $favorite['id']; ?>" <?php echo ($favorite['alert']) ? 'checked' : ''; ?> /></td>
+    <td><input class="favorite-delete" type="checkbox" name="delete[]" value="<?php echo $favorite['id']; ?>" /></td>
   </tr>
 <?php endforeach; ?>
 <tr>
   <td>All</td>
   <td>&nbsp;</td>
-  <td><input class="big-favorite-reccomend" type="checkbox" /></td>
-  <td><input class="big-favorite-alerts" type="checkbox" /></td>
+  <td><input class="big-favorite-recommend" type="checkbox" /></td>
+  <td><input class="big-favorite-alert" type="checkbox" /></td>
   <td><input class="big-favorite-delete" type="checkbox" /></td>
 </tr>
  </tbody>
 </table>
 <div>
-<button>save changes</button>
+  <input type="submit" value="save changes" />
 </div>
+</form>
 
 <?php require_once('../footer_base.php'); ?>
