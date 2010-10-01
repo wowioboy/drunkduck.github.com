@@ -67,7 +67,7 @@ if ( $COMIC_ROW ) {
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
 
 <script language="javascript" type="text/javascript">
-    $j = jQuery.noConflict();
+    jQuery.noConflict();
 </script>
 <!-- <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT> -->
 <!-- END OF TAG FOR head SECTION -->
@@ -148,7 +148,7 @@ body {
 <script>
 jQuery(document).ready(function(){
     jQuery('#controlTab').click(function(){
-      var node = $('#myPanel');
+      var node = jQuery('#myPanel');
       if (node.css('display') == 'none') {
         node.slideDown();
       } else { 
@@ -458,24 +458,25 @@ function capRO($imgPrefix) {
         <a id="controlTab" class="drunk" style="float:right;color:yellow;width:160px;text-align:right">control panel</a>
 
         <div id="myPanel" style="display:none;margin-bottom:-170px;position:relative;left:160px;bottom:170px" class="span-30 green rounded">
-
             <script>
           jQuery(document).ready(function(){
-            var user_id = '';
+            var user_id = '<?php echo $USER->user_id; ?>';
 
             function getWebcomics()
             {
               var object = {};
               object.user_id = user_id;
-              object.sort = $('select.webcomics').val();
-              $.getJSON('/ajax/webcomics.php', object, function(data) {
+              object.sort = jQuery('select.webcomics').val();
+              jQuery.getJSON('/ajax/webcomics.php', object, function(data) {
                   var html = '';
-                  $.each(data, function(){
+                  if (data) {
+                  jQuery.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
                     html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="http://www.drunkduck.com/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
                   });
-                  $('div.webcomics_display').html(html);
+                  jQuery('div.webcomics_display').html(html);
+                  }
                 });
             }
             
@@ -483,47 +484,49 @@ function capRO($imgPrefix) {
             {
               var object = {};
               object.user_id = user_id;
-              object.sort = $('select.favorites').val();
-              $.getJSON('/ajax/favorites.php', object, function(data) {
+              object.sort = jQuery('select.favorites').val();
+              jQuery.getJSON('/ajax/favorites.php', object, function(data) {
+                  if (data) {
                   var html = '';
-                  $.each(data, function(){
+                  jQuery.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
                     html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
                   });
-                  $('div.favorites_display').html(html);
+                  jQuery('div.favorites_display').html(html);
+                  }
                });
             }
 
-            $('a.favorties').click(function(){
-              var favoritesDiv = $('div.favorites');
+            jQuery('a.favorties').click(function(){
+              var favoritesDiv = jQuery('div.favorites');
               if (favoritesDiv.css('display') == 'none') {
-                $(this).html('collapse');
+                jQuery(this).html('collapse');
                 getFavorites();
                   favoritesDiv.slideDown();
               } else { 
-                $(this).html('expand');
+                jQuery(this).html('expand');
                 favoritesDiv.slideUp();
               }
             });
 
-            $('a.webcomics').click(function(){
-              var webcomicsDiv = $('div.webcomics');
+            jQuery('a.webcomics').click(function(){
+              var webcomicsDiv = jQuery('div.webcomics');
               if (webcomicsDiv.css('display') == 'none') {
-                $(this).html('collapse');
+                jQuery(this).html('collapse');
                   getWebcomics();
                   webcomicsDiv.slideDown();
               } else { 
-                $(this).html('expand');
+                jQuery(this).html('expand');
                 webcomicsDiv.slideUp();
               }
             });
             
-            $('select.favorites').change(function(){
+            jQuery('select.favorites').change(function(){
               getFavorites();
             });
             
-           $('select.webcomics').change(function(){
+           jQuery('select.webcomics').change(function(){
               getWebcomics();
             });
           });

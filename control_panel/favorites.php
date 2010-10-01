@@ -1,10 +1,6 @@
 <?php require_once('../header_base.php'); ?>
 
 <?php
-$USER = new stdClass();
-$USER->user_id = '19085';
-$USER->username = 'pscomics';
-$USER->signed_up = '2009-12-31';
 
 $query = "select c.comic_id as id, c.comic_name as title, from_unixtime(c.last_update) as updated_on, f.recommend, f.email_on_update as alert 
           from comics c 
@@ -78,6 +74,11 @@ $(document).ready(function(){
   
 });
 </script>
+<div>
+<a class="teal rounded button" href="/control_panel/account.php">account</a>
+<a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
+<a class="teal rounded button" href="/control_panel/profile.php">profile</a>
+</div>
 <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
 <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
 <table>

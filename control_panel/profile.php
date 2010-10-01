@@ -2,30 +2,41 @@
 <?php require_once('../includes/user_maintenance/trophies/trophy_data.inc.php'); ?>
 
 <?php
-$username = $_REQUEST['username'];
+if (!$username = $_REQUEST['username']) {
+  $username = $USER->username; 
+}
 
+
+  
 $query = "select user_id, username, from_unixtime(signed_up) as signed_up, trophy_string, about_self as about, avatar_ext
           from users where username = '$username'";
 $user = DB::getInstance()->fetchRow($query);
+
+if ($comment = $_REQUEST['comment']) {
+  $time = time();
+  $query = "insert into profile_comments (user_id, poster_id, comment, approved, posted) values ('{$user['user_id']}', '{$USER->user_id}', '$comment', '1', '$time')";
+  $db->query($query);
+}
+
 $trophies = explode(',', $user['trophy_string']);
 
 $joined = new DateTime($user['signed_up']);
 
-$query = "select comic_name as title 
+$query = "select comic_id as id, comic_name as title 
           from comics 
           where user_id = '{$user['user_id']}'";
-$comics = $db->fetchCol($query);
-$query = "select c.comic_name as title 
+$comics = $db->fetchAll($query);
+$query = "select c.comic_id as id, c.comic_name as title 
           from comics c 
           inner join comic_favs f 
           on f.comic_id = c.comic_id
           where f.user_id = '{$user['user_id']}' 
           and f.recommend = '1'";
-$recommended = $db->fetchCol($query);
-$query = "select comic_name as title 
+$recommended = $db->fetchAll($query);
+$query = "select comic_id as id, comic_name as title 
           from comics 
           where secondary_author = '{$user['user_id']}'";
-$assisted = $db->fetchCol($query);
+$assisted = $db->fetchAll($query);
 
 $query = "select url, name, description 
           from publisher_links 
@@ -70,11 +81,16 @@ $scores = $gamesDb->fetchAll($query);
 $(document).ready(function(){
 });
 </script>
+<div>
+<a class="teal rounded button" href="/control_panel/account.php">account</a>
+<a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
+<a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
+</div>
 <h2>Public Profile</h2>
 <img src="http://images.drunkduck.com/process/user_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
 <h2><?php echo $user['username']; ?></h2>
-<h4>member since <?php echo $joined->format('F j, Y'); ?></h4>
-<?php echo $user['about']; ?>
+<h4>member since <?php echo @$joined->format('F j, Y'); ?></h4>
+<?php echo bbcode2html($user['about']); ?>
 <div style="height:10px;"></div>
 
 <div>
@@ -136,9 +152,9 @@ COMICS CREATED
 <br />
 <?php foreach ((array) $comics as $comic) : ?>
 <?php 
-$path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
+<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -149,9 +165,9 @@ COMICS ASSISTED
 <br />
 <?php foreach ((array) $assisted as $comic) : ?>
 <?php 
-$path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
+<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -172,15 +188,23 @@ COMICS RECOMMENDED
 <br />
 <?php foreach ((array) $recommended as $comic) : ?>
 <?php 
-$path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
+<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
 <!-- <div style="height:10px;"></div>
 
 <div>VIDEOS</div>-->
+
+<div style="height:10px;"></div>
+
+<form id="leaveCommentForm" method="post">
+Leave a Comment
+<textarea name="comment"></textarea>
+<input type="submit" value="leave comment" />
+</form>
 
 <div style="height:10px;"></div>
 

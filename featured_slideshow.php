@@ -75,7 +75,7 @@ $(document).ready(function(){
           $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
         ?>
         <?php if ($i % 8 == 1) : ?>
-          <div>
+          <div <?php echo ($i > 0) ? 'style="display:none;"' : ''; ?>>
         <?php endif; ?>  
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
         <?php if ($i % 8 == 0) : ?>

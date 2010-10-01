@@ -1,11 +1,6 @@
 <?php require_once('../header_base.php'); ?>
 
 <?php
-$USER = new stdClass();
-$USER->user_id = '19085';
-$USER->username = 'pscomics';
-$USER->signed_up = '2009-12-31';
-
 $query = "select email 
           from demographics 
           where user_id = '{$USER->user_id}'";
@@ -18,7 +13,6 @@ $(document).ready(function(){
   $('#change-avatar').ajaxForm();
   $('#change-password').ajaxForm({
     beforeSubmit: function(data) {
-      //console.log(data);
       if (data[2].value == data[3].value) {
         return true;
       } else {
@@ -32,9 +26,15 @@ $(document).ready(function(){
   });
 });
 </script>
+<div>
+<a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
+<a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
+<a class="teal rounded button" href="/control_panel/profile.php">profile</a>
+</div>
 <h2>Account</h2>
 <h2><?php echo $USER->username; ?></h2>
 <h4>member since <?php echo $joined->format('F j, Y'); ?></h4>
+
 <div>
 email
 <br />
@@ -43,6 +43,9 @@ email
 <input type="text" name="email" value="<?php echo $email; ?>" /> <input type="submit" class="teal button rounded" value="save email" />
 </form>
 </div>
+
+<div style="height:10px;"></div>
+
 <div>
 <form id="change-avatar" method="post" action="/ajax/control_panel/change_avatar.php">
 avatar (maximum 100x100 pixels) <input name="avatar" type="file" value="choose file" />
@@ -50,6 +53,9 @@ avatar (maximum 100x100 pixels) <input name="avatar" type="file" value="choose f
 <input type="submit" value="upload" />
 </form>
 </div>
+
+<div style="height:10px;"></div>
+
 <div>
 <form id="change-password" method="post" action="/ajax/control_panel/change_password.php">
 <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />

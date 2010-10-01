@@ -40,13 +40,13 @@
       }
       </style>
               <script type="text/javascript">
-                 $(document).ready(function(){
-                   $('#searchTxt').keyup(function(){
-                    if (search = $(this).val()) {
-                      $.getJSON('/ajax/search.php', {search: search}, function(data) {
+                 jQuery(document).ready(function(){
+                   jQuery('#searchTxt').keyup(function(){
+                    if (search = jQuery(this).val()) {
+                      jQuery.getJSON('/ajax/search.php', {search: search}, function(data) {
                         if (data) {
                         var html = '';
-                        $.each(data, function(){
+                        jQuery.each(data, function(){
                           var path = 'http://www.drunkduck.com/comics/' + this.charAt(0) + '/' + this.replace(/ /g, '_') + '/gfx/thumb.jpg';
                           html += '<a style="padding:0;" class="search_link" href="http://www.drunkduck.com/' + this.replace(/ /g, '_') + '">' + 
                                  '<div class="result">' +
@@ -55,35 +55,35 @@
                               '</div>' + 
                                '</a>';
                         });
-                        $('#search_results').html(html).show();
+                        jQuery('#search_results').html(html).show();
                         }
                       });
                     } else {
-                      $('#search_results').fadeOut('fast');
+                      jQuery('#search_results').fadeOut('fast');
                     }
                    });
                     var preventBlur = false;
-                    $('#search_results').mouseenter(function() {
+                    jQuery('#search_results').mouseenter(function() {
                       preventBlur = true;
                     });
-                    $('#search_results').mouseleave(function() {
+                    jQuery('#search_results').mouseleave(function() {
                       preventBlur = false;
                     });
-                    $('#searchTxt').blur(function(){
+                    jQuery('#searchTxt').blur(function(){
                       if (!preventBlur) {
-                        $('#search_results').fadeOut('fast');
+                        jQuery('#search_results').fadeOut('fast');
                       }
                     });
-                    $('#searchTxt').focus(function(){
-                      var search = $.trim($(this).val());
+                    jQuery('#searchTxt').focus(function(){
+                      var search = jQuery.trim(jQuery(this).val());
                       if (search != '') {
-                        $('#search_results').fadeIn('fast');
+                        jQuery('#search_results').fadeIn('fast');
                       }
                     });
                  });
                  
               </script>
-                <form action="search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
+                <form action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
                     <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
                     <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>

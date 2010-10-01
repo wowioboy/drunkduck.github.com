@@ -1,8 +1,9 @@
 <?php require_once('../header_base.php'); ?>
 
-
 <?php
-  $where = "username_to = '{$USER->username}' and username_from is not null";
+
+
+$where = "username_from = '{$USER->username}' and username_to is not null";
 $query = "select mail_id as id, username_to as `to`, username_from as `from`, title as subject, from_unixtime(time_sent) as recieved, viewed as status, message 
           from mailbox  
           where $where 
@@ -54,7 +55,7 @@ $(document).ready(function(){
           console.log(this);
           html += '<tr quack="' + this.id + '">' + 
                   '<td><input type="checkbox" class="quack-check" name="quack" value="' + this.id + '" /></td>';
-            html += '<td>' + this.from + '</td>';
+            html += '<td>' + this.to + '</td>';
             html += '<td><a class="toggle-quack-message" quack="' + this.id + '" style="text-decoration:underline;" href="javascript:">' + this.subject + '</a></td>' + 
                     '<td>' + this.recieved + '</td>' + 
                     '<td class="quack-status" quack="' + this.id + '">' + this.status + '</td>' + 
@@ -132,7 +133,7 @@ $(document).ready(function(){
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
 <div>
-<a class="teal rounded button" href="/control_panel/quacks-outbox.php">Sent</a>
+<a class="teal rounded button" href="/control_panel/quacks.php">Inbox</a>
 </div>
 <div>
     <button class="teal button rounded quack_button" direction="prev">previous</button>
@@ -143,7 +144,7 @@ $(document).ready(function(){
  <thead>
  <tr>
    <th><input type="checkbox" class="big-quack-check" /></th>
-   <th>from</th>
+   <th>to</th>
    <th>subject</th>
    <th>recieved</th>
    <th>status</th>
@@ -167,7 +168,7 @@ if ($recieved->format('Y-m-d') == $now->format('Y-m-d')) {
 ?>
 <tr quack="<?php echo $quack['id']; ?>">
   <td><input type="checkbox" class="quack-check" name="quack" value="<?php echo $quack['id']; ?>" /></td>
-  <td><?php echo $from; ?></td>
+     <td><?php echo $quack['to']; ?></td>
   <td><a class="toggle-quack-message" quack="<?php echo $quack['id']; ?>" style="text-decoration:underline;" href="javascript:"><?php echo $quack['subject']; ?></a></td>
   <td><?php echo $recieved; ?></td>
   <td class="quack-status" quack="<?php echo $quack['id']; ?>"><?php echo $status; ?></td>
@@ -175,8 +176,6 @@ if ($recieved->format('Y-m-d') == $now->format('Y-m-d')) {
 <tr class="quack-message" quack="<?php echo $quack['id']; ?>" style="display:none;">
   <td colspan="5">
     <?php echo $quack['message']; ?>
-    <br />
-    <button class="quack-reply-button" from="<?php echo $from; ?>" subject="<?php echo $quack['subject']; ?>">reply</button>
   </td>
 </tr>
 <tr>

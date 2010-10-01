@@ -4,33 +4,30 @@ require_once('header_base.php');
 require_once('bbcode.php'); 
 
 $db = new DB();
-$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+$query = "select c.comic_id as id, c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
 from comics c 
 inner join users u 
 on u.user_id = c.user_id
 order by visits desc 
 limit 10";
 $topTen = $db->fetchAll($query);
-$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+$query = "select c.comic_id as id, c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
 from comics c 
 inner join users u 
 on u.user_id = c.user_id
 order by last_update desc 
 limit 10";
 $latestUpdates = $db->fetchAll($query);
-$query = "select c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
+
+$query = "select c.comic_id as id, c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author
 from comics c 
-inner join users u 
-on u.user_id = c.user_id
-left join comic_pages p 
-on p.comic_id = c.comic_id 
-right join page_likes l 
-on l.page_id = p.page_id 
-where l.date between now() - interval 1 week and now()
-group by title 
-order by count(1) desc
+left join users u 
+on u.user_id = c.user_id 
+where c.total_pages > 0 
+order by rand() 
 limit 10";
 $mostLiked = $db->fetchAll($query);
+
 $query = "select b.title, u.username as author, b.body, from_unixtime(b.timestamp_date) as created_on
 from admin_blog b 
 left join users u 
@@ -187,7 +184,7 @@ $(document).ready(function(){
         <div id="top-ten-ajaxer">
         <?php foreach ((array) $topTen as $comic) : ?>
           <?php 
-  	        $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+  	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
           <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
@@ -200,7 +197,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header"><span>Most Liked of The Week</span></div>
+  <div class="span-24 green panel-header"><span>Quail's Random</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -208,7 +205,7 @@ $(document).ready(function(){
       <div id="most-liked-ajaxer">
       <?php foreach ((array) $mostLiked as $comic) : ?>
         <?php 
-          $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
@@ -229,7 +226,7 @@ $(document).ready(function(){
       <div id="latest-update-ajaxer">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
-          $path = 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg';
+          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
         <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
