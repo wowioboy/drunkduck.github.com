@@ -4,6 +4,7 @@
 *    LOAD ALL PAGE DATA!    *
 *                           *
 ****************************/
+
 if ( isset($_GET['p']) ) {
   $PAGE_ID = (int)$_GET['p'];
 }
@@ -89,7 +90,7 @@ if ( $PAGE_ROW )
     *                                  *
     ***********************************/
 }
-
+/*var_dump(__LINE__ . ':' . basename(__FILE__), $_GET, $PAGE_ROW, $COMIC_ROW); exit;*/
 if ( !$PAGE_ROW || !$COMIC_ROW->total_pages )
 {
   echo("This comic has no pages yet!");
@@ -240,15 +241,23 @@ if ( $ALLOW_MODERATION )
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tag_functions.inc.php');
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tags_archive.inc.php');
 
-
+/*die($COMIC_ROW->template . 'http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd');*/
+/*var_dump('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'); exit;*/
 if ( $COMIC_ROW->template != 0 ) {
-  $TEMPLATE = implode('', file(WWW_ROOT.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/template.dd'));
+  $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/template.dd');
 }
-else if ( file_exists(WWW_ROOT.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd') ) {
-  $TEMPLATE = implode('', file(WWW_ROOT.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'));
+elseif ( ($response = file_get_contents('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'))
+    && strpos($http_response_header[0], ' 200 ') !== false) {
+/*    var_dump(  strpos(array_shift($http_response_header), ' 200 ') !== false ); exit;     */
+    $TEMPLATE = $response;    
+/*    var_dump('custom');*/
+/*    var_dump( $response ); exit;*/
+    
 }
 else {
-    $TEMPLATE = implode('', file(WWW_ROOT.'/comics/resource_files/default_template.new.dd'));
+/*    die('ddddddddddddddddddddddddd');*/
+    
+    $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/default_template.new.dd');
 }
 
 ?>

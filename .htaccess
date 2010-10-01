@@ -12,4 +12,4 @@ RewriteCond %{REQUEST_URI} !.*comics/.*comics/
 RewriteRule ^(([a-zA-Z0-9_]).*)$ http://drunkduck.com/comics/$2/$1
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule (.+) /comics/resource_files/comic_page_load.inc.php?$1 [L] 
+RewriteRule (.+) /comics/resource_files/comic_page_load.inc.php?comic=$1 [QSA,L] 

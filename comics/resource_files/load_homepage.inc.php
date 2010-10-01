@@ -195,13 +195,13 @@ require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tags_homepag
 
 
 if ( $COMIC_ROW->template != 0 ) {
-  $TEMPLATE = implode('', file(WWW_ROOT.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/homepage.dd'));
+  $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/homepage.dd');
 }
-else if ( file_exists(WWW_ROOT.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd') ) {
-  $TEMPLATE = implode('', file(WWW_ROOT.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd'));
+else if ( file_exists('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd') ) {
+  $TEMPLATE = implode('', file('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd'));
 }
 else {
-    $TEMPLATE = implode('', file(WWW_ROOT.'/comics/resource_files/default_homepage.dd'));
+    $TEMPLATE = implode('', file('http://drunkduck.com'.'/comics/resource_files/default_homepage.dd'));
 }
 
 

@@ -30,6 +30,46 @@ if ( $COMIC_ROW ) {
   GA_googleFetchAds();
 </script>
 
+<!-- BLUEPRINT -->
+<link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/css/blueprint/gutterless.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">    
+<!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+<!-- JQUERY -->
+<script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+
+<!-- JQUERY UI (JQUERY) -->
+<link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
+
+<!-- CYCLE (JQUERY) -->
+<script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
+
+<!-- SELECT MENU (JQUERY, JQUERY UI) -->
+<link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
+
+<!-- FANCY BOX (JQUERY) --> 
+<link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
+<script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+
+<!-- JQUERY FORM (JQUERY) -->
+<script type="text/javascript" src="/js/jquery/form.js"></script>
+
+<!-- GOOGLE FONT -->
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
+
+<link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
+<link href='/css/layout.css' rel='stylesheet' type="text/css">
+<link href='/css/global.css' rel='stylesheet' type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
+
+<script language="javascript" type="text/javascript">
+    $j = jQuery.noConflict();
+</script>
+<!-- <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT> -->
 <!-- END OF TAG FOR head SECTION -->
 
 <script src="/__utm.js" type="text/javascript"></script>
@@ -63,6 +103,60 @@ font-weight: bold;
 }
 </style>
 
+
+
+
+<style>
+table, th, td, tr {
+    width:auto;
+    }
+th, td {
+padding:0;
+}
+
+body {
+    margin:0;
+    padding:0;
+    }
+
+#menu {
+    position:static;
+    clear:both;
+    }
+#menu a {
+    float:right;
+    margin-bottom:20px;
+    clear:both;
+    padding: 0;
+    width:160px;
+    text-align:right;
+    }
+#advsearch {
+    float:right;
+    padding-bottom:30px;
+    padding-right:5px;
+    }
+#advsearch a {
+    margin:0;
+    padding:2px;
+    }
+#myPanel {
+    padding-left:10px;
+    }         
+</style>
+
+<script>
+jQuery(document).ready(function(){
+    jQuery('#controlTab').click(function(){
+      var node = $('#myPanel');
+      if (node.css('display') == 'none') {
+        node.slideDown();
+      } else { 
+        node.slideUp();
+      }
+    });
+});
+</script>
 
 <?
 if ( $USER )
@@ -248,8 +342,7 @@ if (hidemenu_onclick=="yes") {
 }
 ?>
 
-<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
-<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
+
 <script language="JavaScript">
 <?
 if ( $COMIC_FAVS[$COMIC_ROW->comic_id] )
@@ -348,51 +441,169 @@ function capRO($imgPrefix) {
 }
 
 
-?><div align="center"><?
-if ( !$USER )
-{
 ?>
-<table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0" class="toolbar" style="padding: 0pt; margin-left: auto; margin-right: auto; margin-top: 0pt;">
-  <form action="<?=$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" method="POST">
-  <tr>
-    <td colspan="4" align="center" style="background-color:#ffffff;background-image:url(<?=IMAGE_HOST_SITE_GFX?>/comic_caps/bg_<?=$CAP_ID?>.png);background-repeat: repeat-x;background-position:bottom;"><table width="800" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="173" height="60" valign="top"><a href="http://www.drunkduck.com"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left.png" width="179" height="60" border="0"></a></td>
-          <td width="728" align="center" bgcolor="#CCCCCC">
-<?
-	if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T')
-	{
-		// ad include for safe-rated comics
-		include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
-	}
-	else
-	{
-		// ad include for adult/mature/unknown rated comics
-		include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
-	}
-?>
-          </td>
-          <td width="139" height="60" align="right" id="login"><div align="center"><strong>Login:</strong><br>
-            <div align="center"><input onFocus="this.value='';" name="un" style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 204, 0); height: 16px; font-size: 9px; color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif;" value="username" size="10" type="text">&nbsp;<input onFocus="this.value='';" name="pw" style="border: 1px solid rgb(0, 0, 0); background-color: rgb(255, 204, 0); height: 16px; font-size: 9px; color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif;" value="password" size="10" type="password"></div>
-            <input src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/0/small_go_button.png" type="image" align="middle" border="0" height="14" width="22"></div></td>
-        </tr>
-        <tr>
-          <td colspan="3"><table width="800" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left_bot_<?=$CAP_ID?>.png" width="297" height="40" border="0" usemap="#MainNav"></td>
-                <td width="503" align="right" background="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/right_bot_<?=$CAP_ID?>.png"><a href="http://www.drunkduck.com/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/member_ad.gif" width="503" height="40" border="0"></a></td>
-              </tr>
-            </table></td>
-        </tr>
-      </table></td>
-  </tr>
-  </form>
-</table>
-<?
-}
-else
-{
-?>
+<div style="height:100px;position:absolute;top:0;left:0;width:100%;z-index:-5000" class="green"></div>
+<div class="container-main" style="min-width:960px;">
+    <div class="span-16 green box-1" style="box-shadow: 0px 0 6px rgb(0,0,0);min-height:100%">
+    <div>
+        <img src="/media/images/drunkduck-logo.png" width="160" />
+    </div>
+    
+    <div style="position:relative;width:160px;">
+        <div id="menu"> 
+            <?php require_once(WWW_ROOT . '/navi_v2.php'); ?>
+            </div>     
+        <a href="#" id="controlTab" style="font: bold 1.2em arial;float:right;color:yellow;width:160px;text-align:right">control panel</a>
+
+        <div id="myPanel" style="display:none;margin-bottom:-170px;position:relative;left:160px;bottom:170px" class="span-30 green rounded">
+
+            <script>
+          jQuery(document).ready(function(){
+            var user_id = '';
+
+            function getWebcomics()
+            {
+              var object = {};
+              object.user_id = user_id;
+              object.sort = $('select.webcomics').val();
+              $.getJSON('/ajax/webcomics.php', object, function(data) {
+                  var html = '';
+                  $.each(data, function(){
+                    var date = this.updated_on;
+                    var title = this.title;
+                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="http://www.drunkduck.com/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
+                  });
+                  $('div.webcomics_display').html(html);
+                });
+            }
+            
+            function getFavorites() 
+            {
+              var object = {};
+              object.user_id = user_id;
+              object.sort = $('select.favorites').val();
+              $.getJSON('/ajax/favorites.php', object, function(data) {
+                  var html = '';
+                  $.each(data, function(){
+                    var date = this.updated_on;
+                    var title = this.title;
+                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
+                  });
+                  $('div.favorites_display').html(html);
+               });
+            }
+
+            $('a.favorties').click(function(){
+              var favoritesDiv = $('div.favorites');
+              if (favoritesDiv.css('display') == 'none') {
+                $(this).html('collapse');
+                getFavorites();
+                  favoritesDiv.slideDown();
+              } else { 
+                $(this).html('expand');
+                favoritesDiv.slideUp();
+              }
+            });
+
+            $('a.webcomics').click(function(){
+              var webcomicsDiv = $('div.webcomics');
+              if (webcomicsDiv.css('display') == 'none') {
+                $(this).html('collapse');
+                  getWebcomics();
+                  webcomicsDiv.slideDown();
+              } else { 
+                $(this).html('expand');
+                webcomicsDiv.slideUp();
+              }
+            });
+            
+            $('select.favorites').change(function(){
+              getFavorites();
+            });
+            
+           $('select.webcomics').change(function(){
+              getWebcomics();
+            });
+          });
+          </script>
+        <div class="panel-header " style="float:right;padding:5px;text-transform:uppercase;font-family:helvetica;font-weight:bold;font-size:0.7em">
+            <a href="?logout=">log out</a> | <a href="">help</a>
+        </div>
+
+        <div class="span-30 panel-body-right ">
+          <div class="box-1">
+            <div class="span-8">
+                <div style="width:65px;height:65px;background-color:#FFF">
+                </div>
+            </div>
+            <div class="span-20" style="font-family:'Yanone Kaffeesatz';font-weight:bold;line-height:30px;margin-top:-5px;margin-bottom:5px;font-size:30px;color:rgb(69,180,185);">Hi, !</div>
+            <div class="span-20" style="font-size:10px;">User Control Panel</div>
+            <div class="span-20" style="font-size:10px;">Personal Quacks</div>
+            <div style="clear:both;height:10px"></div>
+
+          <div class="drop-list rounded ">
+            my favorites  <a class="favorties" href="javascript:">expand</a>
+            <div class="favorites" style="display:none;">
+            <select class="favorites">
+              <option value="">sort by</option>
+              <option value="alpha">alphabetically</option>
+              <option value="update">last update</option>
+            </select>
+              <div class="favorites_display">
+                here are the favorites
+              </div>
+            </div>
+          </div>
+          <div style="display:block;height:10px;"></div>
+
+          <div class="drop-list rounded ">
+            my webcomics  <a class="webcomics" href="javascript:">expand</a>
+            <div class="webcomics" style="display:none;">
+            <select class="webcomics">
+              <option value="">sort by</option>
+              <option value="alpha">alphabetically</option>
+              <option value="update">last update</option>
+            </select>
+              <div class="webcomics_display">
+                here are the webcomics
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+            </div>
+       
+
+    </div>
+    <div class="span-16">
+        ad
+    </div>
+    </div>
+    <div class="green span-73" style="padding-bottom:10px;">
+        <div style="height:90px;width:728px;background-color:white;"  class="span-73">
+            <?
+                if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T') {
+                    // ad include for safe-rated comics
+                    include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
+                } else {
+                    // ad include for adult/mature/unknown rated comics
+                    include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
+                }
+            ?>        
+        </div>
+
+    </div>
+
+    
+
+    <div id="mainContent" style="margin-left:180px;">
+    <div style="height:100px;">
+
+
+<?php if ( !$USER ) { ?>
+<!-- wakka -->
+
+<?php } else { ?>
 <table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0" class="toolbar" style="padding: 0pt; margin-left: auto; margin-right: auto; margin-top: 0pt;">
   <tr>
     <td colspan="4" align="center" style="background-color:#ffffff;background-image:url(<?=IMAGE_HOST_SITE_GFX?>/comic_caps/bg_<?=$CAP_ID?>.png);background-repeat: repeat-x;background-position:bottom;">
@@ -456,23 +667,11 @@ else
     </td>
   </tr>
 </table>
-<?
-}
-?>
-<map name="MainNav">
-  <area shape="rect" coords="203,20,237,35" href="http://store.drunkduck.com">
-  <area shape="rect" coords="150,20,194,35" href="http://www.drunkduck.com/community/">
-  <area shape="rect" coords="14,20,97,37" href="http://www.drunkduck.com/search.php">
-  <area shape="rect" coords="104,20,143,35" href="http://www.drunkduck.com/news/">
-</map>
-<map name="Login">
-  <area shape="rect" coords="78,2,136,14" href="#">
-</map>
+<? } ?>
+
+
 </div>
 <!--HDR-->
-
-
-
 
 
 <?

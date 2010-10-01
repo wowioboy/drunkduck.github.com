@@ -1,4 +1,3 @@
-        <div id="menu" class="span-73">
             <?php if (!$nosearch) : ?>
             <div style="display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
@@ -91,10 +90,10 @@
                 <div id="search_results"></div>
             </div>
 
-            <!-- Advanced Search Link-->
-            <div class="span-7 " style="padding-left:5px;line-height:5px;margin-top:-2px">
-                <a href="/search.php" style="padding:0;text-decoration:none;font-weight:bold;font-family:Verdana;font-size:10px;color:white;">Advanced<br />Search</a>
-            </div>
+            <!-- Advanced Search Link--> 
+            <div id="advsearch" style="height:20px;padding-left:5px;line-height:5px;margin-top:-2px"> 
+                <a href="/search.php" style="">Advanced Search</a> 
+            </div> 
                 <?php endif; ?>
             
             <!-- menu -->
@@ -105,4 +104,3 @@
             <!--<a href="#">videos</a>-->
             <a href="/community">forums</a>
             <a href="http://store.drunkduck.com">store</a>
-</div>

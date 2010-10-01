@@ -1,9 +1,13 @@
 <?
 define('TEMPLATE_VIEW', 1);
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
 
 // Make sure the php_self is seen as NOT in comics.
 $_SERVER['PHP_SELF'] = preg_replace('`\/comics\/[a-zA-Z0-9_](.*)`', "\\1", $_SERVER['PHP_SELF']);
+
+/*var_dump($_SERVER); exit;*/
+// hack
+$_SERVER['PHP_SELF'] = $_SERVER['REDIRECT_URI'];
 
 if ( strstr($_SERVER['REQUEST_URI'], '/comics') ) {
   if ( strlen($_SERVER['QUERY_STRING']) > 0 ) {
@@ -18,9 +22,10 @@ $FOLDER_NAME = basename( getcwd() );
 /*
  * DEV HACK -jihan
  */
-$FOLDER_NAME = basename($_SERVER['REDIRECT_QUERY_STRING']);
-$COMIC_NAME  = str_replace('_', ' ', $FOLDER_NAME );
+$FOLDER_NAME = array_shift(array_filter(explode('/',$_SERVER['REDIRECT_URL'])));
 
+$COMIC_NAME  = str_replace('_', ' ', $FOLDER_NAME );
+/*var_dump(__LINE__ . ':' . basename(__FILE__), $FOLDER_NAME); exit;*/
 $TITLE = $COMIC_NAME;
 
 if ( file_exists('../../includes/global.inc.php') ) {

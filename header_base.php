@@ -69,10 +69,13 @@ $db = new DB();
             
         </div>
         <div class="span-73 border-1 rounded green" style="position:relative;height:100px;display:block;">
-            <div class="rounded" style="position:absolute;top:0px;right:-7px;border:10px solid rgb(174,230,1);background-color:#FFF;height:90px;width:728px;">banner</div>
+            <div class="rounded" style="position:absolute;top:0px;right:-7px;border:10px solid rgb(174,230,1);background-color:#FFF;height:90px;width:728px;">
+            <?php include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html'); ?>
+            </div>
         </div>
-
+        <div class="span-73" id="menu">
         <?php require('navi_v2.php'); ?>
+        </div>
     </div>
     
     <div class="span-96" style="height:10px;"></div>
