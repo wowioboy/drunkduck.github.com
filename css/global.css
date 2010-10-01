@@ -171,6 +171,9 @@ a {
 .canary {
   background-color:rgb(255,240,170);
 }
+.white {
+    background-color:#FFFFFF;
+}
 .teal {
     color:rgb(69,180,185);
     }         

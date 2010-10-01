@@ -76,7 +76,7 @@
         </div>
 
         <div class="span-30 panel-body-right yellow ">
-          <div class="box-1">
+          <div class="box-1" style="padding-bottom:0;">
             <div class="span-8">
                 <div style="width:65px;height:65px;background-color:#FFF">
                 </div>
