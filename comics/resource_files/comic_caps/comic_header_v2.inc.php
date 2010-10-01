@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('../../../includes/global.inc.php');
 ob_start();
 
@@ -446,14 +446,16 @@ function capRO($imgPrefix) {
 <div class="container-main" style="min-width:960px;">
     <div class="span-16 green box-1" style="box-shadow: 0px 0 6px rgb(0,0,0);min-height:100%">
     <div>
-        <img src="/media/images/drunkduck-logo.png" width="160" />
+        <a href="/">
+            <img src="/media/images/drunkduck-logo.png" width="160" />
+        </a>
     </div>
     
     <div style="position:relative;width:160px;">
         <div id="menu"> 
             <?php require_once(WWW_ROOT . '/navi_v2.php'); ?>
             </div>     
-        <a href="#" id="controlTab" style="font: bold 1.2em arial;float:right;color:yellow;width:160px;text-align:right">control panel</a>
+        <a id="controlTab" class="drunk" style="float:right;color:yellow;width:160px;text-align:right">control panel</a>
 
         <div id="myPanel" style="display:none;margin-bottom:-170px;position:relative;left:160px;bottom:170px" class="span-30 green rounded">
 
@@ -575,8 +577,21 @@ function capRO($imgPrefix) {
        
 
     </div>
-    <div class="span-16">
-        ad
+    <div class="span-16" style="padding-top:10px;">
+    
+        <!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / ros_atf / 160x600 -->
+        <script type="text/javascript">
+                var gr_ads_zone = 'ros_atf';
+                var gr_ads_size = '160x600';
+        </script>
+        <script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
+        </script>
+        <noscript>
+                <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=3;sz=160x600;ord=1234567890">
+                        <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=3;sz=160x600;ord=1234567890" width="160" height="600" alt="advertisement" />
+                </a>
+        </noscript>
+        <!-- AD TAG ENDS: DrunkDuck / ros_atf / 160x600 -->
     </div>
     </div>
     <div class="green span-73" style="padding-bottom:10px;">

@@ -4,7 +4,7 @@
 <?php
 
 ini_set('display_errors', 1); 
-error_reporting(E_ALL^E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 unset($GLOBALS['loginError']);
 
 
@@ -26,7 +26,14 @@ $db = new DB();
 <link rel="stylesheet" href="/css/blueprint/gutterless.css" type="text/css" media="screen, projection">
 <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">    
 <!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-
+<style>
+body {    
+    background-color:rgb(9,153,68);
+    background-image:url('/media/images/bg-gradient-color3.jpg');
+    background-repeat: repeat-x;
+    background-position:center top;
+    }
+</style>
 <!-- JQUERY -->
 <script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
 
@@ -64,8 +71,9 @@ $db = new DB();
             if ($showFeatured) require_once('featured_slideshow.php'); 
         ?>
         <div class="span-23" style="height:150px">
-            
+            <a href="/">
                 <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-28px;z-index:5;"></div>
+            </a>
             
         </div>
         <div class="span-73 border-1 rounded green" style="position:relative;height:100px;display:block;">
