@@ -72,7 +72,7 @@
           });
           </script>
         <div class="panel-header yellow" style="float:right;padding:5px;text-transform:uppercase;font-family:helvetica;font-weight:bold;font-size:0.7em">
-            <a href="?logout=<?php echo $USER->user_id; ?>">log out</a> | <a href="">help</a>
+            <a href="?logout=<?php echo $USER->user_id; ?>">log out</a> | <a href="/community/view_category.php?cid=229">help</a>
         </div>
 
         <div class="span-30 panel-body-right yellow ">
