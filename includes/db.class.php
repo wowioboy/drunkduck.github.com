@@ -17,7 +17,7 @@ class DB
 		return self::$_instance;
 	}
 	
-	public function __construct()
+	public function __construct(array $credentials = array())
 	{
 		$this->_host = '173.201.18.129';
 		$this->_user = 'drunkduck';
@@ -27,6 +27,10 @@ class DB
     # THESE ARE THE STAGING DATABASE VARIABLES
     $this->_host = '192.168.1.205';
     $this->_pass = 'Sites3rv3r3';
+    
+    if ($credentials['scheme']) {
+      $this->_scheme = $credentials['scheme'];
+    }
     
 		$this->_link = @mysql_connect($this->_host, $this->_user, $this->_pass); 
 		@mysql_select_db($this->_scheme, $this->_link);
