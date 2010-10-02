@@ -98,9 +98,9 @@
             
             <!-- menu -->
             <a href="/search.php">browse</a>
-            <a href="#">create</a>
+            <a href="/account/overview/add_comic.php">create</a>
             <a href="/news_v2.php">news</a>
-            <a href="/signup">tutorials</a>
+            <a href="/tutorials/">tutorials</a>
             <!--<a href="#">videos</a>-->
-            <a href="/community">forums</a>
+            <a href="http://www.drunkduck.com/community">forums</a>
             <a href="http://store.drunkduck.com">store</a>

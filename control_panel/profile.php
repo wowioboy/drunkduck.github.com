@@ -114,7 +114,7 @@ TROPHIES
 <?php 
 $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 ?>
-<a title="<?php echo $TROPHIES[$trophy]['name']; ?>" href="http://www.drunkduck.com/trophies.php"><img src="<?php echo $path; ?>" /></a>
+<a title="<?php echo $TROPHIES[$trophy]['name']; ?>" href="/trophies.php"><img src="<?php echo $path; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -125,7 +125,7 @@ HIGH SCORES
 <br />
 <?php foreach ((array) $scores as $score) : ?>
 <div style="display:inline-block;">
-<a title="<?php echo $score['title']; ?>" href="http://www.drunkduck.com/games/play/<?php echo str_replace(' ', '_', $score['title']); ?>.php">
+<a title="<?php echo $score['title']; ?>" href="/games/play/<?php echo str_replace(' ', '_', $score['title']); ?>.php">
 <img src="http://images.drunkduck.com/games/thumbnails/game_<?php echo $score['id']; ?>_tn_med.gif" width="125" height="85" />
 </a>
 <br />
@@ -154,7 +154,7 @@ COMICS CREATED
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -167,7 +167,7 @@ COMICS ASSISTED
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -190,7 +190,7 @@ COMICS RECOMMENDED
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 

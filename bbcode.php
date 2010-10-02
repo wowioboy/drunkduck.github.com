@@ -37,6 +37,9 @@ function bbcode2html($message) {
           '/(?<!\\\\)(?:\s*<br\s*\/?>\s*)?\[list(?::o)?(:\w+)?=a\]\s*(?:<br\s*\/?>)?/s'  => "\n<ol class=\"bb-list-ordered,bb-list-ordered-la\">",
           '/(?<!\\\\)(?:\s*<br\s*\/?>\s*)?\[list(?::o)?(:\w+)?=A\]\s*(?:<br\s*\/?>)?/s'  => "\n<ol class=\"bb-list-ordered,bb-list-ordered-ua\">",
           
+          // [quote]
+          '/(?<!\\\\)\[quote(?::\w+)?=(.*?)\](.*?)\[\/quote(?::\w+)?\]/si'   => "<i>\\2</i><br /><br />- \\1<br /><br />",
+          
           //line breaks
           '/\n/'                                                               => "<br>",
           // escaped tags like \[b], \[color], \[url], ...

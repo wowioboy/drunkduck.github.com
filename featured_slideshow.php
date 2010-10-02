@@ -2,14 +2,14 @@
 <?php
 require_once('includes/db.class.php');
 $db = new DB();
-$query = "select c.comic_name as title 
+$query = "select f.feature_id as id, c.comic_name as title 
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
 where f.approved = '1'
 order by feature_id desc 
 limit 24";
-$featured = $db->fetchCol($query);
+$featured = $db->fetchAll($query);
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -72,12 +72,12 @@ $(document).ready(function(){
       <?php foreach ($featured as $i => $comic) : ?>
         <?php 
           $i++;
-          $path = 'http://www.drunkduck.com/comics/' . $comic{0} . '/' . str_replace(' ', '_', $comic) . '/gfx/thumb.jpg';
+          $path = "http://images.drunkduck.com/featured_comic_gfx/{$comic['id']}.gif";
         ?>
         <?php if ($i % 8 == 1) : ?>
-          <div <?php echo ($i > 0) ? 'style="display:none;"' : ''; ?>>
+          <div <?php echo ($i > 1) ? 'style="display:none;"' : ''; ?>>
         <?php endif; ?>  
-        <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic; ?>" width="105" height="131"/></a>
+        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" width="105" height="131" /></a>
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>

@@ -5,7 +5,11 @@ $query = "select email
           from demographics 
           where user_id = '{$USER->user_id}'";
 $email = $db->fetchOne($query);
+try {
 $joined = new DateTime($USER->signed_up);
+} catch (exception $e) {
+  $joined = new DateTime();
+}
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -32,6 +36,7 @@ $(document).ready(function(){
 <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 </div>
 <h2>Account</h2>
+<img src="http://images.drunkduck.com/process/user_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
 <h2><?php echo $USER->username; ?></h2>
 <h4>member since <?php echo $joined->format('F j, Y'); ?></h4>
 
