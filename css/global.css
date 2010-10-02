@@ -14,13 +14,9 @@ select {
 .bb-image {
   clear:left;
   }
-#backdrop2 {
+.background {
+background-image: url('/media/images/DD-bg-pattern-color3.gif');    
 background-repeat:no-repeat;
-position:absolute;
-top:0;
-z-index:-1000;
-width:100%;
-height:100%;
 
 }
 .header {
