@@ -12,6 +12,10 @@ $query = "select user_id, username, from_unixtime(signed_up) as signed_up, troph
           from users where username = '$username'";
 $user = DB::getInstance()->fetchRow($query);
 
+if ($user['user_id'] == $USER->user_id) {
+  $profileOwner = true;
+}
+
 if ($comment = $_REQUEST['comment']) {
   $time = time();
   $query = "insert into profile_comments (user_id, poster_id, comment, approved, posted) values ('{$user['user_id']}', '{$USER->user_id}', '$comment', '1', '$time')";
@@ -76,11 +80,18 @@ $query = "select g.game_id as id, g.title, h.highscore as score
           order by h.highscore desc";
 $scores = $gamesDb->fetchAll($query);
 ?>
-
+<?php if ($profileOwner) : ?>
 <script type="text/javascript">
 $(document).ready(function(){
+  $('#boomgong').htmlarea();
+  $('#edit-profile-about-form').ajaxForm({
+    success: function() {
+      alert('profile saved!');
+    }
+  });
 });
 </script>
+
         <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
             <div class="span-63 green rounded header">
             User Control Panel
@@ -91,6 +102,7 @@ $(document).ready(function(){
 <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
+<?php endif; ?>
 <div class="box-2" style="padding-top:120px">
     <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Public Profile</div>
@@ -104,7 +116,16 @@ $(document).ready(function(){
 </div>
 <div class="span-40">
 <div class="box-1">
+<?php if ($profileOwner) : ?>
+<form id="edit-profile-about-form" method="post" action="/ajax/control_panel/change-about.php">
+<input type="hidden" name="user_id" value="<?php echo $USER->user_id; ?>" />
+<textarea id="boomgong" name="about_self"><?php echo bbcode2html($user['about']); ?></textarea>
+<br />
+<input class="teal rounded button" type="submit" value="Save About" />
+</form>
+<?php else: ?>
 <?php echo bbcode2html($user['about']); ?>
+<?php endif; ?>
 </div>
 </div>    
 

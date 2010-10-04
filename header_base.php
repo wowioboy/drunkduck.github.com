@@ -52,6 +52,10 @@ body {
 <link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
 <script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
 
+<!-- HTML AREA (JQUERY, JQUERY UI) -->
+<link rel="Stylesheet" type="text/css" href="/js/jquery/jhtmlarea/jHtmlArea.css" />
+<script type="text/javascript" src="/js/jquery/jhtmlarea/jHtmlArea-0.7.0.min.js"></script>
+
 <!-- JQUERY FORM (JQUERY) -->
 <script type="text/javascript" src="/js/jquery/form.js"></script>
 
