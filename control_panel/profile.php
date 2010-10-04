@@ -96,7 +96,7 @@ $(document).ready(function(){
 <div class="drunk" style="font-size:3em;">Public Profile</div>
 
 <div class="span-16">
-    <img src="http://images.drunkduck.com/process/user_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
+    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
     <div class="drunk">
         <div><?php echo $user['username']; ?></div>
         <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>

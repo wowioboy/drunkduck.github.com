@@ -30,13 +30,18 @@ $(document).ready(function(){
   });
 });
 </script>
-<div>
+ <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+            <div class="span-63 green rounded header">
+            User Control Panel
+            </div>
+        </div>
+<div class="span-64 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 </div>
-<h2>Account</h2>
-<img src="http://images.drunkduck.com/process/user_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
+<div class="drunk" style="font-size:3em;">Account</div>
+<img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
 <h2><?php echo $USER->username; ?></h2>
 <h4>member since <?php echo $joined->format('F j, Y'); ?></h4>
 

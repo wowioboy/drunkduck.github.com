@@ -11,7 +11,7 @@ if ($view == 'grid') {
 }
 
 $db = new DB();
-$query = "select c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes
+$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
@@ -74,7 +74,6 @@ $(document).ready(function(){
   
   function getFeatured() 
   {
-    $.fancybox.showActivity();
     $.getJSON('/ajax/featured.php', {offset: pager, search: search, month: month, limit: limit}, function(data){
           var html = '';
           pager_max = data.count;
@@ -82,11 +81,12 @@ $(document).ready(function(){
         $.each(data.featured, function(){
           html += '<a href="http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '">';
           <?php if ($view == 'list') : ?>
+          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
             html += '<div class="post teal rounded box-1" style="background-color:#45B4B9;">' + 
                     '<div class="white rounded box-1" style="background-color:#FFF">' + 
                     '<div class="table fill">' + 
                     '<div class="cell middle" style="width:100px;">' + 
-                    '<img src="http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg' + '" />' + 
+                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
                     '</div>' + 
                     '<div class="cell middle">' + 
                     '<div class="table fill">' + 
@@ -101,7 +101,7 @@ $(document).ready(function(){
                     '</div>' + 
                     '</div>' + 
                     '</div>' + 
-                    '<span style="color:#fff;">' + this.likes + ' people like this comic</span>' + 
+                 //   '<span style="color:#fff;">' + this.likes + ' people like this comic</span>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
@@ -111,17 +111,16 @@ $(document).ready(function(){
             });            
             html += '<div class="rounded grid-panel" ' + attributes + '>' + 
                     '<div>' + 
-                    '<img src="http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg' + '" />' + 
+                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
                     '</div>' + 
-                    '<br />' + 
-                    '<span>' + this.likes + ' likes</span>' + 
+                 //   '<br />' + 
+                 //   '<span>' + this.likes + ' likes</span>' + 
                     '</div>';
           <?php endif; ?>
         html += '</a>';
         });
           }
         $('#featured_holder').html(html);
-        $.fancybox.hideActivity();
       });
   }
   
@@ -184,7 +183,10 @@ $(document).ready(function(){
     <div class="white rounded box-1" style="background-color:#FFF">
       <div class="table fill">
       <div class="cell middle" style="width:100px;">
-    <img src="<?php echo 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg' ; ?>" />
+      <?php
+      $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+      ?>
+    <img src="<?php echo $path; ?>" />
       </div>
             <div class="cell middle">
             <div class="table fill">
@@ -199,7 +201,7 @@ $(document).ready(function(){
       </div>
       </div>
     </div>
-    <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span>
+   <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
     </div>
     <div style="height:10px;"></div>
     <?php else: ?>
@@ -211,10 +213,15 @@ $(document).ready(function(){
     ?>
     <div class="rounded grid-panel" <?php echo $attributes; ?>>
       <div>
-        <img src="<?php echo 'http://www.drunkduck.com/comics/' . $comic['title']{0} . '/' . str_replace(' ', '_', $comic['title']) . '/gfx/thumb.jpg' ; ?>" />
+      <?php
+      $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+      ?>
+        <img src="<?php echo $path; ?>" />
       </div>
+        <!-- 
         <br />
-        <span><?php echo $comic['likes']; ?> likes</span>
+        <span><?php echo $comic['likes']; ?> likes</span> 
+        -->
     </div>
     <?php endif; ?>
     </a>
