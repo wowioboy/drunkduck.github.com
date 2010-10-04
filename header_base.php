@@ -4,7 +4,7 @@
 <?php
 
 ini_set('display_errors', 1); 
-error_reporting(E_ALL^E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 unset($GLOBALS['loginError']);
 
 
@@ -71,8 +71,8 @@ body {
             if ($showFeatured) require_once('featured_slideshow.php'); 
         ?>
         <div class="span-23" style="height:150px">
-            <a href="/">
-                <div style="width:268px;height:187px;background-image:url('/media/images/drunkduck-logo.png');position:relative;left:-40px;top:-28px;z-index:5;"></div>
+            <a href="/" style="display:block;background-image:url('/media/images/drunkduck-logo.png');width:268px;height:187px;position:relative;left:-40px;top:-28px;z-index:5;">
+                
             </a>
             
         </div>

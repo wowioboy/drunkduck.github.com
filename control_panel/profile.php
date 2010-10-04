@@ -81,21 +81,37 @@ $scores = $gamesDb->fetchAll($query);
 $(document).ready(function(){
 });
 </script>
-<div>
+        <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+            <div class="span-63 green rounded header">
+            User Control Panel
+            </div>
+        </div>
+<div class="span-64 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/account.php">account</a>
 <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
-<h2>Public Profile</h2>
-<img src="http://images.drunkduck.com/process/user_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
-<h2><?php echo $user['username']; ?></h2>
-<h4>member since <?php echo @$joined->format('F j, Y'); ?></h4>
+<div class="box-2" style="padding-top:120px">
+    <div class="box-2 yellow rounded" >
+<div class="drunk" style="font-size:3em;">Public Profile</div>
+
+<div class="span-16">
+    <img src="http://images.drunkduck.com/process/user_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
+    <div class="drunk">
+        <div><?php echo $user['username']; ?></div>
+        <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>
+    </div>
+</div>
+<div class="span-40">
+<div class="box-1">
 <?php echo bbcode2html($user['about']); ?>
-<div style="height:10px;"></div>
+</div>
+</div>    
+
+<div style="height:20px;"></div>
 
 <div>
-PUBLISHER LINKS
-<br />
+<div class="drunk">PUBLISHER LINKS</div>
 <?php foreach ((array) $pubLinks as $link) : ?>
 <a href="<?php echo $link['url']; ?>"><?php echo $link['name']; ?></a>
 <br />
@@ -105,11 +121,10 @@ PUBLISHER LINKS
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-TROPHIES
-<br />
+<div class="drunk">TROPHIES</div>
 <?php foreach ((array) $trophies as $trophy) : ?>
 <?php 
 $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
@@ -118,11 +133,10 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-HIGH SCORES
-<br />
+<div class="drunk">HIGH SCORES</div>
 <?php foreach ((array) $scores as $score) : ?>
 <div style="display:inline-block;">
 <a title="<?php echo $score['title']; ?>" href="/games/play/<?php echo str_replace(' ', '_', $score['title']); ?>.php">
@@ -134,22 +148,20 @@ HIGH SCORES
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-FORUM TOPICS
-<br />
+<div class="drunk">FORUM TOPICS</div>
 <?php foreach ((array) $topics as $topic) : ?>
 <a href="http://www.drunkduck.com/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
 <br />
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-COMICS CREATED
-<br />
+<div class="drunk">COMICS CREATED</div>
 <?php foreach ((array) $comics as $comic) : ?>
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
@@ -158,11 +170,10 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-COMICS ASSISTED
-<br />
+<div class="drunk">COMICS ASSISTED</div>
 <?php foreach ((array) $assisted as $comic) : ?>
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
@@ -171,21 +182,19 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-FRIENDS
-<br />
+<div class="drunk">FRIENDS</div>
 <?php foreach ((array) $friends as $friend) : ?>
 <a href="http://user.drunkduck.com/<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
 <?php endforeach; ?>
 </div>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
-COMICS RECOMMENDED
-<br />
+<div class="drunk">COMICS RECOMMENDED</div>
 <?php foreach ((array) $recommended as $comic) : ?>
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
@@ -198,15 +207,17 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 
 <div>VIDEOS</div>-->
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <form id="leaveCommentForm" method="post">
-Leave a Comment
-<textarea name="comment"></textarea>
-<input type="submit" value="leave comment" />
+<div class="drunk">LEAVE A COMMENT</div>
+<textarea style="display:block;height:100px" name="comment" class="span-56"></textarea>
+<div style="text-align:right;">
+    <input type="submit" value="say it!" class="rounded button" />
+</div>
 </form>
 
-<div style="height:10px;"></div>
+<div style="height:20px;"></div>
 
 <div>
 COMMENTS LEFT
@@ -222,5 +233,6 @@ COMMENTS LEFT
 <br />
 <?php endforeach; ?>
 </div>
-
+    </div>
+</div>
 <?php require_once('../footer_base.php'); ?>
