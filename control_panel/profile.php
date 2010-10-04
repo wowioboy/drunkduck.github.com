@@ -16,7 +16,7 @@ if ($comment = $_REQUEST['comment']) {
   $time = time();
   $query = "insert into profile_comments (user_id, poster_id, comment, approved, posted) values ('{$user['user_id']}', '{$USER->user_id}', '$comment', '1', '$time')";
   $db->query($query);
-}
+} 
 
 $trophies = explode(',', $user['trophy_string']);
 
