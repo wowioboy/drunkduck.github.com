@@ -4,7 +4,7 @@
 <?php
 
 ini_set('display_errors', 1); 
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting(E_ALL & ~E_NOTICE);
 unset($GLOBALS['loginError']);
 
 
@@ -33,9 +33,20 @@ body {
     background-repeat: repeat-x;
     background-position:center top;
     }
+    
+ .tooltip {
+      z-index:9999999;
+      background-color:#000;
+      border: 2px solid #999;
+      color:#fff;
+      max-width:300px;
+ }
 </style>
 <!-- JQUERY -->
 <script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+
+<!-- JQUERY TOOLS (JQUERY) -->
+<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script>
 
 <!-- JQUERY UI (JQUERY) -->
 <link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
@@ -52,6 +63,7 @@ body {
 <link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
 <script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
 
+
 <!-- HTML AREA (JQUERY, JQUERY UI) -->
 <link rel="Stylesheet" type="text/css" href="/js/jquery/jhtmlarea/jHtmlArea.css" />
 <script type="text/javascript" src="/js/jquery/jhtmlarea/jHtmlArea-0.7.0.min.js"></script>
@@ -65,6 +77,22 @@ body {
 <link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
 <link href='/css/layout.css' rel='stylesheet' type="text/css">
 <link href='/css/global.css' rel='stylesheet' type="text/css">
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('*[title]').tooltip({
+      // tweak the position
+       position: "bottom center",
+        //opacity: 0.7
+
+      // use the "slide" effect
+      //effect: 'slide'
+
+      // add dynamic plugin with optional configuration for bottom edge
+    });
+});
+</script>
+
 </head>
 <body>
 <div id="backdrop"></div>

@@ -121,7 +121,7 @@ $(document).ready(function(){
 <input type="hidden" name="user_id" value="<?php echo $USER->user_id; ?>" />
 <textarea id="boomgong" name="about_self"><?php echo bbcode2html($user['about']); ?></textarea>
 <br />
-<input class="teal rounded button" type="submit" value="Save About" />
+<input type="button" value="edit" />&nbsp;<input class="teal rounded button" type="submit" value="Save About" />
 </form>
 <?php else: ?>
 <?php echo bbcode2html($user['about']); ?>

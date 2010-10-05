@@ -206,17 +206,20 @@ $(document).ready(function(){
     <div style="height:10px;"></div>
     <?php else: ?>
     <?php
-    $attributes = '';
-    foreach ($comic as $attr => $value) {
-      $attributes .= " $attr=\"$value\" ";
-    }
+   /* $attributes = '';
+       foreach ($comic as $attr => $value) {
+         if ($attr == 'description') {
+           $attr = 'title'
+         }
+         $attributes .= " $attr=\"$value\" ";
+       }*/
     ?>
-    <div class="rounded grid-panel" <?php echo $attributes; ?>>
+    <div class="rounded grid-panel">
       <div>
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>" />
+        <img src="<?php echo $path; ?>"  title="<?php echo $comic['title'] . '<br />' . $comic['description']; ?>" />
       </div>
         <!-- 
         <br />
