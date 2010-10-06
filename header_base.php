@@ -28,11 +28,11 @@ $db = new DB();
 <!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 <style>
 body {    
-    background-color:rgb(9,153,68);
-    background-image:url('/media/images/bg-gradient-color3.jpg');
-    background-repeat: repeat-x;
-    background-position:center top;
-    }
+  background-color:rgb(9,153,68);
+  background-image:url('/media/images/bg-gradient-color3.jpg');
+  background-repeat: repeat-x;
+  background-position:center top;
+}
     
  .tooltip {
       z-index:9999999;
@@ -40,6 +40,10 @@ body {
       border: 2px solid #999;
       color:#fff;
       max-width:300px;
+      -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+  padding:10px;
  }
 </style>
 <!-- JQUERY -->
@@ -72,24 +76,20 @@ body {
 <script type="text/javascript" src="/js/jquery/form.js"></script>
 
 <!-- GOOGLE FONT -->
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css" />
 
 <link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
 <link href='/css/layout.css' rel='stylesheet' type="text/css">
 <link href='/css/global.css' rel='stylesheet' type="text/css">
 <script type="text/javascript">
 $(document).ready(function(){
-
-$('*[title]').tooltip({
-      // tweak the position
-       position: "bottom center",
+  $('.tooltip').live('mouseenter', function(){
+    $(this).hide(); 
+  });
+  $('*[title]').tooltip({
+    position: "bottom center",
         //opacity: 0.7
-
-      // use the "slide" effect
-      //effect: 'slide'
-
-      // add dynamic plugin with optional configuration for bottom edge
-    });
+  });
 });
 </script>
 
@@ -103,7 +103,7 @@ $('*[title]').tooltip({
             if ($showFeatured) require_once('featured_slideshow.php'); 
         ?>
         <div class="span-23" style="height:150px">
-            <a href="/" style="display:block;background-image:url('/media/images/drunkduck-logo.png');width:268px;height:187px;position:relative;left:-40px;top:-28px;z-index:5;">
+            <a href="/" style="display:block;background-image:url('/media/images/drunkduck-logo.png');background-repeat:no-repeat;width:268px;height:187px;position:relative;left:-40px;top:-28px;z-index:5;">
                 
             </a>
             

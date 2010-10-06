@@ -39,7 +39,7 @@ $news = $db->fetchAll($query);
 <script>
 $(document).ready(function(){
   $('.top-ten-image').live('mouseenter', function(){
-  	var title = $(this).attr('title');
+  	var title = $(this).attr('comic_title');
 		var description = $(this).attr('description');
 		var author = $(this).attr('author'); 
 		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
@@ -49,7 +49,7 @@ $(document).ready(function(){
 		$('#top-ten-description').slideUp();
 	});
 	$('.most-liked-image').live('mouseenter', function(){
-    var title = $(this).attr('title');
+    var title = $(this).attr('comic_title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
     var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
@@ -59,7 +59,7 @@ $(document).ready(function(){
     $('#most-liked-description').slideUp();
   });
   $('.latest-update-image').live('mouseenter', function(){
-    var title = $(this).attr('title');
+    var title = $(this).attr('comic_title');
     var description = $(this).attr('description');
     var author = $(this).attr('author'); 
     var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
@@ -68,18 +68,18 @@ $(document).ready(function(){
   $('#latest-update-holder').mouseleave(function(){
     $('#latest-update-description').slideUp();
   });
-  $('#boomdoggy').click(function(){
-    $.fancybox({
-      'content': $('#top-ten-filter').html()
-    });
-  });
+  //$('#boomdoggy').click(function(){
+  //  $.fancybox({
+ //     'content': $('#top-ten-filter').html()
+ //   });
+ // });
   
   
   function getTopTen()
   {
     var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
     var link = '/' + this.title.replace(/ /g, '_') + '/';
-    var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
+    var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
   }
 });
 </script>
@@ -186,7 +186,7 @@ $(document).ready(function(){
           <?php 
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
-          <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+          <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="top-ten-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
       </div>
         <div id="top-ten-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
@@ -207,7 +207,7 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="most-liked-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div id="most-liked-description" class="span-62 rounded green" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
@@ -228,7 +228,7 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img class="latest-update-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div id="latest-update-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>

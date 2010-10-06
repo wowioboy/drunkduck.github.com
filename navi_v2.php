@@ -47,11 +47,11 @@
                         if (data) {
                         var html = '';
                         jQuery.each(data, function(){
-                          var path = 'http://www.drunkduck.com/comics/' + this.charAt(0) + '/' + this.replace(/ /g, '_') + '/gfx/thumb.jpg';
-                          html += '<a style="padding:0;" class="search_link" href="http://www.drunkduck.com/' + this.replace(/ /g, '_') + '">' + 
+                          var path = 'http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg';
+                          html += '<a style="padding:0;" class="search_link" href="http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '">' + 
                                  '<div class="result">' +
                                     '<div style="display:inline-block;width:50px;height:50px;"><img width="50" height="50" src="' + path + '" border="1" style="border:1px #000 solid;"/></div>' +
-                                    '&nbsp;&nbsp;<span style="font-size:18px;font-style:helvetica;">' + this + '</span>' +
+                                    '&nbsp;&nbsp;<span style="font-size:18px;font-style:helvetica;">' + this.title + '</span>' +
                               '</div>' + 
                                '</a>';
                         });

@@ -7,7 +7,7 @@ from comics c
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
 where f.approved = '1'
-order by feature_id desc 
+order by ymd_date_live desc 
 limit 24";
 $featured = $db->fetchAll($query);
 ?>
