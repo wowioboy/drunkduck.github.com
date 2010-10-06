@@ -119,9 +119,11 @@ $(document).ready(function(){
 <?php if ($profileOwner) : ?>
 <form id="edit-profile-about-form" method="post" action="/ajax/control_panel/change-about.php">
 <input type="hidden" name="user_id" value="<?php echo $USER->user_id; ?>" />
+<div>
 <textarea id="boomgong" name="about_self"><?php echo bbcode2html($user['about']); ?></textarea>
+</div>
 <br />
-<input type="button" value="edit" />&nbsp;<input class="teal rounded button" type="submit" value="Save About" />
+<input class="teal rounded button" type="submit" value="save" />
 </form>
 <?php else: ?>
 <?php echo bbcode2html($user['about']); ?>

@@ -90,14 +90,10 @@
                 <div id="search_results"></div>
             </div>
 
-            <!-- Advanced Search Link--> 
-            <div id="advsearch" style="height:20px;padding-left:5px;line-height:5px;margin-top:-2px"> 
-                <a href="/search.php" style="">Advanced Search</a> 
-            </div> 
                 <?php endif; ?>
             
             <!-- menu -->
-            <a href="/search.php">browse</a>
+            <a href="/search.php">comics</a>
             <a href="/account/overview/add_comic.php">create</a>
             <a href="/news_v2.php">news</a>
             <a href="/tutorials/">tutorials</a>

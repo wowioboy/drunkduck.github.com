@@ -81,7 +81,6 @@ $(document).ready(function(){
         $.each(data.featured, function(){
           html += '<a href="http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '">';
           <?php if ($view == 'list') : ?>
-          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
             html += '<div class="post teal rounded box-1" style="background-color:#45B4B9;">' + 
                     '<div class="white rounded box-1" style="background-color:#FFF">' + 
                     '<div class="table fill">' + 

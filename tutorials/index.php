@@ -1,32 +1,131 @@
+<?php require_once('../header_base.php'); ?>
+
 <?php
-$REQUIRE_LOGIN = false;
-$ADMIN_ONLY    = false;
-$TITLE         = 'Tutorials';
+  $limit = 8;
 
-require_once('../header_base.php');
+$db = new DB();
+$query = "select tutorial_id as id, title, username as author, description, from_unixtime(timestamp) as timestamp
+from tutorials
+where finalized = '1' 
+order by timestamp desc 
+limit $limit";
+$featured = $db->fetchAll($query);
+$query = "select count(1)
+from tutorials 
+where finalized = '1'";
+$featuredCount = $db->fetchOne($query);
+$query = "select from_unixtime(max(timestamp)) as max, from_unixtime(min(timestamp)) as min 
+          from tutorials 
+          where timestamp != 0 and timestamp is not null";
+$featuremaxmin = $db->fetchRow($query);
+$min = new DateTime($featuremaxmin['min']);
+$max = new DateTime($featuremaxmin['max']);
+$dateArray = array($min->format('Y-m') => $min->format('M Y'));
+do {
+  $min->modify('+1 month');
+  $dateArray[$min->format('Y-m')] = $min->format('M Y');
+} while ($min->format('Y-m') != $max->format('Y-m'));
+$dateArray = array_reverse($dateArray);
 ?>
-
-<div class="rounded canary span-63 box-1 pull-1">
-    <div class="span-63 green rounded header">
-    Tutorials
-    </div>
-</div>
-
+<style>
+.subtitle {
+  color:#999;
+}
+</style>
+<script type="text/javascript">
+var pager = 0;
+var pager_max = <?php echo $featuredCount; ?>;
+var search = '';
+var month = '';
+var limit = <?php echo $limit; ?>;
+  
+$(document).ready(function(){
+  
+  function getFeatured() 
+  {
+    $.getJSON('/ajax/tutorials.php', {offset: pager, search: search, month: month, limit: limit}, function(data){
+          var html = '';
+          pager_max = data.count;
+          if (data.featured) {
+        $.each(data.featured, function(){
+          html += '<a href="/tutorials/view.php?id=' + this.id + '">';
+            html += '<div class="post green rounded box-1">' + 
+                    '<div class="white rounded box-1" style="background-color:#FFF">' + 
+                    '<div class="table fill">' + 
+                    '<div class="cell middle">' + 
+                    '<div class="table fill">' + 
+                    '<div class="cell">' + 
+                    '<span class="headline">' + this.title + '</span><br /><span class="subtitle">' + this.timestamp + ' by <a href="/control_panel/profile.php?username=' + this.author + '"><b>' + this.author + '</b></a></span>' + 
+                    '</div>' + 
+                    '</div>' + 
+                    '<p>' + this.description + '</p>' + 
+                    '</div>' + 
+                    '</div>' + 
+                    '</div>' + 
+                 //   '<span style="color:#fff;">' + this.likes + ' people like this comic</span>' + 
+                    '</div>' + 
+                    '<div style="height:10px;"></div>'; 
+        html += '</a>';
+        });
+          }
+        $('#featured_holder').html(html);
+      });
+  }
+  
+  $('#featured_search').keyup(function(){
+    search = $(this).val();
+    pager = 0;
+    getFeatured();
+  });
+  
+  $('.featured_button').click(function() {
+    var valid = false;
+    var dir = $(this).attr('direction');
+    if (dir == 'next') {
+      if (pager < pager_max - <?php echo $limit; ?>) {
+        pager += <?php echo $limit; ?>;
+        valid = true;
+      }
+    } else {
+      if (pager > 0) {
+        pager -= <?php echo $limit; ?>;  
+        valid = true;
+      }
+    }
+    if (valid) {
+      getFeatured();
+    }
+  });
+  
+  $('#featureMonth').change(function(){
+    month = $(this).val();
+    getFeatured();
+  });
+});
+</script>
+        <div class="rounded canary span-63 box-1 pull-1">
+            <div class="span-63 green rounded header">
+            Tutorials
+            </div>
+        </div>
 <div class="span-64 box-1 header-menu">
-  <button class="news_button rounded left button" direction="prev">previous</button>
-  <select id="newsMonth" class="button rounded">
-    <option value="">select month</option>
+  <button class="featured_button rounded left button" direction="prev">previous</button>
+  <select id="featureMonth" class="button rounded" style="border:none;">
+    <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-<!--  <button class="rounded button dropdown">September 2010</button> -->
-  <!-- <button class="rounded button">article view</button> -->
-    <input class="rounded button" style="color:#FFF" id="news_search" />
-  <button class="news_button rounded right button" direction="next">next</button>
+    <input type="text"  style="color:#fff;" id="featured_search" class="rounded button" />
+  <button class="featured_button rounded right button" direction="next">next</button>
+  <a href="/tutorials/create.php" class="teal rounded button">create tutorial</a>
 </div>
-
 <div class="span-60 box-2">
+    <div class="cell center" style="width:400px;">
+    <div class="green top-rounded header" style="font-size:24px;padding:0px;margin-left:auto;width:200px;text-transform:none;">
+    Featured!
+    </div>
+    </div>
     <div class="span-58 green rounded box-1">
         <div class="span-25 white rounded box-1">
             <a href="/tutorials/view.php?id=11"><img src="http://images.drunkduck.com/tutorials/content/1/1/11_47_thumb.jpg" border="0"></a>
@@ -51,18 +150,35 @@ require_once('../header_base.php');
         </div>
     </div>
     
-    <div class="green box-1">
-    </div>
 </div>
+<div id="featured_holder" class="span-62 box-1">
+  <?php foreach ($featured as $comic) : ?>
+   <?php
+   $date = new DateTime($comic['timestamp']);
+   ?>
+    <a href="/tutorials/view.php?id=<?php echo $comic['id']; ?>">
+    <div class="post green rounded box-1">
+    <div class="white rounded box-1" style="background-color:#FFF">
+      <div class="table fill">
+            <div class="cell middle">
+            <div class="table fill">
+       <div class="cell">
+      <span class="headline"><?php echo $comic['title']; ?></span> 
+      <br />
+      <span class="subtitle"><?php echo $date->format('F j Y');?> by <a href="/control_panel/profile.php?username=<?php echo $comic['author']; ?>"><b><?php echo $comic['author']; ?></b></a></span>
+       </div>
+            </div>
+      <p><?php echo $comic['description']; ?></p>
+      </div>
+      </div>
+    </div>
+   <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
+    </div>
+    <div style="height:10px;"></div>
+    </a>
+  <?php endforeach; ?>
+</div>
+  <button class="featured_button rounded left button" direction="prev">previous</button>
+  <button class="featured_button rounded right button" direction="next">next</button>
 
-<?php
-require_once('../footer_base.php');
-exit;
-
-//$HEADER_IMG    = 'header_main_games.gif';
-$CONTENT_FILE  = 'tutorials/index.inc.php';
-include_once('../template.inc.php');
-
-
-
-?>
+<?php require_once('../footer_base.php'); ?>
