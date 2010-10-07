@@ -52,6 +52,7 @@ jQuery.noConflict();
 </script>
 
 <link rel="stylesheet" href="/css/global.css" type="text/css" />
+<link rel="stylesheet" href="/css/layout.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css" />
 <style type="text/css">
 .nav_link {
@@ -64,38 +65,76 @@ jQuery.noConflict();
     /* color:'teal';*/
 }
 body {    
-    background-color:rgb(9,153,68);
+   /*background-color:rgb(9,153,68);
     background-image:url('/media/images/bg-gradient-color3.jpg');
     background-repeat: repeat-x;
-    background-position:center top;
+    background-position:center top;*/
     }
 </style>
 </head>
 
-<body onLoad="for(var cs=0; cs<commandStack.length;cs++){eval(commandStack[cs]);}">
+<body onLoad="for(var cs=0; cs<commandStack.length;cs++){eval(commandStack[cs]);}" style="margin:0">
 
 <!--<script type="text/javascript" src="http://www.platinumstudios.com/processing/ps_hat_top.js"></script>-->
 
 <div align="center">
-  <div style="background-color:#78f901;width:1024px;">
-    <div class="cell middle" style="width:296px;">
-      <img src="/media/images/DD-logo-oldheader.jpg" />
+<div class="green" style="width:100%;height:130px;">
+  <div style="width:908px;padding:0;margin:0;position:relative;background-color:#afe207;height:50px;">
+    <div style="padding:0;margin:0;float:left;width:180px;">
+        <a href="/">
+            <img src="/media/images/drunkduck-logo.png" width="180" />
+        </a>
     </div>
-    <div class="cell">
-      <div>
-        <script type="text/javascript">
-          var gr_ads_zone = 'ros_atf';
-          var gr_ads_size = '728x90';
-        </script>
-        <script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js"></script>
-        <noscript>
-          <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890">
-            <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
-          </a>
-        </noscript>
-      </div>
-      <div>
-        <div style="display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px">
+    <?php include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html'); ?>
+    <style>
+
+#menu {
+    vertical-align:middle;
+    height:20px;
+    position:absolute;
+    bottom:15px;
+    right:0px;
+
+
+}
+#menu a {
+  text-decoration:none;
+  color:rgb(0,133,118);
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:1.8em;
+  line-height:12px;
+  padding: 0 15px 0px 15px;
+  
+  vertical-align:middle;
+  height:10px;
+  float:left;
+}
+#dd-navigation {
+    width:154px;
+    height:20px;
+}
+#dd-navgation input{
+outline:none;
+border:0;
+}
+#advsearch {
+    float:right;
+    padding-bottom:30px;
+    padding-right:5px;
+    }
+#advsearch a {
+    margin:0;
+    padding:2px;
+    }
+#myPanel {
+    padding-left:10px;
+    }   
+    </style>
+    
+    <div id="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
+          
+            <div style="float:left;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
       .result {
         margin:0;
@@ -127,7 +166,6 @@ body {
       #search_results {
         width:300px;
         position:absolute;
-        margin-top:20px;
         z-index:9999;
         display:none;
         text-align:left;
@@ -181,99 +219,31 @@ body {
                  });
                  
               </script>
-                <form action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;display:inline;">
-                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
-                    <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
+                <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
+                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;background:none;" />
+                    <input type="image" style="background:none;outline:none;padding:0;border:0;position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>
-                <div></div>
-                <div id="search_results">dgdfgdf</div>
+                <div id="search_results"></div>
             </div>
-        <div class="nav_link"><a href="/search.php">Comics</a></div>
-        <div class="nav_link"><a href="/tutorials/">Tutorials</a></div>
-        <div class="nav_link"><a href="/news_v2.php">News</a></div>
-        <div class="nav_link"><a href="/community/">Forums</a></div>
-        <div class="nav_link"><a href="http://store.drunkduck.com/">Store</a></div>
-      </div>
+
+            <!-- Advanced Search Link--> 
+            <!--<div id="advsearch" style="height:20px;padding-left:5px;line-height:5px;margin-top:-2px"> 
+                <a href="/search.php" style="">Advanced Search</a> 
+            </div>--> 
+            
+            <!-- menu -->
+            <a href="/search.php">comics</a>
+            <a href="/account/overview/add_comic.php">create</a>
+            <a href="/news_v2.php">news</a>
+            <a href="/tutorials/">tutorials</a>
+            <!--<a href="#">videos</a>-->
+            <a href="http://www.drunkduck.com/community">forums</a>
+            <a href="http://store.drunkduck.com">store</a>
+
+        
+    </div>
     </div>
   </div>
-
-  <!--header-->
-  <table border="0" cellpadding="0" cellspacing="0" width="1024">
-    <tr>
-      <td width="296" height="90"><a href="http://<?=DOMAIN?>"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/header_logo_top.gif" border="0"></a></td>
-      <td width="100%" bgcolor="#8b9298">
-        <? 
-			  if ($TITLE == 'Main Page') {?>
-			
-<!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / homepage_atf / 728x90 -->
-<script type="text/javascript">
-	var gr_ads_zone = 'homepage_atf';
-	var gr_ads_size = '728x90';
-</script>
-<script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
-</script>
-<noscript>
-	<a href="http://ans.giantrealm.com/click/gr.drunkduck/homepage_atf;tile=1;sz=728x90;ord=1234567890">
-		<img src="http://ans.giantrealm.com/img/gr.drunkduck/homepage_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
-	</a>
-</noscript>
-<!-- AD TAG ENDS: DrunkDuck / homepage_atf / 728x90 -->
-<?
-			  } else {?>
-			 	<!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / ros_atf / 728x90 -->
-<script type="text/javascript">
-	var gr_ads_zone = 'ros_atf';
-	var gr_ads_size = '728x90';
-</script>
-<script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
-</script>
-<noscript>
-	<a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890">
-		<img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
-	</a>
-</noscript>
-<!-- AD TAG ENDS: DrunkDuck / ros_atf / 728x90 -->
-               
-			  <?  //include(WWW_ROOT.'/ads/ad_includes/main_template/728x90.html'); 
-			  }?>
-			 
-      </td>
-    </tr>
-    <tr>
-      <td width="296" height="21"><a href="http://<?=DOMAIN?>"><img src="<?=IMAGE_HOST?>/site_gfx_new_v3/header_logo_bottom.gif" border="0"></a></td>
-      <td width="100%" height="21" background="<?=IMAGE_HOST?>/site_gfx_new_v3/header_nav_bg.gif" align="left">
-        <table border="0" cellpadding="0" cellspacing="0" height="21">
-          <tr>
-            <form action="http://<?=DOMAIN?>/search.php" name="searchform" method="GET">
-            <td align="center">
-              <div style="width:100px;height:21px;background:url(http://images.drunkduck.com/site_gfx_new_v3/search_bg.gif);">
-                <input name="searchTxt" type="text" value="Search!" onclick="this.value='';" style="border:0px;width:80px;height:18px;font-size:14px;text-align:center;"/>
-              </div>
-            </td>
-            <input type="hidden" name="advanced" value="0">
-            <?=( isset($SUBDOM_TO_CAT[SUBDOM]) ? '<input type="hidden" name="browsegenre[]" value="'.$SUBDOM_TO_CAT[SUBDOM].'">' : '' )?>
-            </form>
-            <td align="center">
-              <div class="nav_link" id="header_nav"><a href="/search.php">Comics</a></div>
-            </td>
-            <td align="center">
-              <div class="nav_link" id="header_nav"><a href="/tutorials/">Tutorials</a></div>
-            </td>
-            <td align="center">
-              <div class="nav_link" id="header_nav"><a href="/news_v2.php">News</a></div>
-            </td>
-            <td align="center">
-              <div class="nav_link" id="header_nav"><a href="/community/">Forums</a></div>
-            </td>
-            <td align="center">
-              <div class="nav_link" id="header_nav"><a href="http://store.drunkduck.com/">Store</a></div>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-  <!--END header-->
   <table width="1024" height="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="center" valign="top">
@@ -426,3 +396,4 @@ body {
 
                 var modalMenu;
               </script>
+
