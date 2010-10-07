@@ -9,17 +9,16 @@
 
 }
 #menu a {
-  text-decoration:none;
-  color:rgb(0,133,118);
-  font-family:'Yanone Kaffeesatz';
-  font-weight:bold;
-  font-size:1.8em;
-  line-height:12px;
-  padding: 0 15px 0px 15px;
-  
-  vertical-align:middle;
-  height:10px;
-  float:left;
+  color: #008576;
+float: left;
+font-family: 'Yanone Kaffeesatz';
+font-size: 1.8em;
+font-weight: bold;
+height: 10px;
+line-height: 12px;
+padding: 0px 15px;
+text-decoration: none;
+vertical-align: middle;
 }
 .result, .search_link {
     float:none !important;
@@ -76,7 +75,7 @@
 }
 
 /**
- * Search Button
+ * Search Button 
  */
 #searchwrapper {
 width:310px; /*follow your image's size*/

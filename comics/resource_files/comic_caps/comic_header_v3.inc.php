@@ -1,4 +1,4 @@
-<?php
+<?
 include_once('../../../includes/global.inc.php');
 ob_start();
 
@@ -10,6 +10,8 @@ if ( $COMIC_ROW ) {
 ?>
 
 <!-- PUT THIS TAG IN THE head SECTION -->
+
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
 
 <script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
 </script>
@@ -29,51 +31,16 @@ if ( $COMIC_ROW ) {
 <script type="text/javascript">
   GA_googleFetchAds();
 </script>
-
-<!-- BLUEPRINT -->
-<!-- 
-<link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
-<link rel="stylesheet" href="/css/blueprint/gutterless.css" type="text/css" media="screen, projection">
-<link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">
--->    
-<!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-
-<!-- JQUERY -->
-<script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
-
-<!-- JQUERY UI (JQUERY) -->
-<link href="/css/jquery/start/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
-
-<!-- CYCLE (JQUERY) -->
-<script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
-
-<!-- SELECT MENU (JQUERY, JQUERY UI) -->
-<link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
-
-<!-- FANCY BOX (JQUERY) --> 
-<link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
-<script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-
-<!-- JQUERY FORM (JQUERY) -->
-<script type="text/javascript" src="/js/jquery/form.js"></script>
-
-<!-- GOOGLE FONT -->
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold' rel='stylesheet' type="text/css">
-
-<!--
-<link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
-<link href='/css/layout.css' rel='stylesheet' type="text/css">
-<link href='/css/global.css' rel='stylesheet' type="text/css">
--->
-
-<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
-
-<script language="javascript" type="text/javascript">
-    jQuery.noConflict();
-</script>
-<!-- <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT> -->
+<style>
+    <style>
+    body {
+        background-color:rgb(9,153,68);
+    background-image:url('/media/images/bg-gradient-color3.jpg');
+    background-repeat: repeat-x;
+    background-position:center top;
+    background-attachment:fixed;
+    }
+</style>
 <!-- END OF TAG FOR head SECTION -->
 
 <script src="/__utm.js" type="text/javascript"></script>
@@ -107,60 +74,6 @@ font-weight: bold;
 }
 </style>
 
-
-
-
-<style>
-table, th, td, tr {
-    width:auto;
-    }
-th, td {
-padding:0;
-}
-
-body {
-    margin:0;
-    padding:0;
-    }
-
-#menu {
-    position:static;
-    clear:both;
-    }
-#menu a {
-    float:right;
-    margin-bottom:20px;
-    clear:both;
-    padding: 0;
-    width:160px;
-    text-align:right;
-    }
-#advsearch {
-    float:right;
-    padding-bottom:30px;
-    padding-right:5px;
-    }
-#advsearch a {
-    margin:0;
-    padding:2px;
-    }
-#myPanel {
-    padding-left:10px;
-    }         
-</style>
-
-<script>
-jQuery(document).ready(function(){
-    jQuery('#controlTab').click(function(){
-      var node = jQuery('#myPanel');
-      if (node.css('display') == 'none') {
-        node.slideDown();
-      } else { 
-        node.slideUp();
-      }
-    });
-});
-</script>
 
 <?
 if ( $USER )
@@ -346,7 +259,8 @@ if (hidemenu_onclick=="yes") {
 }
 ?>
 
-
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
 <script language="JavaScript">
 <?
 if ( $COMIC_FAVS[$COMIC_ROW->comic_id] )
@@ -445,189 +359,301 @@ function capRO($imgPrefix) {
 }
 
 
+?><div align="center"><?
+if ( !$USER )
+{
 ?>
-<div style="height:100px;position:absolute;top:0;left:0;width:100%;z-index:-5000" class="green"></div>
-<div class="container-main" style="min-width:960px;">
-    <div class="span-16 green box-1" style="box-shadow: 0px 0 6px rgb(0,0,0);min-height:100%">
+
+
+<div class="" style="width:908px;padding:0;margin:0;position:relative">
+    <div style="padding:0;margin:0;float:left;width:180px;">
+        <a href="/">
+            <img src="/media/images/drunkduck-logo.png" width="180" />
+        </a>
+    </div>
+    
+    <style>
+
+#menu {
+    vertical-align:middle;
+    height:20px;
+    position:absolute;
+    bottom:15px;
+    right:0px;
+
+
+}
+#menu a {
+  text-decoration:none;
+  color:rgb(0,133,118);
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:1.8em;
+  line-height:12px;
+  padding: 0 15px 0px 15px;
+  
+  vertical-align:middle;
+  height:10px;
+  float:left;
+}
+#dd-navigation {
+    width:154px;
+    height:20px;
+}
+#dd-navgation input{
+outline:none;
+border:0;
+}
+#menu {
+    position:static;
+    clear:both;
+    }
+#menu a {
+    float:left;
+    margin-bottom:20px;
+    clear:both;
+    padding: 0;
+    width:160px;
+    text-align:right;
+    }
+#advsearch {
+    float:right;
+    padding-bottom:30px;
+    padding-right:5px;
+    }
+#advsearch a {
+    margin:0;
+    padding:2px;
+    }
+#myPanel {
+    padding-left:10px;
+    }   
+    </style>
+    <div style="float:left;width:728px;padding:0m;margin:0;">
+    <?
+        if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T')
+        {
+            // ad include for safe-rated comics
+            include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
+        }
+        else
+        {
+            // ad include for adult/mature/unknown rated comics
+            include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
+        }
+    ?>
+    </div>
+    
+    <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
+          
+            <?php if (!$nosearch) : ?>
+            <div style="float:left;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+              <style type="text/css">
+      .result {
+        margin:0;
+        padding:5px;
+        background-color:#e5e5e5;
+        border:1px solid #000;
+        background:-webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.08, rgb(200,210,212)),
+                color-stop(0.77, rgb(255,255,255))
+            );
+        background:-moz-linear-gradient(
+                  center bottom,
+                  rgb(200,210,212) 8%,
+                  rgb(255,255,255) 77%
+              );
+        background:filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff);
+        background:-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff, GradientType=1);
+        color:#000;
+      }
+      .topless {
+        border-top-style:none;
+      }
+      .result img {
+        border:none;
+      }
+      #search_results {
+        width:300px;
+        position:absolute;
+        z-index:9999;
+        display:none;
+      }
+      a.search_link {
+        padding:0;
+        margin:0;
+      }
+      </style>
+              <script type="text/javascript">
+                 jQuery(document).ready(function(){
+                   jQuery('#searchTxt').keyup(function(){
+                    if (search = jQuery(this).val()) {
+                      jQuery.getJSON('/ajax/search.php', {search: search}, function(data) {
+                        if (data) {
+                        var html = '';
+                        jQuery.each(data, function(){
+                          var path = 'http://www.drunkduck.com/comics/' + this.charAt(0) + '/' + this.replace(/ /g, '_') + '/gfx/thumb.jpg';
+                          html += '<a style="padding:0;" class="search_link" href="http://www.drunkduck.com/' + this.replace(/ /g, '_') + '">' + 
+                                 '<div class="result">' +
+                                    '<div style="display:inline-block;width:50px;height:50px;"><img width="50" height="50" src="' + path + '" border="1" style="border:1px #000 solid;"/></div>' +
+                                    '&nbsp;&nbsp;<span style="font-size:18px;font-style:helvetica;">' + this + '</span>' +
+                              '</div>' + 
+                               '</a>';
+                        });
+                        jQuery('#search_results').html(html).show();
+                        }
+                      });
+                    } else {
+                      jQuery('#search_results').fadeOut('fast');
+                    }
+                   });
+                    var preventBlur = false;
+                    jQuery('#search_results').mouseenter(function() {
+                      preventBlur = true;
+                    });
+                    jQuery('#search_results').mouseleave(function() {
+                      preventBlur = false;
+                    });
+                    jQuery('#searchTxt').blur(function(){
+                      if (!preventBlur) {
+                        jQuery('#search_results').fadeOut('fast');
+                      }
+                    });
+                    jQuery('#searchTxt').focus(function(){
+                      var search = jQuery.trim(jQuery(this).val());
+                      if (search != '') {
+                        jQuery('#search_results').fadeIn('fast');
+                      }
+                    });
+                 });
+                 
+              </script>
+                <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
+                    <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;background:none;" />
+                    <input type="image" style="background:none;outline:none;padding:0;border:0;position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
+                </form>
+                <div id="search_results"></div>
+            </div>
+
+            <!-- Advanced Search Link--> 
+            <!--<div id="advsearch" style="height:20px;padding-left:5px;line-height:5px;margin-top:-2px"> 
+                <a href="/search.php" style="">Advanced Search</a> 
+            </div>--> 
+                <?php endif; ?>
+            
+            <!-- menu -->
+            <a href="/search.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">comics</a>
+            <a href="/account/overview/add_comic.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">create</a>
+            <a href="/news_v2.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">news</a>
+            <a href="/tutorials/"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">tutorials</a>
+            <!--<a href="#">videos</a>-->
+            <a href="http://www.drunkduck.com/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
+            <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
+
+        
+    </div>
+</div>
+<style>
+.toolbar a, .toolbar a:visited, .toolbar a:visited {
+    color: #333;
+    text-decoration: none;
+    font:bold 12px/20px Helvetica;
+    }
+.toolbar a:hover {
+    color:#2483C5;
+    background:none;
+    }
+.toolbar .menu-linkage {
+    padding: 0 15px 0 15px;
+}        
+</style>
+
+<div style="position:relative;width:728px;margin:0;padding:0;">
+
+<div class="toolbar" style="opacity:0.7;font:bold 12px/20px Helvetica;vertical-align:50%;color:#333;width:728px;clear:both;height:20px;background-color:#bbb;border-radius: 0 0 10px 10px;">
+    
+    <span class="menu-linkage">
+<?php if ( !$COMIC_FAVS[$COMIC_ROW->comic_id] ) { ?>
+    <a href="JavaScript:var x=addFav();">add to favorites</a>    
+<?php } else { ?>
+    <img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_faved.gif" width="45" height="16" border="0" title="This is a favorite!">
+<?php } ?>
+    </span>
+    
+    <span class="menu-linkage">
+    <a href="#" onClick="forceEmailNotify();return false;">
+        email alerts
+    </a>
+    </span>
+    
+    <span class="menu-linkage">
+    <a href="http://<?=DOMAIN?>/rss/rss.php?cid=<?=$COMIC_ROW->comic_id?>">rss</a>
+    </span>
+    
+    <span class="menu-linkage">
+    duckmark: 
+    <a href="#" onClick="addBookmark();return false;">set</a>         
+    <a href="#" onClick="goBookmark();return false;">go</a>
+    </span>
+    
+</div>
+<div style="position:absolute;right:10px;top:129px;">
+<?php if ( $USER->flags & FLAG_IS_ADMIN ) { ?>
+    <a href="#" onClick="okayComic();return false;">
+        <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" border="0">
+    </a>
+<? } else { ?>
+    <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>">
+<? } ?>
+</div>
+
+
+</div>
+<?
+}
+else
+{
+?>
+<div>
     <div>
         <a href="/">
             <img src="/media/images/drunkduck-logo.png" width="160" />
         </a>
     </div>
-    
-    <div style="position:relative;width:160px;">
-        <div id="menu"> 
-            <?php require_once(WWW_ROOT . '/navi_v2.php'); ?>
-            </div>     
-        <a id="controlTab" class="drunk" style="float:right;color:yellow;width:160px;text-align:right">control panel</a>
+</div>
 
-        <div id="myPanel" style="display:none;margin-bottom:-170px;position:relative;left:160px;bottom:170px" class="span-30 green rounded">
-            <script>
-          jQuery(document).ready(function(){
-            var user_id = '<?php echo $USER->user_id; ?>';
-
-            function getWebcomics()
-            {
-              var object = {};
-              object.user_id = user_id;
-              object.sort = jQuery('select.webcomics').val();
-              jQuery.getJSON('/ajax/webcomics.php', object, function(data) {
-                  var html = '';
-                  if (data) {
-                  jQuery.each(data, function(){
-                    var date = this.updated_on;
-                    var title = this.title;
-                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="http://www.drunkduck.com/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
-                  });
-                  jQuery('div.webcomics_display').html(html);
-                  }
-                });
-            }
-            
-            function getFavorites() 
-            {
-              var object = {};
-              object.user_id = user_id;
-              object.sort = jQuery('select.favorites').val();
-              jQuery.getJSON('/ajax/favorites.php', object, function(data) {
-                  if (data) {
-                  var html = '';
-                  jQuery.each(data, function(){
-                    var date = this.updated_on;
-                    var title = this.title;
-                    html += '<a href="http://www.drunkduck.com/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
-                  });
-                  jQuery('div.favorites_display').html(html);
-                  }
-               });
-            }
-
-            jQuery('a.favorties').click(function(){
-              var favoritesDiv = jQuery('div.favorites');
-              if (favoritesDiv.css('display') == 'none') {
-                jQuery(this).html('collapse');
-                getFavorites();
-                  favoritesDiv.slideDown();
-              } else { 
-                jQuery(this).html('expand');
-                favoritesDiv.slideUp();
-              }
-            });
-
-            jQuery('a.webcomics').click(function(){
-              var webcomicsDiv = jQuery('div.webcomics');
-              if (webcomicsDiv.css('display') == 'none') {
-                jQuery(this).html('collapse');
-                  getWebcomics();
-                  webcomicsDiv.slideDown();
-              } else { 
-                jQuery(this).html('expand');
-                webcomicsDiv.slideUp();
-              }
-            });
-            
-            jQuery('select.favorites').change(function(){
-              getFavorites();
-            });
-            
-           jQuery('select.webcomics').change(function(){
-              getWebcomics();
-            });
-          });
-          </script>
-        <div class="panel-header " style="float:right;padding:5px;text-transform:uppercase;font-family:helvetica;font-weight:bold;font-size:0.7em">
-            <a href="?logout=">log out</a> | <a href="">help</a>
-        </div>
-
-        <div class="span-30 panel-body-right ">
-          <div class="box-1">
-            <div class="span-8">
-                <div style="width:65px;height:65px;background-color:#FFF">
-                </div>
-            </div>
-            <div class="span-20" style="font-family:'Yanone Kaffeesatz';font-weight:bold;line-height:30px;margin-top:-5px;margin-bottom:5px;font-size:30px;color:rgb(69,180,185);">Hi, !</div>
-            <div class="span-20" style="font-size:10px;">User Control Panel</div>
-            <div class="span-20" style="font-size:10px;">Personal Quacks</div>
-            <div style="clear:both;height:10px"></div>
-
-          <div class="drop-list rounded ">
-            my favorites  <a class="favorties" href="javascript:">expand</a>
-            <div class="favorites" style="display:none;">
-            <select class="favorites">
-              <option value="">sort by</option>
-              <option value="alpha">alphabetically</option>
-              <option value="update">last update</option>
-            </select>
-              <div class="favorites_display">
-                here are the favorites
-              </div>
-            </div>
-          </div>
-          <div style="display:block;height:10px;"></div>
-
-          <div class="drop-list rounded ">
-            my webcomics  <a class="webcomics" href="javascript:">expand</a>
-            <div class="webcomics" style="display:none;">
-            <select class="webcomics">
-              <option value="">sort by</option>
-              <option value="alpha">alphabetically</option>
-              <option value="update">last update</option>
-            </select>
-              <div class="webcomics_display">
-                here are the webcomics
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-            </div>
-       
-
-    </div>
-    <div class="span-16" style="padding-top:10px;">
-    
-        <!-- AD TAG BEGINS: DrunkDuck(gr.drunkduck) / ros_atf / 160x600 -->
-        <script type="text/javascript">
-                var gr_ads_zone = 'ros_atf';
-                var gr_ads_size = '160x600';
-        </script>
-        <script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
-        </script>
-        <noscript>
-                <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=3;sz=160x600;ord=1234567890">
-                        <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=3;sz=160x600;ord=1234567890" width="160" height="600" alt="advertisement" />
-                </a>
-        </noscript>
-        <!-- AD TAG ENDS: DrunkDuck / ros_atf / 160x600 -->
-    </div>
-    </div>
-    <div class="green span-73" style="padding-bottom:10px;">
-        <div style="height:90px;width:728px;background-color:white;"  class="span-73">
-            <?
-                if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T') {
-                    // ad include for safe-rated comics
-                    include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
-                } else {
-                    // ad include for adult/mature/unknown rated comics
-                    include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
-                }
-            ?>        
-        </div>
-
-    </div>
-
-    
-
-    <div id="mainContent" style="margin-left:180px;">
-    <div style="height:100px;">
-
-
-<?php if ( !$USER ) { ?>
-<!-- wakka -->
-
-<?php } else { ?>
-        <div style="text-align:center">
-                  <table width="100%" height="40" border="0" cellpadding="1" cellspacing="0" id="toolbar" style="background-color:#333;padding:10px" class="rounded">
+<table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0" class="toolbar" style="padding: 0pt; margin-left: auto; margin-right: auto; margin-top: 0pt;">
+  <tr>
+    <td colspan="4" align="center" style="background-color:#ffffff;background-image:url(<?=IMAGE_HOST_SITE_GFX?>/comic_caps/bg_<?=$CAP_ID?>.png);background-repeat: repeat-x;background-position:bottom;">
+      <table width="800" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="173" height="60" valign="top"><a href="http://www.drunkduck.com"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left.png" width="179" height="60" border="0"></a></td>
+          <td width="728" align="center" bgcolor="#CCCCCC">
+ <?
+    if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T')
+    {
+        // ad include for safe-rated comics
+        include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
+    }
+    else
+    {
+        // ad include for adult/mature/unknown rated comics
+        include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
+    }
+?>
+          </td>
+          <td width="139" height="60" align="right" valign="top"><a href="<?=$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>&logout=1"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/logout.png" width="139" height="60" border="0"></a></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <table width="800" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left_bot_<?=$CAP_ID?>.png" width="297" height="40" border="0" usemap="#MainNav"></td>
+                <td width="503" align="right" background="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/right_bot_<?=$CAP_ID?>.png">
+                  <table width="100%" height="40" border="0" cellpadding="1" cellspacing="0" id="toolbar">
                     <tr>
                       <td width="17" align="center">&nbsp;</td>
                       <td align="center" valign="bottom"><a href="#"><a href="http://<?=DOMAIN?>/account/overview/"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_mc.gif" width="82" height="16" border="0" title="goto your account page"></a>&nbsp;<a href="#" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, menu1, '200px')" onMouseout="delayhidemenu()"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_fave.gif" width="65" height="16" border="0"></a>&nbsp;<a href="http://<?=DOMAIN?>/community/message/inbox.php"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_pq.gif" width="47" height="16" border="0" title="goto your PQ center"></a></td>
@@ -653,12 +679,32 @@ function capRO($imgPrefix) {
                       <td width="20" align="center">&nbsp;</td>
                     </tr>
                   </table>
-            </div>
-<? } ?>
-
-
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<?
+}
+?>
+<map name="MainNav">
+  <area shape="rect" coords="203,20,237,35" href="http://store.drunkduck.com">
+  <area shape="rect" coords="150,20,194,35" href="http://www.drunkduck.com/community/">
+  <area shape="rect" coords="14,20,97,37" href="http://www.drunkduck.com/search.php">
+  <area shape="rect" coords="104,20,143,35" href="http://www.drunkduck.com/news/">
+</map>
+<map name="Login">
+  <area shape="rect" coords="78,2,136,14" href="#">
+</map>
 </div>
 <!--HDR-->
+
+
+
 
 
 <?

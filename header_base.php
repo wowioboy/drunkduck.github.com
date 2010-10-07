@@ -28,10 +28,10 @@ $db = new DB();
 <!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 <style>
 body {    
-  background-color:rgb(9,153,68);
-  background-image:url('/media/images/bg-gradient-color3.jpg');
-  background-repeat: repeat-x;
-  background-position:center top;
+    background-color:rgb(9,153,68);
+    background-image:url('/media/images/bg-gradient-color3.jpg');
+    background-repeat: repeat-x;
+    background-position:center top;
 }
     
  .tooltip {

@@ -1,5 +1,5 @@
             <?php if (!$nosearch) : ?>
-            <div style="display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+            <div style="float:left;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
               <style type="text/css">
       .result {
         margin:0;
@@ -33,6 +33,7 @@
         position:absolute;
         z-index:9999;
         display:none;
+        text-align:left;
       }
       a.search_link {
         padding:0;
@@ -83,9 +84,9 @@
                  });
                  
               </script>
-                <form action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
+                <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">
                     <input type="text" id="searchTxt"  autocomplete="off" name="searchTxt" class="searchbox" style="position:absolute;top:0px;left:10px;margin:0;height:20px;border:0px;width:120px;outline:none;" />
-                    <input type="image" style="position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
+                    <input type="image" style="background:none;outline:none;padding:0;border:none;position:absolute;top:0px;right:0px;" src="/media/images/search-placeholder.gif" class="searchbox_submit" />
                 </form>
                 <div id="search_results"></div>
             </div>
