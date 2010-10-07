@@ -241,22 +241,14 @@ if ( $ALLOW_MODERATION )
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tag_functions.inc.php');
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tags_archive.inc.php');
 
-/*die($COMIC_ROW->template . 'http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd');*/
-/*var_dump('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'); exit;*/
+require_once "PEAR.php";
+require_once "HTTP/HTTP.php";
+
 if ( $COMIC_ROW->template != 0 ) {
   $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/template.dd');
-}
-elseif ( ($response = file_get_contents('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'))
-    && strpos($http_response_header[0], ' 200 ') !== false) {
-/*    var_dump(  strpos(array_shift($http_response_header), ' 200 ') !== false ); exit;     */
-    $TEMPLATE = $response;    
-/*    var_dump('custom');*/
-/*    var_dump( $response ); exit;*/
-    
-}
-else {
-/*    die('ddddddddddddddddddddddddd');*/
-    
+} else if ( '200' == array_shift(HTTP::head('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'))){
+    $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/template.dd'); 
+} else {
     $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/default_template.new.dd');
 }
 

@@ -1,6 +1,6 @@
 <?
 define('TEMPLATE_VIEW', 1);
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 // Make sure the php_self is seen as NOT in comics.
 $_SERVER['PHP_SELF'] = preg_replace('`\/comics\/[a-zA-Z0-9_](.*)`', "\\1", $_SERVER['PHP_SELF']);
@@ -164,7 +164,7 @@ foreach($MATCHES[1] as $idx=>$tag)
 $TEMPLATE = str_replace("\n", "", $TEMPLATE);
 // Get the header
 
-  $hdr = include(WWW_ROOT.'/comics/resource_files/comic_caps/comic_header_v2.inc.php');
+  $hdr = include(WWW_ROOT.'/comics/resource_files/comic_caps/comic_header_v3.inc.php');
 //  $hdr = include(WWW_ROOT.'/comics/resource_files/comic_caps/comic_header.inc.php');
 
 // Inject the header

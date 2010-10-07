@@ -14,7 +14,7 @@ select {
 .bb-image {
   clear:left;
   }
-.background {
+.background-heffse {
 background-image: url('/media/images/DD-bg-pattern-color3.gif');    
 background-repeat:no-repeat;
 
@@ -56,8 +56,9 @@ a {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+
 .top-rounded {
- -webkit-border-top-left-radius: 10px;
+-webkit-border-top-left-radius: 10px;
 -webkit-border-top-right-radius: 10px;
 -webkit-border-bottom-right-radius: 0px;
 -webkit-border-bottom-left-radius: 0px;
@@ -70,6 +71,7 @@ border-top-right-radius: 10px;
 border-bottom-right-radius: 0px;
 border-bottom-left-radius: 0px;
 }
+
 /* TABLE STUFF */
 .table {
   display:table;
@@ -119,7 +121,6 @@ border-bottom-left-radius: 0px;
     font-weight:bold;
     font-size: 1.7em;
     color:rgb(0,101,99);
-    }
     }
 
 /* PANEL STUFF */

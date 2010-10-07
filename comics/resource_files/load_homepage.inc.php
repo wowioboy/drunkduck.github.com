@@ -193,15 +193,15 @@ if ( $ALLOW_MODERATION )
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tag_functions.inc.php');
 require_once(WWW_ROOT.'/comics/resource_files/template_functions/dd_tags_homepage.inc.php');
 
+require_once "PEAR.php";
+require_once "HTTP/HTTP.php";
 
 if ( $COMIC_ROW->template != 0 ) {
-  $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/homepage.dd');
-}
-else if ( file_exists('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd') ) {
-  $TEMPLATE = implode('', file('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd'));
-}
-else {
-    $TEMPLATE = implode('', file('http://drunkduck.com'.'/comics/resource_files/default_homepage.dd'));
+    $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/templates/'.$COMIC_ROW->template.'/homepage.dd');
+} else if ( '200' == array_shift(HTTP::head('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd'))) {
+    $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/'.$FOLDER_NAME{0}.'/'.$FOLDER_NAME.'/pages/homepage.dd'); 
+} else {
+    $TEMPLATE = file_get_contents('http://drunkduck.com'.'/comics/resource_files/default_homepage.dd');
 }
 
 
