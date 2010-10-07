@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 if ( false )
 {
@@ -13,20 +13,24 @@ if ( false )
 
 if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '24.199.56.14' || $_SERVER['REMOTE_ADDR'] == "69.227.66.226" || $_SERVER['REMOTE_ADDR'] == "220.227.88.202") {
   define('DEBUG_MODE', 1 );
+} else {
+  define('DEBUG_MODE', 0 );
 }
 
 define('PLATINUM_OWNED', 1);
+/*die(array_shift(explode(':', $_SERVER['HTTP_HOST'])));*/
 
-if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' )
+if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['HTTP_HOST'])) == 'localhost' )
 {
+/*  die('foo');*/
   define('DEBUG_MODE',      1);
 
   // The document root of the website.
-  define('WWW_ROOT',        '/var/www/html/drunkduck.com');
+  define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
-  define('COOKIE_DOMAIN',   '.linuxdev1');
+  define('COOKIE_DOMAIN',   null);
   // The domain.
-  define('DOMAIN',          'linuxdev1');
+  define('DOMAIN',          array_shift(explode(':', $_SERVER['HTTP_HOST'])));
 }
 else
 {
@@ -35,7 +39,7 @@ else
   }
 
   // The document root of the website.
-  define('WWW_ROOT',        '/var/www/html/drunkduck.com');
+  define('WWW_ROOT',        $_SERVER['DOCUMENT_ROOT']);
   // Does the name not say it all? Fine. The domain in which the cookies are valid.
   define('COOKIE_DOMAIN',   '.drunkduck.com');
   // The domain.
@@ -99,7 +103,7 @@ define('HTTP_JAVASCRIPT', 'http://'.DOMAIN.'/javascript');
 
 require_once(WWW_ROOT.'/banned_ip_data.inc.php');
 if ( isset($BANNED_IPS[$_SERVER['REMOTE_ADDR']]) ) {
-  setcookie('b', '1', time()+(86400*365), "/", COOKIE_DOMAIN);
+  setcookie('b', '1', time()+(86400*365), "/", false);
   die("<DIV ALIGN='CENTER'>Sorry. Your IP Address has been banned.</DIV>");
 }
 // Be sure to incldue packages before anything else!
@@ -124,6 +128,6 @@ if ( !defined('FLAG_IS_ADMIN') ) {
 require_once(PACKAGES.'/pagetrack_package/load.inc.php');
 
 
-error_reporting( E_ERROR | E_PARSE );
+//error_reporting( E_ERROR | E_PARSE );
 //error_reporting( 0 );
 ?>

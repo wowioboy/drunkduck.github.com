@@ -1,0 +1,222 @@
+body {
+
+    margin: 10px auto 0px;
+    font-family:helvetica;
+    font-size:10pt;
+}
+input:not([type]), input[type="text"], input[type="password"] {
+    outline:none;
+    margin:0;
+}
+select {
+    outline: none;
+}
+.bb-image {
+  clear:left;
+  }
+.background {
+background-image: url('/media/images/DD-bg-pattern-color3.gif');    
+background-repeat:no-repeat;
+
+}
+.header {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:55px;
+  color:rgb(69,180,185);
+  text-align: center;
+  text-transform:uppercase;
+  text-shadow: 0px 0px 2px #FFF;
+    }
+.headline {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:2em;
+  color: rgb(73,73,73);
+}
+h2 {
+  font-family:'Yanone Kaffeesatz';
+  font-weight:bold;
+  font-size:30px;
+  color:rgb(69,180,185);
+}
+.subtitle {
+  font-family:helvetica;
+  font-size:12px;
+  line-height:12px;
+  font-weight:bold;
+  color:rgb(0,133,118);
+}
+a {
+  text-decoration:none;
+  color: #000;
+}
+.rounded {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.top-rounded {
+ -webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-webkit-border-bottom-right-radius: 0px;
+-webkit-border-bottom-left-radius: 0px;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-topright: 10px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+}
+/* TABLE STUFF */
+.table {
+  display:table;
+}
+.cell { 
+  display:table-cell;
+}
+
+/* SPACING */
+.fill {
+  width:100%;
+}
+.pad {
+  padding:10px;
+}
+.pad-5 {
+  padding:5px;
+}
+.centered {
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ALIGNMENT */
+.left {
+  text-align:left;
+}
+.right {
+  text-align:right;
+}
+.center {
+  text-align:center;
+}
+.bottom {
+  vertical-align:bottom;
+}
+.top {
+  vertical-align:top;
+}
+.middle {
+  vertical-align:middle;
+}
+
+.drunk {
+    font-family:'Yanone Kaffeesatz';
+    font-weight:bold;
+    font-size: 1.7em;
+    color:rgb(0,101,99);
+    }
+    }
+
+/* PANEL STUFF */
+.panel-header {
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+  font-size: 10px;
+  font-family: helvetica;
+  font-weight: bold;
+  padding-left:20px;
+  background: url('/media/images/triangle-bullet.gif') no-repeat 6% 175%;
+  
+}
+.panel-header {
+    margin-bottom:-10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+    position: relative;
+}
+.panel-header span {
+  position: relative;
+  
+    padding-left:20px;
+  font-weight: bold;
+  color: black;
+  font-size:11px;
+}
+
+.panel-body {
+  -webkit-border-radius: 10px;
+  -webkit-border-top-left-radius: 0px;
+  -moz-border-radius: 10px;
+  -moz-border-radius-topleft: 0px;
+  border-radius: 10px;
+  border-top-left-radius: 0px;  
+}
+
+.panel-body-right {
+  -webkit-border-radius: 10px;
+  -webkit-border-top-right-radius: 0px;
+  -moz-border-radius: 10px;
+  -moz-border-radius-topright: 0px;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+}
+
+.yellow {
+  background-color:rgb(255,230,102);
+}
+.green {
+  background-color:rgb(174,230,1);
+}
+
+.canary {
+  background-color:rgb(255,240,170);
+}
+.white {
+    background-color:#FFFFFF;
+}
+.teal {
+    color:rgb(69,180,185);
+    }         
+
+.post {
+  
+}
+.expand-button {
+    font-size: 12px;
+    float:right;
+}
+.button {
+    background-color:rgb(130,184,186);
+    color:#FFF;
+    font-weight:bold;
+    border:0;
+    font-size:10px;
+    padding:5px 15px 5px 15px;
+    min-width:100px;
+    }
+
+.preview h2 {
+  display:inline
+  }
+.preview span {
+  color:grey;
+  font-size:12px;
+  font-weight:bold;
+  }
+.header-menu {
+    
+    z-index:2000;
+    position:relative;
+    top:-30px;
+    }    
+

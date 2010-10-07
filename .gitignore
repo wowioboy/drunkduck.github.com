@@ -17,3 +17,4 @@ usage*
 *.jpg
 *.jpeg
 *.bmp
+!media/images/*

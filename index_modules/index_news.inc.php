@@ -53,7 +53,7 @@
         <BR>
         <?=BBCode(nl2br($post->body))?>
         <BR><BR>
-        <A HREF='http://www.drunkduck.com/forum/viewforum.php?f=42'>Discuss this news post in the forum.</A>
+        <A HREF='/forum/viewforum.php?f=42'>Discuss this news post in the forum.</A>
         <BR><BR>
         <B>
           <i>This message was posted by <?=(($U->user_id==1)?"The Administrator of DrunkDuck.com":username($U->username))?></i>

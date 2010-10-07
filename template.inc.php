@@ -1,10 +1,12 @@
 <?
 define('TEMPLATE_PAGE', 1);
-ob_start();
+ob_start(); 
 
+
+// added to assure relative-absolute path translation works on most levels.
+if (!defined('WWW_ROOT')) define('WWW_ROOT', $_SERVER['DOCUMENT_ROOT']);
 // A very important global include.
-include_once('includes/global.inc.php');
-
+include_once(WWW_ROOT . '/includes/global.inc.php');
 // Put this here so they never see any html etc. unless they are administrators.
 if ( $ADMIN_ONLY ) {
   if ( !(FLAG_IS_ADMIN & $USER->flags ) ) {

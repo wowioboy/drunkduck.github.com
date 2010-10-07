@@ -27,7 +27,7 @@ if ( !$USER )
   <p><strong>Create their own comics!</strong></p>
   <p><strong>Vote in polls and contests!</strong></p>
   <p><strong>Use the forums!</strong></p>
-  <p><a href="http://www.drunkduck.com/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a></p>
+  <p><a href="/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a></p>
   <form>
   <?
 }
@@ -322,7 +322,7 @@ else
   else {
     $swf->addVar('bannedUser', $USER->username);
   }
-  $swf->addVar('banURL', 'http://www.drunkduck.com/');
+  $swf->addVar('banURL', '/');
   $swf->setTransparent(true);
   $swf->showHTML();
   */

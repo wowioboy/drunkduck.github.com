@@ -15,7 +15,7 @@
                         <br><strong>Create their own comics!</strong>
                         <br><strong>Vote in polls and contests!</strong>
                         <br><strong>Use the forums!</strong>*/?>
-                        <a href="http://www.drunkduck.com/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a>
+                        <a href="/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a>
                       </div>
                       <?
                     }
@@ -29,7 +29,7 @@
                         <div style="margin:10px;" align="left">
 
                           <div align="right">
-                            <a href="http://<?=DOMAIN?>/?logout=<?=$USER->user_id?>">Log Out</a> | <a href="http://www.drunkduck.com/community/view_category.php?cid=229">Help</a>
+                            <a href="http://<?=DOMAIN?>/?logout=<?=$USER->user_id?>">Log Out</a> | <a href="/community/view_category.php?cid=229">Help</a>
                           </div>
 
                           <div align="left">

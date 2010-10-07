@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title><!--[COMIC_NAME]--> (<!--[PAGE_TITLE]-->)</title>
+      <meta name="robots" content="All,INDEX,FOLLOW">
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <link rel="stylesheet" type="text/css" href="http://www.drunkduck.com/gfx/template_gfx_new/global.css">
+      <style type="text/css">
+      <!--
+      body {
+          background-color:#CCC;
+      }
+      .strip {
+        background-color:#FFF;
+      	border-top-width: 2px;
+      	border-bottom-width: 4px;
+      	border-top-style: solid;
+      	border-right-style: none;
+      	border-bottom-style: solid;
+      	border-left-style: none;
+      	border-top-color: #000;
+      	border-bottom-color: #000;
+              width: 900px;
+      }
+      .nav {
+      	background-color:#FFFFFF;
+      }
+      .notes img {
+
+      }
+      .comments img {
+
+      }
+      
+      .toolbar a:link {color:#FFFFFF; text-decoration:none; font-weight:normal;} 
+      .toolbar a:visited {color:#FFFFFF; text-decoration:none; font-weight:normal;} 
+      .toolbar a:hover {color:#FFCC00; text-decoration:underline; font-weight:normal;} 
+      .toolbar a:active {color:#FFCC00; text-decoration:underline; font-weight:normal;}
+      -->
+      </style>
+    </head>
+    <body leftmargin="0" topmargin="0" valign="TOP" align="CENTER" marginheight="0" marginwidth="0" style="background-image:url(http://www.drunkduck.com/gfx/template_gfx_new/bg_center.png); background-position:center;	background-repeat: repeat-y;">
+<div id="bg">
+
+
+
+
+<!--Comic Title Area-->
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+  <tr>
+    <td><div align="center"><font style="font-size:48px;color:black;"><b><!--[COMIC_NAME]--></b></font></div></td>
+  </tr>
+</table>
+
+<!--Top Navigation-->	
+				
+<table class="nav" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+  <tr>
+    <td align="center" height="50" width="25%"><!--[NAV_FIRST=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c1.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_PREVIOUS=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c2.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_NEXT=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c3.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_LAST=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c4.gif]--></td>
+  </tr>
+</table>
+
+<!--COMIC STRIP-->	
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="center" valign="top">
+      <div class="strip"><!--[PAGE]--></div>
+    </td>
+  </tr>
+</table>
+
+<!--Bottom Navigation-->	
+
+
+<table class="nav" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+  <tr>
+    <td align="center" height="50" width="25%"><!--[NAV_FIRST=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c1.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_PREVIOUS=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c2.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_NEXT=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c3.gif]--></td>
+    <td align="center" height="50" width="25%"><!--[NAV_LAST=http://www.drunkduck.com/gfx/template_gfx_new/nav_r1_c4.gif]--></td>
+  </tr> 
+</table>
+
+
+
+<!--Creator's Comments-->	
+  
+  <table colspacing="0" colpadding="0" align="center" border="0" width="400">
+    <tr>
+      <td>
+        <div class="notes">
+          <!--[AUTHORS_NOTES]-->
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+<!--User Comments-->	
+
+<table colspacing="0" colpadding="0" align="center" border="0" width="600">
+  <tr>
+    <td colspan="2"><img src="http://www.drunkduck.com/gfx/template_gfx_new/comments.gif" alt="comments" width="600" height="50"></td>
+  </tr>
+  <tr>
+    <td width="300" align="center" valign="top">
+      <!--[COMMENTS=300]-->
+    </td>
+    <td align="center" width="300" valign="top">
+      <!--[COMMENT_FORM=280,200]-->
+    </td>
+  </tr>
+</table>
+
+</div>
+</body></html>

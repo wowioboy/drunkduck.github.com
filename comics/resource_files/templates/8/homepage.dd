@@ -1,0 +1,87 @@
+<html><head><title><!--[COMIC_NAME]--> hosted by DrunkDuck.com</title>
+<link rel="stylesheet" href="index_files/stylesheet.css" type="text/css">
+<link href="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/comic_08.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <table border=0 cellpadding=0 cellspacing=0 align="center">
+    <tr>
+      <td><img src="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_upleft.gif" width="30" height="75"></td>
+      <td background="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_upmid.gif"><font size="1">&nbsp;</font></td>
+      <td><img src="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_upright.gif" width="30" height="75"></td>
+    </tr>
+    <tr>
+      <td background="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_midleft.gif"></td>
+      <td align="center" background="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/pattern.gif">
+
+
+
+<div id="containment">
+<center>
+  <h1 id="comictitle"><!--[COMIC_NAME_IMAGE]--></h1>
+  <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" id="navcontainer">
+      <tr>
+        <td align="center"><ul>
+          <li>Comic:</li>
+          <li><a href="<!--[URL_FIRST]-->">First</a></li>
+          <li><a href="<!--[URL_LAST]-->">Latest</a></li>
+        </ul></td>
+      </tr>
+</table>
+
+<!--[PAGE]-->
+
+<p style:"background:#000;">
+<!--[STAT_DASH]-->
+</p>
+</center>
+
+
+
+
+  <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" id="content">
+    <tr>
+      <td valign="top" width="500">
+	    <div id="leftcol">
+       <!--[LATEST_BLOG]-->
+       <!--[LATEST_BLOG_COMMENTS]-->
+       <!--[LATEST_BLOG_COMMENT_FORM]-->
+       <br><!--[FORUM_BUTTON]-->
+      </div>
+
+	  </td>
+      <td valign="top">
+	    <div class="rightcol_module">
+		<h3 class="sidehdr">Description</h3>
+        <!--[DESCRIPTION]-->
+	    </div>
+	    <div class="rightcol_module">
+		    <h3 class="sidehdr">Comic Stats</h3>
+		    <!--[COMIC_INFO]-->
+      </div>
+
+	<div class="rightcol_module">
+		<h3 class="sidehdr">Chapter List</h3>
+    <!--[CHAPTERS]-->
+  </div>
+  <div id="favorites">
+	  <h3 id="favoriteshdr">Recommended Comics </h3>
+    <!--[RECOMMENDS]-->
+	</div>
+	  </td>
+    </tr>
+  </table>
+</div>
+      <td background="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_midright.gif"></td>
+    </tr>
+    <tr>
+      <td><img src="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_botleft.gif" width="30" height="173"></td>
+      <td background="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_botmid.gif" align="center"><img src="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_skull.gif" width="640" height="173" border="0"></td>
+      <td><img src="http://www.drunkduck.com/gfx/template_gfx_new/homepage/8/gfx/p_botright.gif" width="30" height="173"></td>
+    </tr>
+  </table>
+
+
+
+</body>
+</html>

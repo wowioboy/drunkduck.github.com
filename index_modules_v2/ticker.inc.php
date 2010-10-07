@@ -15,7 +15,7 @@ if ( $USER )
 else
 {
   $TICKER_MESSAGES = array("- Over 3,000 comics! -",
-                           "You must be registered as a member to comment, rank or post in the forums. Membership is FREE!=http://www.drunkduck.com/signup/");
+                           "You must be registered as a member to comment, rank or post in the forums. Membership is FREE!=/signup/");
 }
 $swf->addVar('tickerPacket', implode("|", $TICKER_MESSAGES));
 $swf->showHTML();

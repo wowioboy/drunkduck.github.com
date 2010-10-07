@@ -51,6 +51,8 @@ else if ( isset($_POST['un']) && isset($_POST['pw']) && ($_POST['un'].$_POST['pw
   {
     my_unsetcookie('dd_s');
     my_unsetcookie('dd_id');
+    
+    
   }
 }
 
@@ -190,15 +192,21 @@ function my_unsetcookie($cName)
 // Returns user row.
 function doLogin($uname, $pass, $optional_second=false)
 {
+  unset($GLOBALS['loginError']);  
   $res = db_query("SELECT * FROM users WHERE username='".$uname."'");
   if ( $ROW = db_fetch_object($res) )
   {
+      
     if ( strtolower($ROW->password) == strtolower($pass) ) {
       return $ROW;
     }
     else if ( $optional_second && (strtolower($ROW->password) == strtolower($optional_second)) ) {
       return $ROW;
+    } else {
+      $GLOBALS['loginError'] = 'wrong password.';
     }
+  } else {
+      $GLOBALS['loginError'] = 'wrong username.';
   }
   return null;
 }

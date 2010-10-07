@@ -15,7 +15,7 @@
                         <br><strong>Create their own comics!</strong>
                         <br><strong>Vote in polls and contests!</strong>
                         <br><strong>Use the forums!</strong>
-                        <br><a href="http://www.drunkduck.com/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a>
+                        <br><a href="/signup/"><img src="<?=IMAGE_HOST_SITE_GFX?>/smbtns_register.gif" width="56" height="14" border="0"></a>
                       </div>
                       <?
                     }

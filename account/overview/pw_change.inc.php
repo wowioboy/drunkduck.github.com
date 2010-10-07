@@ -9,5 +9,5 @@ if ( $USER->password == $_POST['pw_now'] )
   }
 }
 
-header("Location: http://www.drunkduck.com/account/overview/");
+header("Location: /account/overview/");
 ?>
