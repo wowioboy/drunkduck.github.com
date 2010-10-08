@@ -99,5 +99,5 @@
             <a href="/news_v2.php">news</a>
             <a href="/tutorials/">tutorials</a>
             <!--<a href="#">videos</a>-->
-            <a href="http://www.drunkduck.com/community">forums</a>
+            <a href="/community">forums</a>
             <a href="http://store.drunkduck.com">store</a>
