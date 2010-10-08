@@ -126,11 +126,20 @@ $(document).ready(function(){
   });
 });
 </script>
-<div>
+
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+    <div class="span-63 green rounded header">
+    User Control Panel
+    </div>
+</div>
+
+<div class="span-64 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/account.php">account</a>
 <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
+
+
 <div>
 <a class="teal rounded button" href="/control_panel/quacks-outbox.php">Sent</a>
 </div>
