@@ -257,9 +257,9 @@ $(document).ready(function(){
     <div style="height:30px;" class="span-16"></div>
     <img src="/media/images/badge-ducktv.png" />
     <div style="height:30px;" class="span-16"></div>
-    <img src="/media/images/badge-twitter.png" />
+    <a href="http://www.twitter.com/drunkduck"><img src="/media/images/badge-twitter.png" /></a>
     <div style="height:30px;" class="span-16"></div>
-    <img src="/media/images/badge-faceduck.png" />
+    <a href="http://www.facebook.com/group.php?gid=2307463656"><img src="/media/images/badge-faceduck.png" /></a>
     <div style="height:30px;" class="span-16"></div>
     </div>
   </div>
