@@ -77,6 +77,11 @@ $(document).ready(function(){
     getNews();
   });
   
+  $('.news_search').live('click', function(){
+    $('.news_search').val('');
+    $('.news_search').die('click');
+  });
+  
   $('.news_button').click(function() {
     var valid = false;
     var dir = $(this).attr('direction');
@@ -116,7 +121,8 @@ $(document).ready(function(){
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-    <input class="rounded button news_search" style="color:#fff;" />
+    <div style="display:inline-block;width:135px;"></div>
+    <input class="rounded button news_search" style="color:#fff;width:125px;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="news_holder" class="span-62 box-1">
@@ -138,13 +144,14 @@ $(document).ready(function(){
 </div>
 <div class="span-64 box-1 header-menu">
   <button class="news_button rounded left button" direction="prev">previous</button>
-  <select class="newsMonth" class="button rounded" style="border:none;">
+  <select class="button rounded newsMonth" style="border:none;">
     <option value="">select month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-    <input class="rounded button news_search" style="color:#FFF" />
+   <div style="display:inline-block;width:135px;"></div>
+    <input class="rounded button news_search" style="color:#fff;width:125px;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 

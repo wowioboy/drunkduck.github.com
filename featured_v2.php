@@ -154,6 +154,11 @@ $(document).ready(function(){
     $('.featureMonth').val(month);
     getFeatured();
   });
+  
+  $('.featured_search').live('click', function(){
+    $('.featured_search').val('');
+    $('.featured_search').die('click');
+  });
 });
 </script>
         <div class="rounded canary span-63 box-1 pull-1">
@@ -173,7 +178,7 @@ $(document).ready(function(){
   <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
   <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
   </form>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" />
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
 <div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
@@ -243,7 +248,7 @@ $(document).ready(function(){
   <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
   <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
   </form>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" />
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
 
