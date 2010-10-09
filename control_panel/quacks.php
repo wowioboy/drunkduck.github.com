@@ -122,6 +122,15 @@ $(document).ready(function(){
       height:500
     });
   });
+  
+  $('#compose-quack').click(function(){
+  $.fancybox({
+      type: 'ajax',
+      href: '/control_panel/compose-quack.php',
+      autoDimensions: false,
+      height:500
+    });
+  });
 });
 </script>
 
@@ -143,6 +152,7 @@ $(document).ready(function(){
 
 <div>
 <a class="teal rounded button" href="/control_panel/quacks-outbox.php">Sent</a>
+<a class="teal rounded button" id="compose-quack" href="javascript:">Compose</a>
 </div>
 
 <style>
