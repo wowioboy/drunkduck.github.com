@@ -10,7 +10,7 @@
   <div class="box-2 yellow rounded" >
 <?php if ($message = $_POST['message']) : ?>
   <?php
-  $message = 'Username: ' . $USER->username . '\n\n' . $message;
+  $message = 'Username: ' . $USER->username . '<br /><br />' . $message;
   mail('knguyen@wowio.com', 'Drunk Duck Beta Feedback', $message);
   ?>
   Thank you for submitting your feedback!

@@ -123,8 +123,9 @@ $(document).ready(function(){
       });
   }
   
-  $('#featured_search').keyup(function(){
+  $('.featured_search').keyup(function(){
     search = $(this).val();
+    $('.featured_search').val(search);
     pager = 0;
     getFeatured();
   });
@@ -148,8 +149,9 @@ $(document).ready(function(){
     }
   });
   
-  $('#featureMonth').change(function(){
+  $('.featureMonth').change(function(){
     month = $(this).val();
+    $('.featureMonth').val(month);
     getFeatured();
   });
 });
@@ -161,7 +163,7 @@ $(document).ready(function(){
         </div>
 <div class="span-64 box-1 header-menu">
   <button class="featured_button rounded left button" direction="prev">previous</button>
-  <select id="featureMonth" class="button rounded" style="border:none;">
+  <select class="button rounded featureMonth" style="border:none;">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
@@ -171,7 +173,7 @@ $(document).ready(function(){
   <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
   <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
   </form>
-    <input type="text"  style="color:#fff;" id="featured_search" class="rounded button" />
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
 <div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
@@ -229,7 +231,20 @@ $(document).ready(function(){
     </a>
   <?php endforeach; ?>
 </div>
+<div class="span-64 box-1 header-menu">
   <button class="featured_button rounded left button" direction="prev">previous</button>
+  <select class="button rounded featureMonth" style="border:none;">
+    <option value="">Select Month</option>
+    <?php foreach ($dateArray as $numDate => $dateString) : ?>
+      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+    <?php endforeach; ?>
+  </select>
+  <form style="display:inline;" method="post">
+  <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
+  <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
+  </form>
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" />
   <button class="featured_button rounded right button" direction="next">next</button>
+</div>
 
 <?php require_once('footer_base.php'); ?>
