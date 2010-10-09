@@ -518,7 +518,7 @@ if ( $USER )
     
     <span class="menu-linkage">
     duckmark: 
-    <a href="#" onClick="addBookmark();return false;">set</a>         
+    <a href="#" onClick="addBookmark();return false;">set</a>
     <a href="#" onClick="goBookmark();return false;">go</a>
     </span>
     
@@ -535,100 +535,12 @@ if ( $USER )
 
 
 </div>
-<?
-}
-else
-{
-?>
-<div>
-    <div>
-        <a href="/">
-            <img src="/media/images/drunkduck-logo.png" width="160" />
-        </a>
-    </div>
-</div>
 
-<table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0" class="toolbar" style="padding: 0pt; margin-left: auto; margin-right: auto; margin-top: 0pt;">
-  <tr>
-    <td colspan="4" align="center" style="background-color:#ffffff;background-image:url(<?=IMAGE_HOST_SITE_GFX?>/comic_caps/bg_<?=$CAP_ID?>.png);background-repeat: repeat-x;background-position:bottom;">
-      <table width="800" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="173" height="60" valign="top"><a href="http://www.drunkduck.com"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left.png" width="179" height="60" border="0"></a></td>
-          <td width="728" align="center" bgcolor="#CCCCCC">
- <?
-    if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T')
-    {
-        // ad include for safe-rated comics
-        include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90_et.html');
-    }
-    else
-    {
-        // ad include for adult/mature/unknown rated comics
-        include(WWW_ROOT.'/ads/ad_includes/comic_template/728x90.html');
-    }
-?>
-          </td>
-          <td width="139" height="60" align="right" valign="top"><a href="<?=$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>&logout=1"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/logout.png" width="139" height="60" border="0"></a></td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <table width="800" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/left_bot_<?=$CAP_ID?>.png" width="297" height="40" border="0" usemap="#MainNav"></td>
-                <td width="503" align="right" background="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/right_bot_<?=$CAP_ID?>.png">
-                  <table width="100%" height="40" border="0" cellpadding="1" cellspacing="0" id="toolbar">
-                    <tr>
-                      <td width="17" align="center">&nbsp;</td>
-                      <td align="center" valign="bottom"><a href="#"><a href="http://<?=DOMAIN?>/account/overview/"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_mc.gif" width="82" height="16" border="0" title="goto your account page"></a>&nbsp;<a href="#" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, menu1, '200px')" onMouseout="delayhidemenu()"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_fave.gif" width="65" height="16" border="0"></a>&nbsp;<a href="http://<?=DOMAIN?>/community/message/inbox.php"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_pq.gif" width="47" height="16" border="0" title="goto your PQ center"></a></td>
-                      <td width="106" align="center" valign="bottom"><?
-                      if ( !$COMIC_FAVS[$COMIC_ROW->comic_id] ) {
-                        ?><a href="JavaScript:var x=addFav();"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_addfave.gif" width="45" height="16" border="0" title="add this comic to your favorites list"></a><?
-                      }
-                      else {
-                        ?><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_faved.gif" width="45" height="16" border="0" title="This is a favorite!"><?
-                      }
-                      ?><a href="#" onClick="forceEmailNotify();return false;"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_faveemail.gif" width="19" height="16" border="0" title="get e-mail alerts for this comic"></a>&nbsp;<a href="http://<?=DOMAIN?>/rss/rss.php?cid=<?=$COMIC_ROW->comic_id?>"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_rss.gif" width="30" height="16" border="0" title="get the RSS feed for this comic"></a></td>
-                      <td width="90" align="center" valign="bottom"><a href="#" onClick="addBookmark();return false;"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_bkmrk.gif" width="33" height="16" border="0" title="Set bookmark for this comic"></a>&nbsp;<a href="#" onClick="goBookmark();return false;"><img src="<?=IMAGE_HOST_SITE_GFX?>/comic_caps/tb_bkmrkgo.gif" width="30" height="16" border="0" title="Go to your bookmark for this comic"></a></td>
-                      <td width="34" align="center" valign="bottom"><?
+<?php } ?>
 
-                      if ( $USER->flags & FLAG_IS_ADMIN ) {
-                        ?><a href="#" onClick="okayComic();return false;"><img src="<?=IMAGE_HOST_SITE_GFX?>/ratings/rating_<?=$COMIC_ROW->rating_symbol?>_lg.gif" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" width="32" height="32" border="0"></a><?
-                      }
-                      else {
-                        ?><img src="<?=IMAGE_HOST_SITE_GFX?>/ratings/rating_<?=$COMIC_ROW->rating_symbol?>_lg.gif" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" width="32" height="32"><?
-                      }
+<div style="clear:both;height:1px;"></div>
 
-                      ?></td>
-                      <td width="20" align="center">&nbsp;</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<?
-}
-?>
-<map name="MainNav">
-  <area shape="rect" coords="203,20,237,35" href="http://store.drunkduck.com">
-  <area shape="rect" coords="150,20,194,35" href="http://www.drunkduck.com/community/">
-  <area shape="rect" coords="14,20,97,37" href="http://www.drunkduck.com/search.php">
-  <area shape="rect" coords="104,20,143,35" href="http://www.drunkduck.com/news/">
-</map>
-<map name="Login">
-  <area shape="rect" coords="78,2,136,14" href="#">
-</map>
-</div>
 <!--HDR-->
-
-
-
-
 
 <?
 return ob_get_clean();
