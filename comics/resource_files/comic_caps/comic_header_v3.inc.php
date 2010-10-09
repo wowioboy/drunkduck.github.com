@@ -44,6 +44,11 @@ if ( $COMIC_ROW ) {
 <!-- END OF TAG FOR head SECTION -->
 
 <script src="/__utm.js" type="text/javascript"></script>
+
+<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;">
+    
+</div>
+
 <style type="text/css">
 #dhtml_menu_div{
 position:absolute;
@@ -359,10 +364,7 @@ function capRO($imgPrefix) {
 }
 
 
-?><div align="center"><?
-if ( !$USER )
-{
-?>
+?><div align="center">
 
 
 <div class="" style="width:908px;padding:0;margin:0;position:relative">
@@ -490,6 +492,10 @@ border:0;
 }        
 </style>
 
+<?
+if ( $USER )
+{
+?>
 <div style="position:relative;width:728px;margin:0;padding:0;">
 
 <div class="toolbar" style="opacity:0.7;font:bold 12px/20px Helvetica;vertical-align:50%;color:#333;width:728px;clear:both;height:20px;background-color:#bbb;border-radius: 0 0 10px 10px;">

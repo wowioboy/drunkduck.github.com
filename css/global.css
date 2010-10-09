@@ -14,11 +14,13 @@ select {
 .bb-image {
   clear:left;
   }
-.background-heffse {
+/*#backdrop {
 background-image: url('/media/images/DD-bg-pattern-color3.gif');    
 background-repeat:no-repeat;
-
-}
+height:1000px;
+width:100%;
+position:absolute;
+}*/
 .header {
   font-family:'Yanone Kaffeesatz';
   font-weight:bold;

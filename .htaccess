@@ -1,7 +1,7 @@
 Options +FollowSymLinks
 
 RewriteEngine on
-RewriteCond %{REQUEST_URI} \/gfx\/
+RewriteCond %{REQUEST_URI} gfx\/
 #RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.*) http://drunkduck.com/$1 [L]
 

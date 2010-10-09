@@ -92,17 +92,19 @@ $(document).ready(function(){
 });
 </script>
 
-        <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-            <div class="span-63 green rounded header">
-            User Control Panel
-            </div>
-        </div>
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+    <div class="span-63 green rounded header">
+    User Control Panel
+    </div>
+</div>
+
 <div class="span-64 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/account.php">account</a>
 <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
 <?php endif; ?>
+
 <div class="box-2" style="padding-top:120px">
     <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Public Profile</div>
