@@ -59,7 +59,7 @@ jQuery.noConflict();
 
 
 <!--<script type="text/javascript" src="http://www.platinumstudios.com/processing/ps_hat_top.js"></script>-->
-<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;">
+<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:#ade307;">
 <div align="center">
 
 
@@ -143,7 +143,7 @@ border:0;
     <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
           
             <?php if (!$nosearch) : ?>
-            <div style="float:left;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+            <div style="float:left;display:inline;background-image:url('/media/images/search.png');width:154px;height:20px" class="span-16">
              <link type="text/css" rel="stylesheet" href="/css/search.css" />
               <script type="text/javascript" src="/js/search.js"></script>
                 <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">

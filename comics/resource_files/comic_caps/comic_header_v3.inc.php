@@ -447,7 +447,7 @@ border:0;
     <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
           
             <?php if (!$nosearch) : ?>
-            <div style="float:left;display:inline;background-image:url('/media/images/search.jpg');width:154px;height:20px" class="span-16">
+            <div style="float:left;display:inline;background-image:url('/media/images/search.png');width:154px;height:20px" class="span-16">
              <link type="text/css" rel="stylesheet" href="/css/search.css" />
               <script type="text/javascript" src="/js/search.js"></script>
                 <form id="dd-navigation" action="/search.php" method="get" style="padding:0px;height:20px;border:0px;vertical-align:top;position:relative;left:-2px;">

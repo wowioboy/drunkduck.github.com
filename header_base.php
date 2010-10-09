@@ -30,8 +30,8 @@ $db = new DB();
 body {    
     background-color:rgb(9,153,68);
     background-image:url('/media/images/bg-gradient-color3.jpg');
-    background-repeat: repeat-x;
-    background-position:center top;
+    background-repeat: no-repeat;
+    background-position:left top;
 }
     
  .tooltip {

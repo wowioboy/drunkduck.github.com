@@ -192,6 +192,7 @@ border-bottom-left-radius: 0px;
     }         
 
 .post {
+  overflow:auto;
   
 }
 .expand-button {

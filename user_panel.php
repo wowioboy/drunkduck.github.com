@@ -15,7 +15,7 @@
                   $.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
-                    html += '<a href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
+                    html += '<a class="subtitle" href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
                   });
                   $('div.webcomics_display').html(html);
                 });
@@ -31,7 +31,7 @@
                   $.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
-                    html += '<a href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
+                    html += '<a class="subtitle" href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
                   });
                   $('div.favorites_display').html(html);
                });
