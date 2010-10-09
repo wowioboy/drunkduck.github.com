@@ -45,9 +45,7 @@ if ( $COMIC_ROW ) {
 
 <script src="/__utm.js" type="text/javascript"></script>
 
-<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;">
-    
-</div>
+<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;"></div>
 
 <style type="text/css">
 #dhtml_menu_div{
