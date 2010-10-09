@@ -181,6 +181,10 @@ border-bottom-left-radius: 0px;
   background-color:rgb(174,230,1);
 }
 
+.dark-green {
+  background-color:#aecf36;
+}
+
 .canary {
   background-color:rgb(255,240,170);
 }

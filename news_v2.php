@@ -108,9 +108,15 @@ $(document).ready(function(){
   });
 });
 </script>
+<style>
+.news_search {
+  background-image:url('/media/images/blue-search-box.png');
+  width:135px;
+}
+</style>
         <div class="rounded canary span-63 box-1 pull-1">
-            <div class="span-63 green rounded header">
-            News Archive
+            <div class="span-63 dark-green rounded header">
+            <img src="/media/images/news.png" />
             </div>
         </div>
 <div class="span-64 box-1 header-menu">
@@ -122,7 +128,7 @@ $(document).ready(function(){
     <?php endforeach; ?>
   </select>
     <div style="display:inline-block;width:135px;"></div>
-    <input class="rounded button news_search" style="color:#fff;width:125px;" value="search news archive" />
+    <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="news_holder" class="span-62 box-1">
@@ -151,7 +157,7 @@ $(document).ready(function(){
     <?php endforeach; ?>
   </select>
    <div style="display:inline-block;width:135px;"></div>
-    <input class="rounded button news_search" style="color:#fff;width:125px;" value="search news archive" />
+    <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 

@@ -135,8 +135,8 @@ $(document).ready(function(){
 </script>
 
 <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-    <div class="span-63 green rounded header">
-    User Control Panel
+     <div class="span-63 dark-green rounded header">
+    <img src="/media/images/control-panel.png" />
     </div>
 </div>
 

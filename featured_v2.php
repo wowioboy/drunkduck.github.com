@@ -161,9 +161,15 @@ $(document).ready(function(){
   });
 });
 </script>
+<style>
+.featured_search {
+  background-image:url('/media/images/blue-search-box.png');
+  width:135px;
+}
+</style>
         <div class="rounded canary span-63 box-1 pull-1">
-            <div class="span-63 green rounded header">
-            Featured Comics Archive
+            <div class="span-63 dark-green rounded header">
+            <img src="/media/images/featured.png" />
             </div>
         </div>
 <div class="span-64 box-1 header-menu">

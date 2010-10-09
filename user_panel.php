@@ -37,27 +37,27 @@
                });
             }
 
-            $('a.favorties').click(function(){
+            $('img.favorties').click(function(){
               var favoritesDiv = $('div.favorites');
               if (favoritesDiv.css('display') == 'none') {
-                $(this).html('collapse');
+                $(this).attr('src', '/media/images/triangle-down.gif');
                 getFavorites();
                   favoritesDiv.slideDown();
               } else { 
-                $(this).html('expand');
+                $(this).attr('src', '/media/images/triangle.gif');
                 favoritesDiv.slideUp();
               }
             });
             
             
-            $('a.webcomics').click(function(){
+            $('img.webcomics').click(function(){
               var webcomicsDiv = $('div.webcomics');
               if (webcomicsDiv.css('display') == 'none') {
-                $(this).html('collapse');
+                $(this).attr('src', '/media/images/triangle-down.gif');
                   getWebcomics();
                   webcomicsDiv.slideDown();
               } else { 
-                $(this).html('expand');
+                 $(this).attr('src', '/media/images/triangle.gif');
                 webcomicsDiv.slideUp();
               }
             });
@@ -88,7 +88,12 @@
             <div style="clear:both;height:10px"></div>
             
           <div class="drop-list rounded ">
-            my favorites  <a class="favorties" href="javascript:">expand</a>
+            <div class="table fill">
+              <div class="cell">my favorites</div>
+              <div class="cell right">
+              <img class="favorties" src="/media/images/triangle.gif" />
+              </div>
+            </div>
             <div class="favorites" style="display:none;">
             <select class="favorites">
               <option value="">sort by</option>
@@ -102,7 +107,12 @@
           </div>
           <div style="display:block;height:10px;"></div>
           <div class="drop-list rounded ">
-            my webcomics  <a class="webcomics" href="javascript:">expand</a>
+            <div class="table fill">
+              <div class="cell">my webcomics</div>
+              <div class="cell right">
+              <img class="webcomics" src="/media/images/triangle.gif" />
+              </div>
+            </div>
             <div class="webcomics" style="display:none;">
             <select class="webcomics">
               <option value="">sort by</option>

@@ -74,10 +74,16 @@ $(document).ready(function(){
   
 });
 </script>
-<div>
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+            <div class="span-63 dark-green rounded header">
+    <img src="/media/images/control-panel.png" />
+    </div>
+        </div>
+        <div class="span-64 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/account.php">account</a>
 <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
+</div>
 </div>
 <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
 <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
