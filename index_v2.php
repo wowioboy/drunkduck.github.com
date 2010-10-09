@@ -15,7 +15,7 @@ $query = "select c.comic_id as id, c.comic_name as title, c.description, c.ratin
 from comics c 
 inner join users u 
 on u.user_id = c.user_id
-order by last_update desc 
+order by last_update desc beta.drunkduck.local
 limit 10";
 $latestUpdates = $db->fetchAll($query);
 
@@ -75,12 +75,12 @@ $(document).ready(function(){
  // });
   
   
-  function getTopTen()
-  {
-    var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
-    var link = '/' + this.title.replace(/ /g, '_') + '/';
-    var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
-  }
+ // function getTopTen()
+ // {
+  //  var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
+   // var link = '/' + this.title.replace(/ /g, '_') + '/';
+   // var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
+ // }
 });
 </script>
 <!-- <button id="boomdoggy">open filter</button> -->
