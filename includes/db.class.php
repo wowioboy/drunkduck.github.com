@@ -25,8 +25,8 @@ class DB
 		$this->_scheme = 'drunkduck';
     
     # THESE ARE THE STAGING DATABASE VARIABLES
-    $this->_host = '192.168.1.205';
-    $this->_pass = 'Sites3rv3r3';
+#    $this->_host = '192.168.1.205';
+#    $this->_pass = 'Sites3rv3r3';
     
     if ($credentials['scheme']) {
       $this->_scheme = $credentials['scheme'];
@@ -46,7 +46,7 @@ class DB
 		if ($resource = @mysql_query($query, $this->_link)) {
 			return $resource;
 		} else {
-			die(mysql_error());
+			die(__FILE__ . ':' .__LINE__ . '<br />' . $query . '<br />' .  mysql_error());
 		}
 	}
 	
