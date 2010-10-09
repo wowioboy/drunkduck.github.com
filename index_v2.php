@@ -15,7 +15,7 @@ $query = "select c.comic_id as id, c.comic_name as title, c.description, c.ratin
 from comics c 
 inner join users u 
 on u.user_id = c.user_id
-order by last_update desc beta.drunkduck.local
+order by last_update desc 
 limit 10";
 $latestUpdates = $db->fetchAll($query);
 
