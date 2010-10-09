@@ -1,16 +1,16 @@
     </div>
     
-    <div id="loginbox" class="span-30 canary box-1" style="padding-bottom:0;">
+    <div id="loginbox" class="span-30 canary box-1" >
         <div class="">
             <?php require_once('auth.php') ?>
               
         </div>
     </div>
-    <div class="span-30 box-1">
+    <div class="span-30"><div class="box-1">
         <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
         <div style="height:10px;"></div>
         <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
-    </div>
+    </div></div>
     
     <div class="span-96">&nbsp;</div>
     <div class="span-96 green rounded">

@@ -70,8 +70,9 @@ $(document).ready(function(){
       });
   }
   
-  $('#news_search').keyup(function(){
+  $('.news_search').keyup(function(){
     search = $(this).val();
+    $('.news_search').val(search);
     pager = 0;
     getNews();
   });
@@ -95,8 +96,9 @@ $(document).ready(function(){
     }
   });
   
-  $('#newsMonth').change(function(){
+  $('.newsMonth').change(function(){
     month = $(this).val();
+    $('.newsMonth').val(month);
     getNews();
   });
 });
@@ -108,15 +110,13 @@ $(document).ready(function(){
         </div>
 <div class="span-64 box-1 header-menu">
   <button class="news_button rounded left button" direction="prev">previous</button>
-  <select id="newsMonth" class="button rounded">
+  <select class="button rounded newsMonth" style="border:none;">
     <option value="">select month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-<!--  <button class="rounded button dropdown">September 2010</button> -->
-  <!-- <button class="rounded button">article view</button> -->
-    <input class="rounded button" style="color:#FFF" id="news_search" />
+    <input class="rounded button news_search" style="color:#fff;" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
 <div id="news_holder" class="span-62 box-1">
@@ -136,7 +136,16 @@ $(document).ready(function(){
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
-   <button class="news_button rounded left button" direction="prev">previous</button>
+<div class="span-64 box-1 header-menu">
+  <button class="news_button rounded left button" direction="prev">previous</button>
+  <select class="newsMonth" class="button rounded" style="border:none;">
+    <option value="">select month</option>
+    <?php foreach ($dateArray as $numDate => $dateString) : ?>
+      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+    <?php endforeach; ?>
+  </select>
+    <input class="rounded button news_search" style="color:#FFF" />
   <button class="news_button rounded right button" direction="next">next</button>
+</div>
 
 <?php require_once('footer_base.php'); ?>

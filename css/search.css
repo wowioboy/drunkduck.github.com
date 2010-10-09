@@ -1,0 +1,38 @@
+.result {
+        margin:0;
+        padding:5px;
+        background-color:#e5e5e5;
+        border:1px solid #000;
+        background:-webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.08, rgb(200,210,212)),
+                color-stop(0.77, rgb(255,255,255))
+            );
+        background:-moz-linear-gradient(
+                  center bottom,
+                  rgb(200,210,212) 8%,
+                  rgb(255,255,255) 77%
+              );
+        background:filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff);
+        background:-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff, GradientType=1);
+        color:#000;
+      }
+      .topless {
+        border-top-style:none;
+      }
+      .result img {
+        border:none;
+      }
+      #search_results {
+        width:300px;
+        position:absolute;
+        z-index:9999;
+        display:none;
+        text-align:left;
+      }
+      a.search_link {
+        padding:0;
+        margin:0;
+      }

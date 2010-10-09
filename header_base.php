@@ -95,7 +95,7 @@ $(document).ready(function(){
 
 </head>
 <body>
-<div id="backdrop"></div>
+
 
 <div class="container">
     <div class="span-96 green rounded" style="position:relative;padding-top:10px">

@@ -63,9 +63,7 @@ $(document).ready(function(){
                     '<tr class="quack-message" quack="' + this.id + '" style="display:none;">' + 
                     '<td colspan="5">' + this.message + '</td>' + 
                     '</tr>' +
-                    '<tr>' + 
-                    '<td colspan="5"><hr /></td>' + 
-                    '</tr>';
+                    '<tr>';
         });
       }
       $('#quack_holder').html(html);
@@ -127,20 +125,63 @@ $(document).ready(function(){
   });
 });
 </script>
-<div>
+
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+    <div class="span-63 green rounded header">
+    User Control Panel
+    </div>
+</div>
+
+<div class="span-55 box-1 header-menu">
 <a class="teal rounded button" href="/control_panel/account.php">account</a>
 <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 <a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
 </div>
+<div class="box-2" style="padding-top:120px">
+    <div class="box-2 yellow rounded" >
+        <div class="drunk" style="font-size:3em;">Personal Quacks</div>
+
+
 <div>
 <a class="teal rounded button" href="/control_panel/quacks.php">Inbox</a>
 </div>
+
+<style>
+tbody{
+
+    }
+tbody tr {
+    
+    background-color: white;    
+    }    
+tr td {
+    padding: 10px 0 10px 0;
+    font-weight: bold;
+    font-family: helvetica;
+    font-size: 12px;
+    color: #006563;
+    }
+tr td:first-child {
+    padding:10px;       
+}
+tr.quack-message td {
+    color: #333;
+    font-weight:normal;
+    font-size:11px;}      
+/*thead tr:first-child {
+    background-color: transparent;
+}*/
+thead tr, thead tr th{
+    background-color: transparent;
+    border-radius: 10px;
+    }
+</style>
 <div>
     <button class="teal button rounded quack_button" direction="prev">previous</button>
   <button class="teal button rounded quack_button" direction="next">next</button>
   <button class="teal button rounded" id="quack-delete-button">delete</button>
 </div>
-<table width="100%">
+<table >
  <thead>
  <tr>
    <th><input type="checkbox" class="big-quack-check" /></th>
@@ -151,6 +192,7 @@ $(document).ready(function(){
  </tr>
  </thead>
  <tbody id="quack_holder">
+ <tr sytle="padding:0;height:10px;"><td colspan="5" style="padding:0;border-radius:10px 10px 0 0;height:10px;"></td></tr>
 <?php foreach ((array) $quacks as $quack) : ?>
 <?php
 if (!$from = $quack['from']) {
@@ -168,21 +210,24 @@ if ($recieved->format('Y-m-d') == $now->format('Y-m-d')) {
 ?>
 <tr quack="<?php echo $quack['id']; ?>">
   <td><input type="checkbox" class="quack-check" name="quack" value="<?php echo $quack['id']; ?>" /></td>
-     <td><?php echo $quack['to']; ?></td>
-  <td><a class="toggle-quack-message" quack="<?php echo $quack['id']; ?>" style="text-decoration:underline;" href="javascript:"><?php echo $quack['subject']; ?></a></td>
+  <td><?php echo $from; ?></td>
+  <td><a class="toggle-quack-message" quack="<?php echo $quack['id']; ?>" href="javascript:"><?php echo $quack['subject']; ?></a></td>
   <td><?php echo $recieved; ?></td>
   <td class="quack-status" quack="<?php echo $quack['id']; ?>"><?php echo $status; ?></td>
 </tr>
 <tr class="quack-message" quack="<?php echo $quack['id']; ?>" style="display:none;">
   <td colspan="5">
     <?php echo $quack['message']; ?>
+    <br />
+    <button class="quack-reply-button" from="<?php echo $from; ?>" subject="<?php echo $quack['subject']; ?>">reply</button>
   </td>
 </tr>
-<tr>
-  <td colspan="5"><hr /></td>
-</tr>
+
 <?php endforeach; ?>
+<tr sytle="padding:0;height:10px;"><td colspan="5" style="padding:0;border-radius:0 0 10px 10px;height:10px;"></td></tr>
  </tbody>
 </table>
 
+    </div>
+</div>
 <?php require_once('../footer_base.php'); ?>
