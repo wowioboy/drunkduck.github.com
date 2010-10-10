@@ -18,4 +18,3 @@ usage*
 *.jpeg
 *.bmp
 !media/images/*
-.htaccess
