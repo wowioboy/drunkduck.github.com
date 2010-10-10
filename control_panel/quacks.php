@@ -235,7 +235,7 @@ if ($recieved->format('Y-m-d') == $now->format('Y-m-d')) {
   <td colspan="5">
     <?php echo $quack['message']; ?>
     <br />
-    <button class="quack-reply-button" from="<?php echo $from; ?>" subject="<?php echo $quack['subject']; ?>">reply</button>
+    <a class="button" href="/control_panel/compose-quack.php?to=<?php echo $from; ?>&subject=RE: <?php echo $quack['subject']; ?>">reply</a>
   </td>
 </tr>
 
