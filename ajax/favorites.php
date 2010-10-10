@@ -22,7 +22,7 @@ foreach ($results as &$result) {
   if ($date->format('Y-m-d') == $now->format('Y-m-d')) {
       $result['updated_on'] = 'Today';
   } else {
-    $result['updated_on'] = $date->format('M j Y');
+    $result['updated_on'] = $date->format('M d Y');
   }
 } 
 echo json_encode($results);

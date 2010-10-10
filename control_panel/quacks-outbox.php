@@ -78,6 +78,11 @@ $(document).ready(function(){
       $('.quack-check').attr('checked', false);
     }
   });
+   $('.quack-check').change(function(){
+    if (!$(this).attr('checked')) {
+      $('.big-quack-check').attr('checked', false);
+    }
+  });
   $('#quack-delete-button').click(function(){
     var deletes = new Array();
     $('.quack-check:checked').each(function(){
@@ -142,9 +147,9 @@ $(document).ready(function(){
 </div>
 
 <div class="span-55 box-1 header-menu">
-<a class="teal rounded button" href="/control_panel/account.php">account</a>
-<a class="teal rounded button" href="/control_panel/profile.php">profile</a>
-<a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
+<a class="button" href="/control_panel/account.php">account</a>
+<a class="button" href="/control_panel/profile.php">profile</a>
+<a class="button" href="/control_panel/favorites.php">favorites</a>
 </div>
 <div class="box-2" style="padding-top:120px">
     <div class="box-2 yellow rounded" >
@@ -152,8 +157,9 @@ $(document).ready(function(){
 
 
 <div>
-<a class="teal rounded button" href="/control_panel/quacks.php">Inbox</a>
-<a class="teal rounded button" id="compose-quack" href="javascript:">Compose</a>
+<a class="button" href="/control_panel/quacks.php">Inbox</a>
+<a class="button" id="compose-quack" href="javascript:">Compose</a>
+<a class="button" href="javascript:">Outbox</a>
 </div>
 
 <style>

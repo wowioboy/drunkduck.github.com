@@ -1,6 +1,16 @@
         <?php
 /*        var_dump($USER);*/
         ?>
+        <style type="text/css">
+        .sidetitle {
+          color:#3db7b8;
+          font-size:8pt;
+        }
+        .sidedate {
+          color:#000;
+          font-size:8pt;
+        }
+        </style>
           <script>
           $(document).ready(function(){
             var user_id = '<?php echo $USER->user_id; ?>';
@@ -15,7 +25,21 @@
                   $.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
-                    html += '<a class="subtitle" href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + '<a href="/account/comic/?cid=' + this.comic_id + '">edit</a>' + ' ' + date + '<br />';
+                    var new_title = title;
+                    if (title.length > 20) {
+                      new_title = jQuery.trim(title.substring(0, 20)) + '...';
+                    }
+                    html += '<div class="table fill">' + 
+                            '<div class="cell">' + 
+                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '">' + new_title + '</a>' +
+                            '</div>' + 
+                            '<div class="cell right">' + 
+                            '<a class="sidedate" href="/account/comic/?cid=' + this.comic_id + '">edit</a>' + 
+                            '</div>' + 
+                            '<div class="cell right" style="width:100px;">' +
+                            '<span class="sidedate">' + date + '</span>' + 
+                            '</div>' + 
+                            '</div>';
                   });
                   $('div.webcomics_display').html(html);
                 });
@@ -31,7 +55,18 @@
                   $.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
-                    html += '<a class="subtitle" href="/' + title.replace(/ /g, '_') + '">' + title + '</a>' + ' ' + date + '<br />'; 
+                    var new_title = title;
+                    if (title.length > 20) {
+                      new_title = jQuery.trim(title.substring(0, 20)) + '...';
+                    }
+                    html += '<div class="table fill">' + 
+                            '<div class="cell">' + 
+                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '">' + new_title + '</a>' +
+                            '</div>' + 
+                            '<div class="cell right" style="width:100px;">' +
+                            '<span class="sidedate">' + date + '</span>' + 
+                            '</div>' + 
+                            '</div>'; 
                   });
                   $('div.favorites_display').html(html);
                });
@@ -95,13 +130,16 @@
               </div>
             </div>
             <div class="favorites" style="display:none;">
-            <select class="favorites">
+            <div class="table fill">
+                <div class="cell right">
+            <select class="favorites button" style="border:none;">
               <option value="">sort by</option>
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
+                </div>
+            </div>
               <div class="favorites_display">
-                here are the favorites
               </div>
             </div>
           </div>
@@ -114,13 +152,16 @@
               </div>
             </div>
             <div class="webcomics" style="display:none;">
-            <select class="webcomics">
+              <div class="table fill">
+                <div class="cell right">
+            <select class="webcomics button" style="border:none;">
               <option value="">sort by</option>
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
+                </div>
+              </div>
               <div class="webcomics_display">
-                here are the webcomics
               </div>
             </div>
           </div>
