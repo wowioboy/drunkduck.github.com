@@ -36,9 +36,9 @@ $(document).ready(function(){
     </div>
         </div>
 <div class="span-64 box-1 header-menu">
-<a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
-<a class="teal rounded button" href="/control_panel/favorites.php">favorites</a>
-<a class="teal rounded button" href="/control_panel/profile.php">profile</a>
+<a class="rounded button" href="/control_panel/quacks.php">quacks</a>
+<a class="rounded button" href="/control_panel/favorites.php">favorites</a>
+<a class="rounded button" href="/control_panel/profile.php">profile</a>
 </div>
 <div class="drunk" style="font-size:3em;">Account</div>
 <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />

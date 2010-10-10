@@ -72,8 +72,9 @@ $(document).ready(function(){
       });
   }
   
-  $('#featured_search').keyup(function(){
+  $('.featured_search').keyup(function(){
     search = $(this).val();
+    $('.featured_search').val(search);
     pager = 0;
     getFeatured();
   });
@@ -97,30 +98,37 @@ $(document).ready(function(){
     }
   });
   
-  $('#featureMonth').change(function(){
+  $('.featureMonth').change(function(){
     month = $(this).val();
+    $('.featureMonth').val(month);
     getFeatured();
   });
 });
 </script>
+<style>
+.featured_search {
+  background-image:url('/media/images/blue-search-box.png');
+  width:135px;
+}
+</style>
         <div class="rounded canary span-63 box-1 pull-1">
             <div class="span-63 green rounded header">
             Tutorials
             </div>
         </div>
 <div class="span-64 box-1 header-menu">
-  <button class="featured_button rounded left button" direction="prev">previous</button>
-  <select id="featureMonth" class="button rounded" style="border:none;">
+  <button class="featured_button left button" direction="prev">previous</button>
+  <select class="button featureMonth" style="border:none;">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-    <input type="text"  style="color:#fff;" id="featured_search" class="rounded button" />
-  <button class="featured_button rounded right button" direction="next">next</button>
-  <a href="/tutorials/create.php" class="teal rounded button">create tutorial</a>
+    <input type="text"  style="color:#fff;" class="button featured_search" />
+  <button class="featured_button right button" direction="next">next</button>
+  <a href="/tutorials/create.php" class="button">create tutorial</a>
 </div>
-<div class="span-60 box-2">
+<div class="span-60 box-2" style="position:relative;top:-40px;">
     <div class="cell center" style="width:400px;">
     <div class="green top-rounded header" style="font-size:24px;padding:0px;margin-left:auto;width:200px;text-transform:none;">
     Featured!
@@ -151,7 +159,7 @@ $(document).ready(function(){
     </div>
     
 </div>
-<div id="featured_holder" class="span-62 box-1">
+<div id="featured_holder" class="span-62 box-1" style="position:relative;top:-40px;">
   <?php foreach ($featured as $comic) : ?>
    <?php
    $date = new DateTime($comic['timestamp']);
@@ -178,7 +186,17 @@ $(document).ready(function(){
     </a>
   <?php endforeach; ?>
 </div>
-  <button class="featured_button rounded left button" direction="prev">previous</button>
-  <button class="featured_button rounded right button" direction="next">next</button>
+<div class="span-64 box-1 header-menu" style="position:relative;top:-40px;">
+  <button class="featured_button left button" direction="prev">previous</button>
+  <select class="button featureMonth" style="border:none;">
+    <option value="">Select Month</option>
+    <?php foreach ($dateArray as $numDate => $dateString) : ?>
+      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+    <?php endforeach; ?>
+  </select>
+    <input type="text"  style="color:#fff;" class="button featured_search" />
+  <button class="featured_button right button" direction="next">next</button>
+  <a href="/tutorials/create.php" class="button">create tutorial</a>
+</div>
 
 <?php require_once('../footer_base.php'); ?>

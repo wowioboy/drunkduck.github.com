@@ -18,4 +18,5 @@ usage*
 *.jpeg
 *.bmp
 !media/images/*
+.DS_Store
 .htaccess
