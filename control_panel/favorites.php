@@ -74,61 +74,86 @@ $(document).ready(function(){
   
 });
 </script>
-<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-            <div class="span-63 dark-green rounded header">
-    <img src="/media/images/control-panel.png" />
-    </div>
-        </div>
-        <div class="span-64 box-1 header-menu">
-<a class="teal rounded button" href="/control_panel/account.php">account</a>
-<a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
-<a class="teal rounded button" href="/control_panel/profile.php">profile</a>
-</div>
-</div>
-<form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
-<input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
-<table>
- <thead>
- <tr>
-   <th>comic</th>
-   <th>last updated</th>
-   <th>recommend</th>
-   <th>email alerts</th>
-   <th>delete</th>
- </tr>
- </thead>
- <tbody>
-<?php foreach ($favorites as $favorite) : ?>
-<?php
-$date = new DateTime($favorite['updated_on']);
-$now = new DateTime();
-if ($date->format('Y-m-d') == $now->format('Y-m-d')) {
-  $date = 'today';
-} else {
-  $date = $date->format('M j');
+<style>
+tbody{
+
+    }
+tbody tr {
+    
+    background-color: white;    
+    }    
+tr td {
+    padding: 10px 0 10px 0;
+    font-weight: bold;
+    font-family: helvetica;
+    font-size: 12px;
+    color: #006563;
+    }
+tr td:first-child {
+    padding:10px;       
 }
-?>
+thead tr, thead tr th{
+    background-color: transparent;
+    border-radius: 10px;
+    }
+</style>
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+  <div class="span-63 dark-green rounded header">
+    <img src="/media/images/control-panel.png" />
+  </div>
+</div>
+<div class="span-64 box-1 header-menu">
+  <a class="teal rounded button" href="/control_panel/account.php">account</a>
+  <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
+  <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
+</div>
+<div>
+  <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
+    <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
+    <table>
+      <thead>
+        <tr>
+          <th>comic</th>
+          <th>last updated</th>
+          <th>recommend</th>
+          <th>email alerts</th>
+          <th>delete</th>
+       </tr>
+     </thead>
+   <tbody>
+  <?php foreach ($favorites as $favorite) : ?>
+  <?php
+  $date = new DateTime($favorite['updated_on']);
+  $now = new DateTime();
+  if ($date->format('Y-m-d') == $now->format('Y-m-d')) {
+    $date = 'today';
+  } else {
+    $date = $date->format('M j');
+  }
+  ?>
   <tr favorite="<?php echo $favorite['id']; ?>">
-<input type="hidden" name="favorite[]" value="<?php echo $favorite['id']; ?>" />
+    <input type="hidden" name="favorite[]" value="<?php echo $favorite['id']; ?>" />
     <td width="200px;"><?php echo $favorite['title']; ?></td>
     <td><?php echo $date; ?></td>
     <td><input class="favorite-recommend" type="checkbox" name="recommend[]" value="<?php echo $favorite['id']; ?>"  <?php echo ($favorite['recommend']) ? 'checked' : ''; ?> /></td>
     <td><input class="favorite-alert" type="checkbox" name="alert[]" value="<?php echo $favorite['id']; ?>" <?php echo ($favorite['alert']) ? 'checked' : ''; ?> /></td>
     <td><input class="favorite-delete" type="checkbox" name="delete[]" value="<?php echo $favorite['id']; ?>" /></td>
   </tr>
-<?php endforeach; ?>
-<tr>
-  <td>All</td>
-  <td>&nbsp;</td>
-  <td><input class="big-favorite-recommend" type="checkbox" /></td>
-  <td><input class="big-favorite-alert" type="checkbox" /></td>
-  <td><input class="big-favorite-delete" type="checkbox" /></td>
-</tr>
+  <?php endforeach; ?>
+  <tr>
+    <td>All</td>
+    <td>&nbsp;</td>
+    <td><input class="big-favorite-recommend" type="checkbox" /></td>
+    <td><input class="big-favorite-alert" type="checkbox" /></td>
+    <td><input class="big-favorite-delete" type="checkbox" /></td>
+  </tr>
  </tbody>
 </table>
-<div>
-  <input type="submit" value="save changes" />
-</div>
+  <div class="table fill">
+  <div class="cell">
+    <input class="button" type="submit" value="save changes" />
+  </div>
+  </div>
 </form>
-
+</div>
 <?php require_once('../footer_base.php'); ?>

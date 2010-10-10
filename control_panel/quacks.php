@@ -197,7 +197,7 @@ thead tr, thead tr th{
   <button class="button quack_button" direction="next">next</button>
   <button class="button" id="quack-delete-button">delete</button>
 </div>
-<table >
+<table>
  <thead>
  <tr>
    <th><input type="checkbox" class="big-quack-check" /></th>
