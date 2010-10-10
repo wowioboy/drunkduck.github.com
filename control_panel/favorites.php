@@ -107,7 +107,8 @@ thead tr, thead tr th{
   <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
   <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 </div>
-<div>
+<div class="box-1">
+<div class="box-2 yellow rounded">
   <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
     <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
     <table>
@@ -155,5 +156,6 @@ thead tr, thead tr th{
   </div>
   </div>
 </form>
+</div>
 </div>
 <?php require_once('../footer_base.php'); ?>

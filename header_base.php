@@ -36,13 +36,14 @@ body {
     
  .tooltip {
       z-index:9999999;
-      background-color:#000;
+     background-color:#fff;
       border: 2px solid #999;
-      color:#fff;
+      color:#000;
       max-width:300px;
       -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
 border-radius: 10px;
+border:5px solid rgb(69,180,185);
   padding:10px;
  }
 </style>

@@ -2,7 +2,7 @@
         margin:0;
         padding:5px;
         background-color:#e5e5e5;
-        border:1px solid #000;
+        border:5px solid #aee601;
         background:-webkit-gradient(
                 linear,
                 left bottom,
@@ -18,6 +18,8 @@
         background:filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff);
         background:-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#c8d2d4, endColorstr=#ffffff, GradientType=1);
         color:#000;
+        font-family:'Yanone Kaffeesatz';
+        color:rgb(69,180,185);
       }
       .topless {
         border-top-style:none;
