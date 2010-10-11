@@ -86,6 +86,6 @@ $(document).ready(function(){
     <div class="span-2 box-1">
         <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
     </div>
-    <div style="z-index:9000; background: url('/media/images/featured-text.png') bottom center no-repeat; width:400px; position:absolute; top: 130px; left:280px; height:30px;"></div>
+    <div style="z-index:4; background: url('/media/images/featured-text.png') bottom center no-repeat; width:400px; position:absolute; top: 130px; left:280px; height:30px;"></div>
 
 </div>    

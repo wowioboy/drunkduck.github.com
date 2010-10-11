@@ -88,8 +88,7 @@ $(document).ready(function(){
     $(this).hide(); 
   });
   $('*[title]').tooltip({
-    position: "bottom center",
-        //opacity: 0.7
+    position: "bottom center"
   });
 });
 </script>

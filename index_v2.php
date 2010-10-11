@@ -68,23 +68,209 @@ $(document).ready(function(){
   $('#latest-update-holder').mouseleave(function(){
     $('#latest-update-description').slideUp();
   });
-  //$('#boomdoggy').click(function(){
-  //  $.fancybox({
- //     'content': $('#top-ten-filter').html()
- //   });
- // });
   
-  
- // function getTopTen()
- // {
-  //  var thumb = 'http://www.drunkduck.com/comics/' + this.title.charAt(0) + '/' + this.title.replace(/ /g, '_') + '/gfx/thumb.jpg';
-   // var link = '/' + this.title.replace(/ /g, '_') + '/';
-   // var html = '<a href="' + link + '"><img class="top-ten-image" src="' + thumb + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';  
- // }
+  $('#ten-filter-button').click(function(){
+    $('#ten-filter').dialog({
+      width:550,
+      height:400,
+      title:'top ten filter'
+    });
+  });
+  $('#random-filter-button').click(function(){
+    $('#random-filter').dialog({
+      width:550,
+      height:400,
+      title:'quail\'s random filter'
+    });
+  });
+  $('#latest-filter-button').click(function(){
+    $('#latest-filter').dialog({
+      width:550,
+      height:400,
+      title:'latest update filter'
+    });
+  });
 });
 </script>
-<!-- <button id="boomdoggy">open filter</button> -->
-<div id="top-ten-filter" style="display:none;">
+<div id="latest-filter" style="display:none;">
+<table>
+  <tr>
+    <td>
+    comic book/story
+    </td>
+    <td>
+    genre
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;comic book/story
+      <br />
+      <input type="checkbox" />&nbsp;comic strip
+      <br />
+      <br />
+      art style
+      <br />
+      <input type="checkbox" />&nbsp;cartoon
+      <br />
+      <input type="checkbox" />&nbsp;american
+      <br />
+      <input type="checkbox" />&nbsp;manga
+      <br />
+      <input type="checkbox" />&nbsp;sprite
+      <br />
+      <input type="checkbox" />&nbsp;realistic
+      <br />
+      <input type="checkbox" />&nbsp;sketch
+      <br />
+      <input type="checkbox" />&nbsp;experimental
+      <br />
+      <input type="checkbox" />&nbsp;photographic
+      <br />
+      <input type="checkbox" />&nbsp;stick figure
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;fantasy
+      <br />
+      <input type="checkbox" />&nbsp;parody
+      <br />
+      <input type="checkbox" />&nbsp;real life
+      <br />
+      <input type="checkbox" />&nbsp;sci-fi
+      <br />
+      <input type="checkbox" />&nbsp;horror
+      <br />
+      <input type="checkbox" />&nbsp;abstract
+      <br />
+      <input type="checkbox" />&nbsp;adventure
+      <br />
+      <input type="checkbox" />&nbsp;noir
+      <br />
+      <br />
+      rating
+      <br />
+      <input type="checkbox" />&nbsp;everybody
+      <br />
+      <input type="checkbox" />&nbsp;teens+
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;spiritual
+      <br />
+      <input type="checkbox" />&nbsp;romance
+      <br />
+      <input type="checkbox" />&nbsp;superhero
+      <br />
+      <input type="checkbox" />&nbsp;western
+      <br />
+      <input type="checkbox" />&nbsp;mystery
+      <br />
+      <input type="checkbox" />&nbsp;war
+      <br />
+      <input type="checkbox" />&nbsp;tribute
+      <br />
+      <input type="checkbox" />&nbsp;political
+      <br />
+      <br />
+      <br />
+      <input type="checkbox" />&nbsp;mature
+      <br />
+      <input type="checkbox" />&nbsp;adult
+    </td>
+  </tr>
+</table>
+</div>
+<div id="random-filter" style="display:none;">
+<table>
+  <tr>
+    <td>
+    comic book/story
+    </td>
+    <td>
+    genre
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;comic book/story
+      <br />
+      <input type="checkbox" />&nbsp;comic strip
+      <br />
+      <br />
+      art style
+      <br />
+      <input type="checkbox" />&nbsp;cartoon
+      <br />
+      <input type="checkbox" />&nbsp;american
+      <br />
+      <input type="checkbox" />&nbsp;manga
+      <br />
+      <input type="checkbox" />&nbsp;sprite
+      <br />
+      <input type="checkbox" />&nbsp;realistic
+      <br />
+      <input type="checkbox" />&nbsp;sketch
+      <br />
+      <input type="checkbox" />&nbsp;experimental
+      <br />
+      <input type="checkbox" />&nbsp;photographic
+      <br />
+      <input type="checkbox" />&nbsp;stick figure
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;fantasy
+      <br />
+      <input type="checkbox" />&nbsp;parody
+      <br />
+      <input type="checkbox" />&nbsp;real life
+      <br />
+      <input type="checkbox" />&nbsp;sci-fi
+      <br />
+      <input type="checkbox" />&nbsp;horror
+      <br />
+      <input type="checkbox" />&nbsp;abstract
+      <br />
+      <input type="checkbox" />&nbsp;adventure
+      <br />
+      <input type="checkbox" />&nbsp;noir
+      <br />
+      <br />
+      rating
+      <br />
+      <input type="checkbox" />&nbsp;everybody
+      <br />
+      <input type="checkbox" />&nbsp;teens+
+    </td>
+    <td style="vertical-align:top;">
+      <input type="checkbox" />&nbsp;spiritual
+      <br />
+      <input type="checkbox" />&nbsp;romance
+      <br />
+      <input type="checkbox" />&nbsp;superhero
+      <br />
+      <input type="checkbox" />&nbsp;western
+      <br />
+      <input type="checkbox" />&nbsp;mystery
+      <br />
+      <input type="checkbox" />&nbsp;war
+      <br />
+      <input type="checkbox" />&nbsp;tribute
+      <br />
+      <input type="checkbox" />&nbsp;political
+      <br />
+      <br />
+      <br />
+      <input type="checkbox" />&nbsp;mature
+      <br />
+      <input type="checkbox" />&nbsp;adult
+    </td>
+  </tr>
+</table>
+</div>
+<div id="ten-filter" style="display:none;">
 <table>
   <tr>
     <td>
@@ -176,7 +362,7 @@ $(document).ready(function(){
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
-    <div class="span-24 green panel-header"><span>Top Ten</span></div>
+    <div class="span-24 green panel-header" style="height:25px;"><img id="ten-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Top Ten</span></div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
@@ -197,7 +383,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header"><span>Quail's Random</span></div>
+  <div class="span-24 green panel-header" style="height:25px;"><img id="random-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Quail's Random</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -218,7 +404,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header"><span>Latest Updates</span></div>
+  <div class="span-24 green panel-header"  style="height:25px;"><img id="latest-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Latest Updates</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
