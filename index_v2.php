@@ -108,9 +108,9 @@ $(document).ready(function(){
       data = jQuery.parseJSON(data);
       $.each(data, function(){
         var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="ten-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="random-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
       });
-      $('#ten-ajaxer').html(html);
+      $('#random-ajaxer').html(html);
     }
   });
   $('#latest-form').ajaxForm({
@@ -119,9 +119,9 @@ $(document).ready(function(){
       data = jQuery.parseJSON(data);
       $.each(data, function(){
         var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="ten-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="latest-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
       });
-      $('#ten-ajaxer').html(html);
+      $('#latest-ajaxer').html(html);
     }
   });
 });
@@ -145,77 +145,77 @@ $filterArray = array('latest', 'random', 'ten');
   </tr>
   <tr>
     <td style="vertical-align:top;">
-      <input type="checkbox" />&nbsp;comic book/story
+      <input name="filter[comic_type][]" value="1" type="checkbox" />&nbsp;comic book/story
       <br />
-      <input type="checkbox" />&nbsp;comic strip
+      <input name="filter[comic_type][]" value="0" type="checkbox" />&nbsp;comic strip
       <br />
       <br />
       art style
       <br />
-      <input type="checkbox" />&nbsp;cartoon
+      <input name="filter[search_style][]" value="0" type="checkbox" />&nbsp;cartoon
       <br />
-      <input type="checkbox" />&nbsp;american
+      <input name="filter[search_style][]" value="1" type="checkbox" />&nbsp;american
       <br />
-      <input type="checkbox" />&nbsp;manga
+      <input name="filter[search_style][]" value="2" type="checkbox" />&nbsp;manga
       <br />
-      <input type="checkbox" />&nbsp;sprite
+      <input name="filter[search_style][]" value="4" type="checkbox" />&nbsp;sprite
       <br />
-      <input type="checkbox" />&nbsp;realistic
+      <input name="filter[search_style][]" value="3" type="checkbox" />&nbsp;realistic
       <br />
-      <input type="checkbox" />&nbsp;sketch
+      <input name="filter[search_style][]" value="5" type="checkbox" />&nbsp;sketch
       <br />
-      <input type="checkbox" />&nbsp;experimental
+      <input name="filter[search_style][]" value="6" type="checkbox" />&nbsp;experimental
       <br />
-      <input type="checkbox" />&nbsp;photographic
+      <input name="filter[search_style][]" value="7" type="checkbox" />&nbsp;photographic
       <br />
-      <input type="checkbox" />&nbsp;stick figure
+      <input name="filter[search_style][]" value="8" type="checkbox" />&nbsp;stick figure
     </td>
     <td style="vertical-align:top;">
-      <input type="checkbox" />&nbsp;fantasy
+      <input name="filter[search_category][]" value="0" type="checkbox" />&nbsp;fantasy
       <br />
-      <input type="checkbox" />&nbsp;parody
+      <input name="filter[search_category][]" value="1" type="checkbox" />&nbsp;parody
       <br />
-      <input type="checkbox" />&nbsp;real life
+      <input name="filter[search_category][]" value="2" type="checkbox" />&nbsp;real life
       <br />
-      <input type="checkbox" />&nbsp;sci-fi
+      <input name="filter[search_category][]" value="4" type="checkbox" />&nbsp;sci-fi
       <br />
-      <input type="checkbox" />&nbsp;horror
+      <input name="filter[search_category][]" value="5" type="checkbox" />&nbsp;horror
       <br />
-      <input type="checkbox" />&nbsp;abstract
+      <input name="filter[search_category][]" value="6" type="checkbox" />&nbsp;abstract
       <br />
-      <input type="checkbox" />&nbsp;adventure
+      <input name="filter[search_category][]" value="8" type="checkbox" />&nbsp;adventure
       <br />
-      <input type="checkbox" />&nbsp;noir
+      <input name="filter[search_category][]" value="9" type="checkbox" />&nbsp;noir
       <br />
       <br />
       rating
       <br />
-      <input type="checkbox" />&nbsp;everybody
+      <input name="filter[rating_symbol][]" value="E" type="checkbox" />&nbsp;everybody
       <br />
-      <input type="checkbox" />&nbsp;teens+
+      <input name="filter[rating_symbol][]"  value="T" type="checkbox" />&nbsp;teens+
     </td>
     <td style="vertical-align:top;">
-      <input type="checkbox" />&nbsp;spiritual
+      <input name="filter[search_category][]" value="13" type="checkbox" />&nbsp;spiritual
       <br />
-      <input type="checkbox" />&nbsp;romance
+      <input name="filter[search_category][]" value="14" type="checkbox" />&nbsp;romance
       <br />
-      <input type="checkbox" />&nbsp;superhero
+      <input name="filter[search_category][]" value="15" type="checkbox" />&nbsp;superhero
       <br />
-      <input type="checkbox" />&nbsp;western
+      <input name="filter[search_category][]" value="16" type="checkbox" />&nbsp;western
       <br />
-      <input type="checkbox" />&nbsp;mystery
+      <input name="filter[search_category][]" value="17" type="checkbox" />&nbsp;mystery
       <br />
-      <input type="checkbox" />&nbsp;war
+      <input name="filter[search_category][]" value="18" type="checkbox" />&nbsp;war
       <br />
-      <input type="checkbox" />&nbsp;tribute
+      <input name="filter[search_category][]" value="19" type="checkbox" />&nbsp;tribute
       <br />
-      <input type="checkbox" />&nbsp;political
+      <input name="filter[search_category][]" value="12" type="checkbox" />&nbsp;political
       <br />
       <br />
       <br />
-      <input type="checkbox" />&nbsp;mature
+      <input name="filter[rating_symbol][]" value="M" type="checkbox" />&nbsp;mature
       <br />
-      <input type="checkbox" />&nbsp;adult
+      <input name="filter[rating_symbol][]" value="A" type="checkbox" />&nbsp;adult
     </td>
   </tr>
   <tr>
