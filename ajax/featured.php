@@ -12,7 +12,7 @@ if (is_array($where)) {
   $where = ' and ' . implode(' and ', $where);
 }
 $limit = $_REQUEST['limit'];
-$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes
+$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes, from_unixtime(c.created_timestamp) as date
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
@@ -28,6 +28,10 @@ group by c.comic_name
 order by f.feature_id desc 
 limit $offset, $limit";
 $featured = DB::getInstance()->fetchAll($query);
+foreach ($featured as &$feature) {
+  $date = new DateTime($feature['date']);
+  $feature['date'] = $date->format('M j Y');
+}
 $query = "select count(1)
 from comics c 
 inner join featured_comics f 

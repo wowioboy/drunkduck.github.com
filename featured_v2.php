@@ -11,7 +11,7 @@ if ($view == 'grid') {
 }
 
 $db = new DB();
-$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes
+$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes, from_unixtime(c.created_timestamp) as date
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
@@ -100,7 +100,7 @@ $(document).ready(function(){
                     '</div>' + 
                     '</div>' + 
                     '</div>' + 
-                 //   '<span style="color:#fff;">' + this.likes + ' people like this comic</span>' + 
+                    '<span style="color:#fff;">Created: ' + this.date + '</span>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
@@ -112,8 +112,8 @@ $(document).ready(function(){
                     '<div>' + 
                     '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
                     '</div>' + 
-                 //   '<br />' + 
-                 //   '<span>' + this.likes + ' likes</span>' + 
+                    '<br />' + 
+                   '<span style="color:#fff;">' + this.date + '</span>' + 
                     '</div>';
           <?php endif; ?>
         html += '</a>';
@@ -189,6 +189,9 @@ $(document).ready(function(){
 </div>
 <div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
   <?php foreach ($featured as $comic) : ?>
+  <?php 
+  $date = new DateTime($comic['date']);
+  ?>
     <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>">
     <?php if ($view == 'list') : ?>
     <div class="post teal rounded box-1" style="background-color:#45B4B9;">
@@ -213,19 +216,11 @@ $(document).ready(function(){
       </div>
       </div>
     </div>
+      <span style="color:#fff;">Created: <?php echo $date->format('M j Y'); ?></span>
    <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
     </div>
     <div style="height:10px;"></div>
     <?php else: ?>
-    <?php
-   /* $attributes = '';
-       foreach ($comic as $attr => $value) {
-         if ($attr == 'description') {
-           $attr = 'title'
-         }
-         $attributes .= " $attr=\"$value\" ";
-       }*/
-    ?>
     <div class="rounded grid-panel">
       <div>
       <?php
@@ -233,10 +228,8 @@ $(document).ready(function(){
       ?>
         <img src="<?php echo $path; ?>"  title="<?php echo $comic['title'] . '<br />' . $comic['description']; ?>" />
       </div>
-        <!-- 
-        <br />
-        <span><?php echo $comic['likes']; ?> likes</span> 
-        -->
+      <br />
+      <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>
     </div>
     <?php endif; ?>
     </a>
