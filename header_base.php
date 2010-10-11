@@ -29,7 +29,7 @@ $db = new DB();
 <style>
 body {    
     background-color:rgb(9,153,68);
-    background-image:url('/media/images/bg-gradient-color3.jpg');
+    background-image:url('/media/images/bg-bubbles.jpg');
     background-repeat:no-repeat;
     background-position:left top;
 }
