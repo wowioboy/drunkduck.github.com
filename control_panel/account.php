@@ -47,7 +47,7 @@ $(document).ready(function(){
 <div class="drunk" style="font-size:3em;">Account</div>
 
 <div>
-    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
+    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
     <div class="drunk">
         <div><?php echo $user['username']; ?></div>
         <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>
