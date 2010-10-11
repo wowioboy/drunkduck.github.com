@@ -46,7 +46,7 @@ $(document).ready(function(){
     <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Account</div>
 
-<div class="span-16">
+<div>
     <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
     <div class="drunk">
         <div><?php echo $user['username']; ?></div>
