@@ -228,7 +228,7 @@ $filterArray = array('latest', 'random', 'ten');
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
-    <div class="span-24 green panel-header" style="height:25px;"><img id="ten-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Top Ten</span></div>
+    <div class="span-24 green panel-header" style="height:25px;"><img id="ten-filter-button" src="/media/images/triangle.gif" /><span>Top Ten</span></div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
@@ -249,7 +249,7 @@ $filterArray = array('latest', 'random', 'ten');
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header" style="height:25px;"><img id="random-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Quail's Random</span></div>
+  <div class="span-24 green panel-header" style="height:25px;"><img id="random-filter-button" src="/media/images/triangle.gif" /><span>Quail's Random</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -270,7 +270,7 @@ $filterArray = array('latest', 'random', 'ten');
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header"  style="height:25px;"><img id="latest-filter-button" src="/media/images/triangle.gif" />&nbsp;<span>Latest Updates</span></div>
+  <div class="span-24 green panel-header"  style="height:25px;"><img id="latest-filter-button" src="/media/images/triangle.gif" /><span>Latest Updates</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">

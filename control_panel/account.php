@@ -30,20 +30,29 @@ $(document).ready(function(){
   });
 });
 </script>
- <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-            <div class="span-63 dark-green rounded header">
-    <img src="/media/images/control-panel.png" />
+<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
+    <div class="span-63 dark-green rounded header">
+        <img src="/media/images/control-panel.png" />
     </div>
-        </div>
+</div>
+
 <div class="span-64 box-1 header-menu">
 <a class="rounded button" href="/control_panel/quacks.php">quacks</a>
 <a class="rounded button" href="/control_panel/favorites.php">favorites</a>
 <a class="rounded button" href="/control_panel/profile.php">profile</a>
 </div>
+
+<div class="box-2" style="padding-top:160px">
+    <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Account</div>
-<img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
-<h2><?php echo $USER->username; ?></h2>
-<h4>member since <?php echo $joined->format('F j, Y'); ?></h4>
+
+<div class="span-16">
+    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
+    <div class="drunk">
+        <div><?php echo $user['username']; ?></div>
+        <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>
+    </div>
+</div>
 
 <div>
 email
@@ -78,5 +87,7 @@ confirm password <Input type="text" name="confirmpass" />
 <input type="submit" class="teal button rounded" value="save password" />
 </form>
 </div>
+
+</div></div>
 
 <?php require_once('../footer_base.php'); ?>

@@ -105,7 +105,7 @@ $(document).ready(function(){
 </div>
 <?php endif; ?>
 
-<div class="box-2" style="padding-top:120px">
+<div class="box-2" style="padding-top:160px">
     <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Public Profile</div>
 
