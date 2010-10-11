@@ -25,7 +25,7 @@ on p.page_id = l.page_id
 where f.approved = '1' 
 $where
 group by c.comic_name
-order by f.feature_id desc 
+order by f.ymd_date_live desc 
 limit $offset, $limit";
 $featured = DB::getInstance()->fetchAll($query);
 foreach ($featured as &$feature) {

@@ -23,7 +23,7 @@ left join page_likes l
 on p.page_id = l.page_id
 where f.approved = '1' 
 group by c.comic_name
-order by f.feature_id desc 
+order by f.ymd_date_live desc 
 limit $limit";
 $featured = $db->fetchAll($query);
 $query = "select count(1)
