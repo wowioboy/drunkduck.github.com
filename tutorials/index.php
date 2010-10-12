@@ -4,7 +4,7 @@
   $limit = 8;
 
 $db = new DB();
-$query = "select tutorial_id as id, title, username as author, description, from_unixtime(timestamp) as timestamp
+$query = "select tutorial_id as id, title, username as author, description, from_unixtime(timestamp) as timestamp, round(vote_avg, 1) as rating
 from tutorials
 where finalized = '1' 
 order by timestamp desc 
@@ -61,8 +61,10 @@ $(document).ready(function(){
                     '<p>' + this.description + '</p>' + 
                     '</div>' + 
                     '</div>' + 
+                    '<div style="display:inline-block;float:right;position:relative;top:-110px;">' + 
+                    'rating: ' + this.rating + ' out of 5.0' + 
                     '</div>' + 
-                 //   '<span style="color:#fff;">' + this.likes + ' people like this comic</span>' + 
+                    '</div>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
         html += '</a>';
@@ -179,8 +181,10 @@ $(document).ready(function(){
       <p><?php echo $comic['description']; ?></p>
       </div>
       </div>
+      <div style="display:inline-block;float:right;position:relative;top:-110px;">
+      rating: <?php echo $comic['rating']; ?> out of 5.0
+      </div>
     </div>
-   <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
     </div>
     <div style="height:10px;"></div>
     </a>

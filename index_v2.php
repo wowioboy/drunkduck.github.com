@@ -35,191 +35,139 @@ on u.user_id = b.user_id
 order by created_on desc 
 limit 2";
 $news = $db->fetchAll($query);
+
+?>
+<?php 
+$filterArray = array('latest update' => 'latest', "quail's random" => 'random', 'top ten' => 'ten');
 ?>
 <script>
 $(document).ready(function(){
-  $('.ten-image').live('mouseenter', function(){
-  	var title = $(this).attr('comic_title');
-		var description = $(this).attr('description');
-		var author = $(this).attr('author'); 
-		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
-		$('#ten-description').html(html).slideDown();
-	});
-	$('#ten-holder').mouseleave(function(){
-		$('#ten-description').slideUp();
-	});
-	$('.random-image').live('mouseenter', function(){
-    var title = $(this).attr('comic_title');
-    var description = $(this).attr('description');
-    var author = $(this).attr('author'); 
-    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
-    $('#random-description').html(html).slideDown();
-  });
-  $('#random-holder').mouseleave(function(){
-    $('#random-description').slideUp();
-  });
-  $('.latest-image').live('mouseenter', function(){
-    var title = $(this).attr('comic_title');
-    var description = $(this).attr('description');
-    var author = $(this).attr('author'); 
-    var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
-    $('#latest-description').html(html).slideDown();
-  });
-  $('#latest-holder').mouseleave(function(){
-    $('#latest-description').slideUp();
-  });
-  
-  $('#ten-filter-button').click(function(){
-    $('#ten-filter').dialog({
-      width:550,
-      height:450,
-      title:'top ten filter'
-    });
-  });
-  $('#random-filter-button').click(function(){
-    $('#random-filter').dialog({
-      width:550,
-      height:450,
-      title:'quail\'s random filter'
-    });
-  });
-  $('#latest-filter-button').click(function(){
-    $('#latest-filter').dialog({
-      width:550,
-      height:450,
-      title:'latest update filter'
-    });
-  });
-  
-  $('#ten-form').ajaxForm({
-    success: function(data) {
-      var html = '';
-      data = jQuery.parseJSON(data);
-      $.each(data, function(){
-        var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="ten-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+  <?php foreach ($filterArray as $title => $filter) : ?>
+    $('.<?php echo $filter; ?>-image').live('mouseenter', function(){
+    	var title = $(this).attr('comic_title');
+  		var description = $(this).attr('description');
+  		var author = $(this).attr('author'); 
+  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
+  		$('#<?php echo $filter; ?>-description').html(html).slideDown();
+  	});
+  	$('#<?php echo $filter; ?>-holder').mouseleave(function(){
+  		$('#<?php echo $filter; ?>-description').slideUp();
+  	});
+    $('#<?php echo $filter; ?>-filter-button').click(function(){
+      $('#<?php echo $filter; ?>-filter').dialog({
+        width:550,
+        height:450,
+        title:"<?php echo $title; ?> filter"
       });
-      $('#ten-ajaxer').html(html);
-    }
-  });
-  $('#random-form').ajaxForm({
-    success: function(data) {
-      var html = '';
-      data = jQuery.parseJSON(data);
-      $.each(data, function(){
-        var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="random-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
-      });
-      $('#random-ajaxer').html(html);
-    }
-  });
-  $('#latest-form').ajaxForm({
-    success: function(data) {
-      var html = '';
-      data = jQuery.parseJSON(data);
-      $.each(data, function(){
-        var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-        html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="latest-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
-      });
-      $('#latest-ajaxer').html(html);
-    }
-  });
+    });
+    $('#<?php echo $filter; ?>-form').ajaxForm({
+      success: function(data) {
+        var html = '';
+        data = jQuery.parseJSON(data);
+        $.each(data, function(){
+          var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
+          html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+        });
+        $('#<?php echo $filter; ?>-ajaxer').html(html);
+      }
+    });
+    $('#<?php echo $filter; ?>-select-button').click(function(){
+      $('.<?php echo $filter; ?>-check').attr('checked', true);
+    });
+    $('#<?php echo $filter; ?>-unselect-button').click(function(){
+      $('.<?php echo $filter; ?>-check').attr('checked', false);
+    });
+  <?php endforeach; ?>
 });
 </script>
-<?php 
-$filterArray = array('latest', 'random', 'ten');
-?>
 <?php foreach ($filterArray as $filter) : ?>
 <div id="<?php echo $filter; ?>-filter" style="display:none;">
 <form id="<?php echo $filter; ?>-form" method="post" action="/ajax/homepage/<?php echo $filter; ?>.php">
 <table>
   <tr>
-    <td>
-    comic book/story
-    </td>
-    <td>
-    genre
-    </td>
-    <td>
-    </td>
+    <td>comic book/story</td>
+    <td>genre</td>
+    <td></td>
   </tr>
   <tr>
     <td style="vertical-align:top;">
-      <input name="filter[comic_type][]" value="1" type="checkbox" />&nbsp;comic book/story
+      <input name="filter[comic_type][]" value="1" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;comic book/story
       <br />
-      <input name="filter[comic_type][]" value="0" type="checkbox" />&nbsp;comic strip
+      <input name="filter[comic_type][]" value="0" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;comic strip
       <br />
       <br />
       art style
       <br />
-      <input name="filter[search_style][]" value="0" type="checkbox" />&nbsp;cartoon
+      <input name="filter[search_style][]" value="0" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;cartoon
       <br />
-      <input name="filter[search_style][]" value="1" type="checkbox" />&nbsp;american
+      <input name="filter[search_style][]" value="1" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;american
       <br />
-      <input name="filter[search_style][]" value="2" type="checkbox" />&nbsp;manga
+      <input name="filter[search_style][]" value="2" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;manga
       <br />
-      <input name="filter[search_style][]" value="4" type="checkbox" />&nbsp;sprite
+      <input name="filter[search_style][]" value="4" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;sprite
       <br />
-      <input name="filter[search_style][]" value="3" type="checkbox" />&nbsp;realistic
+      <input name="filter[search_style][]" value="3" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;realistic
       <br />
-      <input name="filter[search_style][]" value="5" type="checkbox" />&nbsp;sketch
+      <input name="filter[search_style][]" value="5" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;sketch
       <br />
-      <input name="filter[search_style][]" value="6" type="checkbox" />&nbsp;experimental
+      <input name="filter[search_style][]" value="6" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;experimental
       <br />
-      <input name="filter[search_style][]" value="7" type="checkbox" />&nbsp;photographic
+      <input name="filter[search_style][]" value="7" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;photographic
       <br />
-      <input name="filter[search_style][]" value="8" type="checkbox" />&nbsp;stick figure
+      <input name="filter[search_style][]" value="8" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;stick figure
     </td>
     <td style="vertical-align:top;">
-      <input name="filter[search_category][]" value="0" type="checkbox" />&nbsp;fantasy
+      <input name="filter[search_category][]" value="0" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;fantasy
       <br />
-      <input name="filter[search_category][]" value="1" type="checkbox" />&nbsp;parody
+      <input name="filter[search_category][]" value="1" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;parody
       <br />
-      <input name="filter[search_category][]" value="2" type="checkbox" />&nbsp;real life
+      <input name="filter[search_category][]" value="2" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;real life
       <br />
-      <input name="filter[search_category][]" value="4" type="checkbox" />&nbsp;sci-fi
+      <input name="filter[search_category][]" value="4" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;sci-fi
       <br />
-      <input name="filter[search_category][]" value="5" type="checkbox" />&nbsp;horror
+      <input name="filter[search_category][]" value="5" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;horror
       <br />
-      <input name="filter[search_category][]" value="6" type="checkbox" />&nbsp;abstract
+      <input name="filter[search_category][]" value="6" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;abstract
       <br />
-      <input name="filter[search_category][]" value="8" type="checkbox" />&nbsp;adventure
+      <input name="filter[search_category][]" value="8" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;adventure
       <br />
-      <input name="filter[search_category][]" value="9" type="checkbox" />&nbsp;noir
+      <input name="filter[search_category][]" value="9" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;noir
       <br />
       <br />
       rating
       <br />
-      <input name="filter[rating_symbol][]" value="E" type="checkbox" />&nbsp;everybody
+      <input name="filter[rating_symbol][]" value="E" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;everybody
       <br />
-      <input name="filter[rating_symbol][]"  value="T" type="checkbox" />&nbsp;teens+
+      <input name="filter[rating_symbol][]"  value="T" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;teens+
     </td>
     <td style="vertical-align:top;">
-      <input name="filter[search_category][]" value="13" type="checkbox" />&nbsp;spiritual
+      <input name="filter[search_category][]" value="13" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;spiritual
       <br />
-      <input name="filter[search_category][]" value="14" type="checkbox" />&nbsp;romance
+      <input name="filter[search_category][]" value="14" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;romance
       <br />
-      <input name="filter[search_category][]" value="15" type="checkbox" />&nbsp;superhero
+      <input name="filter[search_category][]" value="15" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;superhero
       <br />
-      <input name="filter[search_category][]" value="16" type="checkbox" />&nbsp;western
+      <input name="filter[search_category][]" value="16" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;western
       <br />
-      <input name="filter[search_category][]" value="17" type="checkbox" />&nbsp;mystery
+      <input name="filter[search_category][]" value="17" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;mystery
       <br />
-      <input name="filter[search_category][]" value="18" type="checkbox" />&nbsp;war
+      <input name="filter[search_category][]" value="18" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;war
       <br />
-      <input name="filter[search_category][]" value="19" type="checkbox" />&nbsp;tribute
+      <input name="filter[search_category][]" value="19" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;tribute
       <br />
-      <input name="filter[search_category][]" value="12" type="checkbox" />&nbsp;political
+      <input name="filter[search_category][]" value="12" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;political
       <br />
       <br />
       <br />
-      <input name="filter[rating_symbol][]" value="M" type="checkbox" />&nbsp;mature
+      <input name="filter[rating_symbol][]" value="M" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;mature
       <br />
-      <input name="filter[rating_symbol][]" value="A" type="checkbox" />&nbsp;adult
+      <input name="filter[rating_symbol][]" value="A" type="checkbox" class="<?php echo $filter; ?>-check" checked />&nbsp;adult
     </td>
   </tr>
   <tr>
-    <td colspan="3" style="text-align:right;"><input class="button" type="submit" value="save" /></td>
+    <td style="text-align:center;"><input type="button" id="<?php echo $filter; ?>-select-button" class="button" value="select all" /></td>
+    <td style="text-align:center;"><input type="button" id="<?php echo $filter; ?>-unselect-button" class="button" value="unselect all" /></td>
+    <td style="text-align:right;"><input class="button" type="submit" value="save" /></td>
   </tr>
 </table>
 </form>

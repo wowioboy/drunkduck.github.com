@@ -76,16 +76,23 @@ avatar (maximum 100x100 pixels) <input name="avatar" type="file" value="choose f
 <div style="height:10px;"></div>
 
 <div>
-<form id="change-password" method="post" action="/ajax/control_panel/change_password.php">
-<input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
-old password <input type="text" name="oldpass" />
-<br />
-new password <input type="text" name="newpass" />
-<br />
-confirm password <Input type="text" name="confirmpass" />
-<br />
-<input type="submit" class="teal button rounded" value="save password" />
-</form>
+  <form id="change-password" method="post" action="/ajax/control_panel/change_password.php">
+    <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
+      <table>
+        <tr>
+          <td><input class="rounded" type="text" name="oldpass" value="old password" onclick="this.value=''" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input class="rounded" type="text" name="newpass" value="new password" onclick="this.value=''" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input class="rounded" type="text" name="confirmpass" value="comfirm password" onclick="this.value=''" /></td>
+          <td><input type="submit" class="button" value="save password" /></td>
+        </tr>
+      </table>
+  </form>
 </div>
 
 </div></div>

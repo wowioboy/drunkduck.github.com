@@ -12,7 +12,7 @@ if (is_array($where)) {
   $where = ' and ' . implode(' and ', $where);
 }
 $limit = $_REQUEST['limit'];
-$query = "select tutorial_id as id, title, username as author, description, from_unixtime(timestamp) as timestamp
+$query = "select tutorial_id as id, title, username as author, description, from_unixtime(timestamp) as timestamp, round(vote_avg, 1) as rating
 from tutorials
 where finalized = '1' 
 $where

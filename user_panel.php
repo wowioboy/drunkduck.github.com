@@ -1,5 +1,9 @@
         <?php
-/*        var_dump($USER);*/
+        $query = "select count(1) 
+          from mailbox 
+          where username_to = '{$USER->username}' 
+          and username_from is not null";
+        $quackCount = $db->fetchOne($query);
         ?>
         <style type="text/css">
         .sidetitle {
@@ -119,7 +123,7 @@
             </div>
             <div class="span-20" style="font-family:'Yanone Kaffeesatz';font-weight:bold;line-height:30px;margin-top:-5px;margin-bottom:5px;font-size:30px;color:rgb(69,180,185);">Hi, <?php echo $USER->username; ?>!</div>
             <div class="span-20" style="font-size:10px;"><a href="/control_panel/account.php">User Control Panel</a></div>
-            <div class="span-20" style="font-size:10px;"><a href="/control_panel/quacks.php">Personal Quacks</a></div>
+            <div class="span-20" style="font-size:10px;"><a href="/control_panel/quacks.php">Personal Quacks<?php echo ($quackCount) ? " ($quackCount)" : ''; ?></a></div>
             <div style="clear:both;height:10px"></div>
             
           <div class="drop-list rounded ">

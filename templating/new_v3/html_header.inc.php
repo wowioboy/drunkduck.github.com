@@ -58,75 +58,72 @@ jQuery.noConflict();
 <body onLoad="for(var cs=0; cs<commandStack.length;cs++){eval(commandStack[cs]);}">
 
 
-<!--<script type="text/javascript" src="http://www.platinumstudios.com/processing/ps_hat_top.js"></script>-->
-<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:#ade307;">
-<div align="center">
-
-
-<div class="" style="width:908px;padding:0;margin:0;position:relative">
-    <div style="padding:0;margin:0;float:left;width:180px;">
+<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:#ade307;"></div>
+  <div align="center">
+    <div class="" style="width:908px;padding:0;margin:0;position:relative">
+      <div style="padding:0;margin:0;float:left;width:180px;">
         <a href="/">
             <img src="/media/images/drunkduck-logo.png" width="180" />
         </a>
-    </div>
+      </div>
     
-    <style>
-
-#menu {
-    vertical-align:middle;
-    height:20px;
-    position:absolute;
-    bottom:15px;
-    right:0px;
-
-
-}
-#menu a {
-  text-decoration:none;
-  color:rgb(0,133,118);
-  font-family:'Yanone Kaffeesatz';
-  font-weight:bold;
-  font-size:1.8em;
-  line-height:12px;
-  padding: 0 15px 0px 15px;
-  
-  vertical-align:middle;
-  height:10px;
-  float:left;
-}
-#dd-navigation {
-    width:154px;
-    height:20px;
-}
-#dd-navgation input{
-outline:none;
-border:0;
-}
-#menu {
-    position:static;
-    clear:both;
-    }
-#menu a {
-    float:left;
-    margin-bottom:20px;
-    clear:both;
-    padding: 0;
-    width:160px;
-    text-align:right;
-    }
-#advsearch {
-    float:right;
-    padding-bottom:30px;
-    padding-right:5px;
-    }
-#advsearch a {
-    margin:0;
-    padding:2px;
-    }
-#myPanel {
-    padding-left:10px;
-    }   
-    </style>
+            <style>
+        
+        #menu {
+            vertical-align:middle;
+            height:20px;
+            position:absolute;
+            bottom:15px;
+            right:0px;
+        
+        
+        }
+        #menu a {
+          text-decoration:none;
+          color:rgb(0,133,118);
+          font-family:'Yanone Kaffeesatz';
+          font-weight:bold;
+          font-size:1.8em;
+          line-height:12px;
+          padding: 0 15px 0px 15px;
+          
+          vertical-align:middle;
+          height:10px;
+          float:left;
+        }
+        #dd-navigation {
+            width:154px;
+            height:20px;
+        }
+        #dd-navgation input{
+        outline:none;
+        border:0;
+        }
+        #menu {
+            position:static;
+            clear:both;
+            }
+        #menu a {
+            float:left;
+            margin-bottom:20px;
+            clear:both;
+            padding: 0;
+            width:160px;
+            text-align:right;
+            }
+        #advsearch {
+            float:right;
+            padding-bottom:30px;
+            padding-right:5px;
+            }
+        #advsearch a {
+            margin:0;
+            padding:2px;
+            }
+        #myPanel {
+            padding-left:10px;
+            }   
+            </style>
     <div style="float:left;width:728px;padding:0m;margin:0;">
 <script type="text/javascript">
   var gr_ads_zone = 'ros_atf';
@@ -138,7 +135,8 @@ border:0;
   <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890">
     <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
   </a>
-</noscript>    </div>
+</noscript>    
+</div>
     
     <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
           
@@ -168,11 +166,10 @@ border:0;
             <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
             <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
 
-        
     </div>
 </div>
   <!--END header-->
-  <table width="1024" height="100%" border="0" cellspacing="0" cellpadding="0">
+  <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td align="center" valign="top">
         <!--main content-->

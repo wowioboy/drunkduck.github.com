@@ -11,7 +11,7 @@ if ($view == 'grid') {
 }
 
 $db = new DB();
-$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes, from_unixtime(c.created_timestamp) as date
+$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes, concat(substring(ymd_date_live, 1, 4), '-', substring(ymd_date_live, 5, 2), '-', substring(ymd_date_live, 7, 2)) as date
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
@@ -100,7 +100,7 @@ $(document).ready(function(){
                     '</div>' + 
                     '</div>' + 
                     '</div>' + 
-                    '<span style="color:#fff;">Created: ' + this.date + '</span>' + 
+                    '<span style="color:#fff;">Added: ' + this.date + '</span>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
@@ -216,7 +216,7 @@ $(document).ready(function(){
       </div>
       </div>
     </div>
-      <span style="color:#fff;">Created: <?php echo $date->format('M j Y'); ?></span>
+      <span style="color:#fff;">Added: <?php echo $date->format('M j Y'); ?></span>
    <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
     </div>
     <div style="height:10px;"></div>
