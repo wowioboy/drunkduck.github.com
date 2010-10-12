@@ -29,7 +29,8 @@ function getTags(cid, pid)
 
 function onGetTags(resp)
 {
-  jQuery('#tag_div').html('<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm');
+  var html = '<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm;
+  jQuery('#tag_div').html();
   showTags();
   jQuery('#tagTXT').focus();
 }
