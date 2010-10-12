@@ -15,10 +15,7 @@ ob_start();
 }
 </style>
 <script>
-var tagForm = '<form onSubmit="addTag(this.tagTXT.value, \'<?=$COMIC_ROW->comic_id?>\', <?=$PAGE_ROW->page_id?>);this.tagTXT.value=\'\';return false;">
-<input id="tag" name="tagTXT" type="text" size="45">
-</form>
-</div>';
+var tagForm = '<form onSubmit="addTag(this.tagTXT.value, \'<?=$COMIC_ROW->comic_id?>\', <?=$PAGE_ROW->page_id?>);this.tagTXT.value=\'\';return false;"><input id="tag" name="tagTXT" type="text" size="45"></form></div>';
 
 
 var tags_recvd = false;
