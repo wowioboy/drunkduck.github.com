@@ -29,16 +29,16 @@ function getTags(cid, pid)
 
 function onGetTags(resp)
 {
-  $('tag_div').innerHTML = '<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm;
+  jQuery('#tag_div').html('<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm');
   showTags();
-  $('tagTXT').focus();
+  jQuery('#tagTXT').focus();
 }
 
 function hideTags() {
-  $('tag_div').style.visibility = 'hidden';
+  jQuery('#tag_div').css('visibility', 'hidden');
 }
 function showTags() {
-  $('tag_div').style.visibility = 'visible';
+  jQuery('#tag_div').css('visibility', 'visible');
   var winW = 630;
   if (parseInt(navigator.appVersion)>3) {
    if (navigator.appName=="Netscape") {
@@ -49,10 +49,10 @@ function showTags() {
    }
   }
 
-  $('tag_div').style.width=400;
-  $('tag_div').style.left = ((winW/2)- 200) + "px";
-  $('tag_div').style.visibility = 'visible';
-  $('tagTXT').focus();
+  jQuery('#tag_div').css('width', 400);
+  jQuery('#tag_div').css('left', ((winW/2)- 200) + "px");
+  jQuery('#tag_div').css('visibility', 'visible');
+  jQuery('#tagTXT').focus();
 }
 </script>
 
