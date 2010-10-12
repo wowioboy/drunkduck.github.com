@@ -42,7 +42,12 @@ if ( $COMIC_ROW ) {
     }
 </style>
 <!-- END OF TAG FOR head SECTION -->
-
+<script src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery.noConflict();
+});
+</script>
 <script src="/__utm.js" type="text/javascript"></script>
 
 <div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;"></div>
