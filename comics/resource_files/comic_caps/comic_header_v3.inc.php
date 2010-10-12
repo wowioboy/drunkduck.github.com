@@ -47,13 +47,49 @@ if ( $COMIC_ROW ) {
 jQuery(document).ready(function(){
   jQuery.noConflict();
 });
+</script>
+<script>
+var tagForm = '<form onSubmit="addTag(this.tagTXT.value, \'<?=$COMIC_ROW->comic_id?>\', <?=$PAGE_ROW->page_id?>);this.tagTXT.value=\'\';return false;">
+<input id="tag" name="tagTXT" type="text" size="45">
+</form>
+</div>';
 
+
+var tags_recvd = false;
 function getTags(cid, pid)
 {
   cid    = encodeURIComponent(cid);
   pid    = encodeURIComponent(pid);
   ajaxCall('/xmlhttp/getTags.php?cid='+cid+'&pid='+pid+'&r='+Math.floor(Math.random()*999999), onGetTags);
   return false;
+}
+
+function onGetTags(resp)
+{
+  $('tag_div').innerHTML = '<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm;
+  showTags();
+  $('tagTXT').focus();
+}
+
+function hideTags() {
+  $('tag_div').style.visibility = 'hidden';
+}
+function showTags() {
+  $('tag_div').style.visibility = 'visible';
+  var winW = 630;
+  if (parseInt(navigator.appVersion)>3) {
+   if (navigator.appName=="Netscape") {
+    winW = window.innerWidth;
+   }
+   if (navigator.appName.indexOf("Microsoft")!=-1) {
+    winW = document.body.offsetWidth;
+   }
+  }
+
+  $('tag_div').style.width=400;
+  $('tag_div').style.left = ((winW/2)- 200) + "px";
+  $('tag_div').style.visibility = 'visible';
+  $('tagTXT').focus();
 }
 </script>
 <script src="/__utm.js" type="text/javascript"></script>
