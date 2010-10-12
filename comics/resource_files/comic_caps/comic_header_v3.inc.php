@@ -478,10 +478,12 @@ border:0;
             <!--<a href="#">videos</a>-->
             <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
             <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
-            
+            <div style="position:relative;display:inline;">
             <a href="/control_panel/account.php"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">my control panel</a>
-
-        
+            <div style="position:absolute;">
+            <?php require_once('auth.php'); ?>
+            </div>
+            </div>
     </div>
 </div>
 <style>
