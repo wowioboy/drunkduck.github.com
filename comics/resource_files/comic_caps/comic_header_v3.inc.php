@@ -368,7 +368,7 @@ function capRO($imgPrefix) {
 <div class="" style="width:908px;padding:0;margin:0;position:relative">
     <div style="padding:0;margin:0;float:left;width:180px;">
         <a href="/">
-            <img src="/media/images/drunkduck-logo.png" width="180" />
+            <img src="/media/images/drunkduck-logo.png" width="180" style="border:none;" />
         </a>
     </div>
     
