@@ -42,6 +42,12 @@ if ( $COMIC_ROW ) {
     }
 </style>
 <!-- END OF TAG FOR head SECTION -->
+<script src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery.noConflict();
+});
+</script>
 
 <script src="/__utm.js" type="text/javascript"></script>
 
@@ -369,7 +375,7 @@ function capRO($imgPrefix) {
 <div class="" style="width:908px;padding:0;margin:0;position:relative;padding-bottom:5px;">
     <div style="padding:0;margin:0;float:left;width:180px;padding-top:9px;">
         <a href="/">
-            <img src="/media/images/DD-site-logo-for-comics-page.png"  />
+            <img src="/media/images/DD-site-logo-for-comics-page.png" style="border:0;" />
         </a>
     </div>
     

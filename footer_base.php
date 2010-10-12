@@ -22,6 +22,9 @@
             ?>
             </div>
         </div>
+            <div style="text-align:center;">
+            <a href="/contact.php">Contact</a> | <a href="/privacy.php">Privacy Policy</a> | Copyright 2010 WOWIO, Inc. All Rights Reserved 
+            </div>
         <br />
     </div>
     

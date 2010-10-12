@@ -12,7 +12,7 @@ if (is_array($where)) {
   $where = ' and ' . implode(' and ', $where);
 }
 $limit = $_REQUEST['limit'];
-$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes, from_unixtime(c.created_timestamp) as date
+$query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, c.description, count(l.page_id) as likes, concat(substring(ymd_date_live, 1, 4), '-', substring(ymd_date_live, 5, 2), '-', substring(ymd_date_live, 7, 2)) as date
 from comics c 
 inner join featured_comics f 
 on f.comic_id = c.comic_id 
