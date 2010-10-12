@@ -481,7 +481,7 @@ border:0;
             <div style="position:relative;display:inline;">
             <a href="/control_panel/account.php"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">my control panel</a>
             <div style="position:absolute;">
-            <?php require_once('../../../auth.php'); ?>
+            <?php include_once('../../../auth.php'); ?>
             </div>
             </div>
     </div>
