@@ -51,7 +51,7 @@ jQuery(document).ready(function(){
 
 <script src="/__utm.js" type="text/javascript"></script>
 
-<div style="width:100%;position:absolute;top:0;height:120px;z-index:-2000;background-color:rgb(9,153,68);background-image:url('/media/images/bg-gradient-color3.jpg');background-repeat: repeat-x;background-position:center top;"></div>
+<div style="-moz-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);-webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);box-shadow: 0px 1px 5px rgba(0,0,0,0.5);width:100%;position:absolute;top:90px;height:30px;z-index:-2000;background-color:rgb(179,179,179);"></div>
 
 <style type="text/css">
 #dhtml_menu_div{
@@ -272,6 +272,7 @@ if (hidemenu_onclick=="yes") {
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
 <script language="JavaScript">
 <?
+
 if ( $COMIC_FAVS[$COMIC_ROW->comic_id] )
 {
   ?>
@@ -371,10 +372,10 @@ function capRO($imgPrefix) {
 ?><div align="center">
 
 
-<div class="" style="width:908px;padding:0;margin:0;position:relative">
-    <div style="padding:0;margin:0;float:left;width:180px;">
+<div class="" style="width:908px;padding:0;margin:0;position:relative;padding-bottom:5px;">
+    <div style="padding:0;margin:0;float:left;width:180px;padding-top:9px;">
         <a href="/">
-            <img src="/media/images/drunkduck-logo.png" width="180" style="border:none;" />
+            <img src="/media/images/DD-site-logo-for-comics-page.png" style="border:0;" />
         </a>
     </div>
     
@@ -435,7 +436,7 @@ border:0;
     padding-left:10px;
     }   
     </style>
-    <div style="float:left;width:728px;padding:0m;margin:0;">
+    <div style="float:left;width:728px;padding:0;margin:0;">
     <?
         if ($COMIC_ROW->rating_symbol == 'E' || $COMIC_ROW->rating_symbol == 'T')
         {
@@ -450,7 +451,7 @@ border:0;
     ?>
     </div>
     
-    <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
+    <div class="menu" style="width:720px;vertical-align:middle;height:30px;position:absolute;top:95px;right:0px;">
           
             <?php if (!$nosearch) : ?>
             <div style="float:left;display:inline;background-image:url('/media/images/search.png');width:154px;height:20px" class="span-16">
@@ -477,6 +478,8 @@ border:0;
             <!--<a href="#">videos</a>-->
             <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
             <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
+            
+            <a href="/control_panel/account.php"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">my control panel</a>
 
         
     </div>
@@ -500,9 +503,9 @@ border:0;
 if ( $USER )
 {
 ?>
-<div style="position:relative;width:728px;margin:0;padding:0;">
 
-<div class="toolbar" style="opacity:0.7;font:bold 12px/20px Helvetica;vertical-align:50%;color:#333;width:728px;clear:both;height:20px;background-color:#bbb;border-radius: 0 0 10px 10px;">
+
+<div class="toolbar" style="clear:both;opacity:0.8;font:bold 12px/20px Helvetica;vertical-align:50%;color:#333;width:728px;background-color:#bbb;border-radius: 0 0 10px 10px;">
     
     <span class="menu-linkage">
 <?php if ( !$COMIC_FAVS[$COMIC_ROW->comic_id] ) { ?>
@@ -528,8 +531,17 @@ if ( $USER )
     <a href="#" onClick="goBookmark();return false;">go</a>
     </span>
     
+    <span class="menu-linkage">
+    <a href="#" onClick="goBookmark();return false;">share comic</a>
+    </span>
+    
+    <span class="menu-linkage">
+    <a href="#" onClick="getTags('<?=$COMIC_ROW->comic_id?>', '<?=$PAGE_ROW->page_id?>');return false;">tag page</a>
+    </span>
+    
 </div>
-<div style="position:absolute;right:10px;top:129px;">
+
+<div style="position:relative;right:10px;">
 <?php if ( $USER->flags & FLAG_IS_ADMIN ) { ?>
     <a href="#" onClick="okayComic();return false;">
         <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" border="0">
@@ -540,7 +552,7 @@ if ( $USER )
 </div>
 
 
-</div>
+
 
 <?php } ?>
 
