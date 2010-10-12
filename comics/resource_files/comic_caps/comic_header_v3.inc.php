@@ -508,7 +508,7 @@ border:0;
                     padding: 5px;
                     }
             </style>
-            <div id="controlPanel" style="background-color:rgb(179,179,179);text-align:left;z-index:3000;position:absolute;display:none;top:20px;right:0;width:200px;padding:10px;border-radius: 0 0 10px 10px;">
+            <div id="controlPanel" style="background-color:rgb(179,179,179);text-align:left;z-index:3000;position:absolute;display:none;top:20px;right:0;width:264px;padding:10px;border-radius: 0 0 10px 10px;">
                 <?php require(WWW_ROOT . '/auth.php'); ?>
             </div>
             </div>

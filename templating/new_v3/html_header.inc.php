@@ -124,22 +124,21 @@ jQuery.noConflict();
             padding-left:10px;
             }   
             </style>
-    <div style="float:left;width:728px;padding:0m;margin:0;">
-<script type="text/javascript">
-  var gr_ads_zone = 'ros_atf';
-  var gr_ads_size = '728x90';
-</script>
-<script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
-</script>
-<noscript>
-  <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890">
-    <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
-  </a>
-</noscript>    
+<div style="float:left;width:728px;padding:0m;margin:0;">
+    <script type="text/javascript">
+      var gr_ads_zone = 'ros_atf';
+      var gr_ads_size = '728x90';
+    </script>
+    <script type="text/javascript" src="http://a.giantrealm.com/gr.drunkduck/a.js">
+    </script>
+    <noscript>
+      <a href="http://ans.giantrealm.com/click/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890">
+        <img src="http://ans.giantrealm.com/img/gr.drunkduck/ros_atf;tile=1;sz=728x90;ord=1234567890" width="728" height="90" alt="advertisement" />
+      </a>
+    </noscript>    
 </div>
     
-    <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
-          
+        <div class="menu" style="width:720px;vertical-align:middle;height:20px;position:absolute;top:100px;right:0px;">
             <?php if (!$nosearch) : ?>
             <div style="float:left;display:inline;background-image:url('/media/images/search.png');width:154px;height:20px" class="span-16">
              <link type="text/css" rel="stylesheet" href="/css/search.css" />
@@ -165,9 +164,12 @@ jQuery.noConflict();
             <!--<a href="#">videos</a>-->
             <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
             <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
-
-    </div>
+        </div>
 </div>
+</div>
+<div style="background-color:red;clear:both;width:100%;height:0;"></div>
+<div align="center">
+<div style="margin:0 auto;">
   <!--END header-->
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
