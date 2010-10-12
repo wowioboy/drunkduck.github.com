@@ -1,5 +1,7 @@
 <?php
 
+require_once(WWW_ROOT . '/includes/db.class.php');
+
 // Require login?
 /*var_dump($REQUIRE_LOGIN); die();*/
 

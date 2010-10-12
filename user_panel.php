@@ -1,4 +1,5 @@
-        <?php
+<?php
+        $db = DB::getInstance();
         $query = "select count(1) 
           from mailbox 
           where username_to = '{$USER->username}' 

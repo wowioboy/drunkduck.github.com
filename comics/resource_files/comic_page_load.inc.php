@@ -5,9 +5,9 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 // Make sure the php_self is seen as NOT in comics.
 $_SERVER['PHP_SELF'] = preg_replace('`\/comics\/[a-zA-Z0-9_](.*)`', "\\1", $_SERVER['PHP_SELF']);
 
-/*var_dump($_SERVER); exit;*/
 // hack
 $_SERVER['PHP_SELF'] = $_SERVER['REDIRECT_URI'];
+/*var_dump($_SERVER['PHP_SELF']); exit;*/
 
 if ( strstr($_SERVER['REQUEST_URI'], '/comics') ) {
   if ( strlen($_SERVER['QUERY_STRING']) > 0 ) {
@@ -23,7 +23,7 @@ $FOLDER_NAME = basename( getcwd() );
  * DEV HACK -jihan
  */
 $FOLDER_NAME = array_shift(array_filter(explode('/',$_SERVER['REDIRECT_URL'])));
-
+$_SERVER['PHP_SELF'] = '/' . $FOLDER_NAME . '/';
 $COMIC_NAME  = str_replace('_', ' ', $FOLDER_NAME );
 /*var_dump(__LINE__ . ':' . basename(__FILE__), $FOLDER_NAME); exit;*/
 $TITLE = $COMIC_NAME;
@@ -216,4 +216,9 @@ db_query("INSERT INTO unique_comic_tracking (comic_id, ymd_date, page_id, ip) VA
 track_comic_view($COMIC_ROW->comic_id);
 
 echo $TEMPLATE;
+
+
+
+    
+/*var_dump($GLOBALS['DDTags']['PAGE']);*/
 ?>

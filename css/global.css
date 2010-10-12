@@ -3,6 +3,7 @@ body {
     margin: 10px auto 0px;
     font-family:helvetica;
     font-size:10pt;
+    color: #494949;
 }
 input:not([type]), input[type="text"], input[type="password"] {
     outline:none;
@@ -12,7 +13,9 @@ select {
     outline: none;
 }
 .bb-image {
-  clear:left;
+  
+  float:none;
+  margin: 0;
   }
 /*#backdrop {
 background-image: url('/media/images/DD-bg-pattern-color3.gif');    
@@ -35,6 +38,7 @@ position:absolute;
   font-weight:bold;
   font-size:2em;
   color: rgb(73,73,73);
+  line-height:16px;
 }
 h2 {
   font-family:'Yanone Kaffeesatz';
@@ -45,9 +49,10 @@ h2 {
 .subtitle {
   font-family:helvetica;
   font-size:12px;
-  line-height:12px;
+  line-height:8px;
   font-weight:bold;
   color:rgb(0,133,118);
+  margin: -4px 0;
 }
 a {
   text-decoration:none;

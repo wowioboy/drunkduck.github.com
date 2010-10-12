@@ -479,7 +479,12 @@ border:0;
             <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
             <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
             
-            <a href="/control_panel/account.php"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">my control panel</a>
+            <div style="display:inline-block;position:relative;">
+            <a href="#"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;" onclick="jQuery('#controlPanel').slideToggle();return false;">my control panel</a>
+            <div id="controlPanel" style="background-color:rgb(179,179,179);text-align:left;z-index:3000;position:absolute;display:none;top:30px;right:0;width:160px">
+                <?php require(WWW_ROOT . '/auth.php'); ?>
+            </div>
+            </div>
 
         
     </div>
@@ -531,9 +536,16 @@ if ( $USER )
     <a href="#" onClick="goBookmark();return false;">go</a>
     </span>
     
-    <span class="menu-linkage">
-    <a href="#" onClick="goBookmark();return false;">share comic</a>
-    </span>
+    <div class="menu-linkage" style="display:inline-block;position:relative;">
+    <a href="#" onClick="jQuery('#shareComic').slideToggle(); return false;">share comic</a>
+    <div id="shareComic" style="display:none;text-align:left;position:absolute;left:10px;font:bold 12px/20px Helvetica;color:#333;background-color:#bbb;padding:10px;border-radius: 0 0 10px 10px;">
+    <ul>
+        <li><a href="http://digg.com/submit?phase=2&url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Digg this comic!" title="Digg this comic!" >Digg</a></li>
+        <li><a href="http://del.icio.us/post?url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Make this comic Del.icio.us!" title="Make this comic Del.icio.us!" >Del.icio.us</a></li>
+        <li><a href="http://reddit.com/submit?url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Reddit this comic!" title="Reddit this comic!" />Reddit</a></li>
+    </ul>    
+    </div>
+    </div>
     
     <span class="menu-linkage">
     <a href="#" onClick="getTags('<?=$COMIC_ROW->comic_id?>', '<?=$PAGE_ROW->page_id?>');return false;">tag page</a>
