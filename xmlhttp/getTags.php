@@ -11,7 +11,6 @@ if (!$pid = $_GET['pid']) {
 }
 
 $query = "SELECT tag FROM tags_by_page WHERE comic_id='$cid' AND page_id='$pid' ORDER BY counter DESC LIMIT 10";
-var_dump($query);
 $tags = DB::getInstance()->fetchCol($query);
 if ($tags) {
   foreach ($tags as $tag) {
