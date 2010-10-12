@@ -47,6 +47,14 @@ if ( $COMIC_ROW ) {
 jQuery(document).ready(function(){
   jQuery.noConflict();
 });
+
+function getTags(cid, pid)
+{
+  cid    = encodeURIComponent(cid);
+  pid    = encodeURIComponent(pid);
+  ajaxCall('/xmlhttp/getTags.php?cid='+cid+'&pid='+pid+'&r='+Math.floor(Math.random()*999999), onGetTags);
+  return false;
+}
 </script>
 <script src="/__utm.js" type="text/javascript"></script>
 
