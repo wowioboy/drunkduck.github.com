@@ -485,8 +485,6 @@ border:0;
                 <?php require(WWW_ROOT . '/auth.php'); ?>
             </div>
             </div>
-
-        
     </div>
 </div>
 <style>

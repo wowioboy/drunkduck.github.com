@@ -1,21 +1,21 @@
 <?php
 define('DEBUG_MODE', 0); // keep debug info from polluting response.
 include_once('../includes/global.inc.php');
+require_once('../includes/db.class.php');
 
-if ( !isset($_GET['cid']) ) return;
-$CID = (int)$_GET['cid'];
-if ( !$CID ) die("Error. Please try again later.");
-
-if ( !isset($_GET['pid']) ) return;
-$PID = (int)$_GET['pid'];
-if ( !$PID ) die("Error. Please try again later.");
-
-
-$res = db_query("SELECT * FROM tags_by_page WHERE comic_id='".$CID."' AND page_id='".$PID."' ORDER BY counter DESC LIMIT 10");
-if ( db_num_rows($res) == 0 ) echo "<b>None</b>";
-while( $row = db_fetch_object($res) ) {
-  echo "<A HREF='http://".DOMAIN."/search.php?cid=".$CID."&tag=".rawurlencode($row->tag)."' style='font-weight:bold;color: #FFCC00;text-decoration: underline;'>".$row->tag."</A> ";
+if (!$cid = $_GET['cid']) {
+  die("Error. Please try again later.");
+} 
+if (!$pid = $_GET['pid']) {
+  die("Error. Please try again later.");
 }
-db_free_result($res);
 
-?>
+$query = "SELECT tag FROM tags_by_page WHERE comic_id='$cid' AND page_id='$pid' ORDER BY counter DESC LIMIT 10";
+$tags = DB::getInstance()->fetchCol($query);
+if ($tags) {
+  foreach ($tags as $tag) {
+    echo "<A HREF='http://".DOMAIN."/search.php?cid=".$cid."&tag=".rawurlencode($tag)."' style='font-weight:bold;color: #FFCC00;text-decoration: underline;'>".$tag."</A> ";
+  }
+} else {
+  echo 'none';
+}
