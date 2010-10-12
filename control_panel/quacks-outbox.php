@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 <div>
 <a class="button" href="/control_panel/quacks.php">Inbox</a>
-<a class="button" id="compose-quack" href="javascript:">Compose</a>
+<a class="button" href="/control_panel/compose-quack.php">Compose</a>
 <a class="button" href="javascript:">Outbox</a>
 </div>
 
