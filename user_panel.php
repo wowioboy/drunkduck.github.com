@@ -3,7 +3,8 @@
         $query = "select count(1) 
           from mailbox 
           where username_to = '{$USER->username}' 
-          and username_from is not null";
+          and username_from is not null 
+          and viewed = '0'";
         $quackCount = $db->fetchOne($query);
         ?>
         <style type="text/css">
@@ -17,17 +18,17 @@
         }
         </style>
           <script>
-          $(document).ready(function(){
+          jQuery(document).ready(function(){
             var user_id = '<?php echo $USER->user_id; ?>';
 
             function getWebcomics()
             {
               var object = {};
               object.user_id = user_id;
-              object.sort = $('select.webcomics').val();
-              $.getJSON('/ajax/webcomics.php', object, function(data) {
+              object.sort = jQuery('select.webcomics').val();
+              jQuery.getJSON('/ajax/webcomics.php', object, function(data) {
                   var html = '';
-                  $.each(data, function(){
+                  jQuery.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
                     var new_title = title;
@@ -46,7 +47,7 @@
                             '</div>' + 
                             '</div>';
                   });
-                  $('div.webcomics_display').html(html);
+                  jQuery('div.webcomics_display').html(html);
                 });
             }
             
@@ -54,10 +55,10 @@
             {
               var object = {};
               object.user_id = user_id;
-              object.sort = $('select.favorites').val();
-              $.getJSON('/ajax/favorites.php', object, function(data) {
+              object.sort = jQuery('select.favorites').val();
+              jQuery.getJSON('/ajax/favorites.php', object, function(data) {
                   var html = '';
-                  $.each(data, function(){
+                  jQuery.each(data, function(){
                     var date = this.updated_on;
                     var title = this.title;
                     var new_title = title;
@@ -73,40 +74,40 @@
                             '</div>' + 
                             '</div>'; 
                   });
-                  $('div.favorites_display').html(html);
+                  jQuery('div.favorites_display').html(html);
                });
             }
 
-            $('img.favorties').click(function(){
-              var favoritesDiv = $('div.favorites');
+            jQuery('img.favorties').click(function(){
+              var favoritesDiv = jQuery('div.favorites');
               if (favoritesDiv.css('display') == 'none') {
-                $(this).attr('src', '/media/images/triangle-down.gif');
+                jQuery(this).attr('src', '/media/images/triangle-down.gif');
                 getFavorites();
                   favoritesDiv.slideDown();
               } else { 
-                $(this).attr('src', '/media/images/triangle.gif');
+                jQuery(this).attr('src', '/media/images/triangle.gif');
                 favoritesDiv.slideUp();
               }
             });
             
             
-            $('img.webcomics').click(function(){
-              var webcomicsDiv = $('div.webcomics');
+            jQuery('img.webcomics').click(function(){
+              var webcomicsDiv = jQuery('div.webcomics');
               if (webcomicsDiv.css('display') == 'none') {
-                $(this).attr('src', '/media/images/triangle-down.gif');
+                jQuery(this).attr('src', '/media/images/triangle-down.gif');
                   getWebcomics();
                   webcomicsDiv.slideDown();
               } else { 
-                 $(this).attr('src', '/media/images/triangle.gif');
+                 jQuery(this).attr('src', '/media/images/triangle.gif');
                 webcomicsDiv.slideUp();
               }
             });
             
-            $('select.favorites').change(function(){
+            jQuery('select.favorites').change(function(){
               getFavorites();
             });
             
-           $('select.webcomics').change(function(){
+           jQuery('select.webcomics').change(function(){
               getWebcomics();
             });
           });

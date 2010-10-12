@@ -21,9 +21,13 @@ var tagForm = '<form onSubmit="addTag(this.tagTXT.value, \'<?=$COMIC_ROW->comic_
 var tags_recvd = false;
 function getTags(cid, pid)
 {
-  cid    = encodeURIComponent(cid);
-  pid    = encodeURIComponent(pid);
-  ajaxCall('/xmlhttp/getTags.php?cid='+cid+'&pid='+pid+'&r='+Math.floor(Math.random()*999999), onGetTags);
+  if (jQuery('#tagContent').css('display') == 'none') {
+    cid    = encodeURIComponent(cid);
+    pid    = encodeURIComponent(pid);
+    ajaxCall('/xmlhttp/getTags.php?cid='+cid+'&pid='+pid+'&r='+Math.floor(Math.random()*999999), onGetTags);
+  } else {
+    hideTags();
+  }
   return false;
 }
 
@@ -36,10 +40,10 @@ function onGetTags(resp)
 }
 
 function hideTags() {
-  jQuery('#tagContent').hide();
+  jQuery('#tagContent').slideUp();
 }
 function showTags() {
-  jQuery('#tagContent').show();
+  jQuery('#tagContent').slideDown();
   jQuery('#tagArea').focus();
 }
 </script>

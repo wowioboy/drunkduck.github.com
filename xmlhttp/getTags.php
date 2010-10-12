@@ -10,12 +10,13 @@ if (!$pid = $_GET['pid']) {
   die("Error. Please try again later.");
 }
 
-$query = "SELECT tag FROM tags_by_page WHERE comic_id='$cid' AND page_id='$pid' ORDER BY counter DESC LIMIT 10";
+$query = "SELECT tag FROM tags_used 
+          WHERE comic_id='$cid' 
+          AND page_id='$pid' 
+          and user_id = '{$USER->user_id}'";
 $tags = DB::getInstance()->fetchCol($query);
 if ($tags) {
-  foreach ($tags as $tag) {
-    echo "<A HREF='http://".DOMAIN."/search.php?cid=".$cid."&tag=".rawurlencode($tag)."' style='font-weight:bold;color: #FFCC00;text-decoration: underline;'>".$tag."</A> ";
-  }
+  echo implode(', ', $tags);
 } else {
   echo 'none';
 }

@@ -38,11 +38,11 @@ class DB
 		@mysql_close($this->_host);
 	}
 	
-	public function query($query)
+	public function query($query, $suppress_error = false)
 	{
 		if ($resource = @mysql_query($query, $this->_link)) {
 			return $resource;
-		} else {
+		} else if (!$suppress_error) {
 			die(__FILE__ . ':' .__LINE__ . '<br />' . $query . '<br />' .  mysql_error());
 		}
 	}
