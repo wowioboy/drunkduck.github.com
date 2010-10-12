@@ -223,8 +223,8 @@ if (hidemenu_onclick=="yes") {
 <?
 }
 ?>
-<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
-<SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="/javascript/commonJS.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="/javascript/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
 <script language="JavaScript">
 <?
 if ( $COMIC_FAVS[$COMIC_ROW->comic_id] )
