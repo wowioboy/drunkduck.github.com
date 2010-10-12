@@ -481,7 +481,34 @@ border:0;
             
             <div style="display:inline-block;position:relative;">
             <a href="#"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;" onclick="jQuery('#controlPanel').slideToggle();return false;">my control panel</a>
-            <div id="controlPanel" style="background-color:rgb(179,179,179);text-align:left;z-index:3000;position:absolute;display:none;top:30px;right:0;width:160px">
+            <style>
+                #controlPanel a, #controlPanel a:visited {
+                    font-weight:bold;
+                    color:#333;
+                    text-decoration:none;
+                    }
+                #controlPanel a:hover {
+                    color:#EEE;
+                    }
+                #controlPanel .table {
+                    display:table;
+                    width:100%;
+                    }
+                #controlPanel .cell {
+                    display:table-cell;
+                    }
+                #controlPanel .row {
+                    display:table-row;
+                    }
+                #controlPanel .drop-list {
+                    font:bold 10px/10px helvetica;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: #333;
+                    padding: 5px;
+                    }
+            </style>
+            <div id="controlPanel" style="background-color:rgb(179,179,179);text-align:left;z-index:3000;position:absolute;display:none;top:20px;right:0;width:200px;padding:10px;border-radius: 0 0 10px 10px;">
                 <?php require(WWW_ROOT . '/auth.php'); ?>
             </div>
             </div>
@@ -537,7 +564,7 @@ if ( $USER )
     <div class="menu-linkage" style="display:inline-block;position:relative;">
     <a href="#" onClick="jQuery('#shareComic').slideToggle(); return false;">share comic</a>
     <div id="shareComic" style="display:none;text-align:left;position:absolute;left:10px;font:bold 12px/20px Helvetica;color:#333;background-color:#bbb;padding:10px;border-radius: 0 0 10px 10px;">
-    <ul>
+    <ul style="list-style-type: none; margin: 0; -webkit-padding-start: 0px;">
         <li><a href="http://digg.com/submit?phase=2&url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Digg this comic!" title="Digg this comic!" >Digg</a></li>
         <li><a href="http://del.icio.us/post?url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Make this comic Del.icio.us!" title="Make this comic Del.icio.us!" >Del.icio.us</a></li>
         <li><a href="http://reddit.com/submit?url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Reddit this comic!" title="Reddit this comic!" />Reddit</a></li>
@@ -545,21 +572,28 @@ if ( $USER )
     </div>
     </div>
     
-    <span class="menu-linkage">
+    <div class="menu-linkage" style="display:inline-block;position:relative;">
     <a href="#" onClick="getTags('<?=$COMIC_ROW->comic_id?>', '<?=$PAGE_ROW->page_id?>');return false;">tag page</a>
-    </span>
+    <div id="tagContent" style="display:none;text-align:left;position:absolute;right:0;font:bold 12px/20px Helvetica;color:#333;background-color:#bbb;padding:10px;border-radius: 0 0 10px 10px;">
+        <form onSubmit="addTag(jQuery('#tagArea').val(), '<?=$COMIC_ROW->comic_id?>', <?=$PAGE_ROW->page_id?>);return false;">
+        
+        <textarea id="tagArea" style="height:150px" >
+        </textarea>
+        <input type="submit" name="taggit" value="save tags!" />
+        </form>
+    </div>
+    </div>
     
+    <?php if ( $USER->flags & FLAG_IS_ADMIN ) { ?>
+        <a href="#" onClick="okayComic();return false;">
+            <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" border="0">
+        </a>
+    <? } else { ?>
+        <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>">
+    <? } ?>
+
 </div>
 
-<div style="position:relative;right:10px;">
-<?php if ( $USER->flags & FLAG_IS_ADMIN ) { ?>
-    <a href="#" onClick="okayComic();return false;">
-        <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" border="0">
-    </a>
-<? } else { ?>
-    <img src="/ratings/<?=$COMIC_ROW->rating_symbol?>.png" title="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>" alt="<?=$RATINGS[$COMIC_ROW->rating_symbol]?>">
-<? } ?>
-</div>
 
 
 

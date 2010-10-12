@@ -30,30 +30,17 @@ function getTags(cid, pid)
 function onGetTags(resp)
 {
   var html = '<div align="right"><a href="#" onClick="hideTags(); return false;"><img src="<?=IMAGE_HOST?>/site_gfx_new/remove_button.gif" border="0"></a></div>' + resp + tagForm;
-  jQuery('#tag_div').html();
+  jQuery('#tagArea').val(resp);
   showTags();
-  jQuery('#tagTXT').focus();
+  jQuery('#tagArea').focus();
 }
 
 function hideTags() {
-  jQuery('#tag_div').css('visibility', 'hidden');
+  jQuery('#tagContent').hide();
 }
 function showTags() {
-  jQuery('#tag_div').css('visibility', 'visible');
-  var winW = 630;
-  if (parseInt(navigator.appVersion)>3) {
-   if (navigator.appName=="Netscape") {
-    winW = window.innerWidth;
-   }
-   if (navigator.appName.indexOf("Microsoft")!=-1) {
-    winW = document.body.offsetWidth;
-   }
-  }
-
-  jQuery('#tag_div').css('width', 400);
-  jQuery('#tag_div').css('left', ((winW/2)- 200) + "px");
-  jQuery('#tag_div').css('visibility', 'visible');
-  jQuery('#tagTXT').focus();
+  jQuery('#tagContent').show();
+  jQuery('#tagArea').focus();
 }
 </script>
 
