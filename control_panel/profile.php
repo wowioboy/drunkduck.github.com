@@ -186,7 +186,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <div>
 <div class="drunk">FORUM TOPICS</div>
 <?php foreach ((array) $topics as $topic) : ?>
-<a href="http://www.drunkduck.com/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
+<a href="/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
 <br />
 <?php endforeach; ?>
 </div>

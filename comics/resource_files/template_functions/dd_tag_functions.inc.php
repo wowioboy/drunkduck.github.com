@@ -478,7 +478,7 @@ function displayPageDropDown( $arg )
 				{
 					var opt_key = fe.selectedIndex;
 					var url_val = fe.options[opt_key].value;
-					window.open("http://www.drunkduck.com/'.$FOLDER_NAME.'?p="+url_val,"_top");
+					window.open("/'.$FOLDER_NAME.'?p="+url_val,"_top");
 					return true;
 			 	}
 
