@@ -256,7 +256,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 COMMENTS LEFT
 <br />
 <?php foreach ((array) $comments as $comment) : ?>
-<a href="http://user.drunkduck.com/<?php echo $comment['username']; ?>">
+<a href="/control_panel/profile.php?username=<?php echo $comment['username']; ?>">
   <img src="<?php echo $comment['avatar']; ?>" width="50" height="50" />
   <?php echo $comment['username']; ?>
 </a>

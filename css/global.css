@@ -189,7 +189,7 @@ border-bottom-left-radius: 0px;
 }
 
 .dark-green {
-  background-color:#aecf36;
+ background-color:rgb(174,230,1);
 }
 
 .canary {
@@ -219,8 +219,8 @@ border-bottom-left-radius: 0px;
     min-width:100px;
     border:none;
     -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .preview h2 {
