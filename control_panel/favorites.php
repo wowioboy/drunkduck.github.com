@@ -1,6 +1,10 @@
 <?php require_once('../header_base.php'); ?>
 
 <?php
+if (!$USER) {
+   header('Location: /login.php');
+  die('please log in to use this page!');
+}
 
 $query = "select c.comic_id as id, c.comic_name as title, from_unixtime(c.last_update) as updated_on, f.recommend, f.email_on_update as alert 
           from comics c 

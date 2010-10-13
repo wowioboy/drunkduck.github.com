@@ -1,6 +1,11 @@
 <?php require_once('../header_base.php'); ?>
 
 <?php
+
+if (!$USER) {
+   header('Location: /login.php');
+  die('please log in to use this page!');
+}
 $query = "select email 
           from demographics 
           where user_id = '{$USER->user_id}'";
