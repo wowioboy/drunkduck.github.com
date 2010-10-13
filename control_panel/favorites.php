@@ -101,18 +101,23 @@ thead tr, thead tr th{
     border-radius: 10px;
     }
 </style>
+
 <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
   <div class="span-63 dark-green rounded header">
     <img src="/media/images/control-panel.png" />
   </div>
 </div>
-<div class="span-64 box-1 header-menu">
+
+<div class="span-55 box-1 header-menu">
   <a class="teal rounded button" href="/control_panel/account.php">account</a>
   <a class="teal rounded button" href="/control_panel/quacks.php">quacks</a>
   <a class="teal rounded button" href="/control_panel/profile.php">profile</a>
 </div>
-<div class="box-1">
-<div class="box-2 yellow rounded">
+
+<div class="box-2" style="padding-top:120px">
+    <div class="box-2 yellow rounded" >
+        <div class="drunk" style="font-size:3em;">Personal Quacks</div>
+
   <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
     <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
     <table>
@@ -126,6 +131,7 @@ thead tr, thead tr th{
        </tr>
      </thead>
    <tbody>
+   <tr style="padding:0;height:10px;"><td colspan="5" style="padding:0;-moz-border-radius:10px 10px 0 0;border-radius:10px 10px 0 0;height:10px;"></td></tr>
   <?php foreach ($favorites as $favorite) : ?>
   <?php
   $date = new DateTime($favorite['updated_on']);
@@ -155,11 +161,12 @@ thead tr, thead tr th{
  </tbody>
 </table>
   <div class="table fill">
-  <div class="cell">
-    <input class="button" type="submit" value="save changes" />
-  </div>
+      <div class="cell">
+        <input class="button" type="submit" value="save changes" />
+      </div>
   </div>
 </form>
 </div>
 </div>
+
 <?php require_once('../footer_base.php'); ?>
