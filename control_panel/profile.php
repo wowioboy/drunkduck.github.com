@@ -195,7 +195,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -207,7 +207,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -228,7 +228,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
