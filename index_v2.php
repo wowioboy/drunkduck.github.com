@@ -47,7 +47,7 @@ $(document).ready(function(){
     	var title = $(this).attr('comic_title');
   		var description = $(this).attr('description');
   		var author = $(this).attr('author'); 
-  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
+  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span><br />' + description + '</div>';
   		$('#<?php echo $filter; ?>-description').html(html).slideDown();
   	});
   	$('#<?php echo $filter; ?>-holder').mouseleave(function(){

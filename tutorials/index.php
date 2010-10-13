@@ -143,7 +143,7 @@ $(document).ready(function(){
               <span class="drunk">Drawing the Ozone way!</span>
               <div class="preview">
                 <span>
-                    July 16th 2007 by <a href="http://user.drunkduck.com/ozoneocean">ozoneocean</a>
+                    July 16th 2007 by <a href="/control_panel/profile.php?username=ozoneocean">ozoneocean</a>
                 </span>    
               </div>
         </div>
@@ -154,7 +154,7 @@ $(document).ready(function(){
               <span class="drunk">Creating Rain Effects</span>
               <div class="preview">
                 <span>
-                    July 17th 2007 by <a href="http://user.drunkduck.com/silentkitty">silentkitty</a>
+                    July 17th 2007 by <a href="/control_panel/profile.php?username=silentkitty">silentkitty</a>
                 </span>    
               </div>
         </div>
