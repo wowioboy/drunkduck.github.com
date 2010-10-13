@@ -519,6 +519,8 @@ border:0;
     color: #333;
     text-decoration: none;
     font:bold 12px/20px Helvetica;
+    border:0;
+    background-color:none;
     }
 .toolbar a:hover {
     color:#2483C5;

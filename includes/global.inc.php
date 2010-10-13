@@ -20,7 +20,7 @@ if ( $_SERVER['REMOTE_ADDR'] == '66.77.242.73'  || $_SERVER['REMOTE_ADDR'] == '2
 define('PLATINUM_OWNED', 1);
 /*die(array_shift(explode(':', $_SERVER['HTTP_HOST'])));*/
 
-if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['HTTP_HOST'])) == 'localhost' )
+if ( $_SERVER['HTTP_HOST'] == 'linuxdev1' || array_shift(explode(':', $_SERVER['HTTP_HOST'])) == 'localhost' || $_SERVER['HTTP_HOST'] == 'beta.drunkduck.com' )
 {
 /*  die('foo');*/
   define('DEBUG_MODE',      1);
