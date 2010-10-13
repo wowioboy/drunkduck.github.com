@@ -47,7 +47,7 @@ $(document).ready(function(){
     	var title = $(this).attr('comic_title');
   		var description = $(this).attr('description');
   		var author = $(this).attr('author'); 
-  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="http://user.drunkduck.com/' + author + '">' + author + '</a></span><br />' + description + '</div>';
+  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span><br />' + description + '</div>';
   		$('#<?php echo $filter; ?>-description').html(html).slideDown();
   	});
   	$('#<?php echo $filter; ?>-holder').mouseleave(function(){
@@ -176,7 +176,7 @@ $(document).ready(function(){
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
-    <div class="span-24 green panel-header" style="height:25px;"><img id="ten-filter-button" src="/media/images/triangle.gif" /><span>Top Ten</span></div>
+    <div id="ten-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Top Ten</span></div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1">
@@ -197,7 +197,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header" style="height:25px;"><img id="random-filter-button" src="/media/images/triangle.gif" /><span>Quail's Random</span></div>
+  <div id="random-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Quail's Random</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">
@@ -218,7 +218,7 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header"  style="height:25px;"><img id="latest-filter-button" src="/media/images/triangle.gif" /><span>Latest Updates</span></div>
+  <div id="latest-filter-button" class="span-24 green panel-header"  style="height:25px;"><img src="/media/images/triangle.gif" /><span>Latest Updates</span></div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1">

@@ -115,7 +115,7 @@ $(document).ready(function(){
 </style>
         <div class="rounded canary span-63 box-1 pull-1">
             <div class="span-63 green rounded header">
-            Tutorials
+            <img src="/media/images/tutorials.png" />
             </div>
         </div>
 <div class="span-64 box-1 header-menu">
@@ -143,7 +143,7 @@ $(document).ready(function(){
               <span class="drunk">Drawing the Ozone way!</span>
               <div class="preview">
                 <span>
-                    July 16th 2007 by <a href="http://user.drunkduck.com/ozoneocean">ozoneocean</a>
+                    July 16th 2007 by <a href="/control_panel/profile.php?username=ozoneocean">ozoneocean</a>
                 </span>    
               </div>
         </div>
@@ -154,7 +154,7 @@ $(document).ready(function(){
               <span class="drunk">Creating Rain Effects</span>
               <div class="preview">
                 <span>
-                    July 17th 2007 by <a href="http://user.drunkduck.com/silentkitty">silentkitty</a>
+                    July 17th 2007 by <a href="/control_panel/profile.php?username=silentkitty">silentkitty</a>
                 </span>    
               </div>
         </div>
@@ -182,7 +182,7 @@ $(document).ready(function(){
       </div>
       </div>
       <div style="display:inline;float:right;position:relative;top:-10px;">
-      rating: <?php echo $comic['rating']; ?> out of 5.0
+      Rating: <?php echo $comic['rating']; ?> out of 5.0
       </div>
     </div>
     </div>

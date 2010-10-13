@@ -1,10 +1,18 @@
-<?
-include_once('../../../includes/global.inc.php');
+<?php
+include_once(WWW_ROOT . '/includes/global.inc.php');
+include_once(WWW_ROOT . '/includes/db.class.php');
 ob_start();
 
 $CAP_ID = 0;
 if ( $COMIC_ROW ) {
   $CAP_ID = $COMIC_ROW->comic_caps_id;
+}
+if ($USER) {
+  $query = "select bookmark_page_id 
+          from comic_favs 
+          where user_id = '{$USER->user_id}' 
+          and comic_id = '{$COMIC_ROW->comic_id}'";
+  $pagemark = DB::getInstance()->fetchOne($query);
 }
 
 /*die(DOMAIN);*/
@@ -273,22 +281,11 @@ if (hidemenu_onclick=="yes") {
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/commonJS.js" TYPE="text/javascript"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=HTTP_JAVASCRIPT?>/prototype-1.4.0_modified.js" TYPE="text/javascript"></SCRIPT>
 <script language="JavaScript">
-<?
-
-if ( $COMIC_FAVS[$COMIC_ROW->comic_id] )
-{
-  ?>
-  var bookmarkURL = 'http://<?=(DOMAIN.$_SERVER['PHP_SELF']."?p=".$COMIC_FAVS[$COMIC_ROW->comic_id]->bookmark_page_id )?>';
-  <?
-}
-else
-{
-  ?>
-  var bookmarkURL = '';
-  <?
-}
-?>
-
+<?php if ($pagemark) : ?>
+var bookmarkURL = 'http://<?php echo DOMAIN . $_SERVER['PHP_SELF']; ?>?p=<?php echo $pagemark; ?>';
+<?php else: ?>
+var bookmarkURL = '';
+<?php endif; ?>
 
 function okayComic() {
   ajaxCall('/xmlhttp/verifyComicRating.php?cid=<?=$COMIC_ROW->comic_id?>', onOkayComic);
@@ -306,7 +303,7 @@ function addBookmark()
 function onAddBookmark( resp )
 {
   alert(resp);
-  var bookmarkURL = 'http://<?=(DOMAIN.$_SERVER['PHP_SELF']."?p=".$PAGE_ROW->page_id )?>';
+  var bookmarkURL = "http://<?php echo DOMAIN . $_SERVER['PHP_SELF']; ?>?p=<?php echo $PAGE_ROW->page_id; ?>";
 }
 
 function goBookmark() {

@@ -1,6 +1,12 @@
 <?php require_once('header_base.php'); ?>
 
+<?php
 
+if (!$USER) {
+   header('Location: /login.php');
+  die('please log in to use this page!');
+}
+?>
 <div class="rounded canary span-63 box-1 pull-1">
   <div class="span-63 green rounded header">
            <img src="/media/images/feedback.png" />
@@ -11,7 +17,7 @@
 <?php if ($message = $_POST['message']) : ?>
   <?php
   $message = 'Username: ' . $USER->username . '<br /><br />' . $message;
-  mail('knguyen@wowio.com', 'Drunk Duck Beta Feedback', $message);
+  mail('knguyen@wowio.com', 'Drunk Duck Beta Feedback', $message, 'Cc: lleach@wowio.com');
   ?>
   Thank you for submitting your feedback!
 <?php else : ?>

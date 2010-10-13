@@ -186,7 +186,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <div>
 <div class="drunk">FORUM TOPICS</div>
 <?php foreach ((array) $topics as $topic) : ?>
-<a href="http://www.drunkduck.com/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
+<a href="/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
 <br />
 <?php endforeach; ?>
 </div>
@@ -220,7 +220,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <div>
 <div class="drunk">FRIENDS</div>
 <?php foreach ((array) $friends as $friend) : ?>
-<a href="http://user.drunkduck.com/<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
+<a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -256,7 +256,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 COMMENTS LEFT
 <br />
 <?php foreach ((array) $comments as $comment) : ?>
-<a href="http://user.drunkduck.com/<?php echo $comment['username']; ?>">
+<a href="/control_panel/profile.php?username=<?php echo $comment['username']; ?>">
   <img src="<?php echo $comment['avatar']; ?>" width="50" height="50" />
   <?php echo $comment['username']; ?>
 </a>
