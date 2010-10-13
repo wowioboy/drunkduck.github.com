@@ -1,6 +1,11 @@
 <?php require_once('../header_base.php'); ?>
 
 <?php 
+
+if (!$USER) {
+   header('Location: /login.php');
+  die('please log in to use this page!');
+}
 $username = $USER->username;
 
 if ($message = $_POST['message']) {

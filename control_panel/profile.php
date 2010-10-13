@@ -3,6 +3,10 @@
 
 <?php
 if (!$username = $_REQUEST['username']) {
+      if (!$USER) {
+        header('Location: /login.php');
+        die('please log in to use this page!');
+      }
   $username = $USER->username; 
 }
 

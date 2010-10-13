@@ -2,6 +2,11 @@
 
 
 <?php
+
+if (!$USER) {
+   header('Location: /login.php');
+  die('please log in to use this page!');
+}
   $where = "username_to = '{$USER->username}' and username_from is not null";
 $query = "select mail_id as id, username_to as `to`, username_from as `from`, title as subject, from_unixtime(time_sent) as recieved, viewed as status, message 
           from mailbox  
