@@ -1,5 +1,5 @@
 <?php
-        $db = DB::getInstance();
+        $db = new DB(array('scheme' => 'drunkduck'));
         $query = "select count(1) 
           from mailbox 
           where username_to = '{$USER->username}' 

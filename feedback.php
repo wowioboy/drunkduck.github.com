@@ -3,7 +3,7 @@
 
 <div class="rounded canary span-63 box-1 pull-1">
   <div class="span-63 green rounded header">
-            USER FEEDBACK
+           <img src="/media/images/feedback.png" />
   </div>
 </div>
 <div class="box-2" style="padding-top:120px">
