@@ -181,7 +181,7 @@ $(document).ready(function(){
       <p><?php echo $comic['description']; ?></p>
       </div>
       </div>
-      <div style="display:inline-block;float:right;position:relative;top:-110px;">
+      <div style="display:inline;float:right;position:relative;top:-10px;">
       rating: <?php echo $comic['rating']; ?> out of 5.0
       </div>
     </div>

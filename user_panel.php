@@ -1,5 +1,5 @@
 <?php
-        $db = DB::getInstance();
+        $db = new DB(array('scheme' => 'drunkduck'));
         $query = "select count(1) 
           from mailbox 
           where username_to = '{$USER->username}' 
@@ -37,7 +37,7 @@
                     }
                     html += '<div class="table fill">' + 
                             '<div class="cell">' + 
-                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '">' + new_title + '</a>' +
+                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '/">' + new_title + '</a>' +
                             '</div>' + 
                             '<div class="cell right">' + 
                             '<a class="sidedate" href="/account/comic/?cid=' + this.comic_id + '">edit</a>' + 
@@ -67,7 +67,7 @@
                     }
                     html += '<div class="table fill">' + 
                             '<div class="cell">' + 
-                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '">' + new_title + '</a>' +
+                            '<a class="sidetitle" href="/' + title.replace(/ /g, '_') + '/">' + new_title + '</a>' +
                             '</div>' + 
                             '<div class="cell right" style="width:100px;">' +
                             '<span class="sidedate">' + date + '</span>' + 

@@ -79,7 +79,7 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.featured) {
         $.each(data.featured, function(){
-          html += '<a href="http://www.drunkduck.com/' + this.title.replace(/ /g, '_') + '">';
+          html += '<a href="/' + this.title.replace(/ /g, '_') + '/">';
           <?php if ($view == 'list') : ?>
             html += '<div class="post teal rounded box-1" style="background-color:#45B4B9;">' + 
                     '<div class="white rounded box-1" style="background-color:#FFF">' + 
@@ -192,7 +192,7 @@ $(document).ready(function(){
   <?php 
   $date = new DateTime($comic['date']);
   ?>
-    <a href="http://www.drunkduck.com/<?php echo str_replace(' ', '_', $comic['title']); ?>">
+    <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
     <?php if ($view == 'list') : ?>
     <div class="post teal rounded box-1" style="background-color:#45B4B9;">
     <div class="white rounded box-1" style="background-color:#FFF">

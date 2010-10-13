@@ -77,7 +77,7 @@ $(document).ready(function(){
         <?php if ($i % 8 == 1) : ?>
           <div <?php echo ($i > 1) ? 'style="display:none;"' : ''; ?>>
         <?php endif; ?>  
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>" style="float:left;"><img title="<?php echo $comic['title'] . '<br />' . $comic['description']; ?>" src="<?php echo $path; ?>" width="105" height="131" /></a>
+        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/" style="float:left;"><img title="<?php echo $comic['title'] . '<br />' . $comic['description']; ?>" src="<?php echo $path; ?>" width="105" height="131" /></a>
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>

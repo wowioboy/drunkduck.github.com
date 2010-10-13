@@ -91,7 +91,11 @@ $(document).ready(function(){
   });
 });
 </script>
-
+<style>
+.jHtmlArea {
+  background-color:#fff;
+}
+</style>
 <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
     <div class="span-63 dark-green rounded header">
     <img src="/media/images/control-panel.png" />
@@ -122,7 +126,7 @@ $(document).ready(function(){
 <form id="edit-profile-about-form" method="post" action="/ajax/control_panel/change-about.php">
 <input type="hidden" name="user_id" value="<?php echo $USER->user_id; ?>" />
 <div>
-<textarea id="boomgong" name="about_self"><?php echo bbcode2html($user['about']); ?></textarea>
+<textarea id="boomgong" name="about_self" style="background-color:#fff;"><?php echo bbcode2html($user['about']); ?></textarea>
 </div>
 <br />
 <input class="teal rounded button" type="submit" value="save" />
@@ -191,7 +195,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -203,7 +207,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
@@ -224,7 +228,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 ?>
-<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
+<a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
 </div>
 
