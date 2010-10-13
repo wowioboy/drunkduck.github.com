@@ -115,7 +115,7 @@ $(document).ready(function(){
 </style>
         <div class="rounded canary span-63 box-1 pull-1">
             <div class="span-63 green rounded header">
-            Tutorials
+            <img src="/media/images/tutorials.png" />
             </div>
         </div>
 <div class="span-64 box-1 header-menu">
@@ -182,7 +182,7 @@ $(document).ready(function(){
       </div>
       </div>
       <div style="display:inline;float:right;position:relative;top:-10px;">
-      rating: <?php echo $comic['rating']; ?> out of 5.0
+      Rating: <?php echo $comic['rating']; ?> out of 5.0
       </div>
     </div>
     </div>
