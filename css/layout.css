@@ -18,7 +18,7 @@ height: 10px;
 line-height: 12px;
 padding: 0px 15px;
 text-decoration: none;
-vertical-align: middle;
+vertical-align: baseline;
 }
 .result, .search_link {
     float:none !important;

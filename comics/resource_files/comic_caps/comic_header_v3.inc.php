@@ -7,6 +7,8 @@ if ( $COMIC_ROW ) {
   $CAP_ID = $COMIC_ROW->comic_caps_id;
 }
 
+/*die(DOMAIN);*/
+
 ?>
 
 <!-- PUT THIS TAG IN THE head SECTION -->
@@ -34,7 +36,7 @@ if ( $COMIC_ROW ) {
 <style>
     <style>
     body {
-        background-color:rgb(9,153,68);
+    background-color:rgb(9,153,68);
     background-image:url('/media/images/bg-gradient-color3.jpg');
     background-repeat: repeat-x;
     background-position:center top;
@@ -51,7 +53,7 @@ jQuery(document).ready(function(){
 
 <script src="/__utm.js" type="text/javascript"></script>
 
-<div style="-moz-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);-webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);box-shadow: 0px 1px 5px rgba(0,0,0,0.5);width:100%;position:absolute;top:90px;height:30px;z-index:-2000;background-color:rgb(179,179,179);"></div>
+<div style="-moz-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);-webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.5);box-shadow: 0px 1px 5px rgba(0,0,0,0.5);width:100%;position:absolute;top:90px;left:0;height:30px;z-index:-2000;background-color:rgb(179,179,179);"></div>
 
 <style type="text/css">
 #dhtml_menu_div{
@@ -471,16 +473,16 @@ border:0;
                 <?php endif; ?>
             
             <!-- menu -->
-            <a href="/search.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">comics</a>
-            <a href="/account/overview/add_comic.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">create</a>
-            <a href="/news_v2.php" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">news</a>
-            <a href="/tutorials/"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">tutorials</a>
+            <a href="/search.php" style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">comics</a>
+            <a href="/account/overview/add_comic.php" style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">create</a>
+            <a href="/news_v2.php" style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">news</a>
+            <a href="/tutorials/"  style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">tutorials</a>
             <!--<a href="#">videos</a>-->
-            <a href="/community" style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
-            <a href="http://store.drunkduck.com"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
+            <a href="/community" style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">forums</a>
+            <a href="http://store.drunkduck.com"  style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;">store</a>
             
             <div style="display:inline-block;position:relative;">
-            <a href="#"  style="padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;" onclick="jQuery('#controlPanel').slideToggle();return false;">my control panel</a>
+            <a href="#"  style="vertical-align:baseline;padding: 0 15px 0 15px;text-decoration:none;color:white;font:bold 20px/15px 'Yanone Kaffeesatz';height:10px;float:left;" onclick="jQuery('#controlPanel').slideToggle();return false;">my control panel</a>
             <style>
                 #controlPanel a, #controlPanel a:visited {
                     font-weight:bold;
