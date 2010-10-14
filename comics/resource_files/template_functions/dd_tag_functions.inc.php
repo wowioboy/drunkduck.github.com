@@ -600,13 +600,17 @@ function displayAuthorsNotes( $arg )
 
   $ret = "<TABLE BORDER='0' CELLPADDING='5' CELLSPACING='0' $DIMENSIONS>
   <TR>
-    <TD ALIGN='LEFT'>
-      <a href=\"http://".USER_DOMAIN."/".$POSTER->username."\">".$POSTER->username."</a>
-    </TD>
+    <TD ALIGN='LEFT'>" .
+      "<a href=\"/control_panel/profile.php?username={$POSTER->username}\">{$POSTER->username}</a>" .
+    "</TD>
   </TR>
   <TR>
     <TD ALIGN='LEFT' HEIGHT='100%' VALIGN='TOP'>
-      <div align='center' style='width:100px;height:100px;float:left;'><a href=\"http://".USER_DOMAIN."/".$POSTER->username."\"><IMG SRC='".IMAGE_HOST."/process/user_".$POSTER->user_id.".".$POSTER->avatar_ext."' border=\"0\" class=\"avatar_author\"></a><br><a href='http://".DOMAIN."/community/message/author.php?to=".$POSTER->username."'><img src='".IMAGE_HOST."/community_gfx/icon_sendpq.gif' border='0' alt='Send a private quack!' title='Send a private quack!'></a></div>".
+      <div align='center' style='width:100px;height:100px;float:left;'>" .
+      "<a href=\"/control_panel/profile.php?username={$POSTER->username}\">" . 
+      "<IMG SRC='".IMAGE_HOST."/process/user_".$POSTER->user_id.".".$POSTER->avatar_ext."' border=\"0\" class=\"avatar_author\"></a><br>" . 
+      "<a href=\"/control_panel/compose-quack.php?to={$POSTER->username}\">" . 
+      "<img src='".IMAGE_HOST."/community_gfx/icon_sendpq.gif' border='0' alt='Send a private quack!' title='Send a private quack!'></a></div>".
         nl2br( BBCode($PAGE_ROW->comment) ) .
       "<div align=\"right\">
         -Posted on ".date("M d, Y", $PAGE_ROW->post_date)."
@@ -681,14 +685,14 @@ function displayComments( $arg )
       }
       else if ( $row->flags & COMMENT_ANONYMOUS ) {
         if ( $USER->flags & FLAG_IS_ADMIN ) {
-          $username = "Anonymous (<a href=\"http://".USER_DOMAIN."/".$username."\">".$username."</a>)";
+          $username = "Anonymous (<a href=\"/control_panel/profile.php?username=$username\">$username</a>)";
         }
         else {
           $username = 'Anonymous';
         }
       }
       else {
-        $username = "<a href=\"http://".USER_DOMAIN."/".$username."\">".$username."</a>";
+        $username = "<a href=\"/control_panel/profile.php?username=$username\">$username</a>";
       }
 
       if ( $row->flags & COMMENT_UNDER_REVIEW ) {
@@ -732,7 +736,7 @@ function displayComments( $arg )
                     <TD ALIGN='LEFT' VALIGN='TOP' COLSPAN='3'>";
                       if ( !( $row->flags&COMMENT_ANONYMOUS) )
                       {
-                        $ret .= "<div align='center' style='width:100px;height:100px;float:left;'><a href=\"http://".USER_DOMAIN."/".$USER_IDS[$row->user_id]->username."\"><IMG SRC='".IMAGE_HOST."/process/user_".$USER_IDS[$row->user_id]->user_id.".".$USER_IDS[$row->user_id]->avatar_ext."' border=\"0\" class=\"avatar_commentator\"></a><br><a href='http://".DOMAIN."/community/message/author.php?to=".$USER_IDS[$row->user_id]->username."'><img src='".IMAGE_HOST."/community_gfx/icon_sendpq.gif' border='0' alt='Send a private quack!' title='Send a private quack!'></a></div>";
+                        $ret .= "<div align='center' style='width:100px;height:100px;float:left;'><a href=\"/control_panel/profile.php?username=".$USER_IDS[$row->user_id]->username."\"><IMG SRC='".IMAGE_HOST."/process/user_".$USER_IDS[$row->user_id]->user_id.".".$USER_IDS[$row->user_id]->avatar_ext."' border=\"0\" class=\"avatar_commentator\"></a><br><a href='/control_panel/compose-quack.php?to=".$USER_IDS[$row->user_id]->username."'><img src='".IMAGE_HOST."/community_gfx/icon_sendpq.gif' border='0' alt='Send a private quack!' title='Send a private quack!'></a></div>";
                       }
                       else if ( ($row->user_id==0) || ($row->flags&COMMENT_ANONYMOUS)  ) {
                         $ret .= "<IMG SRC='".IMAGE_HOST."/site_gfx/anonymous.jpg' ALIGN='LEFT'>";

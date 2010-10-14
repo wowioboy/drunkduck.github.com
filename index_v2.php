@@ -66,7 +66,7 @@ $(document).ready(function(){
         data = jQuery.parseJSON(data);
         $.each(data, function(){
           var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-          html += '<a href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
         });
         $('#<?php echo $filter; ?>-ajaxer').html(html);
       }
@@ -80,6 +80,11 @@ $(document).ready(function(){
   <?php endforeach; ?>
 });
 </script>
+<style type="text/css"> 
+.showcase {
+  margin:0 1px;
+}
+</style>
 <?php foreach ($filterArray as $filter) : ?>
 <div id="<?php echo $filter; ?>-filter" style="display:none;">
 <form id="<?php echo $filter; ?>-form" method="post" action="/ajax/homepage/<?php echo $filter; ?>.php">
@@ -179,17 +184,17 @@ $(document).ready(function(){
     <div id="ten-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Top Ten</span></div>
   </div>
   <div class="span-61">
-    <div class="span-61 green panel-body box-1">
+    <div class="span-61 green panel-body box-1 center">
       <div id="ten-holder">
         <div id="ten-ajaxer">
         <?php foreach ((array) $topTen as $comic) : ?>
           <?php 
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
-          <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
       </div>
-        <div id="ten-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
+        <div id="ten-description" class="span-62 rounded green left" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
       </div>
     </div>
   </div>
@@ -200,17 +205,17 @@ $(document).ready(function(){
   <div id="random-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Quail's Random</span></div>
 </div>
 <div class="span-61">
-  <div class="span-61 green panel-body box-1">
+  <div class="span-61 green panel-body box-1 center">
     <div id="random-holder">
       <div id="random-ajaxer">
       <?php foreach ((array) $random as $comic) : ?>
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
-      <div id="random-description" class="span-62 rounded green" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
+      <div id="random-description" class="span-62 rounded green left" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
     </div>
   </div>
 </div>
@@ -221,17 +226,17 @@ $(document).ready(function(){
   <div id="latest-filter-button" class="span-24 green panel-header"  style="height:25px;"><img src="/media/images/triangle.gif" /><span>Latest Updates</span></div>
 </div>
 <div class="span-61">
-  <div class="span-61 green panel-body box-1">
+  <div class="span-61 green panel-body box-1 center">
     <div id="latest-holder">
       <div id="latest-ajaxer">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
-      <div id="latest-description" class="span-62 rounded green" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
+      <div id="latest-description" class="span-62 rounded green left" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
     </div>
   </div>
 </div>
