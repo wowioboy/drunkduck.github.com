@@ -8,7 +8,7 @@ $query = "select c.comic_id as id, c.comic_name as title, c.description, c.ratin
 from comics c 
 inner join users u 
 on u.user_id = c.user_id
-order by visits desc 
+order by seven_day_visits desc 
 limit 10";
 $topTen = $db->fetchAll($query);
 $query = "select c.comic_id as id, c.comic_name as title, c.description, c.rating_symbol as rating, c.total_pages as pages, u.username as author 
@@ -50,7 +50,7 @@ $(document).ready(function(){
   		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span><br />' + description + '</div>';
   		$('#<?php echo $filter; ?>-description').html(html).slideDown();
   	});
-  	$('#<?php echo $filter; ?>-holder').mouseleave(function(){
+  	$('#<?php echo $filter; ?>-holder').parent().mouseleave(function(){
   		$('#<?php echo $filter; ?>-description').slideUp();
   	});
     $('#<?php echo $filter; ?>-filter-button').click(function(){
@@ -66,7 +66,7 @@ $(document).ready(function(){
         data = jQuery.parseJSON(data);
         $.each(data, function(){
           var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" width="54" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
         });
         $('#<?php echo $filter; ?>-ajaxer').html(html);
       }
@@ -82,7 +82,19 @@ $(document).ready(function(){
 </script>
 <style type="text/css"> 
 .showcase {
-  margin:0 1px;
+  margin:0 2px;
+  float:left;
+}
+.showcase img {
+  margin:0;
+  width:57px;
+}
+.description {
+  display:none;
+  z-index:5;
+  position:absolute;
+  top:75px;
+  left:0;
 }
 </style>
 <?php foreach ($filterArray as $filter) : ?>
@@ -191,10 +203,12 @@ $(document).ready(function(){
           <?php 
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
-          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
         <?php endforeach; ?>
       </div>
-        <div id="ten-description" class="span-62 rounded green left" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>   
+        <div style="position:relative;">
+          <div id="ten-description" class="span-62 rounded green left description"></div>   
+        </div>
       </div>
     </div>
   </div>
@@ -212,10 +226,12 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
-      <div id="random-description" class="span-62 rounded green left" style="display:none;position:absolute;z-index:1000;">asdfasdkfjasodfj</div>
+      <div style="position:relative;">
+        <div id="random-description" class="span-62 rounded green left description"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -233,10 +249,12 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" width="54" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
       <?php endforeach; ?>
       </div>
-      <div id="latest-description" class="span-62 rounded green left" style="display:none;z-index:1000;position:absolute;">asdfasdkfjasodfj</div>
+      <div style="position:relative;">
+        <div id="latest-description" class="span-62 rounded green left description"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -259,9 +277,8 @@ $(document).ready(function(){
     
     <div class="rounded center" style="padding:20px 0 20px 0;border:2px solid rgb(174,230,1);border-top:0;">
     <a href="/feedback.php"><img src="/media/images/badge-beta-feedback.png" /></a>
-    <a href="featured_v2.php"><img src="/media/images/badge-featured.png" /></a>
     <div style="height:30px;" class="span-16"></div>
-    <!-- <img src="/media/images/badge-ducktv.png" /> -->
+    <a href="featured_v2.php"><img src="/media/images/badge-featured.png" /></a>
     <div style="height:30px;" class="span-16"></div>
     <a href="http://www.twitter.com/drunkduck"><img src="/media/images/badge-twitter.png" /></a>
     <div style="height:30px;" class="span-16"></div>

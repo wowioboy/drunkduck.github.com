@@ -18,7 +18,7 @@ from comics c
 inner join users u 
 on u.user_id = c.user_id 
 $where 
-order by visits desc 
+order by seven_day_visits desc 
 limit 10";
 $topTen = DB::getInstance()->fetchAll($query);
 
