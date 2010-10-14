@@ -79,9 +79,6 @@ $(document).ready(function(){
 });
 </script>
 <style>
-tbody{
-
-    }
 tbody tr {
     
     background-color: white;    
@@ -116,7 +113,7 @@ thead tr, thead tr th{
 
 <div class="box-2" style="padding-top:120px">
     <div class="box-2 yellow rounded" >
-        <div class="drunk" style="font-size:3em;">Personal Quacks</div>
+        <div class="drunk" style="font-size:3em;">Favorites</div>
 
   <form id="favorites_form" method="post" action="/ajax/control_panel/favorites.php">
     <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
