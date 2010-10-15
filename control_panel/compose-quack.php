@@ -25,7 +25,21 @@ if ($message = $_POST['message']) {
 }
 
 ?>
-
+<style>
+.quack-input {
+  background-color:#fff;
+  border:0 !important;
+  color:#7fb7b6;
+  padding:10px;
+  font-weight:bold;
+}
+.nav {
+ float:left;
+ width:100px;
+ display:block;
+ margin:0 10px;
+}
+</style>
 
 <div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
      <div class="span-63 dark-green rounded header">
@@ -33,20 +47,21 @@ if ($message = $_POST['message']) {
     </div>
 </div>
 
-<div class="span-55 box-1 header-menu">
-<a class="button" href="/control_panel/account.php">account</a>
-<a class="button" href="/control_panel/profile.php">profile</a>
-<a class="button" href="/control_panel/favorites.php">favorites</a>
+<div class="span-61 box-1 header-menu">
+<a class="button nav" href="/control_panel/profile.php">public profile</a>
+<a class="button nav" href="/control_panel/account.php">account</a>
+<a class="button nav" href="/control_panel/favorites.php">favorites</a>
+<a class="button nav" href="/control_panel/quacks.php">personal quacks</a>
 </div>
-<div class="box-2" style="padding-top:120px">
+<div class="box-2" style="clear:both;">
     <div class="box-2 yellow rounded" >
         <div class="drunk" style="font-size:3em;">Personal Quacks</div>
 
 
 <div>
-<a class="button" href="/control_panel/quacks.php">Inbox</a>
-<a class="button" href="javascript:">Compose</a>
-<a class="button" href="/control_panel/quacks-outbox.php">Outbox</a>
+<a class="yellow-button teal-words" href="/control_panel/quacks.php">inbox</a>
+<a class="yellow-button" href="javascript:">compose new quack</a>
+<a class="yellow-button teal-words" href="/control_panel/quacks-outbox.php">sent</a>
 </div>
 <?php if ($sent) : ?>
 <script type="text/javascript">
@@ -56,28 +71,26 @@ $(document).ready(function(){
 </script>
 Your quack has been sent!
 <?php endif; ?>
-<form id="quack-form" method="post">
+<div style="position:relative;left:-8px;top:10px;clear:both;">
+<form id="quack-form" method="post" style="display:block;">
 <table width="100%">
   <tr>
-    <td style="text-align:right;width:50px;">to:</td>
-    <td><input style="width:100%;" type="text" name="to" value="<?php echo $to; ?>" /></td>
+    <td><input class="rounded quack-input" style="width:100%;" type="text" name="to" value="<?php echo ($to) ? $to : 'to'; ?>" onfocus="if(this.value=='to'){this.value=''}" onblur="if(this.value==''){this.value='to'}" /></td>
   </tr>
   <tr>
-    <td style="text-align:right;vertical-align:top;">subject:</td>
-    <td><input style="width:100%;" type="text" name="subject" value="<?php echo $subject; ?>" /></td>
+    <td><input class="rounded quack-input" style="width:100%;" type="text" name="subject" value="<?php echo ($subject) ? $subject : 'subject'; ?>" onfocus="if(this.value=='subject'){this.value=''}" onblur="if(this.value==''){this.value='subject'}" /></td>
   </tr>
   <tr>
-    <td style="vertical-align:top;text-align:right;">message:</td>
-    <td><textarea name="message" style="width:100%;"></textarea></td>
+    <td><textarea class="rounded quack-input" name="message" style="width:100%;" onfocus="if(this.value=='message'){this.value=''}" onblur="if(this.value==''){this.value='message'}">message</textarea></td>
   </tr>
   <tr>
-    <td></td>
     <td style="text-align:right;">
-      <input class="button" type="submit" value="send" />
+      <input style="position:relative;left:20px;top:-10px;" class="button" type="submit" value="send" />
     </td>
   </tr>
 </table>
 </form>
+</div>
 
 </div>
 </div>
