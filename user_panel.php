@@ -130,7 +130,7 @@
             
           <div class="drop-list rounded ">
             <div class="table fill">
-              <div class="cell">my favorites</div>
+              <div class="cell teal-words">my favorites</div>
               <div class="cell right">
               <img class="favorties" src="/media/images/triangle.gif" />
               </div>
@@ -152,7 +152,7 @@
           <div style="display:block;height:10px;"></div>
           <div class="drop-list rounded ">
             <div class="table fill">
-              <div class="cell">my webcomics</div>
+              <div class="cell teal-words">my webcomics</div>
               <div class="cell right">
               <img class="webcomics" src="/media/images/triangle.gif" />
               </div>

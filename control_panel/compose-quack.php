@@ -25,33 +25,16 @@ if ($message = $_POST['message']) {
 }
 
 ?>
-<style>
-.quack-input {
-  background-color:#fff;
-  border:0 !important;
-  color:#7fb7b6;
-  padding:10px;
-  font-weight:bold;
-}
-.nav {
- float:left;
- width:100px;
- display:block;
- margin:0 10px;
-}
-</style>
-
-<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-     <div class="span-63 dark-green rounded header">
+<div class="rounded canary span-63 box-1 pull-1" style="height:100px;clear:both;">
+  <div class="span-63 dark-green rounded header">
     <img src="/media/images/control-panel.png" />
-    </div>
-</div>
-
-<div class="span-61 box-1 header-menu">
-<a class="button nav" href="/control_panel/profile.php">public profile</a>
-<a class="button nav" href="/control_panel/account.php">account</a>
-<a class="button nav" href="/control_panel/favorites.php">favorites</a>
-<a class="button nav" href="/control_panel/quacks.php">personal quacks</a>
+  </div>
+  <div class="span-61 box-1 header-menu">
+    <a class="button nav" href="/control_panel/profile.php">public profile</a>
+    <a class="button nav" href="/control_panel/account.php">account</a>
+    <a class="button nav" href="/control_panel/favorites.php">favorites</a>
+    <a class="button nav" href="/control_panel/quacks.php">personal quacks</a>
+  </div>
 </div>
 <div class="box-2" style="clear:both;">
     <div class="box-2 yellow rounded" >

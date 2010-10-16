@@ -35,70 +35,73 @@ $(document).ready(function(){
   });
 });
 </script>
-<div class="rounded canary span-63 box-1 pull-1" style="clear:both;">
-    <div class="span-63 dark-green rounded header">
-        <img src="/media/images/control-panel.png" />
-    </div>
+<div class="rounded canary span-63 box-1 pull-1" style="height:100px;clear:both;">
+  <div class="span-63 dark-green rounded header">
+    <img src="/media/images/control-panel.png" />
+  </div>
+  <div class="span-61 box-1 header-menu">
+    <a class="button nav" href="/control_panel/profile.php">public profile</a>
+    <a class="button nav" href="/control_panel/account.php">account</a>
+    <a class="button nav" href="/control_panel/favorites.php">favorites</a>
+    <a class="button nav" href="/control_panel/quacks.php">personal quacks</a>
+  </div>
 </div>
 
-<div class="span-64 box-1 header-menu">
-<a class="rounded button" href="/control_panel/quacks.php">quacks</a>
-<a class="rounded button" href="/control_panel/favorites.php">favorites</a>
-<a class="rounded button" href="/control_panel/profile.php">profile</a>
-</div>
-
-<div class="box-2" style="padding-top:160px">
+<div class="box-2" style="clear:both">
     <div class="box-2 yellow rounded" >
 <div class="drunk" style="font-size:3em;">Account</div>
 
-<div>
-    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
-    <div class="drunk">
-        <div><?php echo $user['username']; ?></div>
-        <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>
-    </div>
-</div>
-
-<div>
-email
-<br />
+<table>
+  <tr>
+    <td>
+      <span class="drunk" style="font-size:2em;"><?php echo $USER->username; ?></span>
+      <br />
+      <span class="unread">member since <?php echo @$joined->format('F j, Y'); ?></span>
+    </td>
+    <td></td>
+  </tr>
 <form id="change-email" method="post" action="/ajax/control_panel/change_email.php">
 <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
-<input type="text" name="email" value="<?php echo $email; ?>" /> <input type="submit" class="teal button rounded" value="save email" />
+  <tr>
+    <td style="vertical-align:top;">
+    <div style="margin-bottom:10px;" class="unread">change email<div>
+<input class="quack-input" type="text" name="email" style="width:200px;" value="<?php echo $email; ?>" /> 
+    </td>
+    <td style="vertical-align:top;">
+<input type="submit" class="button" value="save email" />
+    </td>
+  </tr>
 </form>
-</div>
-
-<div style="height:10px;"></div>
-
-<div>
+  <tr>
+    <td style="vertical-align:top;">
+<div style="margin-bottom:10px;" class="unread">avatar (maximum 100x100 pixels)</div> 
+    <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $USER->user_id; ?>.<?php echo $USER->avatar_ext; ?>" />
+    </td>
+    <td style="vertical-align:top;">
 <form id="change-avatar" method="post" action="/ajax/control_panel/change_avatar.php">
-avatar (maximum 100x100 pixels) <input name="avatar" type="file" value="choose file" />
 <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
-<input type="submit" value="upload" />
+<input name="avatar" type="file" value="choose file" />
+<br />
+<br />
+<input class="button" type="submit" value="upload" />
 </form>
-</div>
-
-<div style="height:10px;"></div>
-
-<div>
+    </td>
+  </tr>
+  <tr>
   <form id="change-password" method="post" action="/ajax/control_panel/change_password.php">
     <input type="hidden" name="id" value="<?php echo $USER->user_id; ?>" />
-      <table>
-        <tr>
-          <td><input class="rounded" type="text" name="oldpass" value="old password" onclick="this.value=''" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input class="rounded" type="text" name="newpass" value="new password" onclick="this.value=''" /></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><input class="rounded" type="text" name="confirmpass" value="comfirm password" onclick="this.value=''" /></td>
-          <td><input type="submit" class="button" value="save password" /></td>
-        </tr>
-      </table>
+    <td style="vertical-align:top;">
+    <div style="margin-bottom:10px;" class="unread">change password<div>
+      <div style="margin-bottom:5px;"><input class="quack-input" type="text" name="oldpass" value="old password" onclick="this.value=''" /></div>
+      <div style="margin-bottom:5px;"><input class="quack-input" type="text" name="newpass" value="new password" onclick="this.value=''" /></div>
+      <div style="margin-bottom:5px;"><input class="quack-input" type="text" name="confirmpass" value="comfirm password" onclick="this.value=''" /></div>
+    </td>
+    <td style="vertical-align:top;">
+      <input type="submit" class="button" value="save password" />
+    </td>
   </form>
-</div>
+  </tr>
+</table>
 
 </div></div>
 
