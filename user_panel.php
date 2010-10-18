@@ -78,27 +78,27 @@
                });
             }
 
-            jQuery('img.favorties').click(function(){
+            jQuery('.favorites-clicker').click(function(){
               var favoritesDiv = jQuery('div.favorites');
               if (favoritesDiv.css('display') == 'none') {
-                jQuery(this).attr('src', '/media/images/triangle-down.gif');
+                jQuery('img.favorites').attr('src', '/media/images/triangle-down.gif');
                 getFavorites();
                   favoritesDiv.slideDown();
               } else { 
-                jQuery(this).attr('src', '/media/images/triangle.gif');
+                jQuery('img.favorites').attr('src', '/media/images/triangle.gif');
                 favoritesDiv.slideUp();
               }
             });
             
             
-            jQuery('img.webcomics').click(function(){
+            jQuery('.webcomics-clicker').click(function(){
               var webcomicsDiv = jQuery('div.webcomics');
               if (webcomicsDiv.css('display') == 'none') {
-                jQuery(this).attr('src', '/media/images/triangle-down.gif');
+                jQuery('img.webcomics').attr('src', '/media/images/triangle-down.gif');
                   getWebcomics();
                   webcomicsDiv.slideDown();
               } else { 
-                 jQuery(this).attr('src', '/media/images/triangle.gif');
+                 jQuery('img.webcomics').attr('src', '/media/images/triangle.gif');
                 webcomicsDiv.slideUp();
               }
             });
@@ -129,7 +129,7 @@
             <div style="clear:both;height:10px"></div>
             
           <div class="drop-list rounded ">
-            <div class="table fill">
+            <div class="table fill favorites-clicker" style="cursor:pointer;">
               <div class="cell teal-words">my favorites</div>
               <div class="cell right">
               <img class="favorties" src="/media/images/triangle.gif" />
@@ -151,7 +151,7 @@
           </div>
           <div style="display:block;height:10px;"></div>
           <div class="drop-list rounded ">
-            <div class="table fill">
+            <div class="table fill webcomics-clicker" style="cursor:pointer;">
               <div class="cell teal-words">my webcomics</div>
               <div class="cell right">
               <img class="webcomics" src="/media/images/triangle.gif" />

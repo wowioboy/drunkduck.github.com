@@ -100,7 +100,9 @@ $(document).ready(function(){
                     '</div>' + 
                     '</div>' + 
                     '</div>' + 
+                    '<div class="right">' + 
                     '<span style="color:#fff;">Added: ' + this.date + '</span>' + 
+                    '</div>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
@@ -216,8 +218,9 @@ $(document).ready(function(){
       </div>
       </div>
     </div>
+          <div class="right">
       <span style="color:#fff;">Added: <?php echo $date->format('M j Y'); ?></span>
-   <!-- <span style="color:#fff;"><?php echo $comic['likes']; ?> people like this comic</span> -->
+      </div>
     </div>
     <div style="height:10px;"></div>
     <?php else: ?>

@@ -193,7 +193,16 @@ $(document).ready(function(){
 <div class="span-62 box-1 pull-1 canary rounded">
 
   <div class="span-61">
-    <div id="ten-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Top Ten</span></div>
+    <div class="span-24 green panel-header" style="height:25px;">
+    <div class="table fill">
+      <div class="cell" style="width:100%;">
+        <span>Top Ten</span>
+      </div>
+      <div class="cell right">
+        <a id="ten-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1 center">
@@ -216,7 +225,16 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div id="random-filter-button" class="span-24 green panel-header" style="height:25px;"><img src="/media/images/triangle.gif" /><span>Quail's Random</span></div>
+  <div class="span-24 green panel-header" style="height:25px;">
+    <div class="table fill">
+      <div class="cell" style="width:100%;">
+        <span>Quail's Random</span>
+      </div>
+      <div class="cell right">
+        <a id="random-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1 center">
@@ -239,7 +257,16 @@ $(document).ready(function(){
 <div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div id="latest-filter-button" class="span-24 green panel-header"  style="height:25px;"><img src="/media/images/triangle.gif" /><span>Latest Updates</span></div>
+  <div class="span-24 green panel-header" style="height:25px;">
+    <div class="table fill">
+      <div class="cell" style="width:100px;">
+        <span>Latest Updates</span>
+      </div>
+      <div class="cell right">
+        <a id="latest-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
 </div>
 <div class="span-61">
   <div class="span-61 green panel-body box-1 center">
