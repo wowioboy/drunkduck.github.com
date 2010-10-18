@@ -171,7 +171,6 @@ $(document).ready(function(){
             <div class="span-63 dark-green rounded header">
             <img src="/media/images/featured.png" />
             </div>
-        </div>
 <div class="span-64 box-1 header-menu">
   <button class="featured_button rounded left button" direction="prev">previous</button>
   <select class="button rounded featureMonth" style="border:none;">
@@ -187,6 +186,7 @@ $(document).ready(function(){
     <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
+        </div>
 <div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
   <?php foreach ($featured as $comic) : ?>
   <?php 
@@ -235,7 +235,7 @@ $(document).ready(function(){
     </a>
   <?php endforeach; ?>
 </div>
-<div class="span-64 box-1 header-menu">
+<div class="span-64 box-1">
   <button class="featured_button rounded left button" direction="prev">previous</button>
   <select class="button rounded featureMonth" style="border:none;">
     <option value="">Select Month</option>

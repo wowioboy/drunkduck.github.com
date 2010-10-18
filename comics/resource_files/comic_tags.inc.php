@@ -47,8 +47,8 @@ function showTags() {
   jQuery('#tagArea').focus();
 }
 </script>
-
-<div align="center" style="width:100%">
+<?php /*
+<!-- <div align="center" style="width:100%">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
       <td style="background-color:cecfce;background-image:url(<?=IMAGE_HOST_SITE_GFX?>/tags/share_bg.gif);background-repeat:repeat-x;background-position:top left;"><img src="<?=IMAGE_HOST_SITE_GFX?>/tags/share_tools2.gif" width="405" height="32" border="0" usemap="#Share" />
@@ -74,8 +74,8 @@ function showTags() {
     <area shape="rect" coords="215,3,236,24" href="http://ma.gnolia.com/bookmarklet/add?url=http://<?=DOMAIN.$_SERVER['PHP_SELF']?>?p=<?=$PAGE_ROW->page_id?>" target="_blank" alt="Add this comic to Ma.gnolia!" title="Add this comic to Ma.gnolia!" />
     <area shape="rect" coords="0,0,210,30" href="#" target="_blank" alt="E-mail this comic to a friend!" title="E-mail this comic to a friend!" onClick="window.open('http://<?=DOMAIN?>/tell_a_friend.php?cid=<?=$COMIC_ROW->comic_id?>&pid=<?=$PAGE_ROW->page_id?>', 'tell_a_friend', 'toolbar=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=442,width=500');return false;"/>
   </map>
-  <div name="tag_div" id="tag_div"></div>
-</div>
+  <div name="tag_div" id="tag_div"></div> 
+</div>  --> */ ?>
 <?
 
 $ret = str_replace("\n", "", ob_get_clean());

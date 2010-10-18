@@ -7,7 +7,7 @@ from admin_blog b
 left join users u 
 on u.user_id = b.user_id 
 order by b.timestamp_date desc 
-limit 5";
+limit 10";
 $news = $db->fetchAll($query);
 $query = "select count(1) from admin_blog";
 $newsCount = $db->fetchOne($query);
@@ -45,7 +45,6 @@ $(document).ready(function(){
   
   function getNews() 
   {
-  //$.fancybox.showActivity();
     $.getJSON('/ajax/news.php', {offset: pager, search: search, month: month}, function(data){
           var i = 0;
           var html = '';
@@ -66,7 +65,6 @@ $(document).ready(function(){
         });
           }
         $('#news_holder').html(html);
-      //  $.fancybox.hideActivity();
       });
   }
   
@@ -86,13 +84,13 @@ $(document).ready(function(){
     var valid = false;
     var dir = $(this).attr('direction');
     if (dir == 'next') {
-      if (pager < pager_max - 5) {
-        pager += 5;
+      if (pager < pager_max - 10) {
+        pager += 10;
         valid = true;
       }
     } else {
       if (pager > 0) {
-        pager -= 5;  
+        pager -= 10;  
         valid = true;
       }
     }
@@ -118,7 +116,6 @@ $(document).ready(function(){
             <div class="span-63 dark-green rounded header">
             <img src="/media/images/news.png" />
             </div>
-        </div>
 <div class="span-64 box-1 header-menu">
   <button class="news_button rounded left button" direction="prev">previous</button>
   <select class="button rounded newsMonth" style="border:none;">
@@ -131,6 +128,7 @@ $(document).ready(function(){
     <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
 </div>
+        </div>
 <div id="news_holder" class="span-62 box-1">
   <?php foreach ($news as $i => $entry) : ?>
     <?php
@@ -148,7 +146,7 @@ $(document).ready(function(){
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
-<div class="span-64 box-1 header-menu">
+<div class="span-64 box-1">
   <button class="news_button rounded left button" direction="prev">previous</button>
   <select class="button rounded newsMonth" style="border:none;">
     <option value="">select month</option>

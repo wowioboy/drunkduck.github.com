@@ -18,7 +18,7 @@ inner join users u
 on u.user_id = b.user_id 
 $where
 order by b.timestamp_date desc 
-limit $offset, 5";
+limit $offset, 10";
 $news = DB::getInstance()->fetchAll($query);
 foreach ($news as &$item) {
     $item['body'] = stripslashes(bbcode2html($item['body']));
