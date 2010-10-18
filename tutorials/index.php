@@ -117,7 +117,6 @@ $(document).ready(function(){
             <div class="span-63 green rounded header">
             <img src="/media/images/tutorials.png" />
             </div>
-        </div>
 <div class="span-64 box-1 header-menu">
   <button class="featured_button left button" direction="prev">previous</button>
   <select class="button featureMonth" style="border:none;">
@@ -130,7 +129,8 @@ $(document).ready(function(){
   <button class="featured_button right button" direction="next">next</button>
   <a href="/tutorials/create.php" class="button">create tutorial</a>
 </div>
-<div class="span-60 box-2" style="position:relative;top:-40px;">
+        </div>
+<div class="span-60 box-2">
     <div class="cell center" style="width:400px;">
     <div class="green top-rounded header" style="font-size:24px;padding:0px;margin-left:auto;width:200px;text-transform:none;">
     Featured!
@@ -161,7 +161,7 @@ $(document).ready(function(){
     </div>
     
 </div>
-<div id="featured_holder" class="span-62 box-1" style="position:relative;top:-40px;">
+<div id="featured_holder" class="span-62 box-1">
   <?php foreach ($featured as $comic) : ?>
    <?php
    $date = new DateTime($comic['timestamp']);
@@ -190,7 +190,7 @@ $(document).ready(function(){
     </a>
   <?php endforeach; ?>
 </div>
-<div class="span-64 box-1 header-menu" style="position:relative;top:-40px;">
+<div class="span-64 box-1">
   <button class="featured_button left button" direction="prev">previous</button>
   <select class="button featureMonth" style="border:none;">
     <option value="">Select Month</option>
