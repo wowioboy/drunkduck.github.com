@@ -195,7 +195,7 @@ pw_d.projectwonderful_background_color = "";
                     <div class="vert_spacer">&nbsp;</div>
 
                    <!-- <a href="http://www.wowio.com/" target="_blank"><img src="http://www.wevolt.com/WEVOLT/ads/wowio_banner_300x250.jpg" border="0" /></a> -->
-                   <a href="http://www.facebook.com/wowio?v=app_107611949261673"><img style="border:none;" src="/images/DD-Sherlock-rect.jpg" /></a>
+                   <a href="http://www.facebook.com/wowio?v=app_107611949261673"><img style="border:none;" src="/media/DD-Clockwork-Girl-rect.jpg" /></a>
 <!--                   <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="300" height="250" id="utv592276" name="utv_n_481179">-->
 <!--                     <param name="flashvars" value="beginPercent=0.0000&amp;endPercent=0.9869&amp;autoplay=false&locale=en_US" />-->
 <!--                     <param name="allowfullscreen" value="true" />-->
