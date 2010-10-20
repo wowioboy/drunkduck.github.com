@@ -60,15 +60,6 @@ border:5px solid rgb(69,180,185);
 <!-- CYCLE (JQUERY) -->
 <script type="text/javascript" src="/js/jquery/cycle/jquery.cycle.all.js"></script>
 
-<!-- SELECT MENU (JQUERY, JQUERY UI) -->
-<link href="/css/jquery/ui.selectmenu.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/js/jquery/ui.selectmenu.js"></script>
-
-<!-- FANCY BOX (JQUERY) --> 
-<link type="text/css" rel="stylesheet" href="/js/jquery/fancybox/jquery.fancybox-1.3.1.css" />
-<script type="text/javascript" src="/js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-
-
 <!-- HTML AREA (JQUERY, JQUERY UI) -->
 <link rel="Stylesheet" type="text/css" href="/js/jquery/jhtmlarea/jHtmlArea.css" />
 <script type="text/javascript" src="/js/jquery/jhtmlarea/jHtmlArea-0.7.0.min.js"></script>

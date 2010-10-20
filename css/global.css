@@ -146,9 +146,7 @@ border-bottom-left-radius: 0px;
   font-family: helvetica;
   font-weight: bold;
   padding-left:10px;
-  padding-top:2px;
-  background: url('/media/images/triangle-bullet.gif') no-repeat 6% 175%;
-  
+  padding-top:2px;  
 }
 .panel-header {
     margin-bottom:-10px;

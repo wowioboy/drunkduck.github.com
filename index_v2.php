@@ -212,7 +212,7 @@ $(document).ready(function(){
           <?php 
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
-          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
         <?php endforeach; ?>
       </div>
         <div style="position:relative;">
@@ -244,7 +244,7 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">
@@ -276,7 +276,7 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo $comic['description']; ?>" author="<?php echo $comic['author']; ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">

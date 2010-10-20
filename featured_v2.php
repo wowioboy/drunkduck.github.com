@@ -106,11 +106,7 @@ $(document).ready(function(){
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
-            var attributes = '';
-            $.each(this, function(key, value) {
-              attributes += ' ' + key + '="' + value + '" ';
-            });            
-            html += '<div class="rounded grid-panel" ' + attributes + '>' + 
+            html += '<div class="rounded grid-panel" title="<span class=\'drunk\'>' + this.title + '</span><br /><span class=\'teal-words\'>' + this.description + '</span>">' + 
                     '<div>' + 
                     '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
                     '</div>' + 
@@ -122,6 +118,9 @@ $(document).ready(function(){
         });
           }
         $('#featured_holder').html(html);
+        $('*[title]').tooltip({
+    position: "bottom center"
+  });
       });
   }
   
@@ -185,7 +184,7 @@ $(document).ready(function(){
   <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
   <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
   </form>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" />
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
         </div>
@@ -229,7 +228,7 @@ $(document).ready(function(){
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>"  title="<?php echo $comic['title'] . '<br />' . $comic['description']; ?>" />
+        <img src="<?php echo $path; ?>"  title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span><br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>"; ?>" />
       </div>
       <br />
       <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>
@@ -250,7 +249,7 @@ $(document).ready(function(){
   <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
   <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
   </form>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" />
+    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
   <button class="featured_button rounded right button" direction="next">next</button>
 </div>
 
