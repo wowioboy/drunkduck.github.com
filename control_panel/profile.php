@@ -141,10 +141,10 @@ $(document).ready(function(){
 </div>
 </div>    
 
-<div style="height:20px;"></div>
+<div style="height:20px;clear:both;"></div>
 
 <?php if ($pubLinks) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">PUBLISHER LINKS</div>
 <?php foreach ((array) $pubLinks as $link) : ?>
 <a href="<?php echo $link['url']; ?>"><?php echo $link['name']; ?></a>
@@ -158,7 +158,7 @@ $(document).ready(function(){
 <?php endif; ?>
 
 <?php if ($trophies) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">TROPHIES</div>
 <?php foreach ((array) $trophies as $trophy) : ?>
 <?php 
@@ -171,7 +171,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php endif; ?>
 
 <?php if ($scores) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">HIGH SCORES</div>
 <?php foreach ((array) $scores as $score) : ?>
 <div style="display:inline-block;">
@@ -187,7 +187,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php endif; ?>
 
 <?php if ($topics) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">FORUM TOPICS</div>
 <?php foreach ((array) $topics as $topic) : ?>
 <a href="/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
@@ -198,7 +198,7 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <?php endif; ?>
 
 <?php if ($comics) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">COMICS CREATED</div>
 <?php foreach ((array) $comics as $comic) : ?>
 <?php 
@@ -211,7 +211,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endif; ?>
 
 <?php if ($assisted) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">COMICS ASSISTED</div>
 <?php foreach ((array) $assisted as $comic) : ?>
 <?php 
@@ -224,7 +224,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endif; ?>
 
 <?php if ($friends) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">FRIENDS</div>
 <?php foreach ((array) $friends as $friend) : ?>
 <a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
@@ -234,7 +234,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endif; ?>
 
 <?php if ($recommended) : ?>
-<div>
+<div style="clear:both;">
 <div class="drunk">COMICS RECOMMENDED</div>
 <?php foreach ((array) $recommended as $comic) : ?>
 <?php 
