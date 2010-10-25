@@ -106,9 +106,9 @@ $(document).ready(function(){
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
           <?php else: ?>
-            html += '<div class="rounded grid-panel" title="<span class=\'drunk\'>' + this.title + '</span><br /><span class=\'teal-words\'>' + this.description + '</span>">' + 
+            html += '<div class="rounded grid-panel">' + 
                     '<div>' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
+                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" title="<span class=\'drunk\'>' + this.title + '</span><br /><span class=\'teal-words\'>' + this.description + '</span><img src=\'/media/images/tooltip-point.png\' />" />' + 
                     '</div>' + 
                     '<br />' + 
                    '<span style="color:#fff;">' + this.date + '</span>' + 
@@ -228,7 +228,7 @@ $(document).ready(function(){
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>"  title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span><br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>"; ?>" />
+        <img src="<?php echo $path; ?>"  title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span><br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>" . '<img src=\'/media/images/tooltip-point.png\' />'; ?>" />
       </div>
       <br />
       <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>

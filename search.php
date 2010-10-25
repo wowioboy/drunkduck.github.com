@@ -84,9 +84,9 @@ $(document).ready(function() {
       if (data.featured) {
         $.each(data.featured, function(){
             html += '<a href="/' + this.title.replace(/ /g, '_') + '/">' + 
-                    '<div class="rounded grid-panel" title="<span class=\'drunk\'>' + this.title + '</span> by ' + this.author + '<br /><span class=\'teal-words\'>' + this.description + '</span>">' + 
+                    '<div class="rounded grid-panel">' + 
                     '<div>' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
+                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" width="80" height="100" title="<span class=\'drunk\'>' + this.title + '</span> by ' + this.author + '<br /><span class=\'teal-words\'>' + this.description + '</span><img src=\'/media/images/tooltip-point.png\' />" />' + 
                     '</div>' + 
                     '<br />' + 
                     '<span style="color:#fff;">' + this.date + '</span>' + 
@@ -325,12 +325,12 @@ $(document).ready(function() {
   $date = new DateTime($comic['date']);
   ?>
     <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
-    <div class="rounded grid-panel" title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span> by " . $comic['author'] . "<br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>"; ?>">
+    <div class="rounded grid-panel">
       <div>
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>" width="80" height="100" />
+        <img src="<?php echo $path; ?>" width="80" height="100" title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span> by " . $comic['author'] . "<br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>" . '<img src=\'/media/images/tooltip-point.png\' />'; ?>" />
       </div>
       <br />
       <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>

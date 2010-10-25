@@ -14,7 +14,7 @@
             <!-- menu -->
             <a href="/search.php">comics</a>
             <a href="/account/overview/add_comic.php">create</a>
-            <a href="/news_v2.php">news</a>
+            <a href="/news.php">news</a>
             <a href="/tutorials/">tutorials</a>
             <!--<a href="#">videos</a>-->
             <a href="/community">forums</a>

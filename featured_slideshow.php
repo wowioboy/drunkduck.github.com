@@ -45,7 +45,7 @@ $(document).ready(function(){
       if (nextAvailable) {
         $('#slideshow').cycle('next');
       } else {
-        window.location = '/featured_v2.php';
+        window.location = '/featured.php';
       }
     });
     $('#feature_prev_button').click(function(){
@@ -77,7 +77,7 @@ $(document).ready(function(){
         <?php if ($i % 8 == 1) : ?>
           <div <?php echo ($i > 1) ? 'style="display:none;"' : ''; ?>>
         <?php endif; ?>  
-        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/" style="float:left;"><img title="<?php echo '<span class=\'drunk\'>' . htmlspecialchars($comic['title']) . '</span><br /><span class=\'teal-words\'>' . htmlspecialchars($comic['description']) . '</span>'; ?>" src="<?php echo $path; ?>" width="105" height="131" /></a>
+        <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/" style="float:left;"><img title="<?php echo '<span class=\'drunk\'>' . htmlspecialchars($comic['title']) . '</span><br /><span class=\'teal-words\'>' . htmlspecialchars($comic['description']) . '</span>' . '<img src=\'/media/images/tooltip-point.png\' />'; ?>" src="<?php echo $path; ?>" width="105" height="131" /></a>
         <?php if ($i % 8 == 0) : ?>
           </div>
         <?php endif; ?>

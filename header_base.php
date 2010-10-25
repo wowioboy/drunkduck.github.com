@@ -46,6 +46,14 @@ border-radius: 10px;
 border:5px solid rgb(69,180,185);
   padding:10px;
  }
+ 
+ .tooltip img {
+  position:absolute;
+  top:-14px;
+  margin-left:50%;
+  left:-12px;
+  
+ }
 </style>
 <!-- JQUERY -->
 <script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
