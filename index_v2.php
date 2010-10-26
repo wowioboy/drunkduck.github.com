@@ -94,7 +94,7 @@ $(document).ready(function(){
   z-index:5;
   position:absolute;
   top:75px;
-  left:0;
+  left:-10px;
 }
 </style>
 <?php foreach ($filterArray as $filter) : ?>
@@ -216,7 +216,7 @@ $(document).ready(function(){
         <?php endforeach; ?>
       </div>
         <div style="position:relative;">
-          <div id="ten-description" class="span-62 rounded green left description"></div>   
+          <div id="ten-description" class="span-63 bottom-rounded green left description"></div>   
         </div>
       </div>
     </div>
@@ -248,7 +248,7 @@ $(document).ready(function(){
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">
-        <div id="random-description" class="span-62 rounded green left description"></div>
+        <div id="random-description" class="span-63 bottom-rounded green left description"></div>
       </div>
     </div>
   </div>
@@ -280,7 +280,7 @@ $(document).ready(function(){
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">
-        <div id="latest-description" class="span-62 rounded green left description"></div>
+        <div id="latest-description" class="span-63 bottom-rounded green left description"></div>
       </div>
     </div>
   </div>

@@ -122,9 +122,11 @@ $(document).ready(function() {
     }
   });
   
+  
+  
   $('#submitButton').click(function(){
     pager = 0;
-    $('#funktropic').submit();
+    return true;
   });
   
   $('#select-button').click(function(){
@@ -159,7 +161,7 @@ $(document).ready(function() {
   </select> */ ?>
   <div class="table fill" style="margin-bottom:10px;">
     <div class="cell center">
- <input type="text" name="search" style="color:#fff;" class="button featured_search" value="<?php echo $searchText; ?>"/>
+ <input type="text" name="search" style="color:#fff;" class="button featured_search" value="<?php echo $searchText; ?>"/>&nbsp;&nbsp;<input type="submit" id="submitButton" class="button" style="min-width:0;" value="Go!" />
     </div>
   </div>
   <div class="button span-59">
@@ -279,13 +281,13 @@ $(document).ready(function() {
       <td style="vertical-align:top;">
         last update
         <br />
-        <input name="update" value="any" type="radio" class="check" checked />&nbsp;any
+        <input name="update" value="any" type="radio" checked />&nbsp;any
         <br />
-        <input name="update" value="today" type="radio" class="check" />&nbsp;today
+        <input name="update" value="today" type="radio" />&nbsp;today
         <br />
-        <input name="update"  value="week" type="radio" class="check" />&nbsp;last week
+        <input name="update"  value="week" type="radio" />&nbsp;last week
         <br />
-        <input name="update"  value="month" type="radio" class="check" />&nbsp;last month
+        <input name="update"  value="month" type="radio" />&nbsp;last month
       </td>
       <td style="vertical-align:top;">
         pages/strips
@@ -308,7 +310,6 @@ $(document).ready(function() {
    <div class="cell center">
     <input type="button" id="select-button" class="rounded teal-words" style="background-color:#fff;border:0;" value="select all" />&nbsp;&nbsp;
     <input type="button" id="unselect-button" class="rounded teal-words" style="background-color:#fff;border:0;" value="unselect all" />&nbsp;&nbsp;
-    <input type="button" id="submitButton" class="rounded teal-words" style="background-color:#fff;border:0;" value="Go!" />
    </div>
  </div>
   </div>

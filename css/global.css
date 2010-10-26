@@ -80,6 +80,21 @@ border-bottom-right-radius: 0px;
 border-bottom-left-radius: 0px;
 }
 
+.bottom-rounded {
+-webkit-border-top-left-radius: 0px;
+-webkit-border-top-right-radius: 0px;
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-topleft: 0px;
+-moz-border-radius-topright: 0px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
 /* TABLE STUFF */
 .table {
   display:table;
@@ -248,7 +263,7 @@ border-bottom-left-radius: 0px;
     font-weight:bold;
     font-size:10px;
     padding:5px 15px 5px 15px;
-    min-width:100px;
+   /* min-width:100px; */
     border:none;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
