@@ -70,7 +70,7 @@ $query = "select c.comic_id as id, c.comic_name as title, u.username as author, 
           $where
           order by $sortCol $sortDir 
           limit $offset, $limit";
-$featured = DB::getInstance()->fetchAll($query);
+$featured = (array) DB::getInstance()->fetchAll($query);
 foreach ($featured as &$feature) {
   $date = new DateTime($feature['date']);
   $feature['date'] = $date->format('M j Y');
