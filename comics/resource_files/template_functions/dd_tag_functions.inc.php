@@ -706,7 +706,7 @@ function displayComments( $arg )
       }
 
       $ret .= "<P $DIMENSIONS>
-                <TABLE BORDER='0' CELLPADDING='0' CELLSPACING='0' WIDTH='100%' HEIGHT='100%'>
+                <TABLE BORDER='0' CELLPADDING='0' CELLSPACING='0' WIDTH='500px' HEIGHT='100%'>
                   <TR>
                     <TD ALIGN='LEFT' WIDTH='50%'>
                       User: ".$username."
