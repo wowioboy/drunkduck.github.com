@@ -64,7 +64,6 @@ $(document).ready(function(){
   
   function getQuacks() 
   {
-    $.fancybox.showActivity();
     $.getJSON('/ajax/control_panel/quacks-get.php', {offset: pager, view: '<?php echo $quacks_view; ?>', username: '<?php echo $USER->username; ?>'}, function(data){
       var i = 0;
       var html = '';
@@ -86,7 +85,6 @@ $(document).ready(function(){
         html += '<tr sytle="padding:0;height:10px;"><td colspan="5" style="padding:0;-moz-border-radius:0 0 10px 10px;border-radius:0 0 10px 10px;height:10px;"></td></tr>';
       }
       $('#quack_holder').html(html);
-      $.fancybox.hideActivity();
     });
   }
   
@@ -111,13 +109,11 @@ $(document).ready(function(){
     if (deletes.length) {
     var ans = confirm('are you sure you want to delete these messages?');
     if (ans) {
-    $.fancybox.showActivity();
       $.post('/ajax/control_panel/quacks-delete.php', {username: '<?php echo $USER->username; ?>', quacks: deletes}, function(data){
         $.each(deletes, function(k, v) {
           $('tr[quack=' + v + ']').fadeOut();
         });
       });
-    $.fancybox.hideActivity();
     }
     }
   });
@@ -205,7 +201,7 @@ $(document).ready(function(){
       <td colspan="5">
       <?php echo $quack['message']; ?>
       <br />
-      <a class="button" href="/control_panel/compose-quack.php?to=<?php echo $from; ?>&subject=RE: <?php echo $quack['subject']; ?>">reply</a>
+      <a class="button" href="/control_panel/compose-quack.php?to=<?php echo $quack['from']; ?>&subject=RE: <?php echo $quack['subject']; ?>">reply</a>
       </td>
     </tr>
     <?php endforeach; ?>

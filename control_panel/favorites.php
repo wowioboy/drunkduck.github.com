@@ -71,10 +71,8 @@ $(document).ready(function(){
         }
       }
       return true;
-      $.fancybox.showActivity();
     },
     success: function(data) {
-      $.fancybox.hideActivity();
       if (data) {
         data = $.parseJSON(data);
         $.each(data, function(k, v){

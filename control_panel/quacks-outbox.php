@@ -63,7 +63,6 @@ $(document).ready(function(){
   
   function getQuacks() 
   {
-    $.fancybox.showActivity();
     $.getJSON('/ajax/control_panel/quacks-get.php', {offset: pager, view: '<?php echo $quacks_view; ?>', username: '<?php echo $USER->username; ?>'}, function(data){
       var i = 0;
       var html = '';
@@ -85,7 +84,6 @@ $(document).ready(function(){
         html += '<tr sytle="padding:0;height:10px;"><td colspan="5" style="padding:0;-moz-border-radius:0 0 10px 10px;border-radius:0 0 10px 10px;height:10px;"></td></tr>';
       }
       $('#quack_holder').html(html);
-      $.fancybox.hideActivity();
     });
   }
   
@@ -109,13 +107,11 @@ $(document).ready(function(){
     if (deletes.length) {
     var ans = confirm('are you sure you want to delete these messages?');
     if (ans) {
-    $.fancybox.showActivity();
       $.post('/ajax/control_panel/quacks-delete.php', {username: '<?php echo $USER->username; ?>', quacks: deletes}, function(data){
         $.each(deletes, function(k, v) {
           $('tr[quack=' + v + ']').fadeOut();
         });
       });
-    $.fancybox.hideActivity();
     }
     }
   });
@@ -178,7 +174,7 @@ $(document).ready(function(){
 <?php foreach ((array) $quacks as $quack) : ?>
 <tr quack="<?php echo $quack['id']; ?>" class="<?php echo $quack['status']; ?>">
   <td><input type="checkbox" class="quack-check" name="quack" value="<?php echo $quack['id']; ?>" /></td>
-  <td><?php echo $quack['from']; ?></td>
+  <td><?php echo $quack['to']; ?></td>
   <td><a class="toggle-quack-message" quack="<?php echo $quack['id']; ?>" href="javascript:"><?php echo $quack['subject']; ?></a></td>
   <td><?php echo $quack['recieved']; ?></td>
   <td class="quack-status" quack="<?php echo $quack['id']; ?>"><?php echo $quack['status']; ?></td>
