@@ -66,7 +66,7 @@ $(document).ready(function(){
         data = jQuery.parseJSON(data);
         $.each(data, function(){
           var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '/"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
         });
         $('#<?php echo $filter; ?>-ajaxer').html(html);
       }
