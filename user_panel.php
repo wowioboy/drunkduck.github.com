@@ -21,10 +21,10 @@
             var quackCount = <?php echo $quackCount; ?>;
 
             function checkQuacks() {
-              $.get('/ajax/quack-check.php', {username:'<?php echo $USER->username; ?>'}, function(data){
+              jQuery.get('/ajax/quack-check.php', {username:'<?php echo $USER->username; ?>'}, function(data){
                 if (data > quackCount) {
                   quackCount = data;
-                  $('#quack_count_holder').html('(' + data + ')');
+                  jQuery('#quack_count_holder').html('(' + data + ')');
                   alert('you have a new quack!');
                 }
               });
