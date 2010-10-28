@@ -1,24 +1,29 @@
 <?php require_once('../header_base.php'); ?>
+<?php require_once('../bbcode.php'); ?>
 <?php require_once('../includes/user_maintenance/trophies/trophy_data.inc.php'); ?>
 
 <?php
-if (!$username = $_REQUEST['username']) {
-      if (!$USER) {
-        header('Location: /login.php');
-        die('please log in to use this page!');
-      }
-  $username = $USER->username; 
+if (!$username = $_GET['username']) {
+  if (!$username = $USER->username) {
+    header('Location: /login.php');
+    die('please log in to use this page!');
+  }
+}
+if (strtolower($username) == strtolower($USER->username)) {
+  $owner = true;  
 }
 
-
+if ($edit = $_GET['edit']) {
+  if (!$owner && !($USER->flags & 8)) {
+    $edit = false;
+  }
+} else if ($owner || ($USER->flags & 8)) {
+  $editable = true;
+}
   
 $query = "select user_id, username, from_unixtime(signed_up) as signed_up, trophy_string, about_self as about, avatar_ext
           from users where username = '$username'";
 $user = DB::getInstance()->fetchRow($query);
-
-if ($user['user_id'] == $USER->user_id) {
-  $profileOwner = true;
-}
 
 if ($comment = $_REQUEST['comment']) {
   $time = time();
@@ -84,7 +89,7 @@ $query = "select g.game_id as id, g.title, h.highscore as score
           order by h.highscore desc";
 $scores = $gamesDb->fetchAll($query);
 ?>
-<?php if ($profileOwner) : ?>
+<?php if ($edit) : ?>
 <script type="text/javascript">
 $(document).ready(function(){
   $('#boomgong').htmlarea();
@@ -100,6 +105,8 @@ $(document).ready(function(){
   background-color:#fff;
 }
 </style>
+<?php endif; ?>
+<?php if ($owner) : ?>
 <div class="rounded canary span-63 box-1 pull-1" style="height:100px;clear:both;">
   <div class="span-63 dark-green rounded header">
     <img src="/media/images/control-panel.png" />
@@ -112,13 +119,16 @@ $(document).ready(function(){
   </div>
 </div>
 <?php endif; ?>
-
 <div class="box-2" style="clear:both;">
     <div class="box-2 yellow rounded" >
-<div class="drunk" style="font-size:3em;">Public Profile</div>
+    <div class="drunk" style="font-size:3em;">Public Profile</div>
 
 <div class="span-16">
     <img src="http://drunkduck.com/gfx/avatars/avatar_<?php echo $user['user_id']; ?>.<?php echo $user['avatar_ext']; ?>" />
+<?php if ($editable) : ?>
+    <br />
+<a class="button" href="?username=<?php echo $username; ?>&edit=1" target="_blank">EDIT</a>
+<?php endif; ?>
     <div class="drunk">
         <div><?php echo $user['username']; ?></div>
         <span style="font-size:0.8em;">member since <?php echo @$joined->format('F j, Y'); ?></span>
@@ -126,9 +136,9 @@ $(document).ready(function(){
 </div>
 <div class="span-40">
 <div class="box-1">
-<?php if ($profileOwner) : ?>
+<?php if ($edit) : ?>
 <form id="edit-profile-about-form" method="post" action="/ajax/control_panel/change-about.php">
-<input type="hidden" name="user_id" value="<?php echo $USER->user_id; ?>" />
+<input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>" />
 <div>
 <textarea id="boomgong" name="about_self" style="background-color:#fff;"><?php echo bbcode2html($user['about']); ?></textarea>
 </div>
@@ -224,13 +234,19 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endif; ?>
 
 <?php if ($friends) : ?>
-<div style="clear:both;">
-<div class="drunk">FRIENDS</div>
-<?php foreach ((array) $friends as $friend) : ?>
-<a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
-<?php endforeach; ?>
-</div>
-<div style="height:20px;"></div>
+  <div style="clear:both;">
+    <div class="drunk">FRIENDS</div>
+    <div id="friends_holder">
+      <?php foreach ((array) $friends as $i => $friend) : ?>
+        <a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
+      <?php endforeach; ?>
+    </div>
+    <div class="table fill">
+      <div class="cell"><button>previous</button></div>
+      <div class="cell right"><button>next</button></div>
+    </div>
+  </div>
+  <div style="height:20px;"></div>
 <?php endif; ?>
 
 <?php if ($recommended) : ?>
@@ -265,7 +281,7 @@ COMMENTS LEFT
   <?php echo $comment['username']; ?>
 </a>
 <br />
-<?php echo $comment['comment']; ?>
+<?php echo bbcode2html($comment['comment']); ?>
 <br />
 <br />
 <?php endforeach; ?>
