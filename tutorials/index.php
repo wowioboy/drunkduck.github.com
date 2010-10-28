@@ -48,26 +48,19 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.featured) {
         $.each(data.featured, function(){
-          html += '<a href="/tutorials/view.php?id=' + this.id + '">';
-            html += '<div class="post green rounded box-1">' + 
+          html +=   '<div class="post green rounded box-1">' + 
                     '<div class="white rounded box-1" style="background-color:#FFF">' + 
-                    '<div class="table fill">' + 
-                    '<div class="cell middle">' + 
-                    '<div class="table fill">' + 
-                    '<div class="cell">' + 
-                    '<span class="headline">' + this.title + '</span><br /><span class="subtitle">' + this.timestamp + ' by <a href="/control_panel/profile.php?username=' + this.author + '"><b>' + this.author + '</b></a></span>' + 
-                    '</div>' + 
-                    '</div>' + 
+                    '<a href="/tutorials/view.php?id=' + this.id + '"><span class="headline">' + this.title + '</span></a>' + 
+                    '<br />' + 
+                    '<span class="subtitle">' + this.timestamp + ' by <a href="/control_panel/profile.php?username=' + this.author + '"><b>' + this.author + '</b></a></span>' + 
+                    '<br />' + 
                     '<p>' + this.description + '</p>' + 
-                    '</div>' + 
-                    '</div>' + 
-                    '<div style="display:inline-block;float:right;position:relative;top:-110px;">' + 
+                    '<div style="display:inline-block;float:right;position:relative;top:-10px;">' + 
                     'rating: ' + this.rating + ' out of 5.0' + 
                     '</div>' + 
                     '</div>' + 
                     '</div>' + 
                     '<div style="height:10px;"></div>'; 
-        html += '</a>';
         });
           }
         $('#featured_holder').html(html);
@@ -163,31 +156,20 @@ $(document).ready(function(){
 </div>
 <div id="featured_holder" class="span-62 box-1">
   <?php foreach ($featured as $comic) : ?>
-   <?php
-   $date = new DateTime($comic['timestamp']);
-   ?>
-    <a href="/tutorials/view.php?id=<?php echo $comic['id']; ?>">
+  <?php $date = new DateTime($comic['timestamp']); ?>
     <div class="post green rounded box-1">
-    <div class="white rounded box-1" style="background-color:#FFF">
-      <div class="table fill">
-            <div class="cell middle">
-            <div class="table fill">
-       <div class="cell">
-      <span class="headline"><?php echo $comic['title']; ?></span> 
-      <br />
-      <span class="subtitle"><?php echo $date->format('F j Y');?> by <a href="/control_panel/profile.php?username=<?php echo $comic['author']; ?>"><b><?php echo $comic['author']; ?></b></a></span>
-       </div>
-            </div>
-      <p><?php echo $comic['description']; ?></p>
-      </div>
-      </div>
-      <div style="display:inline;float:right;position:relative;top:-10px;">
-      Rating: <?php echo $comic['rating']; ?> out of 5.0
+      <div class="white rounded box-1" style="background-color:#FFF">
+        <a href="/tutorials/view.php?id=<?php echo $comic['id']; ?>"><span class="headline"><?php echo $comic['title']; ?></span></a> 
+        <br />
+        <span class="subtitle"><?php echo $date->format('F j Y');?> by <a href="/control_panel/profile.php?username=<?php echo $comic['author']; ?>"><b><?php echo $comic['author']; ?></b></a></span>
+        <br />
+        <p><?php echo $comic['description']; ?></p>
+        <div style="display:inline;float:right;position:relative;top:-10px;">
+        Rating: <?php echo $comic['rating']; ?> out of 5.0
+        </div>
       </div>
     </div>
-    </div>
-    <div style="height:10px;"></div>
-    </a>
+  <div style="height:10px;"></div>
   <?php endforeach; ?>
 </div>
 <div class="span-64 box-1">

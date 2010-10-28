@@ -89,18 +89,20 @@ $query = "select g.game_id as id, g.title, h.highscore as score
           order by h.highscore desc";
 $scores = $gamesDb->fetchAll($query);
 ?>
-<?php if ($edit) : ?>
 <script type="text/javascript">
 $(document).ready(function(){
+<?php if ($edit) : ?>
   $('#boomgong').htmlarea();
   $('#edit-profile-about-form').ajaxForm({
     success: function() {
       alert('profile saved!');
     }
   });
+<?php endif; ?>
 });
 </script>
-<style>
+<?php if ($edit) : ?>
+<style type="text/css">
 .jHtmlArea {
   background-color:#fff;
 }
@@ -241,10 +243,10 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         <a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
       <?php endforeach; ?>
     </div>
-    <div class="table fill">
-      <div class="cell"><button>previous</button></div>
-      <div class="cell right"><button>next</button></div>
-    </div>
+   <!-- <div class="table fill">
+      <div class="cell"><button id="friend_prev" class="button">previous</button></div>
+      <div class="cell right"><button id="friend_next" class="button">next</button></div>
+    </div> -->
   </div>
   <div style="height:20px;"></div>
 <?php endif; ?>
