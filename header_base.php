@@ -89,6 +89,9 @@ $(document).ready(function(){
   $('*[title]').tooltip({
     position: "bottom center"
   });
+  
+  # this fixes the z-index of the flash animation so that the tooltips aren't under it
+  $('#currentdate').append('<param name="wmode" value="transparent">');
 });
 </script>
 

@@ -153,8 +153,8 @@
             <div class="favorites" style="display:none;">
             <div class="table fill">
                 <div class="cell right">
+                sort: 
             <select class="favorites button" style="border:none;">
-              <option value="">sort by</option>
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
@@ -175,8 +175,8 @@
             <div class="webcomics" style="display:none;">
               <div class="table fill">
                 <div class="cell right">
+                sort: 
             <select class="webcomics button" style="border:none;">
-              <option value="">sort by</option>
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
