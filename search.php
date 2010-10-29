@@ -58,6 +58,18 @@ $dateArray = array_reverse($dateArray); */
   text-align:center;
   color:#fff;
 }
+#search-description-holder {
+  display:none;
+  border:10px rgb(174,230,1) solid;
+  padding:10px;
+  background-color:#fff;
+  position:absolute;
+  z-index:6;
+}
+#feature-point {
+  position:absolute;
+  top:-14px;"
+}
 </style>
 <script type="text/javascript">
 var pager = 0;
@@ -350,8 +362,8 @@ $(document).ready(function() {
     </div>
   <?php endforeach; ?>
   </div>
-<div id="search-description-holder" class="rounded pull-2 span-60" style="display:none;border:10px rgb(174,230,1) solid;padding:10px;background-color:#fff;position:absolute;z-index:6;">
-  <img style="position:absolute;top:-14px;" id="feature-point" src="/media/images/tooltip-point.png" />
+<div id="search-description-holder" class="rounded pull-2 span-60">
+  <img id="feature-point" src="/media/images/tooltip-point.png" />
   <div id="search-description" style="text-align:left;">
   </div>
 </div>

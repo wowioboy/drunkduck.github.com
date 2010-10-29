@@ -59,6 +59,18 @@ $dateArray = array_reverse($dateArray);
   text-align:center;
   color:#fff;
 }
+#search-description-holder {
+  display:none;
+  border:10px rgb(174,230,1) solid;
+  padding:10px;
+  background-color:#fff;
+  position:absolute;
+  z-index:6;
+}
+#feature-point {
+  position:absolute;
+  top:-14px;"
+}
 </style>
 <script type="text/javascript">
 var pager = 0;
@@ -155,7 +167,8 @@ $(document).ready(function(){
   <div class="span-63 dark-green rounded header">
     <img src="/media/images/featured.png" />
   </div>
-  <div class="span-64 box-1 header-menu">
+  <div class="span-61 box-1 header-menu">
+    <div style="float:left;">
     <button class="featured_button rounded left button" direction="prev">previous</button>
     <select class="button rounded featureMonth" style="border:none;">
       <option value="">Select Month</option>
@@ -163,8 +176,11 @@ $(document).ready(function(){
         <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
       <?php endforeach; ?>
     </select>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
+    </div>
+    <div style="float:right;">
+    <input type="text" style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
     <button class="featured_button rounded right button" direction="next">next</button>
+    </div>
   </div>
 </div>
 <div style="clear:both;height:20px;"></div>
@@ -189,25 +205,27 @@ $(document).ready(function(){
     </div>
   <?php endforeach; ?>
   </div>
-<div id="search-description-holder" class="rounded pull-2 span-60" style="display:none;border:10px rgb(174,230,1) solid;padding:10px;background-color:#fff;position:absolute;z-index:6;">
-  <img style="position:absolute;top:-14px;" id="feature-point" src="/media/images/tooltip-point.png" />
-  <div id="search-description" style="text-align:left;">
+<div id="search-description-holder" class="rounded pull-2 span-60">
+  <img id="feature-point" src="/media/images/tooltip-point.png" />
+  <div id="search-description">
   </div>
 </div>
 </div>
 <div class="box-2">
-   <button class="featured_button button" style="float:left;" direction="prev">previous</button>
-  <button class="featured_button button" style="float:right;" direction="next">next</button>
-  <div style="clear:both;"></div>
-</div>
-<div class="span-64 box-1">
-  <select class="button rounded featureMonth" style="border:none;">
-    <option value="">Select Month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select>
-    <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
+  <div style="float:left;">
+    <button class="featured_button rounded left button" direction="prev">previous</button>
+    <select class="button rounded featureMonth" style="border:none;">
+      <option value="">Select Month</option>
+      <?php foreach ($dateArray as $numDate => $dateString) : ?>
+        <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+      <?php endforeach; ?>
+    </select>
+    </div>
+    <div style="float:right;">
+    <input type="text" style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
+    <button class="featured_button rounded right button" direction="next">next</button>
+    </div>
+    <div style="clear:both;"></div>
 </div>
 
 <?php require_once('footer_base.php'); ?>

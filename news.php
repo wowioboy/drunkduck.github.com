@@ -120,7 +120,8 @@ $(document).ready(function(){
             <div class="span-63 dark-green rounded header">
             <img src="/media/images/news.png" />
             </div>
-<div class="span-64 box-1 header-menu">
+<div class="span-61 box-1 header-menu">
+  <div style="float:left;">
   <button class="news_button rounded left button" direction="prev">previous</button>
   <select class="button rounded newsMonth" style="border:none;">
     <option value="">select month</option>
@@ -128,9 +129,11 @@ $(document).ready(function(){
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-    <div style="display:inline-block;width:135px;"></div>
+  </div>
+  <div style="float:right;">
     <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
+  </div>
 </div>
         </div>
 <div id="news_holder" class="span-62 box-1">
@@ -150,7 +153,8 @@ $(document).ready(function(){
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
-<div class="span-64 box-1">
+<div class="box-1">
+<div style="float:left;">
   <button class="news_button rounded left button" direction="prev">previous</button>
   <select class="button rounded newsMonth" style="border:none;">
     <option value="">select month</option>
@@ -158,9 +162,11 @@ $(document).ready(function(){
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-   <div style="display:inline-block;width:135px;"></div>
+  </div>
+  <div style="float:right;">
     <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
+  </div>
 </div>
 
 <?php require_once('footer_base.php'); ?>

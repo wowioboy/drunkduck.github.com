@@ -64,22 +64,19 @@ $(document).ready(function(){
       var author = $(this).attr('author'); 
       var rating = $(this).attr('rating');
       var pages = $(this).attr('pages');
-      var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF;position:relative;">' + 
-                 '<div style="display:inline;float:left;"><a href="/' + title.replace(/ /g, '_') + '/"><h2>' + title + '</h2></a>' + 
-                 '&nbsp;<span>by&nbsp;<a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span></div>' +
-                 '<div style="display:inline;float:right;">' + rating + ', ' + pages + ' pages</div>' +   
-                 '<div style="clear:both;">' + description + '</div>' + 
-                 '</div>';
+      var html = '<div style="float:left;">' + 
+                 '<a class="drunk" href="/' + title.replace(/ /g, '_') + '/">' + title + '</a> by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a>' + 
+                 '</div>' +
+                 '<div style="float:right;">' + rating + ', ' + pages + ' pages</div>' +   
+                 '<div style="clear:both;">' + description + '</div>';
       var position = $(this).position();
-      var left = position.left + 75;
-      left += 'px';
-      $('#feature-description').html(html).slideDown();
-      $('#feature-point').stop().show();
-      $('#feature-point').animate({left: left});
+      var left = (position.left + 70) + 'px';
+      $('#feature-description').html(html);
+      $('#feature-description-holder').show();
+      $('#feature-point').stop().animate({left: left});
     });
     $('#feature_holder').mouseleave(function(){
-      $('#feature-description').slideUp();
-      $('#feature-point').hide();
+      $('#feature-description-holder').hide();
     });
 });
 </script>
@@ -90,18 +87,18 @@ $(document).ready(function(){
   padding: 0 2px 0 3px;
   z-index:-5000;
 }
-#feature-description {
-  position:absolute;
-  z-index:6;
-  top:130px;
+#feature-description-holder {
   display:none;
+  border:10px rgb(174,230,1) solid;
+  padding:10px;
+  background-color:#fff;
+  position:absolute;
+  top:131px;
+  z-index:6;
 }
 #feature-point {
   position:absolute;
-  z-index:7;
-  top:126px;
-  left:80px;
-  display:none;
+  top:-14px;"
 }
 </style>
 <div class="span-96">
@@ -124,8 +121,12 @@ $(document).ready(function(){
         <?php endif; ?>
       <?php endforeach; ?>
     </div>
-    <img id="feature-point" src="/media/images/tooltip-point.png" />
-    <div id="feature-description"></div>
+    <div id="feature-description-holder" class="rounded span-92">
+      <img id="feature-point" src="/media/images/tooltip-point.png" />
+      <div id="feature-description">
+      sgkjsdfksjdfk
+      </div>
+    </div>
     </div>
     <div class="span-2 box-1">
         <input type="image" src="/media/images/featured-rt-arrow.png" id="feature_next_button" />
