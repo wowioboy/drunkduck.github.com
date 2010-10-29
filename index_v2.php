@@ -51,11 +51,25 @@ $(document).ready(function(){
     	var title = $(this).attr('comic_title');
   		var description = $(this).attr('description');
   		var author = $(this).attr('author'); 
-  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a> <span>by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span><br />' + description + '</div>';
+  		var rating = $(this).attr('rating'); 
+  		var pages = $(this).attr('pages'); 
+  		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF">' + 
+  		           '<div style="float:left;"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a>&nbsp;<span>by&nbsp;<a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span></div>' + 
+  		           '<div style="float:right;">' + rating + ', ' + pages + ' pages</div>' + 
+  		           '<div style="clear:both;">' + description + '</div>' +
+  		           '</div>';
+  		
+  		var position = $(this).position();
+      var left = position.left -10;
+      left += 'px';
+  		
   		$('#<?php echo $filter; ?>-description').html(html).slideDown();
+  		 $('#<?php echo $filter; ?>-point').stop().show();
+      $('#<?php echo $filter; ?>-point').animate({left: left});
   	});
   	$('#<?php echo $filter; ?>-holder').parent().mouseleave(function(){
   		$('#<?php echo $filter; ?>-description').slideUp();
+  		$('#<?php echo $filter; ?>-point').hide();
   	});
     $('#<?php echo $filter; ?>-filter-button').click(function(){
       $('#<?php echo $filter; ?>-filter').dialog({
@@ -70,7 +84,7 @@ $(document).ready(function(){
         data = jQuery.parseJSON(data);
         $.each(data, function(){
           var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
-          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '/"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" /></a>';
+          html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '/"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" pages="' + this.pages + '" rating="' + this.rating + '" /></a>';
         });
         $('#<?php echo $filter; ?>-ajaxer').html(html);
       }
@@ -99,6 +113,13 @@ $(document).ready(function(){
   position:absolute;
   top:75px;
   left:-10px;
+}
+.point {
+  position:absolute;
+  top:71px;
+  left:10px;
+  z-index:6;
+  display:none;
 }
 </style>
 <?php foreach ($filterArray as $filter) : ?>
@@ -210,11 +231,12 @@ $(document).ready(function(){
           <?php 
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
           ?>
-          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
+          <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
         <?php endforeach; ?>
       </div>
         <div style="position:relative;">
-          <div id="ten-description" class="span-63 bottom-rounded green left description"></div>   
+          <div id="ten-description" class="span-63 bottom-rounded green left description"></div> 
+          <img id="ten-point" class="point" src="/media/images/tooltip-point.png" />  
         </div>
       </div>
     </div>
@@ -235,11 +257,12 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">
         <div id="random-description" class="span-63 bottom-rounded green left description"></div>
+        <img id="random-point" class="point" src="/media/images/tooltip-point.png" />
       </div>
     </div>
   </div>
@@ -260,11 +283,12 @@ $(document).ready(function(){
         <?php 
           $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         ?>
-        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo htmlspecialchars($comic['title']); ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo htmlspecialchars($comic['author']); ?>" /></a>
+        <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
       <?php endforeach; ?>
       </div>
       <div style="position:relative;">
         <div id="latest-description" class="span-63 bottom-rounded green left description"></div>
+        <img id="latest-point" class="point" src="/media/images/tooltip-point.png" />
       </div>
     </div>
   </div>
