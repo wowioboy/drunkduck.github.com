@@ -96,11 +96,11 @@
             jQuery('.favorites-clicker').click(function(){
               var favoritesDiv = jQuery('div.favorites');
               if (favoritesDiv.css('display') == 'none') {
-                jQuery('img.favorites').attr('src', '/media/images/triangle-down.gif');
+                jQuery(this).html('close');
                 getFavorites();
                   favoritesDiv.slideDown();
               } else { 
-                jQuery('img.favorites').attr('src', '/media/images/triangle.gif');
+                jQuery(this).html('open');
                 favoritesDiv.slideUp();
               }
             });
@@ -109,11 +109,11 @@
             jQuery('.webcomics-clicker').click(function(){
               var webcomicsDiv = jQuery('div.webcomics');
               if (webcomicsDiv.css('display') == 'none') {
-                jQuery('img.webcomics').attr('src', '/media/images/triangle-down.gif');
+                jQuery(this).html('close');
                   getWebcomics();
                   webcomicsDiv.slideDown();
               } else { 
-                 jQuery('img.webcomics').attr('src', '/media/images/triangle.gif');
+                 jQuery(this).html('open');
                 webcomicsDiv.slideUp();
               }
             });
@@ -143,46 +143,34 @@
             <div class="span-20" style="font-size:10px;"><a href="/control_panel/quacks.php">Personal Quacks <span id="quack_count_holder"><?php echo ($quackCount) ? " ($quackCount)" : ''; ?></span></a></div>
             <div style="clear:both;height:10px"></div>
             
-          <div class="drop-list rounded ">
-            <div class="table fill favorites-clicker" style="cursor:pointer;">
-              <div class="cell teal-words">my favorites</div>
-              <div class="cell right">
-              <img class="favorties" src="/media/images/triangle.gif" />
-              </div>
-            </div>
-            <div class="favorites" style="display:none;">
-            <div class="table fill">
-                <div class="cell right">
+          <div class="drop-list rounded">
+              <div class="teal-words" style="float:left;">my favorites</div>
+              <span class="favorites-clicker" style="float:right;cursor:pointer;">open</span>
+            <div class="favorites" style="display:none;clear:both;">
+                <div style="float:right;">
                 sort: 
             <select class="favorites button" style="border:none;">
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
                 </div>
-            </div>
-              <div class="favorites_display">
+              <div class="favorites_display" style="clear:both;">
               </div>
             </div>
           </div>
           <div style="display:block;height:10px;"></div>
-          <div class="drop-list rounded ">
-            <div class="table fill webcomics-clicker" style="cursor:pointer;">
-              <div class="cell teal-words">my webcomics</div>
-              <div class="cell right">
-              <img class="webcomics" src="/media/images/triangle.gif" />
-              </div>
-            </div>
-            <div class="webcomics" style="display:none;">
-              <div class="table fill">
-                <div class="cell right">
+          <div class="drop-list rounded">
+              <div class="teal-words" style="float:left;">my webcomics</div>
+              <span class="webcomics-clicker" style="float:right;cursor:pointer;">open</span>
+            <div class="webcomics" style="display:none;clear:both;">
+                <div style="float:right;">
                 sort: 
             <select class="webcomics button" style="border:none;">
               <option value="alpha">alphabetically</option>
               <option value="update">last update</option>
             </select>
                 </div>
-              </div>
-              <div class="webcomics_display">
+              <div class="webcomics_display" style="clear:both;">
               </div>
             </div>
           </div>

@@ -40,7 +40,7 @@ $news = $db->fetchAll($query);
 <?php 
 $filterArray = array('latest update' => 'latest', "quail's random" => 'random', 'top ten' => 'ten');
 ?>
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
   <?php foreach ($filterArray as $title => $filter) : ?>
     $('.<?php echo $filter; ?>-image').live('mouseenter', function(){

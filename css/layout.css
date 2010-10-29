@@ -72,6 +72,7 @@ vertical-align: baseline;
   font-family:helvetica;
   font-weight:bold;
   color:rgb(69,180,185);
+  min-height:20px;
 }
 
 /**
