@@ -12,7 +12,7 @@
         <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
     </div></div>
     
-    <div class="span-96">&nbsp;</div>
+    <div class="span-96" style="height:10px;"></div>
     <div class="span-96 green rounded">
         <div class="prepend-33" style="position:relative;padding-bottom:50px;">
             <div id="menu" class="span-73">

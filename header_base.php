@@ -105,7 +105,7 @@ $(document).ready(function(){
             if ($showFeatured) require_once('featured_slideshow.php'); 
         ?>
         <div class="span-23" style="height:150px">
-            <a href="/" style="display:block;background-image:url('/media/images/<?php echo ($showFeatured) ? 'DD-logo-for-main.png' : 'drunkduck-logo.png'; ?>');background-repeat:no-repeat;width:268px;height:187px;position:relative;left:-38px;top:-28px;z-index:5;">
+            <a href="/" style="display:block;background-image:url('/media/images/<?php echo ($showFeatured) ? 'DD-logo-for-main.png' : 'drunkduck-logo.png'; ?>');background-repeat:no-repeat;width:268px;height:187px;position:relative;left:-38px;top:-15px;z-index:5;">
                 
             </a>
             

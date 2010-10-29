@@ -65,7 +65,7 @@ $(document).ready(function(){
 }
 </style>
 <div class="span-96">
-    <div class="span-2 box-1">
+    <div class="span-2 box-1" style="text-align:right;">
       <input type="image" src="/media/images/featured-lt-arow-faded.png" id="feature_prev_button" />
     </div>
     <div id="slideshow" class="span-88" style="height:131px;">

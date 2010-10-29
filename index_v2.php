@@ -190,19 +190,13 @@ $(document).ready(function(){
 </form>
 </div>
 <?php endforeach; ?>
-<div class="span-62 box-1 pull-1 canary rounded">
+<div class="span-62 box-1 pull-1 canary rounded" style="padding-top:0;">
 
   <div class="span-61">
-    <div class="span-24 green panel-header" style="height:25px;">
-    <div class="table fill">
-      <div class="cell" style="width:100%;">
+    <div class="span-24 green panel-header">
         <span>Top Ten</span>
-      </div>
-      <div class="cell right">
         <a id="ten-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
-      </div>
     </div>
-  </div>
   </div>
   <div class="span-61">
     <div class="span-61 green panel-body box-1 center">
@@ -222,18 +216,11 @@ $(document).ready(function(){
     </div>
   </div>
 
-<div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header" style="height:25px;">
-    <div class="table fill">
-      <div class="cell" style="width:100%;">
-        <span>Quail's Random</span>
-      </div>
-      <div class="cell right">
+  <div class="span-24 green panel-header" style="">
+        <span>Quail's Random</span>  
         <a id="random-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
-      </div>
-    </div>
   </div>
 </div>
 <div class="span-61">
@@ -254,18 +241,11 @@ $(document).ready(function(){
   </div>
 </div>
 
-<div style="height:10px;" class="span-64"></div>
 
 <div class="span-61">
-  <div class="span-24 green panel-header" style="height:25px;">
-    <div class="table fill">
-      <div class="cell" style="width:100px;">
+  <div class="span-24 green panel-header" >
         <span>Latest Updates</span>
-      </div>
-      <div class="cell right">
         <a id="latest-filter-button" href="javascript:">filter</a>&nbsp;&nbsp;
-      </div>
-    </div>
   </div>
 </div>
 <div class="span-61">
