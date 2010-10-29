@@ -67,12 +67,13 @@ vertical-align: baseline;
   border-bottom-left-radius: 0px;
 }
 .drop-list {
-  background-color:#fff;
-  padding:5px;
+  background-color:#fff;  
   font-family:helvetica;
   font-weight:bold;
   color:rgb(69,180,185);
   min-height:20px;
+  line-height:19px;
+  padding: 0 10px 0 10px;
 }
 
 /**
