@@ -1,5 +1,6 @@
 <?php
 require_once('../includes/db.class.php');
+require_once('../bbcode.php');
 
 $offset = $_REQUEST['offset'];
 if ($month = $_REQUEST['month']) {
@@ -31,8 +32,7 @@ $featured = DB::getInstance()->fetchAll($query);
 foreach ($featured as &$feature) {
   $date = new DateTime($feature['date']);
   $feature['date'] = $date->format('M j Y');
-  $feature['description'] = htmlspecialchars($feature['description']);
-  $feature['title'] = htmlspecialchars($feature['title']);
+  $feature['description'] = htmlspecialchars(bbcode2html($feature['description']));
 }
 $query = "select count(1)
 from comics c 

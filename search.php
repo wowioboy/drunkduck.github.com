@@ -68,7 +68,14 @@ $(document).ready(function() {
   function setPagerMax(pagerMax) 
   {
     pager_max = pagerMax;
-    $('#match-number').html(pager_max + ' comics match your selected criteria.');
+    var html = pager_max;
+    if (pagerMax = 1) {
+      html += ' comic';
+    } else {
+      html += ' comics';
+    }
+    html += ' match your selected criteria.';
+    $('#match-number').html(html);
   }
 
   $('#funktropic').submit(function(){
@@ -94,9 +101,6 @@ $(document).ready(function() {
         });
       }
       $('#featured_holder').html(html);
-      $('*[title]').tooltip({
-        position: "bottom center"
-      });
     }
   });
     return false;
@@ -158,10 +162,6 @@ $(document).ready(function() {
  console.log('lfet');
    $('#search-description-holder').hide();
  });
-// $('.search-image').mouseleave(function(){
-//  $('#search-description-holder').hide();
-// });
-  
 });
 </script>
         <div class="rounded canary span-63 box-1 pull-1">
@@ -173,12 +173,6 @@ $(document).ready(function() {
 <div class="span-64">
 <div class="box-2" style="padding-bottom:10px;">
 <form id="funktropic" method="post" action="/ajax/advanced_search.php">
-<?php /*  <select name="month" class="button rounded featureMonth" style="border:none;">
-    <option value="">Select Month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select> */ ?>
   <div style="text-align:center;margin-bottom:10px;">
  <input type="text" name="search" style="color:#fff;" class="button featured_search" value="<?php echo $searchText; ?>"/>&nbsp;&nbsp;<input type="submit" id="submitButton" class="button" style="min-width:0;" value="search" />
   </div>

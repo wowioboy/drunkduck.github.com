@@ -1,14 +1,11 @@
-<?php require_once('header_base.php'); ?>
+<?php 
+require_once('header_base.php'); 
+require_once('bbcode.php'); 
+?>
+
 
 <?php
-if (!$view = $_REQUEST['view']) {
-  $view = 'list'; 
-}
-if ($view == 'grid') {
-  $limit = 25;
-} else {
-  $limit = 8;
-}
+$limit = 25;
 
 $db = new DB();
 $query = "select c.comic_id as id, c.comic_name as title, u.username as author, c.rating_symbol as rating, c.total_pages as pages, f.description, count(l.page_id) as likes, concat(substring(ymd_date_live, 1, 4), '-', substring(ymd_date_live, 5, 2), '-', substring(ymd_date_live, 7, 2)) as date
@@ -47,19 +44,19 @@ $dateArray = array_reverse($dateArray);
 ?>
 <style type="text/css">
 .grid-panel {
-  display:inline-block;
+  float:left;
   border:1px solid #45b4b9;
-  padding:10px 10px 0px 10px;
+  padding:10px;
   background-color:#45b4b9;
-  margin:0px 5px 10px 5px;
-  text-align:left;
+  margin:0 10px 10px 0;
+  width:90px;
 }
-.grid-panel div {
-  display:inline-block;
-  width:80px;
-  height:100px;
+.featured_search {
+  background-image:url('/media/images/blue-search-box.png');
+  width:135px;
 }
-.grid-panel span {
+.panel-date {
+  text-align:center;
   color:#fff;
 }
 </style>
@@ -79,48 +76,17 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.featured) {
         $.each(data.featured, function(){
-          html += '<a href="/' + this.title.replace(/ /g, '_') + '/">';
-          <?php if ($view == 'list') : ?>
-            html += '<div class="post teal rounded box-1" style="background-color:#45B4B9;">' + 
-                    '<div class="white rounded box-1" style="background-color:#FFF">' + 
-                    '<div class="table fill">' + 
-                    '<div class="cell middle" style="width:100px;">' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" />' + 
+          html += '<div class="rounded grid-panel">' + 
+                    '<div style="text-align:center;">' + 
+                    '<a href="/' + this.title.replace(/ /g, '_') + '/">' + 
+                    '<img class="search-image" src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" width="80" height="100" comic_title="' + this.title + '" author="' + this.author + '" description="' + this.description + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
+                    '</a>' +
                     '</div>' + 
-                    '<div class="cell middle">' + 
-                    '<div class="table fill">' + 
-                    '<div class="cell">' + 
-                    '<span class="headline">' + this.title + '</span> <span class="subtitle">by ' + this.author + '</span>' + 
-                    '</div>' + 
-                    '<div class="cell right">' + 
-                    '<span class="subtitle">' + this.rating + ', ' + this.pages + ' pages</span>' + 
-                    '</div>' + 
-                    '</div>' + 
-                    '<p>' + this.description + '</p>' + 
-                    '</div>' + 
-                    '</div>' + 
-                    '</div>' + 
-                    '<div class="right">' + 
-                    '<span style="color:#fff;">Added: ' + this.date + '</span>' + 
-                    '</div>' + 
-                    '</div>' + 
-                    '<div style="height:10px;"></div>'; 
-          <?php else: ?>
-            html += '<div class="rounded grid-panel">' + 
-                    '<div>' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
-                    '</div>' + 
-                    '<br />' + 
-                   '<span style="color:#fff;">' + this.date + '</span>' + 
+                    '<div class="panel-date">' + this.date + '</div>' + 
                     '</div>';
-          <?php endif; ?>
-        html += '</a>';
         });
           }
         $('#featured_holder').html(html);
-        $('*[title]').tooltip({
-    position: "bottom center"
-  });
       });
   }
   
@@ -160,97 +126,88 @@ $(document).ready(function(){
     $('.featured_search').val('');
     $('.featured_search').die('click');
   });
+  
+  $('.search-image').live('mouseenter', function(){
+    var title = $(this).attr('comic_title');
+    var description = $(this).attr('description');
+    var author = $(this).attr('author'); 
+    var rating = $(this).attr('rating');
+    var pages = $(this).attr('pages');
+    var html = '<div style="float:left;">' + 
+               '<a class="drunk" href="/' + title.replace(/ /g, '_') + '/">' + title + '</a> by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a>' + 
+               '</div>' +
+               '<div style="float:right;">' + rating + ', ' + pages + ' pages</div>' +   
+               '<div style="clear:both;">' + description + '</div>';
+    var position = $(this).position();
+    var left = (position.left + 10) + 'px';
+    var top = (position.top + 100) + 'px';
+    $('#search-description').html(html);
+    $('#search-description-holder').show().stop().animate({top: top});
+    $('#feature-point').stop().animate({left: left});
+  });
+ $('#featured_parent').mouseleave(function(){
+ console.log('lfet');
+   $('#search-description-holder').hide();
+ });
 });
 </script>
-<style>
-.featured_search {
-  background-image:url('/media/images/blue-search-box.png');
-  width:135px;
-}
-</style>
-        <div class="rounded canary span-63 box-1 pull-1">
-            <div class="span-63 dark-green rounded header">
-            <img src="/media/images/featured.png" />
-            </div>
-<div class="span-64 box-1 header-menu">
-  <button class="featured_button rounded left button" direction="prev">previous</button>
-  <select class="button rounded featureMonth" style="border:none;">
-    <option value="">Select Month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select>
-  <form style="display:inline;" method="post">
-  <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
-  <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
-  </form>
+<div class="rounded canary span-63 box-1 pull-1">
+  <div class="span-63 dark-green rounded header">
+    <img src="/media/images/featured.png" />
+  </div>
+  <div class="span-64 box-1 header-menu">
+    <button class="featured_button rounded left button" direction="prev">previous</button>
+    <select class="button rounded featureMonth" style="border:none;">
+      <option value="">Select Month</option>
+      <?php foreach ($dateArray as $numDate => $dateString) : ?>
+        <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+      <?php endforeach; ?>
+    </select>
     <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
-  <button class="featured_button rounded right button" direction="next">next</button>
+    <button class="featured_button rounded right button" direction="next">next</button>
+  </div>
 </div>
-        </div>
-<div id="featured_holder" class="span-62 box-1" <?php echo ($view == 'grid') ? 'style="text-align:center;"' : ''; ?>>
+<div style="clear:both;height:20px;"></div>
+<div id="featured_parent" class="span-62" style="position:relative;padding-left:20px;">
+  <div id="featured_holder">
   <?php foreach ($featured as $comic) : ?>
   <?php 
   $date = new DateTime($comic['date']);
   ?>
-    <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
-    <?php if ($view == 'list') : ?>
-    <div class="post teal rounded box-1" style="background-color:#45B4B9;">
-    <div class="white rounded box-1" style="background-color:#FFF">
-      <div class="table fill">
-      <div class="cell middle" style="width:100px;">
-      <?php
-      $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
-      ?>
-    <img src="<?php echo $path; ?>" />
-      </div>
-            <div class="cell middle">
-            <div class="table fill">
-       <div class="cell">
-      <span class="headline"><?php echo $comic['title']; ?></span> <span class="subtitle">by <?php echo $comic['author']; ?></span>
-       </div>
-       <div class="cell right">
-      <span class="subtitle"><?php echo $comic['rating']; ?>, <?php echo $comic['pages']; ?> pages</span>
-       </div>
-            </div>
-      <p><?php echo $comic['description']; ?></p>
-      </div>
-      </div>
-    </div>
-          <div class="right">
-      <span style="color:#fff;">Added: <?php echo $date->format('M j Y'); ?></span>
-      </div>
-    </div>
-    <div style="height:10px;"></div>
-    <?php else: ?>
     <div class="rounded grid-panel">
-      <div>
+      <div style="text-align:center;">
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>"  title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span><br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>" . '<img src=\'/media/images/tooltip-point.png\' />'; ?>" />
-      </div>
-      <br />
-      <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>
-    </div>
-    <?php endif; ?>
+    <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
+        <img class="search-image" src="<?php echo $path; ?>" width="80" height="100" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars(bbcode2html($comic['description'])); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" />
     </a>
+      </div>
+      <div class="panel-date">
+      <?php echo $date->format('M j Y'); ?>
+      </div>
+    </div>
   <?php endforeach; ?>
+  </div>
+<div id="search-description-holder" class="rounded pull-2 span-60" style="display:none;border:10px rgb(174,230,1) solid;padding:10px;background-color:#fff;position:absolute;z-index:6;">
+  <img style="position:absolute;top:-14px;" id="feature-point" src="/media/images/tooltip-point.png" />
+  <div id="search-description" style="text-align:left;">
+  </div>
+</div>
+</div>
+<div class="box-2">
+   <button class="featured_button button" style="float:left;" direction="prev">previous</button>
+  <button class="featured_button button" style="float:right;" direction="next">next</button>
+  <div style="clear:both;"></div>
 </div>
 <div class="span-64 box-1">
-  <button class="featured_button rounded left button" direction="prev">previous</button>
   <select class="button rounded featureMonth" style="border:none;">
     <option value="">Select Month</option>
     <?php foreach ($dateArray as $numDate => $dateString) : ?>
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select>
-  <form style="display:inline;" method="post">
-  <input type="hidden" name="view" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?>" />
-  <input type="submit" class="rounded button" value="<?php echo ($view == 'grid') ? 'list' : 'grid'; ?> view" />
-  </form>
     <input type="text"  style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
-  <button class="featured_button rounded right button" direction="next">next</button>
 </div>
 
 <?php require_once('footer_base.php'); ?>
