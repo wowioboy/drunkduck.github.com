@@ -65,7 +65,7 @@ $(document).ready(function(){
       var rating = $(this).attr('rating');
       var pages = $(this).attr('pages');
       var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF;position:relative;">' + 
-                 '<div style="display:inline;float:left;"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a>' + 
+                 '<div style="display:inline;float:left;"><a href="/' + title.replace(/ /g, '_') + '/"><h2>' + title + '</h2></a>' + 
                  '&nbsp;<span>by&nbsp;<a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span></div>' +
                  '<div style="display:inline;float:right;">' + rating + ', ' + pages + ' pages</div>' +   
                  '<div style="clear:both;">' + description + '</div>' + 

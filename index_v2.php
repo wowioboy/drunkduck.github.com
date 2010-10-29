@@ -26,6 +26,7 @@ on u.user_id = c.user_id
 where c.total_pages > 0 
 order by rand() 
 limit 10";
+//and comic_name like '%dragonball the lost%'
 $random = $db->fetchAll($query);
 
 $query = "select b.title, u.username as author, b.body, from_unixtime(b.timestamp_date) as created_on
@@ -50,7 +51,7 @@ $(document).ready(function(){
   		var rating = $(this).attr('rating'); 
   		var pages = $(this).attr('pages'); 
   		var html = '<div class="preview box-1 rounded" style="border:10px rgb(174,230,1) solid;background-color:#FFF">' + 
-  		           '<div style="float:left;"><a href="/' + title.replace(/ /g, '_') + '"><h2>' + title + '</h2></a>&nbsp;<span>by&nbsp;<a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span></div>' + 
+  		           '<div style="float:left;"><a href="/' + title.replace(/ /g, '_') + '/"><h2>' + title + '</h2></a>&nbsp;<span>by&nbsp;<a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a></span></div>' + 
   		           '<div style="float:right;">' + rating + ', ' + pages + ' pages</div>' + 
   		           '<div style="clear:both;">' + description + '</div>' +
   		           '</div>';

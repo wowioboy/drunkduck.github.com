@@ -43,19 +43,19 @@ $dateArray = array_reverse($dateArray); */
 ?>
 <style type="text/css">
 .grid-panel {
-  display:inline-block;
+  float:left;
   border:1px solid #45b4b9;
-  padding:10px 10px 0px 10px;
+  padding:10px;
   background-color:#45b4b9;
-  margin:0px 5px 10px 5px;
-  text-align:left;
+  margin:0 10px 10px 0;
+  width:90px;
 }
-.grid-panel div {
-  display:inline-block;
-  width:80px;
-  height:100px;
+.featured_search {
+  background-image:url('/media/images/blue-search-box.png');
+  width:135px;
 }
-.grid-panel span {
+.panel-date {
+  text-align:center;
   color:#fff;
 }
 </style>
@@ -83,15 +83,14 @@ $(document).ready(function() {
       setPagerMax(data.count);
       if (data.featured) {
         $.each(data.featured, function(){
-            html += '<a href="/' + this.title.replace(/ /g, '_') + '/">' + 
-                    '<div class="rounded grid-panel">' + 
-                    '<div>' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" width="80" height="100" title="<span class=\'drunk\'>' + this.title + '</span> by ' + this.author + '<br /><span class=\'teal-words\'>' + this.description + '</span><img src=\'/media/images/tooltip-point.png\' />" />' + 
+            html += '<div class="rounded grid-panel">' + 
+                    '<div style="text-align:center;">' + 
+                    '<a href="/' + this.title.replace(/ /g, '_') + '/">' + 
+                    '<img class="search-image" src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" width="80" height="100" comic_title="' + this.title + '" author="' + this.author + '" description="' + this.description + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
+                    '</a>' +
                     '</div>' + 
-                    '<br />' + 
-                    '<span style="color:#fff;">' + this.date + '</span>' + 
-                    '</div>' + 
-                    '</a>';
+                    '<div class="panel-date">' + this.date + '</div>' + 
+                    '</div>';
         });
       }
       $('#featured_holder').html(html);
@@ -137,21 +136,42 @@ $(document).ready(function() {
     $('.check').attr('checked', false);
   });
   
+  $('.search-image').live('mouseenter', function(){
+    var title = $(this).attr('comic_title');
+    var description = $(this).attr('description');
+    var author = $(this).attr('author'); 
+    var rating = $(this).attr('rating');
+    var pages = $(this).attr('pages');
+    var html = '<div style="float:left;">' + 
+               '<a class="drunk" href="/' + title.replace(/ /g, '_') + '/">' + title + '</a> by <a style="color:#999;" href="/control_panel/profile.php?username=' + author + '">' + author + '</a>' + 
+               '</div>' +
+               '<div style="float:right;">' + rating + ', ' + pages + ' pages</div>' +   
+               '<div style="clear:both;">' + description + '</div>';
+    var position = $(this).position();
+    var left = (position.left + 10) + 'px';
+    var top = (position.top + 100) + 'px';
+    $('#search-description').html(html);
+    $('#search-description-holder').show().stop().animate({top: top});
+    $('#feature-point').stop().animate({left: left});
+  });
+ $('#featured_parent').mouseleave(function(){
+ console.log('lfet');
+   $('#search-description-holder').hide();
+ });
+// $('.search-image').mouseleave(function(){
+//  $('#search-description-holder').hide();
+// });
+  
 });
 </script>
-<style>
-.featured_search {
-  background-image:url('/media/images/blue-search-box.png');
-  width:135px;
-}
-</style>
         <div class="rounded canary span-63 box-1 pull-1">
             <div class="span-63 dark-green rounded header">
             <img src="/media/images/advanced-search.png" />
             </div>
         </div>
         
-<div class="span-64 box-1">
+<div class="span-64">
+<div class="box-2" style="padding-bottom:10px;">
 <form id="funktropic" method="post" action="/ajax/advanced_search.php">
 <?php /*  <select name="month" class="button rounded featureMonth" style="border:none;">
     <option value="">Select Month</option>
@@ -159,12 +179,10 @@ $(document).ready(function() {
       <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
     <?php endforeach; ?>
   </select> */ ?>
-  <div class="table fill" style="margin-bottom:10px;">
-    <div class="cell center">
- <input type="text" name="search" style="color:#fff;" class="button featured_search" value="<?php echo $searchText; ?>"/>&nbsp;&nbsp;<input type="submit" id="submitButton" class="button" style="min-width:0;" value="Go!" />
-    </div>
+  <div style="text-align:center;margin-bottom:10px;">
+ <input type="text" name="search" style="color:#fff;" class="button featured_search" value="<?php echo $searchText; ?>"/>&nbsp;&nbsp;<input type="submit" id="submitButton" class="button" style="min-width:0;" value="search" />
   </div>
-  <div class="button span-59">
+  <div class="button">
   <table style="width:100%;">
     <tr>
       <td style="vertical-align:top;">
@@ -306,47 +324,48 @@ $(document).ready(function() {
       </td>
     </tr>
   </table>
- <div class="table fill">
-   <div class="cell center">
+ <div style="text-align:center;">
     <input type="button" id="select-button" class="rounded teal-words" style="background-color:#fff;border:0;" value="select all" />&nbsp;&nbsp;
     <input type="button" id="unselect-button" class="rounded teal-words" style="background-color:#fff;border:0;" value="unselect all" />&nbsp;&nbsp;
-   </div>
  </div>
   </div>
 </form>
 </div>
-<div class="table fill">
-  <div class="cell center">
+</div>
+  <div style="text-align:center;margin-bottom:10px;">
     <span class="button" id="match-number"><?php echo $featuredCount; ?> comics match your selection criteria.</span>
   </div>
-</div>
-<div id="featured_holder" class="span-62 box-1" style="text-align:center;">
+<div id="featured_parent" class="span-62" style="position:relative;padding-left:20px;">
+  <div id="featured_holder">
   <?php foreach ($featured as $comic) : ?>
   <?php 
   $date = new DateTime($comic['date']);
   ?>
-    <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
     <div class="rounded grid-panel">
-      <div>
+      <div style="text-align:center;">
       <?php
       $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
       ?>
-        <img src="<?php echo $path; ?>" width="80" height="100" title="<?php echo "<span class='drunk'>" . htmlspecialchars($comic['title']) . "</span> by " . $comic['author'] . "<br /><span class='teal-words'>" . htmlspecialchars($comic['description']) . "</span>" . '<img src=\'/media/images/tooltip-point.png\' />'; ?>" />
-      </div>
-      <br />
-      <span style="color:#fff;"><?php echo $date->format('M j Y'); ?></span>
-    </div>
+    <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
+        <img class="search-image" src="<?php echo $path; ?>" width="80" height="100" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" />
     </a>
+      </div>
+      <div class="panel-date">
+      <?php echo $date->format('M j Y'); ?>
+      </div>
+    </div>
   <?php endforeach; ?>
+  </div>
+<div id="search-description-holder" class="rounded pull-2 span-60" style="display:none;border:10px rgb(174,230,1) solid;padding:10px;background-color:#fff;position:absolute;z-index:6;">
+  <img style="position:absolute;top:-14px;" id="feature-point" src="/media/images/tooltip-point.png" />
+  <div id="search-description" style="text-align:left;">
+  </div>
 </div>
-
-<div class="table fill">
-  <div class="cell" style="padding:10px;padding-top:0;">
-   <button class="featured_button rounded left button" direction="prev">previous</button>
-  </div>
-  <div class="cell right" style="padding:10px;padding-top:0;">
-  <button class="featured_button rounded right button" direction="next">next</button>
-  </div>
+</div>
+<div class="box-2">
+   <button class="featured_button button" style="float:left;" direction="prev">previous</button>
+  <button class="featured_button button" style="float:right;" direction="next">next</button>
+  <div style="clear:both;"></div>
 </div>
 
 <?php require_once('footer_base.php'); ?>
