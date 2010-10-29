@@ -20,7 +20,7 @@ $db = new DB();
 ?>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title>Drunk Duck</title>
+<title>DrunkDuck - The Webcomics Community<?php if($TITLE) {echo ' - ' . $TITLE;}?></title>
 <!-- BLUEPRINT -->
 <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
 <link rel="stylesheet" href="/css/blueprint/gutterless.css" type="text/css" media="screen, projection">

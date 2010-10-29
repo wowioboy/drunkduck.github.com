@@ -1,4 +1,8 @@
-<?php 
+<?php
+$REQUIRE_LOGIN = false;
+$ADMIN_ONLY    = false;
+$TITLE         = false;
+
 $showFeatured = true;
 require_once('header_base.php');
 require_once('bbcode.php'); 

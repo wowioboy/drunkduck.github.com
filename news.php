@@ -1,4 +1,8 @@
-<?php require_once('header_base.php'); ?>
+<?php 
+$REQUIRE_LOGIN = false;
+$ADMIN_ONLY    = false;
+$TITLE         = 'News';
+require_once('header_base.php'); ?>
 
 <?php
 $db = new DB();
