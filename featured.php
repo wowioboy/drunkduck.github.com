@@ -108,7 +108,7 @@ $(document).ready(function(){
           <?php else: ?>
             html += '<div class="rounded grid-panel">' + 
                     '<div>' + 
-                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" title="<span class=\'drunk\'>' + this.title + '</span><br /><span class=\'teal-words\'>' + this.description + '</span><img src=\'/media/images/tooltip-point.png\' />" />' + 
+                    '<img src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
                     '</div>' + 
                     '<br />' + 
                    '<span style="color:#fff;">' + this.date + '</span>' + 
