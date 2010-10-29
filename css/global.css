@@ -186,8 +186,8 @@ border-bottom-left-radius: 10px;
   
 }
 .panel-header a {
-    position:absolute;
-    right:10px;
+    float:right;
+    padding-right:10px;
     color: #45B4B9;
 }
 

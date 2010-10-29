@@ -127,8 +127,9 @@
             });
           });
           </script>
-        <div class="panel-header yellow" style="float:right;padding:5px;text-transform:uppercase;font-family:helvetica;font-weight:bold;font-size:0.7em">
-            <a href="?logout=<?php echo $USER->user_id; ?>">log out</a> | <a href="/community/view_category.php?cid=229">help</a>
+        <div style="position:relative;padding-top:10px;">
+        <div class="span-14 panel-header yellow" style="text-align:center;position:absolute;right:0;text-transform:uppercase;font-family:helvetica;font-weight:bold;font-size:0.7em">
+            <a style="padding:10px 0 10px 0;float:none;color:black;font-weight:bold;" href="?logout=<?php echo $USER->user_id; ?>">log out</a> | <a style="padding:10px 0 10px 0;color:black;font-weight:bold;float:none;" href="/community/view_category.php?cid=229">help</a>
         </div>
 
         <div class="span-30 panel-body-right yellow ">
@@ -175,5 +176,6 @@
             </div>
           </div>
           </div>
+        </div>  
         </div>
     
