@@ -39,6 +39,14 @@ $query = "select comic_id as id, comic_name as title
           from comics 
           where user_id = '{$user['user_id']}'";
 $comics = $db->fetchAll($query);
+
+$query = "select url, title, description 
+          from pool_movies 
+          where user_id = '{$user['user_id']}' 
+          order by id desc 
+          limit 10";
+$videos = $db->fetchAll($query);
+
 $query = "select c.comic_id as id, c.comic_name as title 
           from comics c 
           inner join comic_favs f 
@@ -60,24 +68,29 @@ $query = "select u.user_id, u.username, avatar_ext
           from users u 
           inner join friends f 
           on f.friend_id = u.user_id 
-          where f.user_id = '{$user['user_id']}'";  
+          where f.user_id = '{$user['user_id']}' 
+          and order_id > 0";  
 $friends = $db->fetchAll($query);
 
-$query = "select u.username, concat('http://images.drunkduck.com/process/user_', u.user_id, '.', u.avatar_ext) as avatar, c.comment, from_unixtime(c.posted) as created_at
+$query = "select u.username, u.avatar_ext, u.user_id, c.comment, from_unixtime(c.posted) as created_at
           from profile_comments c 
           inner join users u 
           on u.user_id = c.poster_id
           where c.user_id = '{$user['user_id']}' 
           and c.approved = '1' 
-          order by posted desc";
+          order by posted desc 
+          limit 10";
 $comments = DB::getInstance()->fetchAll($query);
 
 
 $communityDb = new DB(array('scheme' => 'drunkduck_community'));
-$query = "select topic_name as name, topic_id as tid, category_id as cid
-          from community_topics 
+$query = "select t.topic_name as name, t.topic_id as tid, t.category_id as cid, c.flags
+          from community_topics t 
+          inner join community_categories c 
+          on t.category_id = c.category_id
           where user_id = '{$user['user_id']}'
-          order by date_created desc";
+          order by date_created desc 
+          limit 10";
 $topics = $communityDb->fetchAll($query);
 
 $gamesDb = new DB(array('scheme' => 'drunkduck_games'));
@@ -157,7 +170,7 @@ $(document).ready(function(){
 
 <?php if ($pubLinks) : ?>
 <div style="clear:both;">
-<div class="drunk">PUBLISHER LINKS</div>
+<div><span class="drunk">PUBLISHER LINKS</span></div>
 <?php foreach ((array) $pubLinks as $link) : ?>
 <a href="<?php echo $link['url']; ?>"><?php echo $link['name']; ?></a>
 <br />
@@ -202,8 +215,11 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 <div style="clear:both;">
 <div class="drunk">FORUM TOPICS</div>
 <?php foreach ((array) $topics as $topic) : ?>
+<?php # mod only topic is 1 and admin only is 2 ?>
+ <?php if (!($topic['flags'] & 1) && !($topic['flags'] & 2)) : ?>
 <a href="/community/view_topic.php?cid=<?php echo $topic['cid']; ?>&tid=<?php echo $topic['tid']; ?>"><?php echo $topic['name']; ?></a>
 <br />
+<?php endif; ?>
 <?php endforeach; ?>
 </div>
 <div style="height:20px;"></div>
@@ -211,7 +227,12 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
 
 <?php if ($comics) : ?>
 <div style="clear:both;">
-<div class="drunk">COMICS CREATED</div>
+<div>
+ <span class="drunk">COMICS CREATED</span>&nbsp;
+ <?php if ($edit) : ?>
+ <a href="/account/overview/" target="_blank" class="button">manage comics</a>
+ <?php endif; ?>
+ </div>
 <?php foreach ((array) $comics as $comic) : ?>
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
@@ -237,23 +258,29 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 
 <?php if ($friends) : ?>
   <div style="clear:both;">
-    <div class="drunk">FRIENDS</div>
+  <div>
+    <span class="drunk">FRIENDS</span>
+    <?php if ($edit) : ?>
+    <a class="button" href="http://user.drunkduck.com/edit_top_friends.php" target="_blank">manage friends</a>
+    <?php endif; ?>
+  </div>
     <div id="friends_holder">
       <?php foreach ((array) $friends as $i => $friend) : ?>
         <a href="/control_panel/profile.php?username=<?php echo $friend['username']; ?>" title="<?php echo $friend['username']; ?>"><img src="http://images.drunkduck.com/process/user_<?php echo $friend['user_id']; ?>.<?php echo $friend['avatar_ext']; ?>" width="50" height="50" /></a>
       <?php endforeach; ?>
     </div>
-   <!-- <div class="table fill">
-      <div class="cell"><button id="friend_prev" class="button">previous</button></div>
-      <div class="cell right"><button id="friend_next" class="button">next</button></div>
-    </div> -->
   </div>
   <div style="height:20px;"></div>
 <?php endif; ?>
 
 <?php if ($recommended) : ?>
 <div style="clear:both;">
-<div class="drunk">COMICS RECOMMENDED</div>
+<div>
+<span class="drunk">COMICS RECOMMENDED</span>
+<?php if ($edit) : ?>
+<a class="button" target="_blank" href="http://user.drunkduck.com/edit_recommended_comics.php">manage recommends</a>
+<?php endif; ?>
+</div>
 <?php foreach ((array) $recommended as $comic) : ?>
 <?php 
 $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
@@ -262,6 +289,29 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php endforeach; ?>
 </div>
 <div style="height:20px;"></div>
+<?php endif; ?>
+
+<?php if ($videos) : ?>
+  <div style="clear:both;">
+  <div>
+    <span class="drunk">VIDEOS</span>
+    <a class="button" href="http://user.drunkduck.com/see_all_videos.php?u=<?php echo $username; ?>" target="_blank">see all</a>
+    <?php if ($edit) : ?>
+    <a class="button" href="http://user.drunkduck.com/see_all_videos.php" target="_blank">manage videos</a>
+    <?php endif; ?>
+  </div>
+    <div id="videos_holder">
+      <?php foreach ((array) $videos as $video) : ?>
+        <div>
+        <a href="<?php echo $video['url']; ?>"><?php echo $video['title']; ?></a>
+        <br />
+        <?php echo $video['description']; ?>
+        </div>
+        <div style="height:5px;"></div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+  <div style="height:20px;"></div>
 <?php endif; ?>
 
 <form id="leaveCommentForm" method="post">
@@ -275,11 +325,11 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <?php if ($comments) : ?>
 <div style="height:20px;"></div>
 <div>
-COMMENTS LEFT
+<span class="drunk">COMMENTS LEFT</span> <a class="button" href="http://user.drunkduck.com/read_all_comments.php?u=<?php echo $username; ?>">see all</a>
 <br />
 <?php foreach ((array) $comments as $comment) : ?>
 <a href="/control_panel/profile.php?username=<?php echo $comment['username']; ?>">
-  <img src="<?php echo $comment['avatar']; ?>" width="50" height="50" />
+  <img src="<?php echo "http://images.drunkduck.com/process/user_{$comment['user_id']}.{$comment['avatar_ext']}"; ?>" width="50" height="50" />
   <?php echo $comment['username']; ?>
 </a>
 <br />

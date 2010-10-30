@@ -11,7 +11,7 @@ db_free_result($res);
 
 ?>
 <div class="controlsection">
-
+<?php /*
   <table border="0" cellpadding="5" cellspacing="0" width="100%"  class="controltable">
     <tr>
       <td colspan="4" align="left"><h3><a name="info" id="info"></a>Account Info:</h3></td>
@@ -138,7 +138,7 @@ db_free_result($res);
     </tr>
     </form>
 
-  </table>
+  </table> */ ?>
   <!-- END AVATAR -->
   <table border="0" cellpadding="3" cellspacing="0" width="100%" class="controltable">
     <tr>

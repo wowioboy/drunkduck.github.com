@@ -1,4 +1,5 @@
 <link href="../acctStyles.css" rel="stylesheet" type="text/css" />
+<!--
 <h1 align="left">My Controls</h1>
 
 <div id="editnav">
@@ -7,5 +8,5 @@
     <li><a href="manage_favs.php">Favorites</a></li>
     <li><a href="http://<?=DOMAIN?>/community/message/inbox.php" title="View and edit the design of your comic's pages">PQ Center </a></li>
   </ul>
-</div>
+</div>-->
 <div class="pagecontent">

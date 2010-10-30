@@ -9,6 +9,7 @@ if ($month = $_REQUEST['month']) {
 if ($search = $_REQUEST['search']) {
   $where[] = "(b.title like '%$search%' or b.body like '%$search%' or u.username like '%$search%')";
 }
+$where[] = "(b.body is not null)";
 if (is_array($where)) {
   $where = 'where ' . implode(' and ', $where);
 }

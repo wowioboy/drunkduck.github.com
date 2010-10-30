@@ -10,6 +10,7 @@ $query = "select b.title, u.username as author, b.body, from_unixtime(b.timestam
 from admin_blog b 
 left join users u 
 on u.user_id = b.user_id 
+where b.body is not null
 order by b.timestamp_date desc 
 limit 10";
 $news = $db->fetchAll($query);
