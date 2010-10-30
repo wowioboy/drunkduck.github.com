@@ -59,6 +59,9 @@ $(document).ready(function(){
       } 
     });
     $('.feature-image').live('mouseenter', function(){
+      if (!$('#currentdate').children('param[name=wmode]').size()) {
+        $('#currentdate').append('<param name="wmode" value="transparent">');
+      }
       var title = $(this).attr('comic_title');
       var description = $(this).attr('description');
       var author = $(this).attr('author'); 

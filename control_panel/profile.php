@@ -20,6 +20,14 @@ if ($edit = $_GET['edit']) {
 } else if ($owner || ($USER->flags & 8)) {
   $editable = true;
 }
+
+if ($_POST['add_video']) {
+  $query = "insert into pool_movies 
+            (user_id, url, width, height, title, description, popularity, movie_type) 
+            values 
+            ('{$USER->user_id}', '{$_POST['url']}', '425', '350', '{$_POST['title']}', '{$_POST['description']}', '1', 'video')";
+   DB::getInstance()->query($query);
+}
   
 $query = "select user_id, username, from_unixtime(signed_up) as signed_up, trophy_string, about_self as about, avatar_ext
           from users where username = '$username'";
@@ -291,15 +299,37 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <div style="height:20px;"></div>
 <?php endif; ?>
 
-<?php if ($videos) : ?>
   <div style="clear:both;">
   <div>
     <span class="drunk">VIDEOS</span>
     <a class="button" href="http://user.drunkduck.com/see_all_videos.php?u=<?php echo $username; ?>" target="_blank">see all</a>
     <?php if ($edit) : ?>
+    <a class="button" href="javascript:" onclick="jQuery('#add-video-form').slideDown();">add video</a>
     <a class="button" href="http://user.drunkduck.com/see_all_videos.php" target="_blank">manage videos</a>
     <?php endif; ?>
   </div>
+  <div id="add-video-form" style="display:none;">
+    <form method="post">
+    title:
+    <br />
+    <input class="quack-input rounded span-55" type="text" name="title" />
+    <br />
+    <br />
+    url:
+    <br />
+    <input class="quack-input rounded span-55" type="text" name="url" />
+    <br />
+    <br />
+    description:
+    <br />
+    <textarea class="quack-input rounded span-55" name="description">
+    </textarea>
+    <br />
+    <br />
+    <input class="button" type="submit" value="save" name="add_video" /> <input type="button" class="button" onclick="jQuery('#add-video-form').slideUp();" value="cancel" />
+    </form>
+  </div>
+  <?php if ($videos) : ?>
     <div id="videos_holder">
       <?php foreach ((array) $videos as $video) : ?>
         <div>
@@ -310,9 +340,9 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
         <div style="height:5px;"></div>
       <?php endforeach; ?>
     </div>
+<?php endif; ?>
   </div>
   <div style="height:20px;"></div>
-<?php endif; ?>
 
 <form id="leaveCommentForm" method="post">
 <div class="drunk">LEAVE A COMMENT</div>

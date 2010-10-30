@@ -58,12 +58,6 @@ body {
 <link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen, projection, print">
 <link href='/css/layout.css' rel='stylesheet' type="text/css">
 <link href='/css/global.css' rel='stylesheet' type="text/css">
-<script type="text/javascript">
-$(document).ready(function(){
-  # this fixes the z-index of the flash animation so that the tooltips aren't under it
-  $('#currentdate').append('<param name="wmode" value="transparent">');
-});
-</script>
 
 </head>
 <body>
