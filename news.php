@@ -136,7 +136,7 @@ $(document).ready(function(){
   </div>
 </div>
         </div>
-<div id="news_holder" class="span-62 box-1">
+<div id="news_holder" class="span-60 box-2">
   <?php foreach ($news as $i => $entry) : ?>
     <?php
     $date = new DateTime($entry['created_on']);
@@ -153,20 +153,14 @@ $(document).ready(function(){
     <div style="height:10px;display:block;"></div>
   <?php endforeach; ?>
 </div>
-<div class="box-1">
+<div class="box-2">
 <div style="float:left;">
   <button class="news_button rounded left button" direction="prev">previous</button>
-  <select class="button rounded newsMonth" style="border:none;">
-    <option value="">select month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select>
   </div>
   <div style="float:right;">
-    <input class="rounded button news_search" style="color:#fff;" value="search news archive" />
   <button class="news_button rounded right button" direction="next">next</button>
   </div>
+  <div style="clear:both;"></div>
 </div>
 
 <?php require_once('footer_base.php'); ?>

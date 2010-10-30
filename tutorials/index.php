@@ -110,55 +110,60 @@ $(document).ready(function(){
   width:135px;
 }
 </style>
-        <div class="rounded canary span-63 box-1 pull-1">
-            <div class="span-63 green rounded header">
-            <img src="/media/images/tutorials.png" />
-            </div>
-<div class="span-64 box-1 header-menu">
-  <button class="featured_button left button" direction="prev">previous</button>
-  <select class="button featureMonth" style="border:none;">
-    <option value="">Select Month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select>
-    <input type="text"  style="color:#fff;" class="button featured_search" />
-  <button class="featured_button right button" direction="next">next</button>
-  <a href="/tutorials/create.php" class="button">create tutorial</a>
+<div class="rounded canary span-63 box-1 pull-1">
+  <div class="span-63 green rounded header">
+    <img src="/media/images/tutorials.png" />
+  </div>
+  <div class="span-61 box-1 header-menu">
+    <div style="float:left;">
+      <button class="featured_button left button" direction="prev">previous</button>
+      <select class="button featureMonth" style="border:none;">
+        <option value="">Select Month</option>
+        <?php foreach ($dateArray as $numDate => $dateString) : ?>
+          <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <div style="float:right;">
+      <input type="text"  style="color:#fff;" class="button featured_search" />
+      <button class="featured_button right button" direction="next">next</button>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
 </div>
-        </div>
-<div class="span-60 box-2">
-    <div class="cell center" style="width:400px;">
-    <div class="green top-rounded header" style="font-size:24px;padding:0px;margin-left:auto;width:200px;text-transform:none;">
+
+<div style="height:20px;clear:both;"></div>
+<div style="text-align:center;">
+  <div class="green top-rounded header" style="display:inline-block;font-size:24px;padding:0 10px;">
     Featured!
-    </div>
-    </div>
-    <div class="span-58 green rounded box-1">
-        <div class="span-25 white rounded box-1">
-            <a href="/tutorials/view.php?id=11"><img src="http://images.drunkduck.com/tutorials/content/1/1/11_47_thumb.jpg" border="0"></a>
-              <br>
-              <span class="drunk">Drawing the Ozone way!</span>
-              <div class="preview">
-                <span>
-                    July 16th 2007 by <a href="/control_panel/profile.php?username=ozoneocean">ozoneocean</a>
-                </span>    
-              </div>
-        </div>
-        
-        <div class="span-25 white push-4 rounded box-1">
-              <a href="/tutorials/view.php?id=12"><img src="http://images.drunkduck.com/tutorials/content/1/2/12_52_thumb.jpg" border="0"></a>
-              <br>
-              <span class="drunk">Creating Rain Effects</span>
-              <div class="preview">
-                <span>
-                    July 17th 2007 by <a href="/control_panel/profile.php?username=silentkitty">silentkitty</a>
-                </span>    
-              </div>
-        </div>
-    </div>
-    
+  </div>
 </div>
-<div id="featured_holder" class="span-62 box-1">
+<div class="span-58 push-2 green rounded box-1" style="clear:both;">
+  <div class="span-25 white rounded box-1">
+      <a href="/tutorials/view.php?id=11"><img src="http://images.drunkduck.com/tutorials/content/1/1/11_47_thumb.jpg" border="0"></a>
+        <br>
+        <span class="drunk">Drawing the Ozone way!</span>
+        <div class="preview">
+          <span>
+              July 16th 2007 by <a href="/control_panel/profile.php?username=ozoneocean">ozoneocean</a>
+          </span>    
+        </div>
+  </div>
+  <div class="span-25 white rounded box-1" style="float:right;">
+        <a href="/tutorials/view.php?id=12"><img src="http://images.drunkduck.com/tutorials/content/1/2/12_52_thumb.jpg" border="0"></a>
+        <br>
+        <span class="drunk">Creating Rain Effects</span>
+        <div class="preview">
+          <span>
+              July 17th 2007 by <a href="/control_panel/profile.php?username=silentkitty">silentkitty</a>
+          </span>    
+        </div>
+  </div>
+</div>
+<div style="text-align:center;">
+<a href="/tutorials/create.php" class="button">create tutorial</a>
+</div>
+<div id="featured_holder" class="span-60 box-2">
   <?php foreach ($featured as $comic) : ?>
   <?php $date = new DateTime($comic['timestamp']); ?>
     <div class="post green rounded box-1">
@@ -168,7 +173,7 @@ $(document).ready(function(){
         <span class="subtitle"><?php echo $date->format('F j Y');?> by <a href="/control_panel/profile.php?username=<?php echo $comic['author']; ?>"><b><?php echo $comic['author']; ?></b></a></span>
         <br />
         <p><?php echo $comic['description']; ?></p>
-        <div style="display:inline;float:right;position:relative;top:-10px;">
+        <div style="float:right;position:relative;top:-10px;">
         Rating: <?php echo $comic['rating']; ?> out of 5.0
         </div>
       </div>
@@ -176,17 +181,14 @@ $(document).ready(function(){
   <div style="height:10px;"></div>
   <?php endforeach; ?>
 </div>
-<div class="span-64 box-1">
+<div class="span-60 push-2">
+  <div style="float:left;">
   <button class="featured_button left button" direction="prev">previous</button>
-  <select class="button featureMonth" style="border:none;">
-    <option value="">Select Month</option>
-    <?php foreach ($dateArray as $numDate => $dateString) : ?>
-      <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-    <?php endforeach; ?>
-  </select>
-    <input type="text"  style="color:#fff;" class="button featured_search" />
+  </div>
+  <div style="float:right;">
   <button class="featured_button right button" direction="next">next</button>
-  <a href="/tutorials/create.php" class="button">create tutorial</a>
+  </div>
+  <div style="clear:both;"></div>
 </div>
 
 <?php require_once('../footer_base.php'); ?>

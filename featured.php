@@ -214,15 +214,8 @@ $(document).ready(function(){
 <div class="box-2">
   <div style="float:left;">
     <button class="featured_button rounded left button" direction="prev">previous</button>
-    <select class="button rounded featureMonth" style="border:none;">
-      <option value="">Select Month</option>
-      <?php foreach ($dateArray as $numDate => $dateString) : ?>
-        <option value="<?php echo $numDate; ?>"><?php echo $dateString; ?></option>
-      <?php endforeach; ?>
-    </select>
-    </div>
+  </div>
     <div style="float:right;">
-    <input type="text" style="color:#fff;" class="rounded button featured_search" value="search featured" onfocus="if(this.value=='search_featured'){this.value='';}" />
     <button class="featured_button rounded right button" direction="next">next</button>
     </div>
     <div style="clear:both;"></div>
