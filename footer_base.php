@@ -9,7 +9,7 @@
     <div class="span-30"><div class="box-1">
         <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
         <div style="height:10px;"></div>
-        <? include(WWW_ROOT.'/ads/ad_includes/main_template/300x250.html'); ?>
+       <a href="http://www.facebook.com/wowio?v=app_107611949261673"><img style="border:none;" src="/media/images/DD-Clockwork-Girl-rect.jpg"></a>
     </div></div>
     
     <div class="span-96" style="height:10px;"></div>
