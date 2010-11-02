@@ -66,7 +66,11 @@ if ( $USER )
   if ( $row = db_fetch_object($res) )
   {
     $COMMUNITY_SESSION_CKSUM  = $row->encoded_data;
-    $COMMUNITY_SESSION        = unserialize(gzuncompress($COMMUNITY_SESSION_CKSUM));
+    try {
+      $COMMUNITY_SESSION        = unserialize(gzuncompress($COMMUNITY_SESSION_CKSUM));
+    } catch (exception $e) {
+      $COMMUNITY_SESSION = null; 
+    }
   }
   db_free_result($res);
 }

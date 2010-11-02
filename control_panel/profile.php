@@ -33,6 +33,10 @@ $query = "select user_id, username, from_unixtime(signed_up) as signed_up, troph
           from users where username = '$username'";
 $user = DB::getInstance()->fetchRow($query);
 
+if (!$user) {
+  die('This user does not exist!');
+}
+
 if ($comment = $_REQUEST['comment']) {
   $time = time();
   $query = "insert into profile_comments (user_id, poster_id, comment, approved, posted) values ('{$user['user_id']}', '{$USER->user_id}', '$comment', '1', '$time')";
@@ -268,6 +272,7 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
   <div style="clear:both;">
   <div>
     <span class="drunk">FRIENDS</span>
+    <a class="button" href="http://user.drunkduck.com/friends.php?u=<?php echo $username; ?>" target="_blank">see all friends</a>
     <?php if ($edit) : ?>
     <a class="button" href="http://user.drunkduck.com/edit_top_friends.php" target="_blank">manage friends</a>
     <?php endif; ?>

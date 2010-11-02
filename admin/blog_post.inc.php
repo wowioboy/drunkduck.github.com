@@ -17,12 +17,12 @@ if ( isset($_POST['sendPost']) )
 {
   db_query("INSERT INTO admin_blog (user_id, title, body, timestamp_date, ymd_date) VALUES ('".$USER->user_id."', '".db_escape_string($_POST['title'])."', '".db_escape_string($_POST['body'])."', '".time()."', '".YMD."')");
   $_GET['a'] = 'list';
-  unlink(HTML_CACHE_FOLDER.'/d2569efb8e129ebb32ed3f820592609c.cache');
+  //unlink(HTML_CACHE_FOLDER.'/d2569efb8e129ebb32ed3f820592609c.cache');
 }
 else if ( isset($_POST['editPost']) ) {
   db_query("UPDATE admin_blog SET title='".db_escape_string($_POST['title'])."', body='".db_escape_string($_POST['body'])."', edit_user_id='".$USER->user_id."', edit_timestamp='".time()."' WHERE blog_id='".(int)$_POST['editPost']."'");
   $_GET['a'] = 'list';
-  unlink(HTML_CACHE_FOLDER.'/d2569efb8e129ebb32ed3f820592609c.cache');
+  //unlink(HTML_CACHE_FOLDER.'/d2569efb8e129ebb32ed3f820592609c.cache');
 }
 else if ( isset($_POST['deleteBlogs']) )
 {

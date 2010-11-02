@@ -72,7 +72,7 @@ $(document).ready(function(){
           console.log(this);
           html += '<tr quack="' + this.id + '" class="' + this.status + '">' + 
                   '<td><input type="checkbox" class="quack-check" name="quack" value="' + this.id + '" /></td>';
-            html += '<td>' + this.to + '</td>';
+            html += '<td><a href="http://user.drunkduck.com/' + this.to + '">' + this.to + '</a></td>';
             html += '<td><a class="toggle-quack-message" quack="' + this.id + '" href="javascript:">' + this.subject + '</a></td>' + 
                     '<td>' + this.recieved + '</td>' + 
                     '<td class="quack-status" quack="' + this.id + '">' + this.status + '</td>' + 
@@ -174,7 +174,7 @@ $(document).ready(function(){
 <?php foreach ((array) $quacks as $quack) : ?>
 <tr quack="<?php echo $quack['id']; ?>" class="<?php echo $quack['status']; ?>">
   <td><input type="checkbox" class="quack-check" name="quack" value="<?php echo $quack['id']; ?>" /></td>
-  <td><?php echo $quack['to']; ?></td>
+  <td><a href="http://user.drunkduck.com/<?php echo $quack['to']; ?>"><?php echo $quack['to']; ?></a></td>
   <td><a class="toggle-quack-message" quack="<?php echo $quack['id']; ?>" href="javascript:"><?php echo $quack['subject']; ?></a></td>
   <td><?php echo $quack['recieved']; ?></td>
   <td class="quack-status" quack="<?php echo $quack['id']; ?>"><?php echo $quack['status']; ?></td>

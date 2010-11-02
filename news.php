@@ -60,7 +60,7 @@ $(document).ready(function(){
                       '<a href="javascript:" class="expand-button teal" entry="' + i + '">expand</a>' + 
                       '<span class="headline">' + this.title + '</span>' + 
                       '<br />' + 
-                      '<span class="subtitle">' + this.author + '</span>' + 
+                      '<span class="subtitle">posted by <a href="http://user.drunkduck.com/' + this.author + '">' + this.author + '</a></span>' + 
                       '<br />' + 
                       '<span>' + this.created_on + '</span>' + 
                       '<p style="display:none;" entry="' + i + '">' + this.body + '</p>' + 
@@ -146,7 +146,7 @@ $(document).ready(function(){
       <a href="javascript:" class="expand-button teal" entry="<?php echo $i; ?>">expand</a>
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
-      <span class="subtitle">posted by <?php echo $entry['author']; ?></span>
+      <span class="subtitle">posted by <a href="http://user.drunkduck.com/<?php echo $entry['author']; ?>"><?php echo $entry['author']; ?></a></span>
       <br />
       <span><?php echo $date->format('F j, Y - g:ia'); ?></span>
       <p style="display:none;" entry="<?php echo $i; ?>"><?php echo bbcode2html($entry['body']); ?></p>

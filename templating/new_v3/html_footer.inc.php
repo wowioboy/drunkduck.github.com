@@ -47,7 +47,7 @@
                               }
                               ?>
                             </script>
-                            <a href="http://<?=DOMAIN?>/account/overview/">My Account</a> | <a href="http://<?=DOMAIN?>/community/message/inbox.php">Inbox (<?=$USER->pending_mail?>)</a>
+                            <a href="/control_panel/profile.php">My Account</a> | <a href="/control_panel/quacks.php">Inbox (<?=$USER->pending_mail?>)</a>
                           </div>
                         </div>
                       </div>

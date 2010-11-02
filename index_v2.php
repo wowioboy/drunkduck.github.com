@@ -330,7 +330,7 @@ $(document).ready(function(){
     <div class="post yellow rounded box-2">
       <span class="headline"><?php echo $entry['title']; ?></span>
       <br />
-      <span class="subtitle">posted by <?php echo $entry['author']; ?>
+      <span class="subtitle">posted by <a href="http://user.drunkduck.com/<?php echo $entry['author']; ?>"><?php echo $entry['author']; ?></a>
       <br />
       <span style="font-weight:normal;font-size:10px"><?php echo $date->format('F j, Y - g:ia'); ?></span>
       </span>
