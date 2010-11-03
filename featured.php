@@ -88,10 +88,15 @@ $(document).ready(function(){
           pager_max = data.count;
           if (data.featured) {
         $.each(data.featured, function(){
+          if (<?php echo ($USER->age) ? $USER->age : 0; ?> < 18 && this.rating == 'A') {
+         var path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";
+         } else {
+          var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
+         }
           html += '<div class="rounded grid-panel">' + 
                     '<div style="text-align:center;">' + 
                     '<a href="/' + this.title.replace(/ /g, '_') + '/">' + 
-                    '<img class="search-image" src="http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg" width="80" height="100" comic_title="' + this.title + '" author="' + this.author + '" description="' + this.description + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
+                    '<img class="search-image" src="' + path + '" width="80" height="100" comic_title="' + this.title + '" author="' + this.author + '" description="' + this.description + '" rating="' + this.rating + '" pages="' + this.pages + '" />' + 
                     '</a>' +
                     '</div>' + 
                     '<div class="panel-date">' + this.date + '</div>' + 
@@ -193,7 +198,11 @@ $(document).ready(function(){
     <div class="rounded grid-panel">
       <div style="text-align:center;">
       <?php
-      $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+      if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";              
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
       ?>
     <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/">
         <img class="search-image" src="<?php echo $path; ?>" width="80" height="100" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars(bbcode2html($comic['description'])); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" />

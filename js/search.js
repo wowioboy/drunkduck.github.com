@@ -5,7 +5,11 @@ jQuery(document).ready(function(){
                         if (data) {
                         var html = '';
                         jQuery.each(data, function(){
-                          var path = 'http://images.drunkduck.com/process/comic_' + this.id + '_0_T_0_sm.jpg';
+                          if (this.rating == 'A') {
+         var path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";
+         } else {
+          var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
+         }
                           html += '<a style="padding:0;" class="search_link" href="/' + this.title.replace(/ /g, '_') + '/">' + 
                                  '<div class="result">' +
                                     '<div style="display:inline-block;width:50px;height:50px;"><img width="50" height="50" src="' + path + '" border="1" style="border:1px #000 solid;"/></div>' +

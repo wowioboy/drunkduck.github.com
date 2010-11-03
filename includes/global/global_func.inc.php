@@ -144,8 +144,13 @@ function thumb_processor( $comic_row )
   else if ( $USER_AGE < 13 ) $USER_AGE = 12;
   else if ( $USER_AGE < 18 ) $USER_AGE = 17;
   else $USER_AGE = 18;
-
+  if ($USER_AGE < 18 && $comic_row->rating_symbol == 'A') {
+      return IMAGE_HOST.'/process/preset/censored_thumb.jpg';
+  } else {
   return IMAGE_HOST.'/process/comic_'.(int)$comic_row->comic_id.'_'.$USER_AGE.'_'.strtoupper($comic_row->rating_symbol).'_'.(int)$comic_row->category.'_sm.jpg';
+    
+  }
+
 }
 
 function clearCache( $path )

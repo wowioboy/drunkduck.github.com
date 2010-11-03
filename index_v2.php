@@ -84,7 +84,11 @@ $(document).ready(function(){
         var html = '';
         data = jQuery.parseJSON(data);
         $.each(data, function(){
+         if (<?php echo ($USER->age) ? $USER->age : 0; ?> < 18 && this.rating == 'A') {
+         var path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";
+         } else {
           var path = "http://images.drunkduck.com/process/comic_" + this.id + "_0_T_0_sm.jpg";
+         }
           html += '<a class="showcase" href="/' + this.title.replace(/ /g, '_') + '/"><img class="<?php echo $filter; ?>-image" src="' + path + '" comic_title="' + this.title + '" description="' + this.description + '" author="' + this.author + '" pages="' + this.pages + '" rating="' + this.rating + '" /></a>';
         });
         $('#<?php echo $filter; ?>-ajaxer').html(html);
@@ -230,7 +234,11 @@ $(document).ready(function(){
         <div id="ten-ajaxer">
         <?php foreach ((array) $topTen as $comic) : ?>
           <?php 
+            if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";             
+            } else {
   	        $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
           ?>
           <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="ten-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
         <?php endforeach; ?>
@@ -256,7 +264,11 @@ $(document).ready(function(){
       <div id="random-ajaxer">
       <?php foreach ((array) $random as $comic) : ?>
         <?php 
-          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+        if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";              
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
         ?>
         <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="random-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
       <?php endforeach; ?>
@@ -282,7 +294,11 @@ $(document).ready(function(){
       <div id="latest-ajaxer">
       <?php foreach ((array) $latestUpdates as $comic) : ?>
         <?php 
-          $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+        if ($USER->age < 18 && $comic['rating'] == 'A') {
+         $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";            
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
         ?>
         <a class="showcase" href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img class="latest-image" src="<?php echo $path; ?>" comic_title="<?php echo $comic['title']; ?>" description="<?php echo htmlspecialchars($comic['description']); ?>" author="<?php echo $comic['author']; ?>" rating="<?php echo $comic['rating']; ?>" pages="<?php echo $comic['pages']; ?>" /></a>
       <?php endforeach; ?>

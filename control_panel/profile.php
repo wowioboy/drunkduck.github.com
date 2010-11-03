@@ -247,7 +247,11 @@ $path = "http://images.drunkduck.com/trophies/small/$trophy.png";
  </div>
 <?php foreach ((array) $comics as $comic) : ?>
 <?php 
-$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";              
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
 ?>
 <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
@@ -260,7 +264,11 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 <div class="drunk">COMICS ASSISTED</div>
 <?php foreach ((array) $assisted as $comic) : ?>
 <?php 
-$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";              
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
 ?>
 <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
@@ -296,7 +304,11 @@ $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
 </div>
 <?php foreach ((array) $recommended as $comic) : ?>
 <?php 
-$path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+if ($USER->age < 18 && $comic['rating'] == 'A') {
+            $path = "http://images.drunkduck.com/gfx/process/preset/censored_thumb.jpg";              
+            } else {
+            $path = "http://images.drunkduck.com/process/comic_{$comic['id']}_0_T_0_sm.jpg";
+            }
 ?>
 <a href="/<?php echo str_replace(' ', '_', $comic['title']); ?>/"><img src="<?php echo $path; ?>" title="<?php echo $comic['title']; ?>" /></a>
 <?php endforeach; ?>
