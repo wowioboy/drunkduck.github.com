@@ -20,21 +20,10 @@
           <script type="text/javascript">
             var quackCount = <?php echo $quackCount; ?>;
 
-            function checkQuacks() {
-              jQuery.get('/ajax/quack-check.php', {username:'<?php echo $USER->username; ?>'}, function(data){
-                if (data > quackCount) {
-                  quackCount = data;
-                  jQuery('#quack_count_holder').html('(' + data + ')');
-                  alert('you have a new quack!');
-                }
-              });
-            }
           jQuery(document).ready(function(){
           
             var user_id = '<?php echo $USER->user_id; ?>';
             
-            
-            setInterval("checkQuacks()", 5000);
 
             function getWebcomics()
             {
