@@ -49,7 +49,12 @@ else
             <br>
             <?=$row->comic_name?></a>
             <br>
-            <div style="font-size:9px;color:#a5a5a5;"><?=number_format($row->total_pages)?> pgs | Last: <?=((date("Ymd", $row->last_update)==YMD)?"Today":date("m/d/y", $row->last_update))?></div>
+<!-- PLATINUM STUDIOS FIX -->
+             <div style="font-size:9px;color:#a5a5a5;"><?=number_format($row->total_pages)?> pgs 
+<?php if ($row->user_id != '19085' && $row->secondary_author != '19085'): ?>
+| Last: <?=((date("Ymd", $row->last_update)==YMD)?"Today":date("m/d/y", $row->last_update))?>
+<?php endif; ?> 
+</div>
           </td>
         <?
       }

@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(.*)$ drunkduck_down/index.html [L]

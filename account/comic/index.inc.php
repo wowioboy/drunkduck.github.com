@@ -53,7 +53,7 @@ if ( isset($_GET['rating']) )
       			<form enctype="multipart/form-data" action="send_thumb.php" method="POST">
               New Thumbnail:
               <br>
-              <input name="new_thumb" type="file" style="width:0px;border:0px;height:20px;">
+              <input name="new_thumb" type="file" style="border:0px;height:20px;">
               <input type="hidden" name="cid" value="<?=$COMIC_ROW->comic_id?>">
               <br>
               <input name="submit" type="submit" style="border:0px;height:20px;" value="Send">
@@ -93,7 +93,7 @@ if ( isset($_GET['rating']) )
             <form enctype="multipart/form-data" action="send_title_image.php" method="POST">
               New Title Image:
               <br>
-              <input name="new_title_image" type="file" style="width:0px;border:0px;height:20px;">
+              <input name="new_title_image" type="file" style="border:0px;height:20px;">
               <input type="hidden" name="cid" value="<?=$COMIC_ROW->comic_id?>">
               <br>
               <input name="submit" type="submit" style="border:0px;height:20px;" value="Send">

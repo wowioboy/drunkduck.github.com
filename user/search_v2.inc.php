@@ -1,7 +1,14 @@
 <div align="left" class="header_title">
   Search Users
 </div>
-<?
+<?php
+# PLATINUM STUDIOS FIX
+$txt = strtolower(trim($_GET['searchTxt']));
+if ($txt == 'platinum studios' || $txt == 'pscomics') {
+ header('Location:http://user.drunkduck.com/PSComics');
+}
+
+
 $SEARCH              = array();
 $SEARCH['searchTxt'] = db_escape_string(trim( ( isset($_GET['searchTxt'])      ) ? $_GET['searchTxt']      : $_POST['searchTxt']       ));
 

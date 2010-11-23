@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<title>Untitled</title> 
+<script type="text/javascript" src="audio-player.js"></script>  
+        <script type="text/javascript">  
+            AudioPlayer.setup("http://www.drunkduck.com/media/player.swf", {  
+                width: 400  
+            });  
+        </script>  
+</head> 
+<body> 
+<p id="audioplayer_1">Alternative content</p>  
+<script type="text/javascript">  
+AudioPlayer.embed("audioplayer_1", {  
+    soundFile: "http://traffic.libsyn.com/drunkduck/QC_1_after_edits_1-2.mp3",  
+    titles: "Quackcast 1",  
+    artists: "Add Artists here",  
+    autostart: "yes"  ,
+    bg: 'FF9999',
+});  
+</script>  
+
+<a href="http://wpaudioplayer.com/standalone">List of options for the player</a>
+</body> 
+</html>

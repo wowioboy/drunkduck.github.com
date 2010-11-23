@@ -1,6 +1,8 @@
 backups
 mirror
 hamar_backups
+comics
+gfx
 rss
 test
 usage*
@@ -17,3 +19,6 @@ usage*
 *.jpg
 *.jpeg
 *.bmp
+*.png
+*.bak
+

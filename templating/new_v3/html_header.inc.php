@@ -51,7 +51,6 @@
 jQuery.noConflict();
 </script>
 
-
 </head>
 
 <body onLoad="for(var cs=0; cs<commandStack.length;cs++){eval(commandStack[cs]);}">

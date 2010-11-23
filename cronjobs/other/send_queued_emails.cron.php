@@ -1,7 +1,7 @@
 #!/usr/bin/php -q
 <?php
-  include('../cron_data.inc.php');
-  include(WWW_ROOT.'/includes/mail_class/htmlMimeMail.php');
+  include('/var/www/html/drunkduck.com/cronjobs/cron_data.inc.php');
+  include('var/www/html/drunkduck.com/includes/mail_class/htmlMimeMail.php');
 
   define('SIGNATURE', "<br><br /><a href=\"http://www.drunkduck.com\"><img src=\"http://www.drunkduck.com/gfx/DD_email_tag.gif\" border=\"0\"></a><br />The Webcomics Community.");
 
